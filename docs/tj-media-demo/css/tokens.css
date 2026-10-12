@@ -1,0 +1,109 @@
+/* TJ MEDIA Interactive Demo — 값(Custom Property)만 둔다.
+   원본: Figma `05_Portfolio_CaseStudy`의 최종 UI 9개 화면(Desktop 1440, Mobile 390).
+   포트폴리오 본체(docs/css/tokens.css)와 섞지 않는다. 이 데모 안의 값은 여기만 고친다. */
+
+:root {
+  /* 색 */
+  --color-bg: #ffffff;
+  --color-text: #1a1a1a;
+  --color-text-sub: #666666;
+  --color-text-mute: #999999;
+  --color-text-tab: #8c8c8c;
+  --color-line: #d8d8d8;
+  --color-surface: #f2f2f2;
+  --color-accent: #0ea5be;
+  --color-accent-soft: #e0f5f8;
+  --color-dark: #1a1a1a;
+  --color-on-dark: #ffffff;
+  --color-on-dark-sub: #b3b3b3;
+  --color-on-dark-hero: #c7c7c7;
+  --color-on-dark-more: #bfbfbf;
+  --color-on-dark-high: rgba(255, 255, 255, 0.95);
+  --color-on-dark-mid: rgba(255, 255, 255, 0.6);
+  --color-on-dark-low: rgba(255, 255, 255, 0.5);
+  --color-on-dark-faint: rgba(255, 255, 255, 0.4);
+  --color-on-dark-link: rgba(255, 255, 255, 0.7);
+  --color-line-dark: rgba(255, 255, 255, 0.15);
+  --color-line-dark-soft: rgba(255, 255, 255, 0.1);
+  --color-pill-dark: rgba(255, 255, 255, 0.08);
+  --color-copyright: #808080;
+  --color-hero-overlay-from: rgba(5, 5, 8, 0.74);
+  --color-hero-overlay-to: rgba(5, 5, 8, 0.5);
+  --color-stage: #e6e6e6;          /* Mobile 화면을 넓은 창에서 볼 때 둘레 */
+
+  /* Type */
+  --font-ui: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-bold: 700;
+  --text-10: 10px;
+  --text-11: 11px;
+  --text-12: 12px;
+  --text-13: 13px;
+  --text-14: 14px;
+  --text-16: 16px;
+  --text-18: 18px;
+  --text-20: 20px;
+  --text-22: 22px;
+  --text-26: 26px;
+  --text-28: 28px;
+  --text-32: 32px;
+  --text-36: 36px;
+  --text-40: 40px;
+  --text-48: 48px;
+  --leading-tight: 1.3;
+  --leading-body: 1.6;
+
+  /* 간격 */
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-14: 14px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-56: 56px;
+  --space-64: 64px;
+  --space-72: 72px;
+  --space-80: 80px;
+
+  /* 틀 */
+  --content-width: 1200px;
+  --gutter: 20px;                  /* 768 이상 40px, 1200 이상 120px (demo.css) */
+  --gutter-header: 20px;           /* 768 이상 40px */
+  --header-height: 80px;
+  --header-height-mobile: 63px;
+  --form-width: 800px;
+  --hero-content-width: 800px;
+  --hero-min-height: 618px;
+  --mobile-width: 390px;
+  --mobile-gutter: 20px;
+  --control-height: 48px;
+  --search-height-hero: 64px;
+  --thumb: 48px;
+  --thumb-mobile: 44px;
+  --thumb-result-mobile: 52px;
+  --art-detail: 440px;
+  --card-mobile: 150px;
+  --badge-icon: 52px;
+  --demo-bar-height: 36px;
+
+  /* 반경 */
+  --radius-4: 4px;
+  --radius-8: 8px;
+  --radius-10: 10px;
+  --radius-16: 16px;
+  --radius-20: 20px;
+  --radius-full: 999px;
+
+  /* TOP 버튼(공용 css/top-button.css가 읽는다) */
+  --top-button-size: 48px;
+  --top-button-offset: 24px;
+  --top-button-bg: #ffffff;
+  --top-button-fg: #1a1a1a;
+  --top-button-line: #1a1a1a;
+  --duration-ui: 200ms;
+}

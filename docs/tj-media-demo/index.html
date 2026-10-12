@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TJ MEDIA Interactive Demo — Screen Explorer</title>
+  <meta name="description" content="TJ MEDIA 웹사이트 리디자인(비공식, 포트폴리오)의 최종 UI 9개 화면을 HTML/CSS로 옮긴 시연입니다.">
+  <meta name="robots" content="noindex">
+
+  <link rel="icon" href="data:,">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/demo.css">
+  <link rel="stylesheet" href="../css/top-button.css">
+  <script src="../js/top-button.js" defer></script>
+</head>
+<body>
+
+  <!-- 포트폴리오의 시연임을 알리고 Explorer와 Case Study로 돌아가는 줄. TJ MEDIA 리디자인 화면의 일부가 아니다. -->
+  <div class="demo-bar" id="top" tabindex="-1">
+    <nav class="demo-bar__links" aria-label="시연 안내">
+      <a href="../tj-media.html#interactive-demo">TJ MEDIA Case Study</a>
+    </nav>
+    <span class="demo-bar__note">TJ MEDIA 공식 사이트가 아닌 포트폴리오용 비공식 리디자인 시연입니다. 곡 정보는 시안의 예시 데이터입니다.</span>
+  </div>
+
+  <main class="explorer l-container">
+    <p class="explorer__eyebrow">EXPLORE THE REDESIGN</p>
+    <h1 class="explorer__title">TJ MEDIA Interactive Demo</h1>
+    <p class="explorer__lead">Case Study의 최종 UI를 실제 HTML/CSS 화면으로 옮겼습니다. Desktop 6개 · Mobile 3개 화면을 골라서 볼 수 있고, Main에서 검색을 거쳐 곡 상세까지 이어집니다.</p>
+    <p class="explorer__notice">TJ MEDIA 공식 사이트가 아닌 포트폴리오용 비공식 리디자인 시연입니다. 곡 정보는 시안의 예시 데이터입니다. 검색은 시안에 실린 예시 곡 안에서만 동작하며, 저장·YouTube 연결·신청 접수는 제공하지 않습니다.</p>
+
+    <section class="explorer__group" aria-labelledby="group-desktop">
+      <h2 class="explorer__group-title" id="group-desktop">Desktop <span>6개 화면 · 1440 기준</span></h2>
+      <ul class="explorer__grid">
+        <li>
+          <a class="screen-card" href="desktop/main.html">
+            <div class="screen-card__frame"><img src="assets/thumb-desktop-main.webp" alt="" width="720" height="450"></div>
+            <p class="screen-card__meta">Desktop 01</p>
+            <h3 class="screen-card__name">Main</h3>
+            <p class="screen-card__path">검색에서 시작하는 첫 화면</p>
+          </a>
+        </li>
+        <li>
+          <a class="screen-card" href="desktop/search.html">
+            <div class="screen-card__frame"><img src="assets/thumb-desktop-search.webp" alt="" width="720" height="450"></div>
+            <p class="screen-card__meta">Desktop 02</p>
+            <h3 class="screen-card__name">Search</h3>
+            <p class="screen-card__path">'아이유' 검색 결과</p>
+          </a>
+        </li>
+        <li>
+          <a class="screen-card" href="desktop/latest.html">
+            <div class="screen-card__frame"><img src="assets/thumb-desktop-latest.webp" alt="" width="720" height="450"></div>
+            <p class="screen-card__meta">Desktop 03</p>
+            <h3 class="screen-card__name">Latest Songs</h3>
+            <p class="screen-card__path">최신 반주곡</p>
+          </a>
+        </li>
+        <li>
+          <a class="screen-card" href="desktop/chart.html">
+            <div class="screen-card__frame"><img src="assets/thumb-desktop-chart.webp" alt="" width="720" height="450"></div>
+            <p class="screen-card__meta">Desktop 04</p>
+            <h3 class="screen-card__name">Music Chart</h3>
+            <p class="screen-card__path">노래방 인기차트</p>
+          </a>
+        </li>
+        <li>
+          <a class="screen-card" href="desktop/request.html">
+            <div class="screen-card__frame"><img src="assets/thumb-desktop-request.webp" alt="" width="720" height="450"></div>
+            <p class="screen-card__meta">Desktop 05</p>
+            <h3 class="screen-card__name">Song Request</h3>
+            <p class="screen-card__path">반주곡 신청</p>
+          </a>
+        </li>
+        <li>
+          <a class="screen-card" href="desktop/song-detail.html">
+            <div class="screen-card__frame"><img src="assets/thumb-desktop-detail.webp" alt="" width="720" height="450"></div>
+            <p class="screen-card__meta">Desktop 06</p>
+            <h3 class="screen-card__name">Song Detail</h3>
+            <p class="screen-card__path">곡 상세 — 좋은 날</p>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="explorer__group" aria-labelledby="group-mobile">
+      <h2 class="explorer__group-title" id="group-mobile">Mobile <span>3개 화면 · 390 기준</span></h2>
+      <ul class="explorer__grid explorer__grid--mobile">
+        <li>
+          <a class="screen-card" href="mobile/main.html">
+            <div class="screen-card__frame"><img src="assets/thumb-mobile-main.webp" alt="" width="390" height="780"></div>
+            <p class="screen-card__meta">Mobile 01</p>
+            <h3 class="screen-card__name">Main</h3>
+            <p class="screen-card__path">검색에서 시작하는 첫 화면</p>
+          </a>
+        </li>
+        <li>
+          <a class="screen-card" href="mobile/search.html">
+            <div class="screen-card__frame"><img src="assets/thumb-mobile-search.webp" alt="" width="390" height="780"></div>
+            <p class="screen-card__meta">Mobile 02</p>
+            <h3 class="screen-card__name">Search</h3>
+            <p class="screen-card__path">'아이유' 검색 결과</p>
+          </a>
+        </li>
+        <li>
+          <a class="screen-card" href="mobile/song-detail.html">
+            <div class="screen-card__frame"><img src="assets/thumb-mobile-detail.webp" alt="" width="390" height="780"></div>
+            <p class="screen-card__meta">Mobile 03</p>
+            <h3 class="screen-card__name">Song Detail</h3>
+            <p class="screen-card__path">곡 상세 — 좋은 날</p>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <a class="explorer__back" href="../tj-media.html#interactive-demo">← TJ MEDIA Case Study로 돌아가기</a>
+  </main>
+
+  <a class="top-button" href="#top" data-top-button aria-label="맨 위로 이동">Top</a>
+
+</body>
+</html>
