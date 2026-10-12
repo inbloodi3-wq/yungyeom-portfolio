@@ -619,8 +619,9 @@
   min-width: 0;
 }
 
-/* Project 한 묶음: 제목 줄 + Index */
+/* Project 한 묶음: 제목 줄 + Index. 묶음 전체가 Project Page로 가는 링크 영역이다(.contents-project__link) */
 .contents-project {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: calc(var(--space-contents-group-gap) * var(--px));
@@ -664,8 +665,30 @@
   color: var(--color-contents-project);
 }
 
+/* 이름의 링크가 묶음 전체를 덮는다. 색과 모양은 이름 그대로이고, 가리키거나 Focus를 받으면 밑줄이 생긴다 */
+.contents-project__link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.contents-project__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.contents-project__link:hover,
+.contents-project__link:focus-visible {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.14em;
+}
+
+/* 한글 문안은 한글 본문 서체로 쓴다 */
 .contents-project__category,
 .contents-project__caption {
+  font-family: var(--font-kr-body);
+  word-break: keep-all;
   font-size: calc(var(--text-contents-caption-size) * var(--px));
   font-weight: var(--text-contents-caption-weight);
   line-height: calc(var(--text-contents-caption-leading-px) * var(--px));
@@ -702,6 +725,8 @@
 }
 
 .contents-index__items {
+  font-family: var(--font-kr-body);
+  word-break: keep-all;
   font-size: calc(var(--text-contents-item-size) * var(--px));
   font-weight: var(--text-contents-item-weight);
   line-height: calc(var(--text-contents-item-leading-px) * var(--px));

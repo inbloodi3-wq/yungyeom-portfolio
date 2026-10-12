@@ -103,6 +103,13 @@
   animation: sheet-extract var(--duration-sheet-extract) both;
 }
 
+/* 주소의 #id로 뒤쪽 Sheet에서 시작할 때(Project Page에서 Contents로 돌아올 때),
+   그 앞의 Sheet들은 움직임 없이 이미 넘겨 둔 자리에 있다. */
+.sheet.is-away {
+  transform: translate(var(--sheet-extract-x), var(--sheet-extract-y)) rotate(var(--sheet-extract-rotate));
+  visibility: hidden;
+}
+
 /* 넘겨 둔 Sheet를 다시 제자리에 놓는다 */
 .sheet.is-returned {
   animation: sheet-return var(--duration-sheet-return) both;

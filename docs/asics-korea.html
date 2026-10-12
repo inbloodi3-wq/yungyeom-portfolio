@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ASICS KOREA — Kim Yun-Gyeom Portfolio</title>
+  <meta name="description" content="남성 러닝화 구매 흐름을 여섯 화면으로 다시 설계했습니다.">
+
+  <link rel="icon" href="data:,">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages/project.css">
+</head>
+<body class="project-page">
+
+  <div class="project">
+    <header class="project-bar">
+      <a class="project-bar__back" href="index.html#contents">← Contents</a>
+      <span>PROJECT 03</span>
+    </header>
+
+    <main>
+      <!-- 01 Overview -->
+      <header class="project-hero" id="overview">
+        <p class="project-hero__eyebrow">AI Automation · Commerce UX Redesign</p>
+        <h1 class="project-hero__title">ASICS KOREA</h1>
+        <p class="project-hero__lead">남성 러닝화 구매 흐름을 여섯 화면으로 다시 설계했습니다.</p>
+        <p class="project-text">아식스 코리아 공식 온라인스토어의 남성 러닝화 탐색 · 비교 · 구매 흐름이 대상입니다. 비공식 개인 리디자인이며 아식스와 무관합니다.</p>
+        <dl class="project-meta">
+          <div class="project-meta__row">
+            <dt class="project-meta__term">유형</dt>
+            <dd class="project-meta__value">개인 포트폴리오 · 비공식 리디자인</dd>
+          </div>
+          <div class="project-meta__row">
+            <dt class="project-meta__term">역할</dt>
+            <dd class="project-meta__value">AI 워크플로 디렉션 · 프롬프트 · QA · 제품 비주얼 제작 · 선정</dd>
+          </div>
+          <div class="project-meta__row">
+            <dt class="project-meta__term">도구</dt>
+            <dd class="project-meta__value">Figma · Claude Code · Figma MCP · ChatGPT · AI 이미지 생성</dd>
+          </div>
+          <div class="project-meta__row">
+            <dt class="project-meta__term">기간</dt>
+            <dd class="project-meta__value">2 Days · AI Automation Sprint (실제 작업일 기준 · 2026년 10월)</dd>
+          </div>
+        </dl>
+      </header>
+
+      <section class="project-section" id="background">
+        <p class="project-section__label">02 / Problem</p>
+        <div class="project-section__body">
+          <h2 class="project-section__title">분류는 있는데, 목록과 끊겨 있습니다.</h2>
+          <p class="project-text">아식스 코리아 공식 온라인스토어의 남성 러닝화 목록에서 확인한 세 가지 사실입니다.</p>
+          <ol class="project-list">
+            <li class="project-list__item">
+              <span class="project-list__key">Filter</span>
+              <div class="project-list__content">
+                <h3 class="project-list__title">필터 7개 중 러닝화 유형 0개</h3>
+                <p class="project-text">유형 5종은 #RUN의 SHOE FINDER에만 있고 남성 러닝화 목록 필터에는 없습니다.</p>
+              </div>
+            </li>
+            <li class="project-list__item">
+              <span class="project-list__key">Fragmentation</span>
+              <div class="project-list__content">
+                <h3 class="project-list__title">젤 카야노 33 하나가 카드 14장</h3>
+                <p class="project-text">컬러 6 · 2E 4 · 4E 3 · 플래티넘 1. 같은 모델이 목록 곳곳에 흩어집니다.</p>
+              </div>
+            </li>
+            <li class="project-list__item">
+              <span class="project-list__key">Sold Out</span>
+              <div class="project-list__content">
+                <h3 class="project-list__title">바운싱화 43개 중 32개 품절</h3>
+                <p class="project-text">품절 카드가 판매 중 카드와 같은 목록에 섞여 나옵니다.</p>
+              </div>
+            </li>
+          </ol>
+          <p class="project-note">출처: 아식스 코리아 공식 온라인스토어, 2026-10-01 조사(비로그인). 바운싱화 수는 유형 카테고리 기준이며 남녀 상품을 포함합니다.</p>
+        </div>
+      </section>
+
+      <section class="project-section" id="approach">
+        <p class="project-section__label">03 / Strategy &amp; Flow</p>
+        <div class="project-section__body">
+          <h2 class="project-section__title">유형부터 담기까지, 하나의 흐름으로.</h2>
+          <p class="project-text">같은 유형 이름과 색이 홈에서 장바구니까지 이어집니다.</p>
+          <ol class="project-list">
+            <li class="project-list__item">
+              <span class="project-list__key">Step 1</span>
+              <div class="project-list__content">
+                <h3 class="project-list__title">유형</h3>
+                <p class="project-text">레인에서 고른다</p>
+              </div>
+            </li>
+            <li class="project-list__item">
+              <span class="project-list__key">Step 2</span>
+              <div class="project-list__content">
+                <h3 class="project-list__title">목록</h3>
+                <p class="project-text">유형 탭과 카드 태그</p>
+              </div>
+            </li>
+            <li class="project-list__item">
+              <span class="project-list__key">Step 3</span>
+              <div class="project-list__content">
+                <h3 class="project-list__title">비교</h3>
+                <p class="project-text">최대 3개를 나란히</p>
+              </div>
+            </li>
+            <li class="project-list__item">
+              <span class="project-list__key">Step 4</span>
+              <div class="project-list__content">
+                <h3 class="project-list__title">상세</h3>
+                <p class="project-text">컬러 · 발 너비 · 사이즈</p>
+              </div>
+            </li>
+            <li class="project-list__item">
+              <span class="project-list__key">Step 5</span>
+              <div class="project-list__content">
+                <h3 class="project-list__title">담기</h3>
+                <p class="project-text">고른 그대로 담는다</p>
+              </div>
+            </li>
+          </ol>
+          <ol class="project-list">
+            <li class="project-list__item">
+              <span class="project-list__key">Decision 01</span>
+              <div class="project-list__content">
+                <h3 class="project-list__title">유형에서 시작한다</h3>
+              </div>
+            </li>
+            <li class="project-list__item">
+              <span class="project-list__key">Decision 02</span>
+              <div class="project-list__content">
+                <h3 class="project-list__title">모델은 하나로 묶고 비교한다</h3>
+              </div>
+            </li>
+            <li class="project-list__item">
+              <span class="project-list__key">Decision 03</span>
+              <div class="project-list__content">
+                <h3 class="project-list__title">한 화면에서 고르고 담는다</h3>
+              </div>
+            </li>
+          </ol>
+          <p class="project-note">&quot;러닝화 유형&quot; 탭과 필터는 리디자인 제안입니다. 현재 아식스 코리아 목록 필터에는 없습니다.</p>
+        </div>
+      </section>
+
+      <section class="project-section" id="showcase">
+        <p class="project-section__label">04 / Design Showcase</p>
+        <div class="project-section__body">
+          <p class="project-text">홈 · 목록 · 비교 · 상세. 모바일에서는 같은 흐름의 우선순위를 다시 정했습니다. 첫 화면에 유형 · 상품명 · 가격, 하단 구매 바에 고른 내용.</p>
+          <div class="project-showcase">
+            <figure class="project-showcase__item">
+              <div class="project-showcase__slot">화면 이미지 준비 중</div>
+              <figcaption class="project-showcase__caption">Desktop — 4개 화면</figcaption>
+            </figure>
+            <figure class="project-showcase__item">
+              <div class="project-showcase__slot">화면 이미지 준비 중</div>
+              <figcaption class="project-showcase__caption">Mobile — 2개 화면</figcaption>
+            </figure>
+          </div>
+          <p class="project-note">제품 이미지는 AI 생성 컨셉 비주얼입니다. 모바일은 390×844 프레임 기준입니다.</p>
+        </div>
+      </section>
+
+      <section class="project-section" id="outcome">
+        <p class="project-section__label">05 / Outcome &amp; Reflection</p>
+        <div class="project-section__body">
+          <h2 class="project-section__title">바꾼 것은 화면보다 구조였습니다.</h2>
+          <p class="project-text">성과를 수치로 말할 근거는 없습니다. 구조에서 달라진 점과 아직 검증하지 않은 점을 정리합니다.</p>
+          <ol class="project-list">
+            <li class="project-list__item">
+              <span class="project-list__key">Outcome 01</span>
+              <div class="project-list__content">
+                <h3 class="project-list__title">유형 5종을 탐색의 첫 단계로 연결했습니다</h3>
+                <p class="project-text">SHOE FINDER에만 있던 러닝화 유형을 홈, 목록, 비교, 상세에 이었습니다.</p>
+              </div>
+            </li>
+            <li class="project-list__item">
+              <span class="project-list__key">Outcome 02</span>
+              <div class="project-list__content">
+                <h3 class="project-list__title">모델 하나를 카드 한 장으로 통합했습니다</h3>
+                <p class="project-text">컬러 · 발 너비 · 에디션별로 나뉘던 카드를 모델 단위로 묶었습니다.</p>
+              </div>
+            </li>
+            <li class="project-list__item">
+              <span class="project-list__key">Outcome 03</span>
+              <div class="project-list__content">
+                <h3 class="project-list__title">유형부터 담기까지 하나의 흐름으로 재구성했습니다</h3>
+                <p class="project-text">유형 → 목록 → 비교 → 상세 → 담기. 같은 유형 이름과 색이 끝까지 이어집니다.</p>
+              </div>
+            </li>
+          </ol>
+          <ol class="project-list">
+            <li class="project-list__item">
+              <span class="project-list__key">Reflection</span>
+              <div class="project-list__content">
+                <h3 class="project-list__title">번역이 아니라 재조사</h3>
+                <p class="project-text">미국 시안을 옮기지 않았습니다. 한국 공식 사이트에서 유형 · 가격 · 사이즈 · 재고 · 상품 구조를 다시 조사해 근거를 바꿨습니다.</p>
+              </div>
+            </li>
+            <li class="project-list__item">
+              <span class="project-list__key">Reflection</span>
+              <div class="project-list__content">
+                <h3 class="project-list__title">화면보다 흐름을 먼저</h3>
+                <p class="project-text">시각 스타일을 정하기 전에 유형 → 목록 → 비교 → 상세 → 담기의 순서부터 정했습니다.</p>
+              </div>
+            </li>
+            <li class="project-list__item">
+              <span class="project-list__key">Reflection</span>
+              <div class="project-list__content">
+                <h3 class="project-list__title">반복 구현을 자동화하고, 판단에 시간을 썼습니다</h3>
+                <p class="project-text">화면 구현, Render QA, 상태 기록 같은 반복 작업은 AI Agent와 Figma MCP로 자동화하고, 프로젝트 목표 설정, 작업 지시, 결과 검토와 최종 선택은 직접 수행했습니다.</p>
+              </div>
+            </li>
+            <li class="project-list__item">
+              <span class="project-list__key">Reflection</span>
+              <div class="project-list__content">
+                <h3 class="project-list__title">데이터는 조사 시점 기준, 검증은 아직</h3>
+                <p class="project-text">상품과 재고 정보는 2026-10-01에 조사한 값입니다. 사용자 테스트, 실기기 테스트, 실서비스 적용, A/B 테스트는 하지 않았습니다.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+    </main>
+
+    <nav class="project-nav" aria-label="Project 이동">
+      <a class="project-nav__link" href="tj-media.html">
+        <span class="project-nav__label">← Previous</span>
+        <span class="project-nav__name">TJ MEDIA</span>
+      </a>
+      <a class="project-nav__link project-nav__link--contents" href="index.html#contents">
+        <span class="project-nav__label">Back to</span>
+        <span class="project-nav__name">Contents</span>
+      </a>
+    </nav>
+  </div>
+
+</body>
+</html>

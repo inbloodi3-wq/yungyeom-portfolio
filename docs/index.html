@@ -8,8 +8,9 @@
 
   <link rel="icon" href="data:,">
 
-  <!-- 첫 화면이 그려지기 전에 Loading 상태를 켠다. JavaScript가 꺼져 있으면 Loading 화면은 나타나지 않는다. -->
-  <script>document.documentElement.className = 'js is-loading';</script>
+  <!-- 첫 화면이 그려지기 전에 Loading 상태를 켠다. JavaScript가 꺼져 있으면 Loading 화면은 나타나지 않는다.
+       주소에 #contents처럼 Sheet가 지정되어 있으면(Project Page에서 돌아올 때) Loading 없이 그 Sheet를 바로 보여 준다. -->
+  <script>document.documentElement.className = location.hash.length > 1 ? 'js' : 'js is-loading';</script>
 
   <link rel="preload" href="assets/fonts/Outfit-Regular.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="assets/fonts/Outfit-Light.ttf" as="font" type="font/ttf" crossorigin>
@@ -159,28 +160,28 @@
                   <div class="contents-project__head">
                     <span class="contents-project__number">PROJECT 01</span>
                     <div class="contents-project__title">
-                      <h3 class="contents-project__name">AIDORA</h3>
-                      <p class="contents-project__category">BRANDING · PACKAGE · WEB DESIGN</p>
+                      <h3 class="contents-project__name"><a class="contents-project__link" href="aidora.html">AIDORA</a></h3>
+                      <p class="contents-project__category">브랜딩 · 패키지 · 웹디자인</p>
                     </div>
                   </div>
                   <div class="contents-project__index">
-                    <p class="contents-project__caption">AIDORA PROJECT INDEX · 01—04</p>
+                    <p class="contents-project__caption">브랜드 전략부터 패키지, 웹 경험까지 설계한 향 브랜드 프로젝트</p>
                     <ul class="contents-index">
                       <li class="contents-index__column">
                         <h4 class="contents-index__heading">01 / RESEARCH</h4>
-                        <p class="contents-index__items"><span>Desk Research</span><span>Brand Strategy</span></p>
+                        <p class="contents-index__items"><span>데스크 리서치</span><span>브랜드 전략</span></p>
                       </li>
                       <li class="contents-index__column">
                         <h4 class="contents-index__heading">02 / BRANDING</h4>
-                        <p class="contents-index__items"><span>Logo Process</span><span>Color · Typography</span></p>
+                        <p class="contents-index__items"><span>로고 디자인 과정</span><span>컬러 · 타이포그래피</span></p>
                       </li>
                       <li class="contents-index__column">
                         <h4 class="contents-index__heading">03 / PACKAGE</h4>
-                        <p class="contents-index__items"><span>Package Design</span><span>Package System</span></p>
+                        <p class="contents-index__items"><span>패키지 디자인</span><span>패키지 시스템</span></p>
                       </li>
                       <li class="contents-index__column">
                         <h4 class="contents-index__heading">04 / WEB DESIGN</h4>
-                        <p class="contents-index__items"><span>Main · Collection</span><span>PDP · Brand Page</span></p>
+                        <p class="contents-index__items"><span>메인 · 컬렉션</span><span>상품 상세 · 브랜드 페이지</span></p>
                       </li>
                     </ul>
                   </div>
@@ -189,28 +190,28 @@
                   <div class="contents-project__head">
                     <span class="contents-project__number">PROJECT 02</span>
                     <div class="contents-project__title">
-                      <h3 class="contents-project__name">TJ MEDIA</h3>
-                      <p class="contents-project__category">AI-ASSISTED UI/UX · WEB REDESIGN</p>
+                      <h3 class="contents-project__name"><a class="contents-project__link" href="tj-media.html">TJ MEDIA</a></h3>
+                      <p class="contents-project__category">AI 협업 UI/UX · 웹 리디자인</p>
                     </div>
                   </div>
                   <div class="contents-project__index">
-                    <p class="contents-project__caption">TJ MEDIA PROJECT INDEX · 01—04</p>
+                    <p class="contents-project__caption">곡 검색을 중심 경험으로 다시 구성한 TJ미디어 웹사이트 리디자인</p>
                     <ul class="contents-index">
                       <li class="contents-index__column">
                         <h4 class="contents-index__heading">01 / RESEARCH</h4>
-                        <p class="contents-index__items"><span>As-Is Analysis</span><span>Problem Definition</span></p>
+                        <p class="contents-index__items"><span>현행 서비스 분석</span><span>문제 정의</span></p>
                       </li>
                       <li class="contents-index__column">
                         <h4 class="contents-index__heading">02 / UX STRATEGY</h4>
-                        <p class="contents-index__items"><span>IA · User Flow</span><span>Search Experience</span></p>
+                        <p class="contents-index__items"><span>정보구조 · 사용자 흐름</span><span>검색 경험 설계</span></p>
                       </li>
                       <li class="contents-index__column">
                         <h4 class="contents-index__heading">03 / DESIGN PROCESS</h4>
-                        <p class="contents-index__items"><span>Visual Direction</span><span>Exploration · Iteration</span></p>
+                        <p class="contents-index__items"><span>비주얼 방향 설정</span><span>시안 탐색 · 개선</span></p>
                       </li>
                       <li class="contents-index__column">
                         <h4 class="contents-index__heading">04 / FINAL UI</h4>
-                        <p class="contents-index__items"><span>Desktop · Mobile</span><span>Search · Song Detail</span></p>
+                        <p class="contents-index__items"><span>데스크톱 · 모바일</span><span>검색 · 곡 상세</span></p>
                       </li>
                     </ul>
                   </div>
@@ -219,28 +220,28 @@
                   <div class="contents-project__head">
                     <span class="contents-project__number">PROJECT 03</span>
                     <div class="contents-project__title">
-                      <h3 class="contents-project__name">ASICS KOREA</h3>
-                      <p class="contents-project__category">AI AUTOMATION · COMMERCE UX REDESIGN</p>
+                      <h3 class="contents-project__name"><a class="contents-project__link" href="asics-korea.html">ASICS KOREA</a></h3>
+                      <p class="contents-project__category">AI 자동화 · 커머스 UX 리디자인</p>
                     </div>
                   </div>
                   <div class="contents-project__index">
-                    <p class="contents-project__caption">ASICS KOREA PROJECT INDEX · 01—04</p>
+                    <p class="contents-project__caption">남성 러닝화의 탐색 · 비교 · 구매 흐름을 다시 설계한 커머스 UX 리디자인</p>
                     <ul class="contents-index">
                       <li class="contents-index__column">
                         <h4 class="contents-index__heading">01 / RESEARCH</h4>
-                        <p class="contents-index__items"><span>Korean Market Audit</span><span>Problem Definition</span></p>
+                        <p class="contents-index__items"><span>국내 시장 조사</span><span>문제 정의</span></p>
                       </li>
                       <li class="contents-index__column">
                         <h4 class="contents-index__heading">02 / UX STRATEGY</h4>
-                        <p class="contents-index__items"><span>Type-Based Navigation</span><span>Compare · Purchase Flow</span></p>
+                        <p class="contents-index__items"><span>유형별 탐색 구조</span><span>비교 · 구매 흐름</span></p>
                       </li>
                       <li class="contents-index__column">
                         <h4 class="contents-index__heading">03 / AI PROCESS</h4>
-                        <p class="contents-index__items"><span>2-Day Automation Sprint</span><span>Design System · QA</span></p>
+                        <p class="contents-index__items"><span>2일 자동화 스프린트</span><span>디자인 시스템 · QA</span></p>
                       </li>
                       <li class="contents-index__column">
                         <h4 class="contents-index__heading">04 / FINAL UI</h4>
-                        <p class="contents-index__items"><span>Desktop · Mobile</span><span>PLP · Compare · PDP</span></p>
+                        <p class="contents-index__items"><span>데스크톱 · 모바일</span><span>목록 · 비교 · 상세</span></p>
                       </li>
                     </ul>
                   </div>

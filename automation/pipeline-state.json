@@ -4,7 +4,7 @@
   "config_file": "config/project.yaml",
   "mode": "figma_implementation",
   "current_stage": "secondary_pages",
-  "stage_status": "BLOCKED",
+  "stage_status": "IN_PROGRESS",
   "last_completed_stage": "section_build",
   "optional_stages": {
     "reference_research": "N/A (figma_implementation)",
@@ -35,20 +35,20 @@
   },
   "checkpoint": {
     "stage": "secondary_pages",
-    "page": "aidora",
-    "section": "(Project Detail Architecture 결정 필요)",
-    "updated_at": "2026-10-09",
-    "resume_hint": "2026-10-09 종료 시점: origin/main = ec04923(사용자가 직접 push). index의 세 Sheet(cover, profile, contents)와 Sheet 전환이 끝났다(implementation-spec.md 24, 25절). 다음은 Project Detail Architecture + AIDORA Case Study인데, Design Gap G2(Case Study와 AIDORA 결과 화면의 구현 방식)와 G1(링크·돌아오는 방법)이 아직 결정되지 않았다. Contents의 각 Project 묶음에는 data-project(Page ID)만 있고 링크는 없다. 사용자가 Contents와 Profile → Contents를 실제 재생으로 승인한 뒤 시작한다."
+    "page": "aidora, tj-media, asics-korea",
+    "section": "showcase (이미지 대기)",
+    "updated_at": "2026-10-12",
+    "resume_hint": "2026-10-12: Contents 한국어 문안 + Project 링크, Project Page 3개(공통 구성, css/pages/project.css), index#contents 직접 진입과 주소 갱신을 구현하고 local commit했다(push 안 함). 근거는 implementation-spec.md 26절. 다음: (1) 사용자의 실제 재생 확인 (2) Showcase 이미지 — Asset 권리 확인(rights-auditor) 후 project-showcase__slot에 넣기 (3) Figma Page 05_Portfolio_CaseStudy가 Case Study의 최신 원본인지 사용자 확인 (4) aidora의 Outcome 문안과 역할 표기는 사용자 제공 필요 (5) FULL QA(대비 측정 포함)."
   },
   "render_checked": true,
-  "qa_status": "2026-10-09 Contents + Profile → Contents: 1920 Figma 대비 x 0, y 0–2. 1920·1440·768·390에서 Cover ↔ Profile ↔ Contents 왕복(Wheel·Keyboard·Touch Emulation), 한 입력에 한 장, 가로 Overflow 없음, Reduced Motion, JS 꺼짐 확인. Intro와 Cover → Profile은 이전 commit과 Frame 비교로 동일. 사용자의 실제 재생 확인 대기",
+  "qa_status": "2026-10-12 capture.cjs: 4 Page × 1920·1440·768·390 측정상 문제 0건, JS 꺼짐 본문 있음. 이동 검증(네 폭): #contents 직접 진입 시 Loading 없음, Contents ↔ Profile 왕복, Project 3개 클릭 → 뒤로 가기 → Contents, 앞으로 가기, 이전/다음 Project, Contents 복귀 링크, 처음 진입의 Loading 유지, 상세 Page 새로 고침, Console Error·실패 Request 0건. Contents 1920·390, asics-korea 1920, tj-media 390 스크린샷 육안 확인. 나머지 조합은 측정만 했다",
   "retry_count": 0,
   "blockers": [
     {
       "stage": "secondary_pages",
-      "type": "scope",
-      "detail": "Design Gap G2 — Case Study와 AIDORA 결과 화면의 구현 방식 미결정(G4 포함)",
-      "since": "2026-10-04"
+      "type": "asset",
+      "detail": "Project Page Showcase에 넣을 화면 이미지의 권리 미확인(implementation-spec.md 9절). 이미지 없이 자리만 구현",
+      "since": "2026-10-12"
     }
   ],
   "approval_required": [
@@ -67,15 +67,15 @@
     "live_qa": "NOT_DONE — 배포본 확인과 Pages 설정(main / docs) 확인을 하지 않았다"
   },
   "last_meaningful_change": {
-    "date": "2026-10-09",
-    "summary": "index#contents를 세 번째 Sheet로 추가(Outfit Medium 추가), Profile → Contents 전환과 되돌리기. Sheet의 Focus 선 결함 수정."
+    "date": "2026-10-12",
+    "summary": "Contents 문안 한국어화와 Project 링크, Project Page 3개(aidora, tj-media, asics-korea) 공통 구성 구현, index#contents 직접 진입(Loading 생략)과 Sheet 주소 갱신. Design Gap G1·G2·G4 사용자 결정 반영."
   },
   "definition_of_done": "automation-orchestrator.md의 Stop Rule 전부 PASS",
   "design_definition": {
     "design_source_intake": "COMPLETE",
     "figma_calibration": "PARTIAL — index(cover, profile, contents)는 Node 단위로 추출, 프로세스 전체의 Figma Variable/Text Style 추출. Case Study와 AIDORA 결과 화면의 Node 단위 값은 G2 결정 후",
-    "content_asset_mapping": "PARTIAL — Website 구조와 Frame Map 등록 완료, Asset·Font 목록 작성. Page 분할(G1) 미확정, ASICS 문안 미확인(C5)",
-    "implementation_plan": "COMPLETE for index (사용자 결정 2026-10-04: Loading → Cover 우선, Responsive는 Conservative Adaptation). Project Page는 G2 결정 대기",
+    "content_asset_mapping": "PARTIAL — Project Page 문안은 Case Study의 일부 Section에서 옮김(spec 26절의 표). Showcase 이미지 권리 미확인",
+    "implementation_plan": "COMPLETE — index, Project Page 공통 구성(2026-10-12, spec 26절)",
     "autonomous_stages": "N/A — env_calibration, content_ia, reference_research, visual_direction, visual_system은 이 mode에서 실행하지 않는다"
   }
 }

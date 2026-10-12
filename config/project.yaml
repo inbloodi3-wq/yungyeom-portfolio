@@ -13,7 +13,7 @@ project:
 design_source:
   type: figma              # figma | generated
   access: read_only        # figma는 항상 read_only. Figma를 수정하지 않는다
-  status: PLAN_READY       # NOT_CONFIRMED | CONFIRMED | CALIBRATED | PLAN_READY — index는 PLAN_READY(구현 중). Project Page는 Design Gap G2 결정 후
+  status: PLAN_READY       # NOT_CONFIRMED | CONFIRMED | CALIBRATED | PLAN_READY — Project Page는 2026-10-12 공통 구성으로 결정(implementation-spec.md 26절)
   reference:
     url: "https://www.figma.com/design/4IjbcMoAkTyWkoacnVAmNe/?node-id=1716-2382"   # 2026-10-04 사용자 제공
     file_key: "4IjbcMoAkTyWkoacnVAmNe"
@@ -56,7 +56,10 @@ site:
   base_path: "/2026-UIUX/"
   url: "https://inbloodi3-wq.github.io/2026-UIUX/"
   pages:
-    - { id: index, file: index.html }   # Project Page는 구현할 때 추가한다
+    - { id: index, file: index.html }
+    - { id: aidora, file: aidora.html }             # Project Page 3개는 css/pages/project.css를 함께 쓴다(2026-10-12)
+    - { id: tj-media, file: tj-media.html }
+    - { id: asics-korea, file: asics-korea.html }
   breakpoints: [600, 1024, 1440] # min-width(px). CSS Media Query 값의 유일한 원본. 600 미만 = Mobile, 600 이상 = Tablet, 1024 이상 = Cover의 Figma 구성(비례 축소), 1440 이상 = Profile의 Figma 구성(비례 축소)
   js_policy:
     progressive_enhancement: true   # JS 없이 핵심 콘텐츠·내비게이션 사용 가능

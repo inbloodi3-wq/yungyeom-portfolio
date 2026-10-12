@@ -1,7 +1,7 @@
 # Implementation Spec
 
 source: Figma `4IjbcMoAkTyWkoacnVAmNe` (READ ONLY) · read_at 2026-10-04
-**상태: index는 구현 진행 중(Loading + Cover 구현, 2026-10-04). Project Page는 G2 결정 대기.**
+**상태: index 구현 완료. Project Page는 공통 구성으로 구현(2026-10-12, 26절). Showcase 이미지는 권리 확인 대기.**
 
 ## 0. 사용자 결정 (2026-10-04)
 | 항목 | 결정 |
@@ -11,7 +11,7 @@ source: Figma `4IjbcMoAkTyWkoacnVAmNe` (READ ONLY) · read_at 2026-10-04
 | G3 Responsive | Desktop 1920을 먼저 정밀 구현하고 1440 → 768 → 390 순으로 Conservative Adaptation을 한다. 허용: 위치 재조정, 크기 감소, 줄바꿈, 여백 감소, 장식 위치 조정. 금지: 새 구성, 새 Graphic, 콘텐츠 삭제, Direction 변경 |
 | Unit Policy | Figma 값을 Raw 값으로 보존한다. 단위 변환이 새 디자인 동작을 만들면 안 된다. `clamp()`를 단순 px 변환 수단으로 쓰지 않는다. 1920에서 Render 크기가 Figma와 같아야 한다 |
 | Loading Experience | 사용자가 추가한 Interaction이다. Figma에 Loading 화면이 없으므로 새 Direction을 만들지 않고 Cover의 Visual Language를 그대로 쓴다 |
-| G2 Case Study 구현 방식 | **미결정** |
+| G2 Case Study 구현 방식 | 2026-10-12 결정 — 공통 Page 구성에 문안을 옮긴다(26절) |
 
 값(Hex, px)은 여기에 적지 않는다. `design-source/extracted-tokens.json`의 Token 이름으로 서술한다.
 
@@ -447,3 +447,46 @@ sheet-stack [data-active-sheet = cover | profile | contents]
 - 실제 기기의 Touch 관성, Trackpad 관성은 Emulation으로만 확인했다.
 - 회색 Label(`--color-contents-label`, `--color-contents-sub`, `--color-contents-number`)과 종이 바탕의 대비는 측정하지 않았다(12절의 확인 항목으로 남아 있다).
 - 1440에서 작은 글자가 Figma보다 작게 보인다(비례 축소의 결과, Profile과 같은 판단).
+
+## 26. Contents 한국어 문안 + Project Detail Page (2026-10-12, 사용자 지정. 13절의 G1·G2·G4에 대한 결정이며 25절의 "문안은 Figma 그대로", "링크는 아직 없다"를 대체한다)
+### 사용자 결정
+- **Contents 문안을 한국어 중심으로 바꾼다.** Project 이름, "Contents", 번호·Index 제목 같은 영문 Label은 그대로 두고, 분야 줄·설명 줄·Index 항목을 한국어로 쓴다. Figma의 Text와 달라지는 승인된 Website Adaptation이다(Figma는 고치지 않는다).
+- **G1**: Project마다 별도 Page를 둔다. Contents의 Project 묶음이 링크이고, Project Page에는 Contents로 돌아가는 링크와 이전·다음 Project 링크가 있다.
+- **G2 / G4**: Case Study를 Figma의 1920 고정 구성 그대로 옮기지 않는다. 세 Project가 함께 쓰는 **공통 Page 구성**(Overview → Background → Design Approach → Design Showcase → Outcome)에 Figma Case Study의 문안을 옮겨 담는다. 내용이 없는 항목은 지어내지 않고 나중에 채울 자리로 둔다. 검증하지 않은 성과 수치·사용자 테스트 결과를 쓰지 않는다. AIDORA 결과 화면(메인페이지 / 상세페이지)은 동작하는 Page로 만들지 않고 Showcase에서 보여 줄 대상으로 본다.
+
+### Contents 문안
+- 분야 줄(`contents-project__category`): Figma의 영문 분야를 한국어로 옮겼다.
+- 설명 줄(`contents-project__caption`): Figma의 "PROJECT INDEX · 01—04" 자리에 Project를 한 줄로 설명하는 문장을 넣었다. 문장은 각 Case Study의 표지·개요 문안에서 가져와 줄였다.
+- Index 항목(`contents-index__items`): 영문 항목을 한국어로 옮겼다. Index 제목(`01 / RESEARCH` 등)은 영문 Label로 남겼다.
+- 한글 문안의 서체는 `--font-kr-body`다. 크기·자간·색 Token은 바꾸지 않았다. 좁은 화면에서 낱말 중간에 줄이 바뀌지 않게 했다.
+- 사용자가 준 참고 문구 중 AIDORA의 "퍼블리싱"은 Figma Case Study에서 근거를 찾지 못해 쓰지 않았다(Figma의 표기는 Brand & Web Design, 도구에 VS Code).
+
+### Page 구조와 이동 (Implementation Judgement)
+| 항목 | 판단 | 이유 |
+|---|---|---|
+| Route | Project마다 HTML 파일 하나(`ia/sitemap.md`) | Build 없는 정적 사이트에서 직접 접근·새로 고침·뒤로 가기·앞으로 가기가 Browser 기본 동작으로 된다. JavaScript Router를 두지 않는다 |
+| 공통 Template | 세 파일의 HTML 구조가 같고 Style은 `docs/css/pages/project.css` 하나다. 내용은 각 HTML에 직접 쓴다 | 내용을 JavaScript로 넣지 않는다(JS 없이 읽혀야 한다). Project별 내용은 그 파일만 고치면 된다 |
+| Contents의 링크 | Project 이름이 링크이고 링크 영역이 묶음 전체를 덮는다 | 묶음 어디를 눌러도 이동한다. 모양은 그대로이고 가리키거나 Focus를 받으면 이름에 밑줄 |
+| Contents로 돌아오기 | 링크 대상은 index의 `#contents`다. 주소에 Sheet의 id가 있으면 Loading과 Folder 동작 없이 그 Sheet에서 시작하고, 앞의 Sheet들은 이미 넘겨 둔 상태(`.is-away`)가 된다 | 돌아올 때마다 Loading을 다시 보게 하지 않는다. 처음 진입(주소에 id 없음)의 Loading → Cover는 그대로다 |
+| 주소 갱신 | Sheet를 넘길 때 주소의 `#id`를 바꿔 둔다(History 항목은 늘리지 않는다) | Project Page에서 뒤로 가기를 하거나 새로 고쳤을 때 보던 Sheet로 돌아온다 |
+| Page 전환 | Project Page에 들어오면 내용이 아래에서 제자리로 올라오며 나타난다(Cover 글자 등장과 같은 Token). CSS만 쓴다 | 절제된 전환. Library 없음. Reduced Motion에서는 이동 없이 짧은 Fade |
+
+### Project Page 구성
+- 바탕은 Cover와 같은 종이, 왼쪽에 같은 띠(곧은 모양, 고정). "Folder에서 꺼낸 종이 한 장을 길게 펼친 모습"이다. 새 Graphic은 없다.
+- 색·선·영문 Label 양식은 Contents의 Token을 그대로 쓴다. 제목은 AIDORA Case Study 표지의 제목 양식을 따랐다. 이 Page에만 필요한 값은 `tokens.css`의 "Project Detail Page" 묶음에 있다.
+- 크기는 화면 폭에 비례해 줄이지 않는다. 좁은 화면은 한 단, 그다음 Breakpoint부터 기본 정보·Showcase 두 칸, Desktop은 왼쪽 Section Label + 오른쪽 내용.
+- Project Page에는 JavaScript가 없다.
+
+### 옮긴 문안의 출처 (Figma Section)
+| Project | 읽은 Section | 옮기지 않은 것 |
+|---|---|---|
+| aidora | cs-cover, cs-pain-point, cs-web-experience | 리뷰 이슈 빈도 Chart(수치), 나머지 Section의 본문, 결과 화면 4종 |
+| tj-media | s02-overview, s04-pain-points, s05-ux-strategy, s14-outcome | Proto Persona(AI 생성 인물 이미지 포함), 나머지 Section |
+| asics-korea | s02-overview(제목·기본 정보), s04-problem, s05-strategy-flow, s11-outcome | 현재 탐색 구조 Diagram, 제작 방식(AI Automation Process) 묶음, 한계·다음 검증 목록, Decision 본문 |
+- 문안은 Figma 그대로 옮겼고 줄바꿈만 풀었다. Section 제목 가운데 Figma에 한국어 제목이 없는 두 곳(aidora의 Background, Design Approach)은 그 Section의 본문을 요약해 붙였다.
+- aidora의 기본 정보에는 Figma에 "역할" 항목이 없어 "작업 범위"(Figma의 Output)를 실었다. aidora에는 Outcome에 해당하는 Section이 Figma에 없어 "정리 중"으로 두었다.
+
+### 남은 것
+- **Showcase 이미지 없음.** Case Study의 이미지는 모두 권리 미확인(9절)이라 넣지 않았다. 자리(`project-showcase__slot`)와 화면 이름만 있고 "화면 이미지 준비 중"이라고 표시된다. 이미지를 넣으려면 `rights-auditor` 승인이 먼저다.
+- Figma Page `05_Portfolio_CaseStudy`가 이번에 Page 목록에 보였다. 읽지 않았다. 이 Page가 Case Study의 최신 원본이면 문안을 다시 맞춰야 한다.
+- Project Page의 회색 글자와 종이 바탕의 대비는 측정하지 않았다(12절).

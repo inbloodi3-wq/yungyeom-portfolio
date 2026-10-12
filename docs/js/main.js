@@ -120,6 +120,14 @@
   var active = 0;          // 지금 보고 있는 Sheet의 순서(activeSheet)
   var busy = false;        // 전환 중에는 새 전환을 시작하지 않는다
 
+  // 주소의 #id가 Sheet를 가리키면 그 Sheet에서 시작한다(Project Page에서 Contents로 돌아올 때).
+  // 그 앞의 Sheet들은 움직임 없이 이미 넘겨 둔 상태(.is-away)가 된다.
+  var startId = window.location.hash.slice(1);
+  sheets.forEach(function (sheet, index) {
+    if (sheet.id === startId) active = index;
+  });
+  sheets.slice(0, active).forEach(function (sheet) { sheet.classList.add('is-away'); });
+
   root.classList.add('is-sheets-ready');
   stack.setAttribute('data-active-sheet', sheets[active].id);
 
@@ -153,6 +161,12 @@
     active += direction;
     stack.setAttribute('data-active-sheet', sheets[active].id);
 
+    // 주소에 지금 Sheet를 남긴다. 새로 고치거나 Project Page에서 뒤로 가기로 돌아오면 같은 Sheet에서 시작한다.
+    if (window.history.replaceState) {
+      window.history.replaceState(null, '', active === 0 ? window.location.pathname + window.location.search : '#' + sheets[active].id);
+    }
+
+    moving.classList.remove('is-away');
     moving.classList.toggle('is-extracted', direction > 0);
     moving.classList.toggle('is-returned', direction < 0);
 

@@ -255,6 +255,35 @@
   --space-contents-head-row-gap-compact: 4;
   --space-contents-index-row-gap-compact: 24;
 
+  /* Project Detail Page — Figma의 Case Study는 1920 고정 구성이고 Project마다 모양이 다르다.
+     사이트에서는 세 Project가 함께 쓰는 공통 Page 구성으로 옮긴다(사용자 지정, 2026-10-12).
+     색·선·Label 양식은 Contents의 Token을 그대로 쓰고, 여기에는 이 Page에만 필요한 값(px)을 둔다.
+     근거: design-source/implementation-spec.md "Project Detail Page" */
+  --layout-project-max-width: 1240;
+  --layout-project-gutter: 64;
+  --layout-project-gutter-compact: 20;
+  --space-project-page-block: 88;
+  --space-project-page-block-compact: 40;
+  --space-project-section-gap: 104;
+  --space-project-section-gap-compact: 64;
+  --space-project-block-gap: 32;
+  --space-project-item-padding: 24;
+  --text-project-title-size: 96;           /* Figma AIDORA Case Study 표지의 제목 양식(Outfit Light) */
+  --text-project-title-size-mobile: 52;
+  --text-project-title-weight: 300;
+  --text-project-title-leading: 1.1;
+  --text-project-lead-size: 24;
+  --text-project-lead-leading-px: 36;
+  --text-project-heading-size: 28;
+  --text-project-heading-size-mobile: 24;
+  --text-project-heading-weight: 700;
+  --text-project-heading-leading: 1.4;
+  --text-project-item-size: 20;
+  --text-project-item-leading-px: 30;
+  --text-project-body-size: 16;
+  --text-project-body-leading-px: 26;
+  --layout-project-slot-ratio: 16 / 10;    /* 화면 이미지가 들어갈 자리의 비율 */
+
   /* Motion — Figma에 없다. Loading → Folder가 책상에 놓임 → Cover 글자 등장(사용자 지정 Interaction).
      근거: design-source/implementation-spec.md "Cover Entry Motion" */
   --color-stage: #3a3836;            /* 책상. Folder가 들어오는 동안 가장자리에서 보이는 따뜻한 짙은 회색. 띠(#272727)보다 밝아 Folder 외곽과 그림자가 보인다 */
