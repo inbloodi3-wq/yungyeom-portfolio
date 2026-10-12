@@ -3,8 +3,7 @@
    Page 바깥 구조(흰 바탕, 폭, 맨 위 줄, 아래쪽 내비게이션)는 project.css 그대로이고,
    이 파일은 그 안쪽의 Section 표현만 맡는다. 값은 tokens.css의 --*-tj-*.
 
-   Figma의 Case Study에는 화면 이미지가 많이 들어 있다. 그 이미지들은 게시 권리가 확인되지 않아
-   지금은 자리(tj-slot)만 있다(design-source/implementation-spec.md 32절). */
+   화면·도표 이미지는 Figma Case Study에서 잘라 낸 것이다(design-source/implementation-spec.md 32·33절). */
 
 .project-page--tj-media {
   color: var(--color-tj-text);
@@ -92,25 +91,43 @@
   word-break: keep-all;
 }
 
-/* 이미지 자리. 게시 권리가 확인되면 안의 글을 <img>로 바꾼다 */
-.tj-slot {
+/* Figma Case Study에서 잘라 낸 화면·도표 이미지 */
+.tj-figure {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  aspect-ratio: var(--layout-project-slot-ratio);
-  padding: calc(var(--space-project-gap-md) * 1px);
-  border: 1px solid var(--color-tj-line);
-  background: var(--color-project-bg);
-  font-size: calc(var(--text-tj-small-size) * 1px);
-  color: var(--color-tj-caption);
-  text-align: center;
-  word-break: keep-all;
+  flex-direction: column;
+  gap: calc(var(--space-project-gap-sm) * 1px);
+  margin: 0;
 }
 
-.tj-slot--portrait { aspect-ratio: 460 / 538; }
-.tj-slot--wide { aspect-ratio: 16 / 7; }
-.tj-slot--thumb { aspect-ratio: 16 / 9; }
-.tj-section--dark .tj-slot { border-color: var(--color-tj-on-dark-line); background: transparent; color: var(--color-tj-on-dark-sub); }
+.tj-figure img {
+  width: 100%;
+  border: 1px solid var(--color-tj-line);
+}
+
+/* 흰 바탕째 잘라 낸 구성 그림은 테두리를 두르지 않는다 */
+.tj-figure--plain img {
+  border: 0;
+}
+
+.tj-section--dark .tj-figure img {
+  border-color: var(--color-tj-on-dark-line);
+}
+
+.tj-cover__name img {
+  display: block;
+  width: calc(var(--layout-tj-logo-width) * 1px);
+}
+
+/* 비공식 리디자인임을 밝히는 문구 */
+.tj-notice {
+  max-width: calc(var(--layout-project-measure-note) * 1em);
+  padding-top: calc(var(--space-project-gap-md) * 1px);
+  border-top: 1px solid var(--color-tj-on-dark-line);
+  font-size: calc(var(--text-tj-small-size) * 1px);
+  line-height: var(--text-tj-body-leading);
+  color: var(--color-tj-on-dark-sub);
+  word-break: keep-all;
+}
 
 /* 나란히 놓인 칸 */
 .tj-columns {

@@ -18,7 +18,7 @@
 <body class="project-page project-page--tj-media">
 
   <!-- 이 Page의 Section 순서와 문안은 Figma의 TJ MEDIA Case Study(15 Section)를 따른다(design-source/implementation-spec.md 32절).
-       화면 이미지는 게시 권리가 확인되지 않아 자리(tj-slot)만 있다. data-asset 은 연결할 Asset의 이름이다. -->
+       화면 이미지는 Figma Case Study에서 잘라 낸 것이다. 비공식 개인 리디자인이라는 점을 표지와 맺음에 밝힌다. -->
   <div class="project">
     <header class="project-bar" id="top" tabindex="-1">
       <a class="project-bar__back" href="index.html#contents">← Contents</a>
@@ -30,7 +30,7 @@
       <header class="tj-section tj-section--dark" id="cover">
         <div class="tj-cover">
           <div class="tj-stack">
-            <p class="tj-cover__name">TJ MEDIA</p>
+            <p class="tj-cover__name"><img src="assets/tj-case-logo.webp" alt="TJ MEDIA" width="113" height="55"></p>
             <h1 class="tj-cover__title">웹사이트 리디자인</h1>
             <p class="tj-cover__sub">검색을 중심으로 다시 설계한 음악 탐색 경험</p>
             <p class="tj-lead">TJ미디어의 핵심 기능인 노래 검색을 중심으로 정보 구조를 재설계하고, 사진과 앨범 아트를 활용해 음악 콘텐츠 탐색 경험을 강화한 웹 리디자인 프로젝트.</p>
@@ -40,8 +40,9 @@
               <div><dt class="tj-label">Platform</dt><dd>Desktop Web</dd></div>
               <div><dt class="tj-label">Tools</dt><dd>Figma</dd></div>
             </dl>
+            <p class="tj-notice">포트폴리오를 위한 비공식 개인 리디자인입니다. TJ미디어의 의뢰나 승인을 받지 않았으며 TJ미디어와 무관합니다.</p>
           </div>
-          <div class="tj-slot tj-slot--thumb" data-asset="tj-case-cover-hero">화면 이미지 준비 중 · Main Hero</div>
+          <figure class="tj-figure"><img src="assets/tj-case-cover-hero.webp" alt="리디자인한 TJ미디어 Main의 첫 화면. 녹음실 사진 위에 “노래를 찾는 가장 빠른 방법”이라는 제목과 검색창이 있다" width="760" height="516"></figure>
         </div>
       </header>
 
@@ -70,7 +71,7 @@
         <h2 class="tj-heading">검색 진입점 없는 홈 흩어진 콘텐츠 구조</h2>
         <p class="tj-lead">TJ미디어 공식 홈페이지(tjmedia.com)를 2026-09-20에 직접 방문해 검색 진입 구조와 콘텐츠 우선순위를 확인했다.</p>
         <div class="tj-split">
-          <div class="tj-slot" data-asset="tj-case-asis-capture">화면 이미지 준비 중 · 현행 홈페이지 (2026-09-20)</div>
+          <figure class="tj-figure"><img src="assets/tj-case-asis-capture.webp" alt="분석 대상인 현행 tjmedia.com 홈페이지(2026-09-20 캡처). 첫 화면 전체가 신제품 광고 배너이고 검색창이 없다" width="900" height="562" loading="lazy"><figcaption class="tj-note">tjmedia.com 홈페이지, 2026-09-20 캡처. 리디자인 대상의 현재 구조를 분석하기 위해 인용했으며 화면의 권리는 TJ미디어에 있습니다.</figcaption></figure>
           <div class="tj-stack">
             <p class="tj-kicker tj-accent">홈페이지 실사 (2026-09-20)</p>
             <div>
@@ -137,7 +138,7 @@
         <h2 class="tj-heading">사용자 관점에서 다시 정의한 핵심 문제</h2>
         <p class="tj-lead">사용자의 이용 맥락과 행동을 정의하고, 기존 서비스에서 발생하는 핵심 불편을 정리했다.</p>
         <div class="tj-split tj-split--persona">
-          <div class="tj-slot tj-slot--portrait" data-asset="tj-case-persona">이미지 준비 중 · Proto Persona 대표 이미지</div>
+          <figure class="tj-figure"><img src="assets/tj-case-persona.webp" alt="소파에 앉아 휴대전화를 보는 사람. Proto Persona를 나타내는 AI 생성 이미지" width="460" height="538" loading="lazy"><figcaption class="tj-note">Representative image · AI-generated</figcaption></figure>
           <div class="tj-stack">
             <div>
               <p class="tj-label tj-label--accent">Proto Persona</p>
@@ -242,22 +243,22 @@
         <p class="tj-lead">가장 중요한 사용자 흐름인 검색 흐름을 중심으로 화면 간 연결을 설계했다.</p>
         <ol class="tj-flow">
           <li class="tj-flow__step">
-            <div class="tj-slot tj-slot--thumb" data-asset="tj-case-flow-home">화면 이미지 준비 중</div>
+            <figure class="tj-figure"><img src="assets/tj-case-flow-home.webp" alt="Home 화면: 첫 화면의 검색창" width="276" height="112" loading="lazy"></figure>
             <p class="tj-strong"><span class="tj-accent">01</span> HOME</p>
             <p class="tj-small">Hero에서 검색 시작</p>
           </li>
           <li class="tj-flow__step">
-            <div class="tj-slot tj-slot--thumb" data-asset="tj-case-flow-search">화면 이미지 준비 중</div>
+            <figure class="tj-figure"><img src="assets/tj-case-flow-search.webp" alt="Search 화면: 검색어와 조건 입력" width="276" height="112" loading="lazy"></figure>
             <p class="tj-strong"><span class="tj-accent">02</span> SEARCH</p>
             <p class="tj-small">검색어 및 조건 입력</p>
           </li>
           <li class="tj-flow__step">
-            <div class="tj-slot tj-slot--thumb" data-asset="tj-case-flow-result">화면 이미지 준비 중</div>
+            <figure class="tj-figure"><img src="assets/tj-case-flow-result.webp" alt="Result 화면: 검색 결과 목록" width="276" height="112" loading="lazy"></figure>
             <p class="tj-strong"><span class="tj-accent">03</span> RESULT</p>
             <p class="tj-small">곡 정보 확인</p>
           </li>
           <li class="tj-flow__step">
-            <div class="tj-slot tj-slot--thumb" data-asset="tj-case-flow-detail">화면 이미지 준비 중</div>
+            <figure class="tj-figure"><img src="assets/tj-case-flow-detail.webp" alt="Detail 화면: 곡 상세" width="276" height="112" loading="lazy"></figure>
             <p class="tj-strong"><span class="tj-accent">04</span> DETAIL</p>
             <p class="tj-small">곡 상세 및 다음 행동</p>
           </li>
@@ -296,7 +297,7 @@
 
         <p class="tj-label">Design Decisions</p>
         <div class="tj-split tj-split--decision">
-          <div class="tj-slot tj-slot--wide" data-asset="tj-case-decision-search">화면 이미지 준비 중 · Search-First Hero</div>
+          <figure class="tj-figure"><img src="assets/tj-case-decision-search.webp" alt="첫 화면의 제목과 검색창 부분" width="864" height="241" loading="lazy"></figure>
           <div class="tj-stack">
             <p class="tj-label tj-label--accent">01</p>
             <h3 class="tj-item-title">SEARCH-FIRST</h3>
@@ -313,21 +314,12 @@
             <p class="tj-note">FROM Function-centered</p>
             <p class="tj-small">TO Music &amp; Discovery-centered</p>
           </div>
-          <div class="tj-slot tj-slot--wide" data-asset="tj-case-decision-photo">화면 이미지 준비 중 · 이번 주 신곡</div>
+          <figure class="tj-figure"><img src="assets/tj-case-decision-photo.webp" alt="이번 주 신곡: 이미지가 있는 곡 Card 다섯 장" width="864" height="366" loading="lazy"></figure>
         </div>
         <div class="tj-stack">
           <p class="tj-label tj-label--accent">03</p>
           <h3 class="tj-item-title">TJ IDENTITY</h3>
-          <div class="tj-split tj-split--decision">
-            <div class="tj-stack">
-              <p class="tj-label">Original Identity</p>
-              <div class="tj-slot tj-slot--wide" data-asset="tj-case-identity-logo">이미지 준비 중 · TJ 로고</div>
-            </div>
-            <div class="tj-stack">
-              <p class="tj-label">Reframed Experience</p>
-              <div class="tj-slot tj-slot--wide" data-asset="tj-case-identity-hero">화면 이미지 준비 중 · Main Hero</div>
-            </div>
-          </div>
+          <figure class="tj-figure tj-figure--plain"><img src="assets/tj-case-identity.webp" alt="원래의 TJ 로고(Song Number, Karaoke Search, Brand Recognition)에서 리디자인한 첫 화면(Search-first, Photography, Music Discovery)으로 이어지는 그림. 로고는 리디자인 대상을 밝히기 위해 실었다" width="1520" height="309" loading="lazy"></figure>
         </div>
       </section>
 
@@ -340,8 +332,8 @@
         <div class="tj-stack">
           <h3 class="tj-kicker"><span class="tj-kicker__number">01</span><span class="tj-accent">Hero</span></h3>
           <ul class="tj-columns tj-columns--2">
-            <li class="tj-columns__item"><div class="tj-slot tj-slot--thumb" data-asset="tj-case-explore-hero-early">화면 이미지 준비 중</div><span class="tj-strong tj-accent">Hero 초기 시안</span></li>
-            <li class="tj-columns__item"><div class="tj-slot tj-slot--thumb" data-asset="tj-case-explore-hero-final">화면 이미지 준비 중</div><span class="tj-strong tj-accent">최종 Hero (Section 10)</span></li>
+            <li class="tj-columns__item"><figure class="tj-figure"><img src="assets/tj-case-explore-hero-early.webp" alt="Hero 초기 시안: 어두운 바탕에 Cyan 조명과 Waveform 장식" width="480" height="230" loading="lazy"></figure><span class="tj-strong tj-accent">Hero 초기 시안</span></li>
+            <li class="tj-columns__item"><figure class="tj-figure"><img src="assets/tj-case-explore-hero-final.webp" alt="최종 Hero: 녹음실 사진을 바탕으로 쓴 구성" width="540" height="230" loading="lazy"></figure><span class="tj-strong tj-accent">최종 Hero (Section 10)</span></li>
           </ul>
           <dl class="tj-chain">
             <div><dt>TRY</dt><dd>Dark Hero에 Cyan Spotlight와 Waveform 장식을 적용해 검색 중심 구성을 먼저 테스트</dd></div>
@@ -354,8 +346,8 @@
         <div class="tj-stack">
           <h3 class="tj-kicker"><span class="tj-kicker__number">02</span><span class="tj-accent">신곡 · 앨범 아트</span></h3>
           <ul class="tj-columns tj-columns--2">
-            <li class="tj-columns__item"><div class="tj-slot tj-slot--thumb" data-asset="tj-case-explore-latest-early">화면 이미지 준비 중</div><span class="tj-strong tj-accent">신곡 초기 시안 (카드 4장)</span></li>
-            <li class="tj-columns__item"><div class="tj-slot tj-slot--thumb" data-asset="tj-case-explore-latest-final">화면 이미지 준비 중</div><span class="tj-strong tj-accent">최종 신곡 (카드 5장)</span></li>
+            <li class="tj-columns__item"><figure class="tj-figure"><img src="assets/tj-case-explore-latest-early.webp" alt="신곡 초기 시안: 추상 그래픽 Card 네 장" width="420" height="208" loading="lazy"></figure><span class="tj-strong tj-accent">신곡 초기 시안 (카드 4장)</span></li>
+            <li class="tj-columns__item"><figure class="tj-figure"><img src="assets/tj-case-explore-latest-final.webp" alt="최종 신곡: 이미지 Card 다섯 장" width="600" height="208" loading="lazy"></figure><span class="tj-strong tj-accent">최종 신곡 (카드 5장)</span></li>
           </ul>
           <dl class="tj-chain">
             <div><dt>TRY</dt><dd>웨이브폼·큰 숫자·그리드·레터 등 4가지 그래픽 패턴을 카드 아트워크로 테스트</dd></div>
@@ -371,7 +363,7 @@
         <p class="tj-kicker"><span class="tj-kicker__number">10</span><span>Main Experience</span></p>
         <h2 class="tj-heading">Dark Hero에서 콘텐츠 탐색까지 하나의 흐름으로</h2>
         <p class="tj-lead">사진 기반 Dark Hero에서 시작해 신곡·인기차트 탐색과 서비스 연결까지 이어지는 흐름을 하나의 화면에 담았다.</p>
-        <div class="tj-slot" data-asset="tj-case-main-full">화면 이미지 준비 중 · Main 전체 화면</div>
+        <figure class="tj-figure"><img src="assets/tj-case-main-full.webp" alt="리디자인한 Main 전체 화면: 검색 중심 Dark Hero, 이번 주 신곡, 실시간 노래방 인기차트, TJ 서비스로 이어가기, Footer" width="1344" height="2737" loading="lazy"></figure>
         <ol class="tj-columns tj-columns--3">
           <li class="tj-columns__item"><span class="tj-label tj-label--accent">01</span><h3 class="tj-strong">검색 중심 Dark Hero</h3><p class="tj-small">사진 기반 Dark Hero에 검색바를 배치하고, 어두운 오버레이로 가독성을 확보했다.</p></li>
           <li class="tj-columns__item"><span class="tj-label tj-label--accent">02</span><h3 class="tj-strong">신곡 &amp; 인기차트</h3><p class="tj-small">다크 → 화이트 → 다크 리듬으로 신곡과 인기차트를 구분해, 검색 목적이 없어도 자연스럽게 탐색한다.</p></li>
@@ -386,11 +378,11 @@
         <p class="tj-lead">Search Result와 Song Detail, 두 화면의 실제 UI 구현을 정리했다.</p>
         <div class="tj-stack">
           <h3 class="tj-strong"><span class="tj-accent">Detail</span> 화면 상세 — 검색 결과의 가독성과 탐색 일관성</h3>
-          <div class="tj-slot tj-slot--wide" data-asset="tj-case-search-result">화면 이미지 준비 중 · Search Result와 주석</div>
+          <figure class="tj-figure"><img src="assets/tj-case-search-result.webp" alt="Search Result 화면과 주석: 검색 결과의 가독성, 일관된 탐색 구조, 명확한 정보 위계, 다음 행동 제공" width="1520" height="908" loading="lazy"></figure>
         </div>
         <div class="tj-stack">
           <h3 class="tj-strong"><span class="tj-accent">Detail</span> 화면 상세 — Search Result → Song Detail 연결</h3>
-          <div class="tj-slot tj-slot--wide" data-asset="tj-case-song-detail">화면 이미지 준비 중 · Song Detail과 주석</div>
+          <figure class="tj-figure"><img src="assets/tj-case-song-detail.webp" alt="Song Detail 화면과 주석: 곡번호 연속성, 핵심 정보에 집중, 명확한 정보 위계, 다음 행동 제공" width="1520" height="908" loading="lazy"></figure>
         </div>
       </section>
 
@@ -399,14 +391,8 @@
         <p class="tj-kicker"><span class="tj-kicker__number">12</span><span>Final Screens</span></p>
         <h2 class="tj-heading">완성된 화면으로 이어진 음악 탐색 경험</h2>
         <p class="tj-lead">메인부터 검색·신곡·인기차트·곡 상세·반주곡 신청까지, 핵심 기능을 하나의 시각 언어로 확장했다.</p>
-        <ul class="tj-columns tj-columns--3">
-          <li class="tj-columns__item"><div class="tj-slot" data-asset="tj-screen-desktop-main">화면 이미지 준비 중</div><span class="tj-label tj-label--accent">01 Main</span><span class="tj-strong">메인</span></li>
-          <li class="tj-columns__item"><div class="tj-slot" data-asset="tj-screen-desktop-search">화면 이미지 준비 중</div><span class="tj-label tj-label--accent">02 Search</span><span class="tj-strong">노래 검색</span></li>
-          <li class="tj-columns__item"><div class="tj-slot" data-asset="tj-screen-desktop-latest">화면 이미지 준비 중</div><span class="tj-label tj-label--accent">03 Latest Songs</span><span class="tj-strong">신곡</span></li>
-          <li class="tj-columns__item"><div class="tj-slot" data-asset="tj-screen-desktop-chart">화면 이미지 준비 중</div><span class="tj-label tj-label--accent">04 Music Chart</span><span class="tj-strong">인기차트</span></li>
-          <li class="tj-columns__item"><div class="tj-slot" data-asset="tj-screen-desktop-detail">화면 이미지 준비 중</div><span class="tj-label tj-label--accent">05 Song Detail</span><span class="tj-strong">곡 상세</span></li>
-          <li class="tj-columns__item"><div class="tj-slot" data-asset="tj-screen-desktop-request">화면 이미지 준비 중</div><span class="tj-label tj-label--accent">06 Song Request</span><span class="tj-strong">반주곡 신청</span></li>
-        </ul>
+        <figure class="tj-figure tj-figure--plain"><img src="assets/tj-case-final-1.webp" alt="완성된 Desktop 화면 세 장: 01 Main 메인, 02 Search 노래 검색, 05 Song Detail 곡 상세" width="1520" height="1093" loading="lazy"></figure>
+        <figure class="tj-figure tj-figure--plain"><img src="assets/tj-case-final-2.webp" alt="완성된 Desktop 화면 세 장: 03 Latest Songs 신곡, 04 Music Chart 인기차트, 06 Song Request 반주곡 신청" width="1520" height="563" loading="lazy"></figure>
       </section>
 
       <!-- 13 Mobile Experience -->
@@ -414,11 +400,7 @@
         <p class="tj-kicker"><span class="tj-kicker__number">13</span><span>Mobile Experience</span></p>
         <h2 class="tj-heading">작은 화면에서도 이어지는 검색과 음악 탐색</h2>
         <p class="tj-lead">Desktop의 정보 구조를 유지하면서 검색·탐색·곡 상세 흐름을 Mobile에 맞게 재구성했다.</p>
-        <ul class="tj-columns tj-columns--3">
-          <li class="tj-columns__item"><div class="tj-slot tj-slot--portrait" data-asset="tj-screen-mobile-main">화면 이미지 준비 중</div><span class="tj-label tj-label--accent">Main</span><span class="tj-strong">메인</span></li>
-          <li class="tj-columns__item"><div class="tj-slot tj-slot--portrait" data-asset="tj-screen-mobile-search">화면 이미지 준비 중</div><span class="tj-label tj-label--accent">Search</span><span class="tj-strong">노래 검색</span></li>
-          <li class="tj-columns__item"><div class="tj-slot tj-slot--portrait" data-asset="tj-screen-mobile-detail">화면 이미지 준비 중</div><span class="tj-label tj-label--accent">Song Detail</span><span class="tj-strong">곡 상세</span></li>
-        </ul>
+        <figure class="tj-figure tj-figure--plain"><img src="assets/tj-case-mobile.webp" alt="완성된 Mobile 화면 세 장: Main 메인, Search 노래 검색, Song Detail 곡 상세" width="1520" height="974" loading="lazy"></figure>
       </section>
 
       <!-- 14 Outcome & Reflection -->
@@ -450,6 +432,7 @@
         <p class="tj-kicker"><span class="tj-kicker__number">15</span><span>Closing</span></p>
         <h2 class="tj-heading">검색 경험과 콘텐츠 탐색 구조를 중심으로 TJ미디어의 웹 경험을 재구성했다.</h2>
         <p class="tj-lead">TJ MEDIA Website Redesign — 검색 중심 · 이미지가 이끄는 음악 탐색 경험</p>
+        <p class="tj-notice">이 프로젝트는 포트폴리오를 위한 비공식 개인 리디자인이며 TJ미디어와 무관합니다. TJ 로고와 현행 사이트 캡처는 리디자인 대상을 밝히고 분석 내용을 설명하기 위해 실었고, 그 상표와 화면의 권리는 TJ미디어에 있습니다. 화면에 쓰인 사진과 인물 이미지는 직접 생성한 AI 이미지로, 실제 음반·인물과 관련이 없습니다.</p>
       </section>
     </main>
 

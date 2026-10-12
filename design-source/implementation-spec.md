@@ -766,3 +766,32 @@ Stage B–D(Screen Explorer와 아홉 화면)는 모든 화면에 로고와 위 
 - 전부 게시 가능 → Figma 화면 그대로 HTML/CSS로 구현하고 Thumbnail을 연결한다.
 - 사진만 보류 → 화면은 HTML/CSS로 구현하되 사진 자리는 비운다.
 - 로고도 보류 → 로고 자리에 글자만 둔다(Figma와 달라진다).
+
+## 33. TJ MEDIA Case Study — 이미지 연결 (2026-10-12, 사용자 결정. 32절의 "이미지 권리", "화면 이미지 27곳은 자리만", "다음 단계가 기다리는 것"을 대체한다)
+### 사용자 결정
+- TJ MEDIA 화면의 사진과 인물 이미지는 **본인이 제작한 AI 이미지**다.
+- TJ미디어 로고와 tjmedia.com 화면 캡처는 **포트폴리오 리디자인 목적임을 분명히 밝히고** 싣는다.
+
+### 목적을 밝힌 곳
+| 위치 | 문구의 내용 |
+|---|---|
+| 표지(기본 정보 아래) | 포트폴리오를 위한 비공식 개인 리디자인이며 TJ미디어의 의뢰·승인을 받지 않았고 TJ미디어와 무관하다 |
+| Research의 캡처 아래 | 캡처의 출처(tjmedia.com)와 날짜, 분석을 위한 인용이라는 점, 화면의 권리는 TJ미디어에 있다는 점 |
+| Persona 이미지 아래 | Figma의 표기 그대로 "Representative image · AI-generated" |
+| 맺음 | 비공식 개인 리디자인, 로고와 캡처를 실은 이유와 권리의 소재, 사진과 인물 이미지는 직접 생성한 AI 이미지이고 실제 음반·인물과 관련이 없다는 점 |
+| `<meta name="description">` | "비공식 개인 프로젝트" |
+- 이 문구들은 Figma에 없고, 타사 상표와 화면을 싣는 조건으로 더했다.
+
+### 연결한 이미지 (`docs/assets/tj-case-*.webp`, 스물한 개)
+- Figma Case Study 전체 Render(1배)에서 Node 좌표대로 잘랐다. 새로 만들거나 고친 이미지는 없다.
+- 표지의 로고와 Main Hero, 현행 홈페이지 캡처, Persona 이미지, User Flow의 화면 네 장, Design Decisions의 두 장, TJ Identity 그림, Exploration의 시안 네 장, Main 전체 화면, Search Result·Song Detail의 주석 달린 화면, Final Screens 두 줄, Mobile 세 화면.
+- Final Screens와 Mobile은 화면마다 따로 자르지 않고 Figma의 묶음 구성(이름표 포함) 그대로 한 장씩 실었다. 이름표의 글은 대체 텍스트에 옮겼다.
+- 32절에서 옮기지 않았던 Search & Discovery Flow의 주석 상자는 화면과 함께 이미지 안에 들어 있다.
+- `assets/manifest.jsonl`: `tj-*` 열두 건을 PENDING에서 APPROVED로 바꾸고(로고와 캡처에는 위 문구를 함께 싣는다는 조건을 적었다) `tj-case-images` 묶음을 더했다. AI 생성 도구의 이름은 기록되지 않았다.
+
+### 남은 차이
+- 화면 이미지가 1배라 고해상도 화면에서 조금 부드럽고, 좁은 화면에서는 화면 속 글자가 작다.
+- 그 밖의 차이는 32절 "Figma와 다른 점" 가운데 폭, 옅은 회색 글자, Typography 견본 크기, IA Tree와 User Flow의 선 모양 항목이 그대로다.
+
+### 다음 단계
+Stage B–E(Interactive Screen Explorer)를 막던 권리 문제는 풀렸다. 시연 Page에도 같은 문구를 넣는다.

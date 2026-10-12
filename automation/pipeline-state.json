@@ -36,20 +36,14 @@
   "checkpoint": {
     "stage": "secondary_pages",
     "page": "tj-media",
-    "section": "Stage A 완료 / Stage B 대기",
+    "section": "Stage A 완료(이미지 포함) / Stage B 시작 전",
     "updated_at": "2026-10-12",
-    "resume_hint": "2026-10-12 TJ MEDIA Stage A: tj-media.html을 Figma 최종 Case Study의 15 Section 순서·문안·표현으로 다시 쓰고 local commit했다(push 안 함). 화면 이미지 27곳은 권리 미확인으로 자리만 있다. 근거·보류 Asset 표·다음 단계 조건은 implementation-spec.md 32절, PENDING 기록은 assets/manifest.jsonl(tj-*). Stage B–E(Interactive Screen Explorer: docs/tj-media-demo/, Desktop 6 · Mobile 3 화면 HTML/CSS, 검색 흐름, CTA 두 곳)는 시작하지 않았다. 재개 순서: (1) 사용자에게 TJ 로고·tjmedia.com 캡처·사진 8장·Persona 이미지의 게시 여부 확인 (2) 확인된 것만 manifest APPROVED로 바꾸고 tj-slot에 연결 (3) Stage B: 05_Portfolio_CaseStudy의 DESKTOP V2 FINAL / MOBILE V2 FINAL 화면 아홉 개를 Node 단위로 읽고 색인 Page와 화면별 URL (4) Stage C: Main → Search → (Search 화면 안의 결과 상태) → Song Detail, Desktop·Mobile (5) Stage D: Latest, Chart, Request(신청 완료를 가장하지 않는다) (6) Stage E: tj-media에 CTA 두 곳(\"리디자인 UI 직접 체험하기\" / \"디자인 화면 둘러보기 →\"), 시연 Page의 Case Study 복귀 링크, TOP 버튼, 통합 QA. AIDORA, index, asics-korea는 건드리지 않는다."
+    "resume_hint": "2026-10-12: tj-media Case Study에 Figma에서 자른 이미지 21개를 연결하고 비공식 개인 리디자인 문구를 넣었다(spec 33절). 사용자 확인: 사진·인물 이미지는 본인이 만든 AI 이미지, TJ 로고와 tjmedia.com 캡처는 리디자인 목적을 밝히고 게시. local commit만 했다(push 안 함). 다음은 Stage B: docs/tj-media-demo/ — 05_Portfolio_CaseStudy의 DESKTOP V2 FINAL 6개(01_Main 1353:2727, 02_Search 1401:1814, 03_LatestSongs 1367:2815, 04_MusicChart 1374:2839, 05_SongDetail 1391:2933, 06_SongRequest 1405:3090)와 MOBILE V2 FINAL 3개(07_Main 1411:1814, 08_Search 1413:1814, 09_SongDetail 1414:3129)를 Node 단위로 읽어 색인 Page와 화면별 HTML/CSS를 만든다. 그 Page의 Metadata는 이미 내려받은 적이 있다(크다 — Node 단위로 다시 읽는다). Stage C: Main → Search(검색 결과 상태) → Song Detail 흐름, Figma에 나온 예시 곡만 검색된다는 점을 화면에 밝힌다. Stage D: Latest, Chart, Request(신청 완료를 가장하지 않는다). Stage E: tj-media에 CTA 두 곳, 시연 Page의 Case Study 복귀 링크와 비공식 리디자인 문구, TOP 버튼, 통합 QA."
   },
   "render_checked": true,
-  "qa_status": "2026-10-12 tj-media(Stage A): 1920·1440·768·390에서 가로 Overflow 없음, Console Error·실패 Request 0, h1 1개, Section 15개. TOP 버튼(숨김 → 표시 → 맨 위 이동), Contents 복귀, 이전·다음 Project 이동 네 폭 통과. 1920 전체 화면을 축소본으로 육안 확인(Section 순서·면의 교대·도식 배치). 다른 폭은 측정만 했다. Figma와의 화면 이미지 비교는 이미지가 없어 하지 못했다",
+  "qa_status": "2026-10-12 tj-media(이미지 연결 후): 1920·1440·768·390에서 이미지 21개 로딩(깨진 이미지 0), 가로 Overflow 없음, Console Error·실패 Request 0, h1 1개, Section 15개, TOP 버튼과 Contents·이전·다음 이동 통과. 육안 확인: 1920의 cover·research·pain-points·visual-direction·final-screens·closing 화면, 390의 cover·research·final-screens 화면. 그 밖은 측정만 했다",
   "retry_count": 0,
   "blockers": [
-    {
-      "stage": "secondary_pages",
-      "type": "asset_rights",
-      "detail": "TJ MEDIA: 로고(타사 상표), tjmedia.com 캡처, 사진 8장, Persona 이미지의 게시 여부 미확인 — Case Study의 화면 자리 27곳과 Screen Explorer 전체가 여기에 걸려 있다(spec 32절)",
-      "since": "2026-10-12"
-    },
     {
       "stage": "secondary_pages",
       "type": "asset",
@@ -64,13 +58,6 @@
       "effect": "현재 Tracking에서는 제거됐지만 History에는 남아 있다. Repository가 Public이면 열람 가능하다. 제거하려면 History rewrite와 force push가 필요하며 둘 다 현재 금지 사항이다.",
       "reversibility": "History rewrite는 되돌릴 수 없다",
       "status": "PENDING_APPROVAL"
-    },
-    {
-      "action": "TJ MEDIA 이미지·로고의 게시 여부 결정",
-      "target": "docs/tj-media.html의 화면 자리, docs/tj-media-demo/(예정)",
-      "effect": "승인된 자료만 사이트에 실린다. 결정 전에는 자리만 보인다",
-      "reversibility": "게시 전에는 언제든 바꿀 수 있다",
-      "status": "PENDING_APPROVAL"
     }
   ],
   "last_deploy": {
@@ -81,7 +68,7 @@
   },
   "last_meaningful_change": {
     "date": "2026-10-12",
-    "summary": "tj-media Case Study를 Figma 최종본의 15 Section 순서·문안·표현으로 재구성(Stage A). 화면 이미지는 권리 미확인으로 자리만 둠. TOP 버튼 추가."
+    "summary": "tj-media Case Study에 Figma에서 자른 화면·로고·캡처·인물 이미지 21개 연결, 비공식 개인 리디자인 문구 추가(사용자 결정)."
   },
   "definition_of_done": "automation-orchestrator.md의 Stop Rule 전부 PASS",
   "design_definition": {
