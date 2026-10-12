@@ -113,6 +113,18 @@
   border-color: var(--color-tj-on-dark-line);
 }
 
+/* 어두운 Cover 위의 Interactive Demo 버튼: 테두리와 글자를 밝게, 가리키면 뒤집는다 */
+.project .tj-section--dark .project-cta {
+  border-color: var(--color-tj-on-dark);
+  color: var(--color-tj-on-dark);
+}
+
+.project .tj-section--dark .project-cta:hover,
+.project .tj-section--dark .project-cta:focus-visible {
+  background: var(--color-tj-on-dark);
+  color: var(--color-tj-text);
+}
+
 .tj-cover__name img {
   display: block;
   width: calc(var(--layout-tj-logo-width) * 1px);

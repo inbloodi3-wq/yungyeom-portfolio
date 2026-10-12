@@ -795,3 +795,65 @@ Stage B–D(Screen Explorer와 아홉 화면)는 모든 화면에 로고와 위 
 
 ### 다음 단계
 Stage B–E(Interactive Screen Explorer)를 막던 권리 문제는 풀렸다. 시연 Page에도 같은 문구를 넣는다.
+
+## 34. TJ MEDIA Interactive Demo — Stage B~E (2026-10-12, 사용자 지정. 33절 "다음 단계"를 대체한다)
+
+### 무엇인가
+Case Study의 최종 UI를 실제 HTML/CSS 화면으로 옮긴 시연이다(`docs/tj-media-demo/`). 포트폴리오 본체와 CSS·Token을 나눠 쓴다(`css/tokens.css`, `css/demo.css`). 공용으로 쓰는 것은 `css/top-button.css`, `js/top-button.js`, `assets/fonts/`의 Pretendard뿐이다. 검색 엔진에는 싣지 않는다(`noindex`).
+
+### 원본과 구현한 화면
+Figma Page `05_Portfolio_CaseStudy`의 최종 화면 아홉 개. 아홉 개 모두 구현했고, 구현하지 않은 화면은 없다. Figma에 없는 화면은 만들지 않았다.
+
+| 화면 | Figma Frame | 파일 |
+|---|---|---|
+| Screen Explorer | (Figma에 없음 — 화면을 고르는 색인) | `tj-media-demo/index.html` |
+| Desktop Main | `01_Main_Desktop_V2` | `desktop/main.html` |
+| Desktop Search | `02_Search_Desktop_V2` | `desktop/search.html` |
+| Desktop Latest Songs | `03_LatestSongs_Desktop_V2` | `desktop/latest.html` |
+| Desktop Music Chart | `04_MusicChart_Desktop_V2` | `desktop/chart.html` |
+| Desktop Song Detail | `05_SongDetail_Desktop_V2` | `desktop/song-detail.html` |
+| Desktop Song Request | `06_SongRequest_Desktop_V2` | `desktop/request.html` |
+| Mobile Main | `07_Main_Mobile_V2` | `mobile/main.html` |
+| Mobile Search | `08_Search_Mobile_V2` | `mobile/search.html` |
+| Mobile Song Detail | `09_SongDetail_Mobile_V2` | `mobile/song-detail.html` |
+
+Node ID는 `frame-map.md`가 아니라 이 Stage의 Checkpoint 기록(`automation/pipeline-state.json`)에 있다.
+
+### 단위와 반응형 (구현 판단)
+- Demo의 값은 Figma의 px 그대로다. Desktop 화면은 1440 폭에서 Figma와 같은 크기로 그려지고, 그보다 넓으면 본문 폭을 유지한 채 가운데 놓인다(화면을 확대하지 않는다).
+- Desktop 화면은 Figma에 좁은 폭 시안이 없다. 1024 미만에서는 가로 넘침이 없도록 흐름만 접었다(카드 열 수, 여백, Header 줄바꿈, 검색 결과 행의 둘째 줄). 이 접힌 모습은 Figma의 디자인이 아니라 구현 판단이다. Mobile 디자인은 Mobile 화면 세 개가 원본이다.
+- Mobile 화면은 390 폭의 한 줄이다. 넓은 창에서는 회색 바탕 가운데에 390 폭으로 놓이고, 폰에서는 창 폭을 채운다.
+- Breakpoint는 `config/project.yaml`의 600 / 1024만 쓴다.
+
+### 동작하는 것
+- 이동: Explorer ↔ 아홉 화면, Logo → Main, Header의 노래검색·인기곡·신곡, Main의 더보기 두 곳, 신청하기·반주곡 신청하기 → Request, 검색으로 돌아가기·목록으로 → Search, Footer의 노래검색·인기차트·신곡. 모든 화면 맨 위의 줄에서 Explorer와 Case Study(`tj-media.html#interactive-demo`)로 돌아간다.
+- 검색: Main(Desktop·Mobile)과 Latest의 검색창은 Search로 검색어를 넘긴다(`?q=`). Search는 화면에 이미 있는 예시 곡 일곱 개(시안의 '아이유' 결과)를 곡 제목·가수·곡번호로 걸러 보여 준다(`js/search.js`). 검색대상의 전체·곡 제목·가수·곡번호 Chip이 동작한다. 일치하는 곡이 없으면 예시 곡만 검색된다는 안내가 나온다. 서버도 다른 데이터도 없다.
+- Search → Song Detail: 시안에 상세 화면이 있는 곡은 '좋은 날' 하나라서 그 곡만 링크다(검색 결과, Main의 차트 1위와 Hero의 곡 안내, Chart 1위).
+- JavaScript가 없으면 Search는 시안과 같은 '아이유' 결과 그대로 보이고 이동은 모두 된다.
+
+### 모양만 둔 것(동작하지 않음 — 시안에 다음 화면이나 데이터가 없다)
+- Header의 콘텐츠·제품/서비스·기업정보, Footer의 Company·Product·Customer Support 항목, Main의 서비스 항목 가운데 앱·곡 저장·노래방 연동, 인기 검색어의 발라드·트로트·OST.
+- My TJ 저장, YouTube 연결, 검색대상의 가사, 장르 Chip, 정렬, 쪽 번호, Chart와 Latest의 탭.
+- Request: 입력은 되지만 전송하지 않는다(`action` 없음, 제출 버튼 없음). "다음 단계"는 동작하지 않고, 접수를 제공하지 않으며 입력이 저장되지 않는다는 문구를 버튼 아래에 두었다. 이 문구는 Figma에 없다.
+- Mobile: 메뉴 아이콘, 신곡·차트의 더보기, 서비스 항목, 반주곡 신청하기(Mobile 시안에 그 화면들이 없다).
+
+### Figma와 다른 점
+- 모든 화면 맨 위의 검은 줄(Explorer·Case Study 링크와 "TJ MEDIA 공식 사이트가 아닌 포트폴리오용 비공식 리디자인 시연" 문구)은 시연의 일부이며 TJ 리디자인 화면이 아니다.
+- 글꼴: Figma의 Pretendard Medium은 사이트에 Regular·Bold만 있어 Regular로 그려진다. Desktop Song Detail의 Noto Sans KR도 Pretendard로 그렸다. 글꼴 파일을 늘리지 않았다.
+- 인기 검색어의 "밤편지"는 Search로, "최신곡"은 Latest로 이어지게 했다(Figma에는 연결 표시가 없다).
+- Mobile Main의 서비스 아래 구분선은 Figma에서 폭의 일부만 그어져 있으나 본문 폭으로 그었다.
+- 세로 간격은 Figma와 수 px 차이가 날 수 있다(1440 전체 높이 기준 화면별 2% 이내).
+
+### 이미지
+- `docs/tj-media-demo/assets/`: 앨범 아트 일곱 장(`cover-01`~`07`)과 Hero의 녹음실 사진(`hero-studio`) — 사용자가 만든 AI 이미지(33절의 확인). TJ 로고(`logo.svg`)와 아이콘 SVG — Figma에서 내려받았다. Explorer의 미리보기 아홉 장(`thumb-*`) — Figma 화면 Render의 윗부분.
+- 곡 이름·가수·곡번호는 Figma 시안의 예시 글 그대로다. 실제 TJ 곡번호인지 확인하지 않았고, 화면에 예시 데이터라고 밝혔다. 앨범 아트는 실제 음반과 관련이 없다.
+- 공개 전 검토: TJ 로고(타사 상표)와 실제 가수·곡 이름이 실린 화면을 외부에 공개해도 되는지는 확정되지 않았다. 지금 승인된 범위는 로컬 포트폴리오 시연이다(`assets/manifest.jsonl`의 `tj-demo-*`).
+
+### Case Study 연결
+`docs/tj-media.html`에는 버튼 두 개만 더했다. Cover의 "리디자인 UI 직접 체험하기"와, Closing 뒤의 안내 영역(`#interactive-demo`)에 있는 "Interactive Demo 둘러보기". 둘 다 `tj-media-demo/index.html`로 간다. 열다섯 Section과 이미지 21개, 문안은 그대로다. 어두운 Cover 위 버튼의 색만 `css/pages/tj-media.css`에 더했다.
+
+### 검증 (2026-10-12, 로컬)
+- 열 Page × 1920·1440·768·390: 가로 넘침 없음, 깨진 이미지 없음, `h1` 하나, Pretendard 두 굵기 로드, 콘솔 오류·404 없음.
+- 1440과 390에서 이동 흐름: Case Study 버튼 두 곳 → Explorer, Explorer → Desktop Main → 검색 → Search → Song Detail → 목록으로, Header·더보기·신청하기, Request의 "다음 단계"가 이동·전송하지 않음, Explorer → Mobile Main → 검색 → Search → Song Detail, 뒤로 가기, Case Study 복귀, TOP 버튼. 내부 링크 전부 열림, 빈 링크 없음.
+- Figma Render와 나란히 대조: Desktop 여섯 화면(1440), Mobile 세 화면(390).
+- Case Study 회귀: Section 15개, 이미지 21개, 가로 넘침 없음.

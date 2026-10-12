@@ -61,10 +61,11 @@ site:
     - { id: tj-media, file: tj-media.html }
     - { id: asics-korea, file: asics-korea.html }
     # AIDORA Live Website(시연 사이트, 자체 CSS·Token): aidora-site/index.html, collection.html, product.html, brand.html
+    # TJ MEDIA Interactive Demo(시연, 자체 CSS·Token): tj-media-demo/index.html, desktop/{main,search,latest,chart,request,song-detail}.html, mobile/{main,search,song-detail}.html
   breakpoints: [600, 1024, 1440] # min-width(px). CSS Media Query 값의 유일한 원본. 600 미만 = Mobile, 600 이상 = Tablet, 1024 이상 = Cover의 Figma 구성(비례 축소), 1440 이상 = Profile의 Figma 구성(비례 축소)
   js_policy:
     progressive_enhancement: true   # JS 없이 핵심 콘텐츠·내비게이션 사용 가능
-    files: ["js/main.js", "js/top-button.js"]   # top-button.js: AIDORA Case Study와 Live Website의 TOP 버튼(2026-10-12)
+    files: ["js/main.js", "js/top-button.js", "tj-media-demo/js/search.js"]   # top-button.js: AIDORA Case Study와 Live Website의 TOP 버튼(2026-10-12). search.js: TJ MEDIA Demo의 예시 곡 검색(2026-10-12)
     review_threshold_lines: 150     # 넘으면 review-code에서 이유를 확인한다(금지선이 아니다)
   performance_budget:               # 초기 기준. Page당, 로컬 측정(capture.cjs) 기준
     max_transfer_kb: 1500

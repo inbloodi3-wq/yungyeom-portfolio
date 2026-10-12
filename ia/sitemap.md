@@ -113,6 +113,24 @@ Figma에 사이트 내비게이션(Header, Menu, 뒤로 가기, Page 사이 링�
 | Brand | `aidora-site/brand.html` (`#philosophy`, `#standard`, `#material`, `#direction`) | Header Menu |
 | → aidora | 모든 Page 맨 위의 "← AIDORA Case Study" | aidora#web-design |
 
+## TJ MEDIA Interactive Demo (2026-10-12)
+포트폴리오와 별개의 시연이다(`docs/tj-media-demo/`). 근거는 `design-source/implementation-spec.md` 34절.
+
+| Page | 파일 | 가는 길 |
+|---|---|---|
+| Screen Explorer | `tj-media-demo/index.html` | tj-media의 "리디자인 UI 직접 체험하기", "Interactive Demo 둘러보기" |
+| Desktop Main | `tj-media-demo/desktop/main.html` | Explorer, Logo |
+| Desktop Search | `tj-media-demo/desktop/search.html` (`?q=` 검색어) | Explorer, Header, Main·Latest의 검색창 |
+| Desktop Latest Songs | `tj-media-demo/desktop/latest.html` | Explorer, Header, Main의 더보기 |
+| Desktop Music Chart | `tj-media-demo/desktop/chart.html` | Explorer, Header, Main의 더보기 |
+| Desktop Song Request | `tj-media-demo/desktop/request.html` | Explorer, Main의 신청하기, Search의 반주곡 신청하기 |
+| Desktop Song Detail | `tj-media-demo/desktop/song-detail.html` | Explorer, Search·Main·Chart의 '좋은 날' |
+| Mobile Main | `tj-media-demo/mobile/main.html` | Explorer, Logo |
+| Mobile Search | `tj-media-demo/mobile/search.html` (`?q=` 검색어) | Explorer, Mobile Main의 검색창 |
+| Mobile Song Detail | `tj-media-demo/mobile/song-detail.html` | Explorer, Mobile Search·Main의 '좋은 날' |
+| → Explorer | 화면 맨 위의 "← Screen Explorer" | tj-media-demo/index |
+| → tj-media | 모든 Page 맨 위의 "TJ MEDIA Case Study" | tj-media#interactive-demo |
+
 ## Visual Architecture (2026-10-12)
 index(Cover·Profile·Contents)는 포트폴리오의 겉이고, Project Page는 작품을 보여 주는 흰 바탕의 독립된 영역이다. 두 영역은 CSS와 Token을 나눠 쓴다(`design-source/implementation-spec.md` 29절).
 
