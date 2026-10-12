@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TJ MEDIA 리디자인 — Mobile 좋은 날 · 아이유</title>
+  <meta name="description" content="곡번호 33393, 좋은 날 · 아이유. TJ MEDIA 웹사이트 리디자인(비공식, 포트폴리오) Mobile Song Detail 화면.">
+  <meta name="robots" content="noindex">
+
+  <link rel="icon" href="data:,">
+
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/demo.css">
+  <link rel="stylesheet" href="../../css/top-button.css">
+  <script src="../../js/top-button.js" defer></script>
+</head>
+<body class="m-stage">
+
+  <!-- 포트폴리오의 시연임을 알리고 Explorer와 Case Study로 돌아가는 줄. TJ MEDIA 리디자인 화면의 일부가 아니다. -->
+  <div class="demo-bar" id="top" tabindex="-1">
+    <nav class="demo-bar__links" aria-label="시연 안내">
+      <a href="../index.html">← Screen Explorer</a>
+      <a href="../../tj-media.html#interactive-demo">TJ MEDIA Case Study</a>
+    </nav>
+    <span class="demo-bar__note">TJ MEDIA 공식 사이트가 아닌 포트폴리오용 비공식 리디자인 시연입니다. 곡 정보는 시안의 예시 데이터입니다.</span>
+  </div>
+
+  <div class="m-screen">
+  <header class="m-header">
+    <a class="m-header__logo" href="main.html"><img src="../assets/logo.svg" alt="TJ MEDIA" width="70" height="29"></a>
+    <!-- 메뉴는 시안에 펼친 화면이 없어 모양만 둔다 -->
+    <img src="../assets/icon-menu.svg" alt="" width="24" height="24">
+  </header>
+
+  <main>
+    <p class="m-crumb"><a href="search.html">← 목록으로</a></p>
+
+    <article class="m-detail">
+      <img class="m-detail__art" src="../assets/cover-06.webp" alt="" width="480" height="480">
+      <p class="m-eyebrow m-detail__eyebrow">SONG DETAIL</p>
+      <h1 class="m-detail__title">좋은 날</h1>
+      <p class="m-detail__artist">아이유</p>
+      <p class="m-detail__meta"><strong>곡번호 33393</strong><span>가요</span></p>
+      <!-- 저장과 YouTube 연결은 시연 범위가 아니라서 모양만 둔다 -->
+      <p class="m-detail__actions" aria-hidden="true"><span class="button">My TJ에 저장</span><span class="button button--outline">YouTube에서 보기</span></p>
+    </article>
+
+    <section class="m-related" aria-labelledby="related-title">
+      <h2 class="m-related__title" id="related-title">관련 곡</h2>
+      <ul class="song-grid">
+        <li class="song-card">
+          <div class="song-card__art"><img src="../assets/cover-07.webp" alt="" width="480" height="480" loading="lazy"></div>
+          <h3 class="song-card__title">보고 싶다</h3>
+          <p class="song-card__artist">김범수</p>
+        </li>
+        <li class="song-card">
+          <div class="song-card__art"><img src="../assets/cover-01.webp" alt="" width="480" height="480" loading="lazy"></div>
+          <h3 class="song-card__title">첫 눈</h3>
+          <p class="song-card__artist">엠씨더맥스</p>
+        </li>
+        <li class="song-card">
+          <div class="song-card__art"><img src="../assets/cover-02.webp" alt="" width="480" height="480" loading="lazy"></div>
+          <h3 class="song-card__title">583</h3>
+          <p class="song-card__artist">박효신</p>
+        </li>
+        <li class="song-card">
+          <div class="song-card__art"><img src="../assets/cover-03.webp" alt="" width="480" height="480" loading="lazy"></div>
+          <h3 class="song-card__title">안녕</h3>
+          <p class="song-card__artist">조규찬</p>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="m-footer">
+    <p class="site-footer__brand"><img src="../assets/icon-footer.svg" alt="" width="20" height="20">TJ MEDIA</p>
+    <ul class="m-footer__links"><li><a href="search.html">노래검색</a></li><li>인기차트</li><li>고객센터</li><li>FAQ</li></ul>
+    <p class="m-footer__copy">© TJ Media. All rights reserved.</p>
+  </footer>
+  </div>
+
+  <a class="top-button" href="#top" data-top-button aria-label="맨 위로 이동">Top</a>
+
+</body>
+</html>

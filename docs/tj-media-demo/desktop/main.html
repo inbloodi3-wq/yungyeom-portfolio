@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TJ MEDIA 리디자인 — Main</title>
+  <meta name="description" content="노래를 찾는 가장 빠른 방법. TJ MEDIA 웹사이트 리디자인(비공식, 포트폴리오) Main 화면.">
+  <meta name="robots" content="noindex">
+
+  <link rel="icon" href="data:,">
+
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/demo.css">
+  <link rel="stylesheet" href="../../css/top-button.css">
+  <script src="../../js/top-button.js" defer></script>
+</head>
+<body>
+
+  <!-- 포트폴리오의 시연임을 알리고 Explorer와 Case Study로 돌아가는 줄. TJ MEDIA 리디자인 화면의 일부가 아니다. -->
+  <div class="demo-bar" id="top" tabindex="-1">
+    <nav class="demo-bar__links" aria-label="시연 안내">
+      <a href="../index.html">← Screen Explorer</a>
+      <a href="../../tj-media.html#interactive-demo">TJ MEDIA Case Study</a>
+    </nav>
+    <span class="demo-bar__note">TJ MEDIA 공식 사이트가 아닌 포트폴리오용 비공식 리디자인 시연입니다. 곡 정보는 시안의 예시 데이터입니다.</span>
+  </div>
+
+  <header class="site-header">
+    <a class="site-header__logo" href="main.html"><img src="../assets/logo.svg" alt="TJ MEDIA" width="67" height="28"></a>
+    <nav class="site-nav" aria-label="TJ MEDIA">
+      <a class="site-nav__search is-current" href="search.html" aria-current="page">노래검색</a>
+      <a href="chart.html">인기곡</a>
+      <a href="latest.html">신곡</a>
+      <!-- 아래 세 항목은 시안에 화면이 없어 링크를 두지 않는다 -->
+      <span>콘텐츠</span>
+      <span>제품/서비스</span>
+      <span>기업정보</span>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <img class="hero__bg" src="../assets/hero-studio.webp" alt="" width="1774" height="887">
+      <div class="hero__content l-container">
+        <div class="hero__inner">
+          <p class="eyebrow">TJ MEDIA · MUSIC SEARCH</p>
+          <p class="ticker"><span>지금 가장 많이 부르는 곡</span><a class="ticker__song" href="song-detail.html">좋은 날 · 아이유</a><span class="ticker__number">곡번호 33393</span></p>
+          <h1 class="hero__title" id="hero-title">노래를 찾는 가장 빠른 방법</h1>
+          <p class="hero__lead">곡 제목, 가수명, 곡번호로 원하는 노래를 바로 찾아보세요.</p>
+          <form class="search-bar hero__search" action="search.html" method="get" role="search">
+            <img src="../assets/icon-search.svg" alt="" width="22" height="22">
+            <input class="search-bar__input" type="search" name="q" placeholder="노래 제목, 가수명, 곡번호를 검색해보세요" aria-label="노래 검색" autocomplete="off">
+          </form>
+          <div class="hero__popular">
+            <p class="hero__popular-label">인기 검색어</p>
+            <!-- 시안의 예시 곡에 결과가 있는 검색어만 링크다 -->
+            <ul class="chips">
+              <li><a class="chip" href="search.html?q=%EB%B0%A4%ED%8E%B8%EC%A7%80">밤편지</a></li>
+              <li><a class="chip" href="latest.html">최신곡</a></li>
+              <li><span class="chip">발라드</span></li>
+              <li><span class="chip">트로트</span></li>
+              <li><span class="chip">OST</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="latest l-container" aria-labelledby="latest-title">
+      <div class="section-head">
+        <div>
+          <h2 class="section-head__title" id="latest-title">이번 주 신곡</h2>
+          <p class="section-head__sub">TJ에 새로 등록된 따끈따끈한 신곡</p>
+        </div>
+        <a class="section-head__more" href="latest.html">더보기 ›<span class="u-visually-hidden"> 신곡</span></a>
+      </div>
+      <ul class="song-grid">
+        <li class="song-card">
+          <div class="song-card__art"><img src="../assets/cover-01.webp" alt="" width="480" height="480" loading="lazy"><span class="song-card__badge">NEW</span></div>
+          <h3 class="song-card__title">Love Dive</h3>
+          <p class="song-card__artist">아이브</p>
+          <p class="song-card__meta">곡번호 71203</p>
+        </li>
+        <li class="song-card">
+          <div class="song-card__art"><img src="../assets/cover-02.webp" alt="" width="480" height="480" loading="lazy"><span class="song-card__badge">NEW</span></div>
+          <h3 class="song-card__title">Ditto</h3>
+          <p class="song-card__artist">뉴진스</p>
+          <p class="song-card__meta">곡번호 68540</p>
+        </li>
+        <li class="song-card">
+          <div class="song-card__art"><img src="../assets/cover-03.webp" alt="" width="480" height="480" loading="lazy"><span class="song-card__badge">NEW</span></div>
+          <h3 class="song-card__title">Attention</h3>
+          <p class="song-card__artist">뉴진스</p>
+          <p class="song-card__meta">곡번호 55219</p>
+        </li>
+        <li class="song-card">
+          <div class="song-card__art"><img src="../assets/cover-04.webp" alt="" width="480" height="480" loading="lazy"><span class="song-card__badge">NEW</span></div>
+          <h3 class="song-card__title">After LIKE</h3>
+          <p class="song-card__artist">아이브</p>
+          <p class="song-card__meta">곡번호 90410</p>
+        </li>
+        <li class="song-card">
+          <div class="song-card__art"><img src="../assets/cover-05.webp" alt="" width="480" height="480" loading="lazy"><span class="song-card__badge">NEW</span></div>
+          <h3 class="song-card__title">Hype Boy</h3>
+          <p class="song-card__artist">뉴진스</p>
+          <p class="song-card__meta">곡번호 34277</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="chart-band l-container" aria-labelledby="chart-title">
+      <div class="section-head">
+        <div>
+          <h2 class="section-head__title" id="chart-title">실시간 노래방 인기차트</h2>
+          <p class="section-head__sub">지금 노래방에서 가장 많이 부르는 곡</p>
+        </div>
+        <a class="section-head__more" href="chart.html">더보기 ›<span class="u-visually-hidden"> 인기차트</span></a>
+      </div>
+      <ul class="tabs tabs--dark"><li class="is-current">실시간</li><li>일간</li><li>주간</li></ul>
+      <ol class="chart-list">
+        <li class="chart-row chart-row--first">
+          <span class="chart-row__rank">1</span>
+          <img class="chart-row__thumb" src="../assets/cover-06.webp" alt="" width="48" height="48" loading="lazy">
+          <div class="chart-row__body">
+            <h3 class="chart-row__title"><a href="song-detail.html">좋은 날</a></h3>
+            <p class="chart-row__artist">아이유</p>
+          </div>
+          <span class="number-pill number-pill--dark"><span class="u-visually-hidden">곡번호 </span>33393</span>
+          <img src="../assets/icon-trend.svg" alt="" width="16" height="16">
+        </li>
+        <li class="chart-row chart-row--top">
+          <span class="chart-row__rank">2</span>
+          <img class="chart-row__thumb" src="../assets/cover-07.webp" alt="" width="48" height="48" loading="lazy">
+          <div class="chart-row__body">
+            <h3 class="chart-row__title">보고 싶다</h3>
+            <p class="chart-row__artist">김범수</p>
+          </div>
+          <span class="number-pill number-pill--dark"><span class="u-visually-hidden">곡번호 </span>20871</span>
+          <img src="../assets/icon-trend.svg" alt="" width="16" height="16">
+        </li>
+        <li class="chart-row chart-row--top">
+          <span class="chart-row__rank">3</span>
+          <img class="chart-row__thumb" src="../assets/cover-01.webp" alt="" width="48" height="48" loading="lazy">
+          <div class="chart-row__body">
+            <h3 class="chart-row__title">첫 눈</h3>
+            <p class="chart-row__artist">엠씨더맥스</p>
+          </div>
+          <span class="number-pill number-pill--dark"><span class="u-visually-hidden">곡번호 </span>33012</span>
+          <img src="../assets/icon-trend.svg" alt="" width="16" height="16">
+        </li>
+        <li class="chart-row ">
+          <span class="chart-row__rank">4</span>
+          <img class="chart-row__thumb" src="../assets/cover-02.webp" alt="" width="48" height="48" loading="lazy">
+          <div class="chart-row__body">
+            <h3 class="chart-row__title">583</h3>
+            <p class="chart-row__artist">박효신</p>
+          </div>
+          <span class="number-pill number-pill--dark"><span class="u-visually-hidden">곡번호 </span>58311</span>
+          <img src="../assets/icon-trend.svg" alt="" width="16" height="16">
+        </li>
+        <li class="chart-row ">
+          <span class="chart-row__rank">5</span>
+          <img class="chart-row__thumb" src="../assets/cover-03.webp" alt="" width="48" height="48" loading="lazy">
+          <div class="chart-row__body">
+            <h3 class="chart-row__title">안녕</h3>
+            <p class="chart-row__artist">조규찬</p>
+          </div>
+          <span class="number-pill number-pill--dark"><span class="u-visually-hidden">곡번호 </span>17650</span>
+          <img src="../assets/icon-trend.svg" alt="" width="16" height="16">
+        </li>
+        <li class="chart-row ">
+          <span class="chart-row__rank">6</span>
+          <img class="chart-row__thumb" src="../assets/cover-04.webp" alt="" width="48" height="48" loading="lazy">
+          <div class="chart-row__body">
+            <h3 class="chart-row__title">사랑은 늘 도망가</h3>
+            <p class="chart-row__artist">임영웅</p>
+          </div>
+          <span class="number-pill number-pill--dark"><span class="u-visually-hidden">곡번호 </span>88214</span>
+          <img src="../assets/icon-trend.svg" alt="" width="16" height="16">
+        </li>
+      </ol>
+    </section>
+
+    <section class="service l-container" aria-labelledby="service-title">
+      <div class="section-head">
+        <div>
+          <h2 class="section-head__title" id="service-title">TJ 서비스로 이어가기</h2>
+          <p class="section-head__sub">음악 경험을 노래방에서도 그대로</p>
+        </div>
+      </div>
+      <!-- 앱·저장·연동은 시연 범위가 아니라서 모양만 둔다. 반주곡 신청만 화면이 있다 -->
+      <ul class="service__grid">
+        <li class="service-item service-item--lead">
+          <div class="service-item__icon"><img src="../assets/icon-service-1.svg" alt="" width="26" height="26"></div>
+          <h3 class="service-item__title">My TJ 앱</h3>
+          <p class="service-item__text">앱에서도 편하게 노래를 찾아보세요</p>
+          <span class="service-item__action button">지금 시작하기</span>
+        </li>
+        <li class="service-item">
+          <div class="service-item__icon"><img src="../assets/icon-service-2.svg" alt="" width="26" height="26"></div>
+          <h3 class="service-item__title">곡 저장</h3>
+          <p class="service-item__text">즐겨찾는 곡을 저장하고 다시 찾아보세요</p>
+          <span class="service-item__action">자세히 보기</span>
+        </li>
+        <li class="service-item">
+          <div class="service-item__icon"><img src="../assets/icon-service-3.svg" alt="" width="26" height="26"></div>
+          <h3 class="service-item__title">노래방 연동</h3>
+          <p class="service-item__text">매장 안내와 연동된 서비스를 이용하세요</p>
+          <span class="service-item__action">자세히 보기</span>
+        </li>
+        <li class="service-item">
+          <div class="service-item__icon"><img src="../assets/icon-service-3.svg" alt="" width="26" height="26"></div>
+          <h3 class="service-item__title">반주곡 신청</h3>
+          <p class="service-item__text">원하는 곡이 없다면 반주곡 신청이나 유료곡 등록을 이용하세요</p>
+          <a class="service-item__action button button--outline button--small" href="request.html">신청하기</a>
+        </li>
+      </ul>
+      <ul class="service__links"><li>제품 정보</li><li>사업/파트너 안내</li><li>기업정보</li></ul>
+    </section>
+  </main>
+
+  <footer class="site-footer l-container">
+    <p class="site-footer__brand"><img src="../assets/icon-footer.svg" alt="" width="20" height="20">TJ MEDIA</p>
+    <div class="site-footer__cols">
+      <div>
+        <h2 class="site-footer__heading">Company</h2>
+        <ul class="site-footer__list"><li>About TJ</li><li>Newsroom</li><li>Careers</li></ul>
+      </div>
+      <div>
+        <h2 class="site-footer__heading">Service</h2>
+        <ul class="site-footer__list"><li><a href="search.html">노래검색</a></li><li><a href="chart.html">인기차트</a></li><li><a href="latest.html">신곡</a></li></ul>
+      </div>
+      <div>
+        <h2 class="site-footer__heading">Product</h2>
+        <ul class="site-footer__list"><li>노래방 기기</li><li>스피커</li><li>앰프</li></ul>
+      </div>
+      <div>
+        <h2 class="site-footer__heading">Customer Support</h2>
+        <ul class="site-footer__list"><li>FAQ</li><li>1:1 문의</li><li>고객센터</li></ul>
+      </div>
+    </div>
+    <p class="site-footer__copy">© TJ Media. All rights reserved.</p>
+  </footer>
+
+  <a class="top-button" href="#top" data-top-button aria-label="맨 위로 이동">Top</a>
+
+</body>
+</html>

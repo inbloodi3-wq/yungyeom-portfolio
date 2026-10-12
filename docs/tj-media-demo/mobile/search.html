@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TJ MEDIA 리디자인 — Mobile 노래 검색</title>
+  <meta name="description" content="곡 제목, 가수, 곡번호로 찾는 노래 검색. TJ MEDIA 웹사이트 리디자인(비공식, 포트폴리오) Mobile Search 화면.">
+  <meta name="robots" content="noindex">
+
+  <link rel="icon" href="data:,">
+
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/demo.css">
+  <link rel="stylesheet" href="../../css/top-button.css">
+  <script src="../../js/top-button.js" defer></script>
+  <script src="../js/search.js" defer></script>
+</head>
+<body class="m-stage">
+
+  <!-- 포트폴리오의 시연임을 알리고 Explorer와 Case Study로 돌아가는 줄. TJ MEDIA 리디자인 화면의 일부가 아니다. -->
+  <div class="demo-bar" id="top" tabindex="-1">
+    <nav class="demo-bar__links" aria-label="시연 안내">
+      <a href="../index.html">← Screen Explorer</a>
+      <a href="../../tj-media.html#interactive-demo">TJ MEDIA Case Study</a>
+    </nav>
+    <span class="demo-bar__note">TJ MEDIA 공식 사이트가 아닌 포트폴리오용 비공식 리디자인 시연입니다. 곡 정보는 시안의 예시 데이터입니다.</span>
+  </div>
+
+  <div class="m-screen">
+  <header class="m-header">
+    <a class="m-header__logo" href="main.html"><img src="../assets/logo.svg" alt="TJ MEDIA" width="70" height="29"></a>
+    <!-- 메뉴는 시안에 펼친 화면이 없어 모양만 둔다 -->
+    <img src="../assets/icon-menu.svg" alt="" width="24" height="24">
+  </header>
+
+  <main data-search>
+    <div class="m-search-head">
+      <p class="m-eyebrow">MUSIC SEARCH</p>
+      <h1 class="m-search-head__title">노래 검색</h1>
+      <form class="search-bar" action="search.html" method="get" role="search">
+        <img src="../assets/icon-search.svg" alt="" width="22" height="22">
+        <input class="search-bar__input" type="search" name="q" value="아이유" aria-label="노래 검색" autocomplete="off" data-search-input>
+        <a class="search-bar__clear" href="search.html?q=" aria-label="검색어 지우기"><img src="../assets/icon-clear.svg" alt="" width="16" height="16"></a>
+      </form>
+      <p class="m-search-head__hint">곡 제목, 가수, 곡번호, 가사 중 일부만 입력해도 검색할 수 있어요</p>
+    </div>
+
+    <!-- 검색대상의 전체·곡 제목·가수·곡번호만 동작한다. 가사와 장르는 예시 데이터가 없어 모양만 둔다 -->
+    <div class="m-filter">
+      <span class="m-filter__label" id="scope-label">검색대상</span>
+      <ul class="m-scroll" aria-labelledby="scope-label"><li><button class="chip is-selected" type="button" data-search-scope="all" aria-pressed="true">전체</button></li><li><button class="chip" type="button" data-search-scope="title" aria-pressed="false">곡 제목</button></li><li><button class="chip" type="button" data-search-scope="artist" aria-pressed="false">가수</button></li><li><button class="chip" type="button" data-search-scope="number" aria-pressed="false">곡번호</button></li><li><span class="chip">가사</span></li></ul>
+    </div>
+    <div class="m-filter">
+      <span class="m-filter__label" id="genre-label">장르</span>
+      <ul class="m-scroll" aria-labelledby="genre-label"><li><span class="chip is-selected">전체</span></li><li><span class="chip">가요</span></li><li><span class="chip">POP</span></li><li><span class="chip">J-POP</span></li><li><span class="chip">기타</span></li></ul>
+    </div>
+
+    <div class="m-summary">
+      <h2 class="m-summary__title" data-search-title aria-live="polite">'아이유' 검색 결과</h2>
+      <span class="m-summary__sort">관련도순 ⌄</span>
+    </div>
+
+    <ul class="m-results" data-search-list>
+        <li class="m-result" data-song data-title="좋은 날" data-artist="아이유" data-number="33393">
+          <img class="m-result__thumb" src="../assets/cover-06.webp" alt="" width="52" height="52">
+          <div>
+            <h3 class="m-result__title"><a href="song-detail.html">좋은 날</a></h3>
+            <p class="m-result__artist">아이유</p>
+            <p class="m-result__meta"><span class="number-pill"><span class="u-visually-hidden">곡번호 </span>33393</span>가요</p>
+            <ul class="m-result__actions" aria-hidden="true">
+              <li><img src="../assets/icon-save.svg" alt="" width="16" height="16">저장</li>
+              <li><img src="../assets/icon-youtube.svg" alt="" width="16" height="16">YouTube</li>
+            </ul>
+          </div>
+        </li>
+        <li class="m-result" data-song data-title="밤편지" data-artist="아이유" data-number="48879">
+          <img class="m-result__thumb" src="../assets/cover-07.webp" alt="" width="52" height="52">
+          <div>
+            <h3 class="m-result__title">밤편지</h3>
+            <p class="m-result__artist">아이유</p>
+            <p class="m-result__meta"><span class="number-pill"><span class="u-visually-hidden">곡번호 </span>48879</span>가요</p>
+            <ul class="m-result__actions" aria-hidden="true">
+              <li><img src="../assets/icon-save.svg" alt="" width="16" height="16">저장</li>
+              <li><img src="../assets/icon-youtube.svg" alt="" width="16" height="16">YouTube</li>
+            </ul>
+          </div>
+        </li>
+        <li class="m-result" data-song data-title="Blueming" data-artist="아이유" data-number="24518">
+          <img class="m-result__thumb" src="../assets/cover-01.webp" alt="" width="52" height="52">
+          <div>
+            <h3 class="m-result__title">Blueming</h3>
+            <p class="m-result__artist">아이유</p>
+            <p class="m-result__meta"><span class="number-pill"><span class="u-visually-hidden">곡번호 </span>24518</span>가요</p>
+            <ul class="m-result__actions" aria-hidden="true">
+              <li><img src="../assets/icon-save.svg" alt="" width="16" height="16">저장</li>
+              <li><img src="../assets/icon-youtube.svg" alt="" width="16" height="16">YouTube</li>
+            </ul>
+          </div>
+        </li>
+        <li class="m-result" data-song data-title="Love wins all" data-artist="아이유" data-number="85842">
+          <img class="m-result__thumb" src="../assets/cover-02.webp" alt="" width="52" height="52">
+          <div>
+            <h3 class="m-result__title">Love wins all</h3>
+            <p class="m-result__artist">아이유</p>
+            <p class="m-result__meta"><span class="number-pill"><span class="u-visually-hidden">곡번호 </span>85842</span>가요</p>
+            <ul class="m-result__actions" aria-hidden="true">
+              <li><img src="../assets/icon-save.svg" alt="" width="16" height="16">저장</li>
+              <li><img src="../assets/icon-youtube.svg" alt="" width="16" height="16">YouTube</li>
+            </ul>
+          </div>
+        </li>
+        <li class="m-result" data-song data-title="라일락" data-artist="아이유" data-number="76595">
+          <img class="m-result__thumb" src="../assets/cover-03.webp" alt="" width="52" height="52">
+          <div>
+            <h3 class="m-result__title">라일락</h3>
+            <p class="m-result__artist">아이유</p>
+            <p class="m-result__meta"><span class="number-pill"><span class="u-visually-hidden">곡번호 </span>76595</span>가요</p>
+            <ul class="m-result__actions" aria-hidden="true">
+              <li><img src="../assets/icon-save.svg" alt="" width="16" height="16">저장</li>
+              <li><img src="../assets/icon-youtube.svg" alt="" width="16" height="16">YouTube</li>
+            </ul>
+          </div>
+        </li>
+        <li class="m-result" data-song data-title="너의 의미" data-artist="아이유" data-number="38476">
+          <img class="m-result__thumb" src="../assets/cover-05.webp" alt="" width="52" height="52">
+          <div>
+            <h3 class="m-result__title">너의 의미</h3>
+            <p class="m-result__artist">아이유</p>
+            <p class="m-result__meta"><span class="number-pill"><span class="u-visually-hidden">곡번호 </span>38476</span>가요</p>
+            <ul class="m-result__actions" aria-hidden="true">
+              <li><img src="../assets/icon-save.svg" alt="" width="16" height="16">저장</li>
+              <li><img src="../assets/icon-youtube.svg" alt="" width="16" height="16">YouTube</li>
+            </ul>
+          </div>
+        </li>
+        <li class="m-result" data-song data-title="Celebrity" data-artist="아이유" data-number="76345">
+          <img class="m-result__thumb" src="../assets/cover-04.webp" alt="" width="52" height="52">
+          <div>
+            <h3 class="m-result__title">Celebrity</h3>
+            <p class="m-result__artist">아이유</p>
+            <p class="m-result__meta"><span class="number-pill"><span class="u-visually-hidden">곡번호 </span>76345</span>가요</p>
+            <ul class="m-result__actions" aria-hidden="true">
+              <li><img src="../assets/icon-save.svg" alt="" width="16" height="16">저장</li>
+              <li><img src="../assets/icon-youtube.svg" alt="" width="16" height="16">YouTube</li>
+            </ul>
+          </div>
+        </li>
+    </ul>
+    <p class="results-empty" data-search-empty hidden>시안의 예시 데이터에 일치하는 곡이 없습니다. 이 시연은 예시로 실린 아이유의 7곡만 검색합니다.</p>
+
+    <!-- Mobile 시안에는 반주곡 신청 화면이 없어 모양만 둔다 -->
+    <div class="m-request"><p>찾는 곡이 없나요?</p><span class="button button--outline button--small">반주곡 신청하기</span></div>
+
+    <div class="pager m-pager"><span aria-hidden="true">‹</span><span class="pager__page is-current" aria-current="page">1</span><span class="pager__page">2</span><span class="pager__page">3</span><span class="pager__page">4</span><span class="pager__page">5</span><span aria-hidden="true">›</span></div>
+  </main>
+
+  <footer class="m-footer">
+    <p class="site-footer__brand"><img src="../assets/icon-footer.svg" alt="" width="20" height="20">TJ MEDIA</p>
+    <ul class="m-footer__links"><li><a href="search.html">노래검색</a></li><li>인기차트</li><li>고객센터</li><li>FAQ</li></ul>
+    <p class="m-footer__copy">© TJ Media. All rights reserved.</p>
+  </footer>
+  </div>
+
+  <a class="top-button" href="#top" data-top-button aria-label="맨 위로 이동">Top</a>
+
+</body>
+</html>

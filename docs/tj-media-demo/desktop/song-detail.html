@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TJ MEDIA 리디자인 — 좋은 날 · 아이유</title>
+  <meta name="description" content="곡번호 33393, 좋은 날 · 아이유. TJ MEDIA 웹사이트 리디자인(비공식, 포트폴리오) Song Detail 화면.">
+  <meta name="robots" content="noindex">
+
+  <link rel="icon" href="data:,">
+
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/demo.css">
+  <link rel="stylesheet" href="../../css/top-button.css">
+  <script src="../../js/top-button.js" defer></script>
+</head>
+<body>
+
+  <!-- 포트폴리오의 시연임을 알리고 Explorer와 Case Study로 돌아가는 줄. TJ MEDIA 리디자인 화면의 일부가 아니다. -->
+  <div class="demo-bar" id="top" tabindex="-1">
+    <nav class="demo-bar__links" aria-label="시연 안내">
+      <a href="../index.html">← Screen Explorer</a>
+      <a href="../../tj-media.html#interactive-demo">TJ MEDIA Case Study</a>
+    </nav>
+    <span class="demo-bar__note">TJ MEDIA 공식 사이트가 아닌 포트폴리오용 비공식 리디자인 시연입니다. 곡 정보는 시안의 예시 데이터입니다.</span>
+  </div>
+
+  <header class="site-header">
+    <a class="site-header__logo" href="main.html"><img src="../assets/logo.svg" alt="TJ MEDIA" width="67" height="28"></a>
+    <nav class="site-nav" aria-label="TJ MEDIA">
+      <a class="site-nav__search" href="search.html">노래검색</a>
+      <a href="chart.html">인기곡</a>
+      <a href="latest.html">신곡</a>
+      <!-- 아래 세 항목은 시안에 화면이 없어 링크를 두지 않는다 -->
+      <span>콘텐츠</span>
+      <span>제품/서비스</span>
+      <span>기업정보</span>
+    </nav>
+  </header>
+
+  <main>
+    <p class="crumb l-container"><a href="search.html">← 목록으로</a></p>
+
+    <article class="detail l-container">
+      <img class="detail__art" src="../assets/cover-06.webp" alt="" width="480" height="480">
+      <div>
+        <p class="eyebrow">SONG DETAIL</p>
+        <h1 class="detail__title">좋은 날</h1>
+        <p class="detail__artist">아이유</p>
+        <p class="detail__meta"><strong>곡번호 33393</strong><span>가요</span></p>
+        <!-- 저장과 YouTube 연결은 시연 범위가 아니라서 모양만 둔다 -->
+        <p class="detail__actions" aria-hidden="true"><span class="button">My TJ에 저장</span><span class="button button--outline">YouTube에서 보기</span></p>
+      </div>
+    </article>
+
+    <section class="related l-container" aria-labelledby="related-title">
+      <h2 class="related__title" id="related-title">관련 곡</h2>
+      <ul class="song-grid">
+        <li class="song-card song-card--related">
+          <div class="song-card__art"><img src="../assets/cover-07.webp" alt="" width="480" height="480" loading="lazy"></div>
+          <h3 class="song-card__title">보고 싶다</h3>
+          <p class="song-card__artist">김범수</p>
+          <p class="song-card__meta">곡번호 20871</p>
+        </li>
+        <li class="song-card song-card--related">
+          <div class="song-card__art"><img src="../assets/cover-01.webp" alt="" width="480" height="480" loading="lazy"></div>
+          <h3 class="song-card__title">첫 눈</h3>
+          <p class="song-card__artist">엠씨더맥스</p>
+          <p class="song-card__meta">곡번호 33012</p>
+        </li>
+        <li class="song-card song-card--related">
+          <div class="song-card__art"><img src="../assets/cover-02.webp" alt="" width="480" height="480" loading="lazy"></div>
+          <h3 class="song-card__title">583</h3>
+          <p class="song-card__artist">박효신</p>
+          <p class="song-card__meta">곡번호 58311</p>
+        </li>
+        <li class="song-card song-card--related">
+          <div class="song-card__art"><img src="../assets/cover-03.webp" alt="" width="480" height="480" loading="lazy"></div>
+          <h3 class="song-card__title">안녕</h3>
+          <p class="song-card__artist">조규찬</p>
+          <p class="song-card__meta">곡번호 17650</p>
+        </li>
+        <li class="song-card song-card--related">
+          <div class="song-card__art"><img src="../assets/cover-04.webp" alt="" width="480" height="480" loading="lazy"></div>
+          <h3 class="song-card__title">사랑은 늘 도망가</h3>
+          <p class="song-card__artist">임영웅</p>
+          <p class="song-card__meta">곡번호 88214</p>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer l-container">
+    <p class="site-footer__brand"><img src="../assets/icon-footer.svg" alt="" width="20" height="20">TJ MEDIA</p>
+    <div class="site-footer__cols">
+      <div>
+        <h2 class="site-footer__heading">Company</h2>
+        <ul class="site-footer__list"><li>About TJ</li><li>Newsroom</li><li>Careers</li></ul>
+      </div>
+      <div>
+        <h2 class="site-footer__heading">Service</h2>
+        <ul class="site-footer__list"><li><a href="search.html">노래검색</a></li><li><a href="chart.html">인기차트</a></li><li><a href="latest.html">신곡</a></li></ul>
+      </div>
+      <div>
+        <h2 class="site-footer__heading">Product</h2>
+        <ul class="site-footer__list"><li>노래방 기기</li><li>스피커</li><li>앰프</li></ul>
+      </div>
+      <div>
+        <h2 class="site-footer__heading">Customer Support</h2>
+        <ul class="site-footer__list"><li>FAQ</li><li>1:1 문의</li><li>고객센터</li></ul>
+      </div>
+    </div>
+    <p class="site-footer__copy">© TJ Media. All rights reserved.</p>
+  </footer>
+
+  <a class="top-button" href="#top" data-top-button aria-label="맨 위로 이동">Top</a>
+
+</body>
+</html>
