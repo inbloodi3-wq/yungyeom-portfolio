@@ -43,8 +43,8 @@ Figma Root: `포트폴리오` (Section, `2025:7129`, 2120 × 98411) → 유일�
 | cs-pain-point | Section - 03. PAIN POINT | `2025:7424` | 1600 × 1080 |
 | cs-positioning | Section - 04. BRAND STRATEGY | `2025:7513` | 1600 × 900 |
 | cs-brand-concept | Section - 04. BRAND STRATEGY | `2025:7550` | 1600 × 1017 |
-| cs-logo | Section | `2025:7611` | 1600 × 950 |
-| cs-color-type | Section | `2025:7655` | 1600 × 1080 |
+| cs-logo | Section | `2025:7611` | 1600 × 950 | ← 실제 내용은 Color System이다(2026-10-12 확인). Logo Design은 `2025:7550`의 아래쪽 묶음(`2025:7577`)에 있다 |
+| cs-color-type | Section | `2025:7655` | 1600 × 1080 | ← 실제 내용은 Typography System이다(2026-10-12 확인) |
 | cs-product-package | Section - 07. PRODUCT & PACKAGE | `2025:7708` | 1600 × 1080 |
 | cs-web-experience | Section | `2025:7720` | 1600 × 1080 |
 | cs-main-page | Section - 09. MAIN PAGE / EXPLANATION — NEW | `2025:7737` | 1600 × 3381 |

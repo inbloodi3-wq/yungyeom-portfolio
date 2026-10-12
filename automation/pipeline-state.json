@@ -36,18 +36,18 @@
   "checkpoint": {
     "stage": "secondary_pages",
     "page": "aidora",
-    "section": "showcase, web-design (이미지 대기)",
+    "section": "(사용자 확인 대기)",
     "updated_at": "2026-10-12",
-    "resume_hint": "2026-10-12 Phase 01: aidora를 기준 Page로 구현(spec 27절). 진입·복귀·이전/다음 구조와 공통 Style(css/pages/project.css)은 spec 26절. tj-media, asics-korea는 26절 상태(공통 구조 + Case Study 일부 문안)로 남아 있다. local commit만 했다(push 안 함). 다음: (1) 사용자의 AIDORA 구조 확인 (2) AIDORA 이미지 10개 자리(spec 27절 표) — 사용자의 권리 확인 후 rights-auditor → 연결 (3) cs-main-page, cs-collection, Desk Research, Positioning 문안 읽기 (4) tj-media, asics-korea를 같은 방식으로 Figma 구조에 맞추기 (5) Figma Page 05_Portfolio_CaseStudy가 최신 원본인지 확인 (6) frame-map.md의 aidora Section 이름 두 곳 정정 (7) FULL QA, Contents Typography 세부 개선은 사용자가 최종 QA 단계로 미뤘다."
+    "resume_hint": "2026-10-12 Phase 02: aidora에 이미지 10개 연결(로고 2, 패키지 4, 웹 화면 4)과 문안 보완(Desk Research, Positioning, Main Page, Collection)을 하고 local commit했다(push 안 함). 근거는 implementation-spec.md 28절. 권리는 사용자 확인으로 승인(assets/manifest.jsonl, legal/license-evidence.jsonl). 다음: (1) 사용자의 AIDORA 화면 확인 (2) tj-media, asics-korea를 같은 방식으로(이미지 권리 확인 필요 — TJ는 타사 사이트 캡처·Album Art 포함 가능성, 9절) (3) 필요하면 패키지 사진 고해상도 교체 (4) FULL QA(대비 측정, Contents Typography 세부 개선 포함) (5) push는 사용자 승인 후."
   },
   "render_checked": true,
-  "qa_status": "2026-10-12 capture.cjs: 4 Page × 1920·1440·768·390 측정상 문제 0건, JS 꺼짐 본문 있음. 이동 검증(네 폭) 재실행: 처음 진입의 Loading → Cover 유지, #contents 직접 진입, Project 3개 클릭·뒤로·앞으로, 이전/다음, Contents 복귀, 새로 고침, Console Error·실패 Request 0건. aidora 1920·390 전체 스크린샷 육안 확인(축소본 — 세부 간격은 확인하지 못함)",
+  "qa_status": "2026-10-12 aidora: 1920·1440·768·390에서 이미지 10개 로딩, 가로 Overflow 없음, Console Error·실패 Request 0건. 표시 비율은 원본과 같다(패키지 사진 두 장만 줄 높이 맞춤으로 600 이상에서 2–4.5% 잘림). capture.cjs 4 Page 측정상 문제 0건. 이동 검증(네 폭) 통과. 육안 확인: 1920의 design-system·showcase·web-design 첫 화면, 390의 design-system. 그 밖의 폭과 Scroll 틀 안쪽은 측정만 했다",
   "retry_count": 0,
   "blockers": [
     {
       "stage": "secondary_pages",
       "type": "asset",
-      "detail": "AIDORA Page의 이미지 자리 10개와 tj-media·asics-korea의 Showcase 이미지가 권리 미확인으로 비어 있다(spec 9절, 27절)",
+      "detail": "tj-media·asics-korea의 Showcase 이미지는 권리 미확인으로 비어 있다(spec 9절)",
       "since": "2026-10-12"
     }
   ],
@@ -68,7 +68,7 @@
   },
   "last_meaningful_change": {
     "date": "2026-10-12",
-    "summary": "aidora를 Figma Case Study 구조에 맞춘 기준 Page로 재구성(Pain Point, Brand Concept, Design System, Product & Package, Web Design). project.css에 묶음·Palette·서체 견본 Style 추가. 이미지 자리 10개는 미연결."
+    "summary": "aidora에 Figma에서 내보낸 이미지 10개 연결(사용자 권리 확인), Desk Research·Positioning·Main Page·Collection 문안 보완, 웹 화면용 Scroll 틀과 사진 묶음 Style 추가."
   },
   "definition_of_done": "automation-orchestrator.md의 Stop Rule 전부 PASS",
   "design_definition": {

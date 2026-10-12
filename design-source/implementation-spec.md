@@ -528,3 +528,51 @@ sheet-stack [data-active-sheet = cover | profile | contents]
 | aidora-web-pdp, aidora-web-brand | 2025:9158, 2025:9169 | 권리 확인 전 |
 - 저장소에는 AIDORA의 이미지·PDF가 없다. Figma에서 내려받지 않았다(`assets/manifest.jsonl`에 승인된 이미지가 없다).
 - 사용자가 준 핵심어 가운데 "Unseen Presence"는 Figma의 서체 견본 문구로 확인되어 그 자리에 실었다. "Quiet Luxury"는 읽은 Section에서 찾지 못해 싣지 않았다.
+
+## 28. AIDORA 이미지 연결 + 문안 보완 (2026-10-12, 사용자 지정. 27절의 "연결되지 않은 Asset" 표와 구성 표의 2·3번, "싣지 않았다" 항목을 대체한다)
+### 사용자 확인 (권리)
+- 로고 두 개(워드마크, 심볼): 직접 제작, 게시 가능.
+- 제품·패키지·공간 이미지: 본인이 AI 도구로 생성. 생성 도구 이름은 받지 않았다.
+- 웹 화면 네 개(Main, Collection, Product Detail, Brand): 직접 디자인, 화면 속 아이콘 포함 게시 가능.
+- 이 확인을 근거로 `assets/manifest.jsonl`에 열 개를 `user_provided` / Owner Provided로 승인 기록했다(`legal/license-evidence.jsonl`에 진술 기록).
+
+### AIDORA 원본의 위치 (Figma, 읽기만 함)
+| 위치 | 내용 |
+|---|---|
+| `자동화` > `포트폴리오`(이 문서의 기준) | 완성된 Case Study와 결과 화면 네 종. 이번 이미지의 출처 |
+| `Page 1` | AIDORA의 작업 과정: 와이어프레임, 패키지 초안, 메인페이지·서브페이지·상세페이지 Section, 로고 과정, Desk Research·Brand Strategy Section의 이전 판, 예전 `포트폴리오` Frame. 최상위 Node 이름만 확인했고 내용은 읽지 않았다 |
+| `05_Portfolio_CaseStudy` | TJ MEDIA 작업물과 또 하나의 `포트폴리오` Frame. AIDORA 이름의 최상위 Node는 없다. 그 `포트폴리오` Frame의 내용은 읽지 않았다 |
+
+### 연결한 Asset (모두 `docs/assets/`, 사용처는 aidora)
+| Asset ID | Figma Node | 내보낸 방법 |
+|---|---|---|
+| aidora-logo-wordmark, aidora-logo-symbol | 워드마크·심볼 Vector | SVG. 내보낸 파일에서 표시용 속성 세 개만 지웠다(모양 변화 없음) |
+| aidora-package-01 – 04 | cs-product-package의 사진 네 장 | Figma에 놓인 모습 그대로 Render(1배). 세 번째는 Figma에서 잘라 쓴 구도 그대로 |
+| aidora-web-main, aidora-web-collection, aidora-web-brand | ui-main, ui-collection, ui-brand | Frame 전체를 Render해 폭을 줄였다 |
+| aidora-web-pdp | cs-pdp에 쓰인 전체 화면 이미지 | Image Fill 원본. ui-pdp는 Header·Main·Footer가 따로 놓여 있어 한 번에 Render할 Node가 없다 |
+- 사진과 화면은 WebP로 바꿨다. 새로 만들거나 고친 이미지는 없다.
+
+### 표시 방식 (Implementation Judgement)
+| 항목 | 판단 | 이유 |
+|---|---|---|
+| 패키지 사진 배치 | Figma처럼 넓은 사진 + 좁은 사진이 한 줄(둘째 줄은 반대 순서). 좁은 화면은 한 줄에 하나 | 원본 구도 유지 |
+| 한 줄의 높이 맞춤 | 한 줄에 놓인 두 사진의 높이를 맞춘다. 사진 비율이 조금 달라 가장자리가 몇 % 잘린다 | 줄 아래쪽이 어긋나 보이는 것을 막는다. 좁은 화면에서는 자르지 않는다 |
+| 웹 화면 | 전체 화면 이미지를 높이가 정해진 틀(`project-screen`) 안에 넣고 그 안에서 세로로 Scroll한다. 틀은 Keyboard Focus를 받는다 | 화면 하나가 매우 길다. 전체를 펼치면 Page가 화면 이미지로만 채워진다. 이미지는 자르지 않는다 |
+| Product Detail 화면 | 원래 폭보다 크게 늘리지 않는다 | 원본 해상도가 다른 화면의 절반이다 |
+| 로고 | 테두리 있는 자리 안에 원래 색 그대로 | Figma의 Logo Design 묶음과 같은 방식 |
+| 지연 로딩 | 모든 이미지 `loading="lazy"`, `width`/`height` 지정 | 첫 화면 밖에 있다 |
+
+### 보완한 문안 (Figma Text 그대로)
+| Section | 추가 |
+|---|---|
+| research (이전 pain-point) | Desk Research: 요지 두 문장, 세계·한국 시장 전망 두 항목(수치와 출처 표기 포함). Pain Point는 같은 Section의 둘째 묶음이 됐다 |
+| brand-strategy (이전 brand-concept) | Positioning: 방향 문장과 핵심어 네 개(Genderless, Quiet Luxury, Architectural, Daily Premium). Brand Concept은 둘째 묶음 |
+| web-design | Main Page: 설명 두 문장과 영역별 설계 의도 일곱 항목. Collection Page: 설명 한 문장 |
+- 싣지 않은 것: 시장 Chart의 그림, Positioning Map의 비교 브랜드 이름, 리뷰 이슈 빈도 Chart, Collection 화면 안의 상품 문안(화면 이미지에 들어 있다), 숨김 Layer.
+- Outcome·성과·사용자 테스트는 Figma에 없어 쓰지 않았다.
+
+### 남은 차이
+- 패키지 사진은 1배 해상도다. 고해상도 화면에서는 조금 부드럽게 보일 수 있다(Figma의 Image Fill 원본으로 바꾸면 해결되지만 세 번째 사진은 같은 구도로 다시 잘라야 한다).
+- Product Detail 화면은 폭이 다른 화면의 절반이다.
+- 좁은 화면에서는 웹 화면 속 글자가 작아 읽기 어렵다(전체 구성을 보여 주는 용도).
+- AI 생성 이미지의 생성 도구와 약관은 기록되지 않았다(사용자 진술만 있다).

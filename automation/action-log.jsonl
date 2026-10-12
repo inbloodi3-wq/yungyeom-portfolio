@@ -1,0 +1,1 @@
+{"timestamp": "2026-10-12", "action_type": "asset_export_and_approval", "tool": "Figma MCP (read) + curl", "target_category": "user project images (AIDORA)", "risk_tier": 2, "approval_status": "APPROVED", "scope": "로고 2, 패키지 사진 4, 웹 화면 4 — 사용자가 질문 3개에 권리 확인", "result": "docs/assets에 10개 연결, manifest APPROVED"}

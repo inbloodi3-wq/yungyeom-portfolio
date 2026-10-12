@@ -330,6 +330,58 @@
   color: var(--color-contents-number);
 }
 
+/* 자리 안에 놓인 로고. 원래 크기보다 커지지 않고, 자리가 좁으면 줄어든다 */
+.project-showcase__slot:has(.project-logo) {
+  padding: calc(var(--space-project-item-padding) * 1px);
+}
+
+.project-logo {
+  max-height: calc(var(--layout-project-logo-height) * 1px);
+  width: auto;
+  object-fit: contain;
+}
+
+/* 사진 묶음. Figma의 배치대로 넓은 사진과 좁은 사진이 한 줄에 놓인다(좁은 화면에서는 한 줄에 하나) */
+.project-gallery {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: calc(var(--space-contents-index-gap) * 1px);
+}
+
+.project-shot {
+  width: 100%;
+}
+
+/* 전체 화면 이미지(긴 웹 화면)를 담는 틀. 틀 안에서 세로로 Scroll한다. Keyboard로도 Scroll할 수 있게 Focus를 받는다 */
+.project-screen {
+  max-height: min(calc(var(--layout-project-screen-height) * 1px), 80vh);
+  overflow-y: auto;
+  border: 1px solid var(--color-contents-rule);
+}
+
+.project-screen--narrow {
+  max-width: calc(var(--layout-project-screen-narrow) * 1px);
+}
+
+/* 핵심어 묶음 */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--space-contents-item-gap) * 1px);
+}
+
+.project-tags__item {
+  padding: calc(var(--space-contents-head-row-gap-compact) * 2px) calc(var(--space-contents-head-padding-compact) * 1px);
+  border: 1px solid var(--color-contents-rule);
+  font-family: var(--font-display);
+  font-size: calc(var(--text-contents-caption-size) * 1px);
+  line-height: calc(var(--text-contents-caption-leading-px) * 1px);
+  letter-spacing: calc(var(--text-contents-caption-tracking) * 1px);
+  text-transform: uppercase;
+  color: var(--color-contents-project);
+}
+
 .project-showcase__slot--wide {
   aspect-ratio: var(--layout-project-slot-ratio-wide);
 }
@@ -397,6 +449,24 @@
 
   .project-palette {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .project-gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .project-shot--wide {
+    grid-column: span 2;
+  }
+
+  /* 한 줄에 놓인 사진의 높이를 맞춘다. 사진 비율이 조금씩 달라 생기는 몇 px 차이만 가장자리에서 잘린다 */
+  .project-gallery {
+    align-items: stretch;
+  }
+
+  .project-gallery .project-shot {
+    height: 100%;
+    object-fit: cover;
   }
 
   .project-meta,
