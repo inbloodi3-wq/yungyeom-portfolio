@@ -576,3 +576,46 @@ sheet-stack [data-active-sheet = cover | profile | contents]
 - Product Detail 화면은 폭이 다른 화면의 절반이다.
 - 좁은 화면에서는 웹 화면 속 글자가 작아 읽기 어렵다(전체 구성을 보여 주는 용도).
 - AI 생성 이미지의 생성 도구와 약관은 기록되지 않았다(사용자 진술만 있다).
+
+## 29. Project Detail Visual Architecture (2026-10-12, 사용자 지정. 26절의 "Project Page 구성"과 "Page 전환" 가운데 종이·띠·Contents Token에 관한 내용, 28절 "표시 방식"의 로고 항목을 대체한다)
+### 사용자 결정
+- **역할을 나눈다.** Cover·Loading·Contents는 포트폴리오의 정체성을 보여 주는 겉이고 그대로 둔다. Project Detail Page는 작품 자체를 보여 주는 자리다. 겉의 장식(종이 질감, 왼쪽 띠, 종이색 바탕)을 Project Page에서 반복하지 않는다.
+- Project Page의 바탕은 Page 전체가 흰색이다(흰 종이 모양의 틀을 얹지 않는다). 그림자, Card 테두리, 장식 틀을 더하지 않는다.
+- 글은 읽기 좋은 폭에 두고, 디자인 결과물은 더 넓게 보여 준다.
+- 이번 범위: aidora의 바탕과 폭, tj-media·asics-korea의 바탕 구조, CSS 구조 분리. 두 Project의 내용 재구성과 aidora 웹 화면의 Scroll 방식은 다음 단계다.
+
+### 이전 구조에서 문제가 된 것
+- 26절에서 Project Page를 "Folder에서 꺼낸 종이 한 장"으로 정하고 Cover의 종이 바탕과 띠를 그대로 깔았다. Project Page의 색·선·Label·움직임도 Contents와 Profile의 Token을 직접 썼다. 그래서 작품(밝은 제품 사진, 흰 화면)이 회색 종이 위에 놓였고, 겉의 디자인을 바꾸면 Project Page도 함께 바뀌는 구조였다.
+- Section이 "왼쪽 Label + 오른쪽 내용" 두 단이어서 넓은 화면에서도 이미지가 Page 폭의 3/4만 썼다.
+
+### 분리 방식
+| 층 | 내용 |
+|---|---|
+| 읽는 파일 | Project Page는 `tokens.css`, `base.css`, `css/pages/project.css`만 읽는다. index가 쓰는 `layout.css`, `components.css`는 읽지 않는다 |
+| Token | `tokens.css`에 "Project Detail Page" 묶음(`--*-project-*`)을 따로 두었다. `project.css`는 이 묶음과 서체 Token(`--font-*`)만 쓰고 Cover·Profile·Contents Token은 쓰지 않는다. 두 묶음은 서로 참조하지 않는다 |
+| Selector | `project.css`의 모든 규칙은 `.project-page` 아래의 `project-*` Class다. `<body>`의 종이색 바탕(`base.css`)은 `.project-page`가 흰색으로 바꾼다. `base.css`는 고치지 않았다 |
+| Project별 분위기 | `<body>`의 변형 Class(`project-page--aidora` 등)가 `--project-surface` 같은 값을 정한다. Page 바탕은 세 Project 모두 흰색이다 |
+- 색: 바탕 `--color-project-bg`, 글자 `--color-project-text` / `--color-project-sub` / `--color-project-label`, 선 `--color-project-rule`. 글자와 선의 값은 Figma Case Study의 중립색에서 가져왔다(종이 위에서 쓰던 반투명 선과 회색을 흰 바탕에 맞는 값으로 바꿨다).
+- 서체 구성(영문 Outfit, 한글 Pretendard)은 그대로다. 필기체는 Project Page에 쓰지 않는다.
+
+### 폭과 배치 (Implementation Judgement)
+| 항목 | 판단 | 이유 |
+|---|---|---|
+| Page 폭 | `--layout-project-max-width`. 가운데 정렬, 좌우 여백은 폭 구간마다 하나씩 | 사용자가 준 범위 안에서 웹 화면 이미지의 원래 폭과 같은 값을 골랐다. 이미지가 원래 크기보다 늘어나지 않는다 |
+| 글의 폭 | 본문·여는 문장·덧붙임 각각 한 줄 길이의 상한(`--layout-project-measure*`) | Page 폭이 넓어져도 글줄이 길어지지 않는다 |
+| Section | 모든 폭에서 Label → 내용 순으로 위에서 아래. 두 단 구성을 없앴다 | 이미지·견본·목록이 Page 폭을 다 쓴다. 정렬 기준이 왼쪽 한 줄로 통일된다 |
+| Color System 견본 | 넓은 화면에서 여섯 개가 한 줄 | 폭이 넓어져 두 줄이면 견본이 지나치게 커진다 |
+| 로고 자리의 바탕 | aidora에서 `--color-aidora-pale-blue-gray` | Figma Case Study의 로고 면 색과 같다. AIDORA의 분위기를 면 색으로만 얹는다 |
+| 들어올 때의 움직임 | 그대로(값만 Project 묶음으로 옮겼다) | 절제된 전환 유지 |
+- aidora의 글과 이미지 열 개, tj-media·asics-korea의 내용은 바꾸지 않았다. 세 HTML에서 바뀐 것은 읽는 CSS 목록과 `<body>`의 Class뿐이다.
+
+### 확인한 것 (1920, 1440, 768, 390)
+- 세 Project Page의 바탕이 흰색이고 띠와 종이 질감이 없다(Render의 화소 값으로 확인).
+- aidora의 이미지 폭(1920 기준): 웹 화면은 원래 폭 그대로, 패키지 사진은 이전보다 약 1.4배. 원래 크기보다 늘어난 이미지는 없다.
+- index: 수정 전후의 Cover와 Contents Render를 화소 단위로 비교했다. Contents는 네 폭 모두 같고, Cover는 두 폭에서 같고 두 폭에서 제목 글자 가장자리의 1단계 차이뿐이다(Render마다 생기는 Antialiasing 차이).
+- 이동(Contents ↔ Project Page, 뒤로·앞으로, 이전/다음, 새로 고침), 가로 Overflow, Console Error, 실패 Request: 문제 없음.
+
+### 남은 것
+- tj-media, asics-korea: 바탕과 구조만 바뀌었다. 내용은 26절 상태(Case Study 일부 문안, 이미지 자리 비어 있음)이고 Project 고유의 색·위계는 아직 반영하지 않았다. 변형 Class만 준비되어 있다.
+- aidora 웹 화면의 Scroll 틀은 그대로다(사용자가 별도 검토로 남겼다).
+- 흰 바탕에서 `--color-project-label` 글자의 대비는 측정하지 않았다.

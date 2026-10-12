@@ -1,49 +1,46 @@
 /* Project Detail Page — aidora.html, tj-media.html, asics-korea.html이 함께 쓰는 Style.
-   세 Page의 HTML 구조는 같고 내용만 다르다. Page를 더 만들 때는 한 파일을 복사해 내용을 바꾼다.
 
-   Folder에서 꺼낸 종이 한 장을 길게 펼친 모습이다: Cover와 같은 종이 바탕, 왼쪽에 같은 띠.
-   크기는 px 그대로 쓴다(화면 폭에 비례해 줄이지 않는다). 띠의 폭만 화면 폭에 비례한다.
+   역할의 분리: Cover·Contents(index)는 포트폴리오의 정체성을 보여 주는 겉(종이, 띠, 필기체)이고,
+   Project Detail Page는 작품 자체를 보여 주는 자리다. 그래서 이 Page는 흰 바탕이고 장식이 없다.
 
-   project            Page 전체(띠를 피한 안쪽)
+   구조의 분리
+   - Project Page는 tokens.css, base.css와 이 파일만 읽는다. index의 layout.css, components.css는 읽지 않는다.
+   - 이 파일은 tokens.css의 "Project Detail Page" 묶음(--*-project-*)과 서체 Token만 쓴다.
+     Cover·Contents의 Token(--*-cover-*, --*-contents-*, --*-profile-*)은 쓰지 않는다.
+   - 모든 Selector가 .project-page 아래의 project-* Class다. 이 파일을 고쳐도 index는 달라지지 않는다.
+   - Project마다 다른 분위기는 <body>의 변형 Class(.project-page--aidora 등)가 --project-surface 같은 값을 정해서 만든다.
+
+   폭: 글은 읽기 좋은 폭(--layout-project-measure-*)에 머물고, 이미지·견본·목록은 Page 폭(--layout-project-max-width)을 다 쓴다.
+   크기는 px 그대로 쓴다(화면 폭에 비례해 줄이지 않는다).
+
+   project            Page 전체
      project-bar      맨 위: Contents로 돌아가기, Project 번호
-     project-hero     01 Overview: 제목, 소개, 기본 정보(project-meta)
-     project-section  02–05: 왼쪽 Label, 오른쪽 내용
+     project-hero     01: 제목, 소개, 기본 정보(project-meta)
+     project-section  02–: Section Label, 내용
+       project-block    한 Section 안의 묶음(영문 제목 + 내용)
        project-list     번호·제목·설명이 줄로 이어지는 목록
-       project-showcase 화면 이미지 자리
+       project-gallery  사진 묶음
+       project-screen   긴 웹 화면을 담는 틀
+       project-showcase 이미지 자리
      project-nav      맨 아래: 이전 / Contents / 다음 */
 
 .project-page {
-  --project-band: calc(var(--layout-cover-band-width) * var(--px));
-
   font-family: var(--font-kr-body);
-  color: var(--color-contents-project);
-  background: var(--color-cover-paper) url("../../assets/paper-texture.webp") repeat 0 0;
-}
-
-/* 왼쪽 띠. Cover의 띠와 같은 색·질감이고 Scroll해도 제자리에 있다 */
-.project-page::before {
-  content: "";
-  position: fixed;
-  z-index: 2;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: var(--project-band);
-  background: var(--color-cover-band) url("../../assets/paper-texture-dark.webp") repeat 0 0;
+  color: var(--color-project-text);
+  background: var(--color-project-bg);
 }
 
 .project {
   padding: calc(var(--space-project-page-block-compact) * 1px) calc(var(--layout-project-gutter-compact) * 1px);
-  padding-left: calc(var(--project-band) + var(--layout-project-gutter-compact) * 1px);
-  /* Page에 들어올 때 내용이 아래에서 제자리로 올라오며 나타난다(Cover 글자의 등장과 같은 값).
+  /* Page에 들어올 때 내용이 아래에서 제자리로 올라오며 나타난다.
      CSS만으로 끝나므로 JavaScript 없이도 내용이 보인다. */
-  animation: project-enter var(--duration-reveal) var(--ease-out) both;
+  animation: project-enter var(--duration-project-enter) var(--ease-project-enter) both;
 }
 
 @keyframes project-enter {
   from {
     opacity: 0;
-    transform: translateY(calc(var(--distance-reveal) * 1px));
+    transform: translateY(calc(var(--distance-project-enter) * 1px));
   }
 
   to {
@@ -57,18 +54,18 @@
   margin-inline: auto;
 }
 
-/* 영문 대문자 Label. Contents의 Caption과 같은 양식이다 */
+/* 영문 대문자 Label */
 .project-bar,
 .project-section__label,
 .project-list__key,
 .project-nav__label {
   font-family: var(--font-display);
-  font-size: calc(var(--text-contents-caption-size) * 1px);
-  font-weight: var(--text-contents-caption-weight);
-  line-height: calc(var(--text-contents-caption-leading-px) * 1px);
-  letter-spacing: calc(var(--text-contents-caption-tracking) * 1px);
+  font-size: calc(var(--text-project-label-size) * 1px);
+  font-weight: var(--text-project-label-weight);
+  line-height: calc(var(--text-project-label-leading-px) * 1px);
+  letter-spacing: calc(var(--text-project-label-tracking) * 1px);
   text-transform: uppercase;
-  color: var(--color-contents-label);
+  color: var(--color-project-label);
 }
 
 .project a {
@@ -89,18 +86,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: calc(var(--space-contents-index-gap) * 1px);
-  padding-bottom: calc(var(--space-contents-index-gap) * 1px);
-  border-bottom: 1px solid var(--color-contents-rule);
+  gap: calc(var(--space-project-gap-md) * 1px);
+  padding-bottom: calc(var(--space-project-gap-md) * 1px);
+  border-bottom: 1px solid var(--color-project-rule);
 }
 
 /* 누르기 쉬운 크기를 갖도록 위아래로 넓힌다 */
 .project-bar__back {
-  padding-block: calc(var(--space-contents-item-gap) * 1px);
-  color: var(--color-contents-project);
+  padding-block: calc(var(--space-project-gap-sm) * 1px);
+  color: var(--color-project-text);
 }
 
-/* ---------- 01 Overview ---------- */
+/* ---------- 01 Intro ---------- */
 
 .project-hero {
   display: flex;
@@ -111,12 +108,12 @@
 
 .project-hero__eyebrow {
   font-family: var(--font-display);
-  font-size: calc(var(--text-contents-eyebrow-size) * 1px);
-  font-weight: var(--text-contents-eyebrow-weight);
-  line-height: calc(var(--text-contents-eyebrow-leading-px) * 1px);
-  letter-spacing: calc(var(--text-contents-eyebrow-tracking) * 1px);
+  font-size: calc(var(--text-project-eyebrow-size) * 1px);
+  font-weight: var(--text-project-eyebrow-weight);
+  line-height: calc(var(--text-project-eyebrow-leading-px) * 1px);
+  letter-spacing: calc(var(--text-project-eyebrow-tracking) * 1px);
   text-transform: uppercase;
-  color: var(--color-contents-label);
+  color: var(--color-project-label);
 }
 
 .project-hero__title {
@@ -124,30 +121,30 @@
   font-size: calc(var(--text-project-title-size-mobile) * 1px);
   font-weight: var(--text-project-title-weight);
   line-height: var(--text-project-title-leading);
-  color: var(--color-contents-title);
 }
 
 .project-hero__lead {
-  max-width: 28em;
-  font-size: calc(var(--text-profile-intro-size) * 1px);
+  max-width: calc(var(--layout-project-measure-lead) * 1em);
+  font-size: calc(var(--text-project-intro-size) * 1px);
   font-weight: var(--text-project-heading-weight);
-  line-height: calc(var(--text-profile-intro-leading-px) * 1px);
+  line-height: calc(var(--text-project-intro-leading-px) * 1px);
   word-break: keep-all;
 }
 
+/* 본문. 읽기 좋은 폭을 넘지 않는다 */
 .project-text {
-  max-width: 44em;
+  max-width: calc(var(--layout-project-measure) * 1em);
   font-size: calc(var(--text-project-body-size) * 1px);
   line-height: calc(var(--text-project-body-leading-px) * 1px);
-  color: var(--color-contents-sub);
+  color: var(--color-project-sub);
   word-break: keep-all;
 }
 
 /* Section을 여는 문장. 본문보다 한 단계 크고 진하다 */
 .project-text--lead {
-  font-size: calc(var(--text-profile-intro-size) * 1px);
-  line-height: calc(var(--text-profile-intro-leading-px) * 1px);
-  color: var(--color-contents-project);
+  font-size: calc(var(--text-project-intro-size) * 1px);
+  line-height: calc(var(--text-project-intro-leading-px) * 1px);
+  color: var(--color-project-text);
 }
 
 /* 기본 정보: 유형, 역할, 도구, 기간 */
@@ -155,21 +152,21 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   margin: 0;
-  border-top: 1px solid var(--color-contents-rule);
+  border-top: 1px solid var(--color-project-rule);
 }
 
 .project-meta__row {
   display: flex;
   flex-direction: column;
-  gap: calc(var(--space-contents-head-row-gap-compact) * 1px);
-  padding-block: calc(var(--space-contents-index-gap) * 1px);
-  border-bottom: 1px solid var(--color-contents-rule);
+  gap: calc(var(--space-project-gap-xs) * 1px);
+  padding-block: calc(var(--space-project-gap-md) * 1px);
+  border-bottom: 1px solid var(--color-project-rule);
 }
 
 .project-meta__term {
-  font-size: calc(var(--text-contents-caption-size) * 1px);
-  line-height: calc(var(--text-contents-caption-leading-px) * 1px);
-  color: var(--color-contents-label);
+  font-size: calc(var(--text-project-label-size) * 1px);
+  line-height: calc(var(--text-project-label-leading-px) * 1px);
+  color: var(--color-project-label);
 }
 
 .project-meta__value {
@@ -179,15 +176,16 @@
   word-break: keep-all;
 }
 
-/* ---------- 02–05 Section ---------- */
+/* ---------- Section ----------
+   모든 폭에서 위에서 아래로 놓인다: Label → 내용. 내용이 Page 폭을 다 쓸 수 있다. */
 
 .project-section {
   display: flex;
   flex-direction: column;
   gap: calc(var(--space-project-block-gap) * 1px);
   margin-top: calc(var(--space-project-section-gap-compact) * 1px);
-  padding-top: calc(var(--space-contents-index-gap) * 1px);
-  border-top: 1px solid var(--color-contents-rule);
+  padding-top: calc(var(--space-project-gap-md) * 1px);
+  border-top: 1px solid var(--color-project-rule);
 }
 
 .project-section__body {
@@ -219,37 +217,36 @@
 .project-block__title {
   font-family: var(--font-display);
   font-size: calc(var(--text-project-heading-size) * 1px);
-  font-weight: var(--text-contents-project-weight);
+  font-weight: var(--text-project-block-weight);
   line-height: var(--text-project-heading-leading);
-  color: var(--color-contents-title);
 }
 
-/* 작은 글씨의 덧붙임(출처, 조사 조건, 준비 중 안내) */
+/* 작은 글씨의 덧붙임(출처, 조사 조건, 안내) */
 .project-note {
-  max-width: 52em;
-  font-size: calc(var(--text-contents-caption-size) * 1px);
+  max-width: calc(var(--layout-project-measure-note) * 1em);
+  font-size: calc(var(--text-project-label-size) * 1px);
   line-height: calc(var(--text-project-body-leading-px) * 1px);
-  color: var(--color-contents-label);
+  color: var(--color-project-label);
   word-break: keep-all;
 }
 
 /* 번호·제목·설명이 줄로 이어지는 목록 */
 .project-list {
-  border-top: 1px solid var(--color-contents-rule);
+  border-top: 1px solid var(--color-project-rule);
 }
 
 .project-list__item {
   display: flex;
   flex-direction: column;
-  gap: calc(var(--space-contents-item-gap) * 1px);
+  gap: calc(var(--space-project-gap-sm) * 1px);
   padding-block: calc(var(--space-project-item-padding) * 1px);
-  border-bottom: 1px solid var(--color-contents-rule);
+  border-bottom: 1px solid var(--color-project-rule);
 }
 
 .project-list__content {
   display: flex;
   flex-direction: column;
-  gap: calc(var(--space-contents-head-row-gap-compact) * 1px);
+  gap: calc(var(--space-project-gap-xs) * 1px);
   min-width: 0;
 }
 
@@ -263,27 +260,27 @@
 /* 영문 낱말을 제목 서체로 보여 주는 줄(이름, 서체 견본) */
 .project-list__title--display {
   font-family: var(--font-display);
-  font-weight: var(--text-contents-eyebrow-weight);
+  font-weight: var(--text-project-eyebrow-weight);
 }
 
 /* 색 견본. 색 값은 tokens.css의 --color-aidora-* (Project의 내용) */
 .project-palette {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: calc(var(--space-project-block-gap) * 1px) calc(var(--space-contents-index-gap) * 1px);
+  gap: calc(var(--space-project-block-gap) * 1px) calc(var(--space-project-gap-md) * 1px);
 }
 
 .project-palette__item {
   display: flex;
   flex-direction: column;
-  gap: calc(var(--space-contents-head-row-gap-compact) * 1px);
+  gap: calc(var(--space-project-gap-xs) * 1px);
   font-family: var(--font-display);
 }
 
 .project-palette__chip {
   aspect-ratio: var(--layout-project-chip-ratio);
-  margin-bottom: calc(var(--space-contents-item-gap) * 1px);
-  border: 1px solid var(--color-contents-rule);
+  margin-bottom: calc(var(--space-project-gap-sm) * 1px);
+  border: 1px solid var(--color-project-rule);
 }
 
 .project-palette__chip--pale-blue-gray { background: var(--color-aidora-pale-blue-gray); }
@@ -295,28 +292,28 @@
 
 .project-palette__name {
   font-size: calc(var(--text-project-body-size) * 1px);
-  font-weight: var(--text-contents-eyebrow-weight);
+  font-weight: var(--text-project-eyebrow-weight);
   line-height: calc(var(--text-project-body-leading-px) * 1px);
 }
 
 .project-palette__code {
-  font-size: calc(var(--text-contents-caption-size) * 1px);
-  line-height: calc(var(--text-contents-caption-leading-px) * 1px);
-  letter-spacing: calc(var(--text-contents-caption-tracking) * 1px);
-  color: var(--color-contents-label);
+  font-size: calc(var(--text-project-label-size) * 1px);
+  line-height: calc(var(--text-project-label-leading-px) * 1px);
+  letter-spacing: calc(var(--text-project-label-tracking) * 1px);
+  color: var(--color-project-label);
 }
 
-/* 화면 이미지 자리. 이미지가 준비되면 .project-showcase__slot 안의 안내 문구를 <img>로 바꾼다 */
+/* 이미지 자리. 이미지가 아직 없으면 안내 문구가, 있으면 <img>가 들어간다 */
 .project-showcase {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: calc(var(--space-project-block-gap) * 1px) calc(var(--space-contents-index-gap) * 1px);
+  gap: calc(var(--space-project-block-gap) * 1px) calc(var(--space-project-gap-md) * 1px);
 }
 
 .project-showcase__item {
   display: flex;
   flex-direction: column;
-  gap: calc(var(--space-contents-item-gap) * 1px);
+  gap: calc(var(--space-project-gap-sm) * 1px);
   margin: 0;
 }
 
@@ -325,14 +322,20 @@
   align-items: center;
   justify-content: center;
   aspect-ratio: var(--layout-project-slot-ratio);
-  border: 1px solid var(--color-contents-rule);
-  font-size: calc(var(--text-contents-caption-size) * 1px);
-  color: var(--color-contents-number);
+  border: 1px solid var(--color-project-rule);
+  font-size: calc(var(--text-project-label-size) * 1px);
+  color: var(--color-project-label);
 }
 
-/* 자리 안에 놓인 로고. 원래 크기보다 커지지 않고, 자리가 좁으면 줄어든다 */
+.project-showcase__slot--wide {
+  aspect-ratio: var(--layout-project-slot-ratio-wide);
+}
+
+/* 자리 안에 놓인 로고. 원래 크기보다 커지지 않고, 자리가 좁으면 줄어든다.
+   바탕은 Project가 정한 면 색(--project-surface)이고, 정하지 않았으면 바탕이 없다. */
 .project-showcase__slot:has(.project-logo) {
   padding: calc(var(--space-project-item-padding) * 1px);
+  background: var(--project-surface, transparent);
 }
 
 .project-logo {
@@ -341,12 +344,17 @@
   object-fit: contain;
 }
 
+.project-showcase__caption {
+  font-size: calc(var(--text-project-body-size) * 1px);
+  line-height: calc(var(--text-project-body-leading-px) * 1px);
+}
+
 /* 사진 묶음. Figma의 배치대로 넓은 사진과 좁은 사진이 한 줄에 놓인다(좁은 화면에서는 한 줄에 하나) */
 .project-gallery {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   align-items: start;
-  gap: calc(var(--space-contents-index-gap) * 1px);
+  gap: calc(var(--space-project-gap-md) * 1px);
 }
 
 .project-shot {
@@ -357,7 +365,7 @@
 .project-screen {
   max-height: min(calc(var(--layout-project-screen-height) * 1px), 80vh);
   overflow-y: auto;
-  border: 1px solid var(--color-contents-rule);
+  border: 1px solid var(--color-project-rule);
 }
 
 .project-screen--narrow {
@@ -368,27 +376,17 @@
 .project-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: calc(var(--space-contents-item-gap) * 1px);
+  gap: calc(var(--space-project-gap-sm) * 1px);
 }
 
 .project-tags__item {
-  padding: calc(var(--space-contents-head-row-gap-compact) * 2px) calc(var(--space-contents-head-padding-compact) * 1px);
-  border: 1px solid var(--color-contents-rule);
+  padding: calc(var(--space-project-gap-xs) * 2px) calc(var(--space-project-tag-padding-inline) * 1px);
+  border: 1px solid var(--color-project-rule);
   font-family: var(--font-display);
-  font-size: calc(var(--text-contents-caption-size) * 1px);
-  line-height: calc(var(--text-contents-caption-leading-px) * 1px);
-  letter-spacing: calc(var(--text-contents-caption-tracking) * 1px);
+  font-size: calc(var(--text-project-label-size) * 1px);
+  line-height: calc(var(--text-project-label-leading-px) * 1px);
+  letter-spacing: calc(var(--text-project-label-tracking) * 1px);
   text-transform: uppercase;
-  color: var(--color-contents-project);
-}
-
-.project-showcase__slot--wide {
-  aspect-ratio: var(--layout-project-slot-ratio-wide);
-}
-
-.project-showcase__caption {
-  font-size: calc(var(--text-project-body-size) * 1px);
-  line-height: calc(var(--text-project-body-leading-px) * 1px);
 }
 
 /* ---------- 맨 아래: 이전 / Contents / 다음 ---------- */
@@ -396,16 +394,16 @@
 .project-nav {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: calc(var(--space-project-block-gap) * 1px) calc(var(--space-contents-index-gap) * 1px);
+  gap: calc(var(--space-project-block-gap) * 1px) calc(var(--space-project-gap-md) * 1px);
   margin-top: calc(var(--space-project-section-gap-compact) * 1px);
   padding-block: calc(var(--space-project-block-gap) * 1px);
-  border-top: 1px solid var(--color-contents-rule);
+  border-top: 1px solid var(--color-project-rule);
 }
 
 .project-nav__link {
   display: flex;
   flex-direction: column;
-  gap: calc(var(--space-contents-head-row-gap-compact) * 1px);
+  gap: calc(var(--space-project-gap-xs) * 1px);
 }
 
 .project-nav__link--next {
@@ -425,13 +423,20 @@
   font-family: var(--font-display);
   font-size: calc(var(--text-project-item-size) * 1px);
   line-height: calc(var(--text-project-item-leading-px) * 1px);
-  color: var(--color-contents-project);
+  color: var(--color-project-text);
+}
+
+/* ---------- Project별 분위기 ----------
+   Page 바탕은 세 Project 모두 흰색이다. 여기서는 그 Project의 색을 면 색으로만 얹는다. */
+
+/* AIDORA: Figma Case Study에서 로고가 놓인 면의 색(Pale Blue Gray) */
+.project-page--aidora {
+  --project-surface: var(--color-aidora-pale-blue-gray);
 }
 
 @media (min-width: 600px) {
   .project {
-    padding: calc(var(--space-project-page-block-compact) * 1px) calc(var(--layout-project-gutter) * 1px / 2);
-    padding-left: calc(var(--project-band) + var(--layout-project-gutter) * 1px / 2);
+    padding: calc(var(--space-project-page-block-compact) * 1px) calc(var(--layout-project-gutter-tablet) * 1px);
   }
 
   .project-hero__title {
@@ -453,15 +458,12 @@
 
   .project-gallery {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    /* 한 줄에 놓인 사진의 높이를 맞춘다. 사진 비율이 조금씩 달라 생기는 몇 px 차이만 가장자리에서 잘린다 */
+    align-items: stretch;
   }
 
   .project-shot--wide {
     grid-column: span 2;
-  }
-
-  /* 한 줄에 놓인 사진의 높이를 맞춘다. 사진 비율이 조금씩 달라 생기는 몇 px 차이만 가장자리에서 잘린다 */
-  .project-gallery {
-    align-items: stretch;
   }
 
   .project-gallery .project-shot {
@@ -472,7 +474,7 @@
   .project-meta,
   .project-showcase {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: calc(var(--space-contents-columns-gap) * 1px / 2);
+    column-gap: calc(var(--space-project-columns-gap) * 1px);
   }
 
   /* 번호 옆에 제목과 설명 */
@@ -483,8 +485,8 @@
 
   .project-list__key {
     flex: none;
-    width: calc(var(--layout-contents-index-column-width) * 1px / 2);
-    padding-top: calc(var(--space-contents-head-row-gap-compact) * 1px);
+    width: calc(var(--layout-project-key-width) * 1px);
+    padding-top: calc(var(--space-project-gap-xs) * 1px);
   }
 
   .project-nav {
@@ -502,11 +504,10 @@
   }
 }
 
-/* 1024 이상: 왼쪽에 Section Label, 오른쪽에 내용(Contents의 좌우 구성과 같은 방식) */
+/* 1024 이상: 여백과 Section 간격을 넓히고, 견본과 기본 정보를 한 줄에 놓는다 */
 @media (min-width: 1024px) {
   .project {
     padding: calc(var(--space-project-page-block) * 1px) calc(var(--layout-project-gutter) * 1px);
-    padding-left: calc(var(--project-band) + var(--layout-project-gutter) * 1px);
   }
 
   .project-hero {
@@ -521,21 +522,11 @@
     border-bottom: 0;
   }
 
-  .project-section {
-    flex-direction: row;
-    gap: calc(var(--space-contents-columns-gap) * 1px);
-    margin-top: calc(var(--space-project-section-gap) * 1px);
+  .project-palette {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 
-  .project-section__label {
-    flex: none;
-    width: calc(var(--layout-contents-index-column-width) * 1px);
-  }
-
-  .project-section__body {
-    flex: 1 1 0;
-  }
-
+  .project-section,
   .project-nav {
     margin-top: calc(var(--space-project-section-gap) * 1px);
   }

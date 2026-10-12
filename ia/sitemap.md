@@ -100,6 +100,9 @@ Figma에 사이트 내비게이션(Header, Menu, 뒤로 가기, Page 사이 링�
 | 10 | s10-mobile | Mobile |
 | 11 | s11-outcome | Outcome & Reflection |
 
+## Visual Architecture (2026-10-12)
+index(Cover·Profile·Contents)는 포트폴리오의 겉이고, Project Page는 작품을 보여 주는 흰 바탕의 독립된 영역이다. 두 영역은 CSS와 Token을 나눠 쓴다(`design-source/implementation-spec.md` 29절).
+
 ## Interactions
 | ID | 위치 | 동작 | JS 없이 |
 |---|---|---|---|

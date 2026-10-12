@@ -35,13 +35,13 @@
   },
   "checkpoint": {
     "stage": "secondary_pages",
-    "page": "aidora",
+    "page": "aidora, tj-media, asics-korea",
     "section": "(사용자 확인 대기)",
     "updated_at": "2026-10-12",
-    "resume_hint": "2026-10-12 Phase 02: aidora에 이미지 10개 연결(로고 2, 패키지 4, 웹 화면 4)과 문안 보완(Desk Research, Positioning, Main Page, Collection)을 하고 local commit했다(push 안 함). 근거는 implementation-spec.md 28절. 권리는 사용자 확인으로 승인(assets/manifest.jsonl, legal/license-evidence.jsonl). 다음: (1) 사용자의 AIDORA 화면 확인 (2) tj-media, asics-korea를 같은 방식으로(이미지 권리 확인 필요 — TJ는 타사 사이트 캡처·Album Art 포함 가능성, 9절) (3) 필요하면 패키지 사진 고해상도 교체 (4) FULL QA(대비 측정, Contents Typography 세부 개선 포함) (5) push는 사용자 승인 후."
+    "resume_hint": "2026-10-12: Project Detail Page를 Cover·Contents에서 분리했다(흰 바탕, 띠·종이 질감 없음, 전용 Token 묶음, layout.css·components.css 미사용, Section 한 단, Page 폭 확대). 근거는 implementation-spec.md 29절. local commit만 했다(push 안 함). 다음: (1) 사용자의 화면 확인 (2) aidora 웹 화면 Scroll 틀 방식 검토(사용자가 별도 검토로 남김) (3) tj-media, asics-korea 내용 재구성과 Project 고유 색·위계 반영(body의 project-page--* Class와 --project-surface 준비됨), 이미지 권리 확인 필요 (4) FULL QA(대비 측정, Contents Typography 세부 개선) (5) push는 사용자 승인 후."
   },
   "render_checked": true,
-  "qa_status": "2026-10-12 aidora: 1920·1440·768·390에서 이미지 10개 로딩, 가로 Overflow 없음, Console Error·실패 Request 0건. 표시 비율은 원본과 같다(패키지 사진 두 장만 줄 높이 맞춤으로 600 이상에서 2–4.5% 잘림). capture.cjs 4 Page 측정상 문제 0건. 이동 검증(네 폭) 통과. 육안 확인: 1920의 design-system·showcase·web-design 첫 화면, 390의 design-system. 그 밖의 폭과 Scroll 틀 안쪽은 측정만 했다",
+  "qa_status": "2026-10-12 Project Detail 분리 후: capture.cjs 4 Page × 1920·1440·768·390 측정상 문제 0건. 세 Project Page 바탕 화소 (255,255,255). aidora 이미지 10개 로딩·비율 유지(패키지 사진 두 장만 줄 높이 맞춤으로 600 이상에서 2–4.3% 잘림), 원래 크기보다 늘어난 이미지 없음. index 회귀: Contents 네 폭 화소 동일, Cover 두 폭 동일·두 폭 최대 1단계 차이(Antialiasing). 이동 검증 네 폭 통과. 육안 확인: aidora 1920 첫 화면·design-system·showcase, 390 첫 화면. tj-media·asics-korea는 바탕 화소와 측정만 확인",
   "retry_count": 0,
   "blockers": [
     {
@@ -68,7 +68,7 @@
   },
   "last_meaningful_change": {
     "date": "2026-10-12",
-    "summary": "aidora에 Figma에서 내보낸 이미지 10개 연결(사용자 권리 확인), Desk Research·Positioning·Main Page·Collection 문안 보완, 웹 화면용 Scroll 틀과 사진 묶음 Style 추가."
+    "summary": "Project Detail Page의 Visual Architecture를 Cover·Contents와 분리: 흰 바탕, 띠·종이 질감 제거, Project 전용 Token 묶음, Section 한 단 구성과 Page 폭 확대. index는 변경 없음."
   },
   "definition_of_done": "automation-orchestrator.md의 Stop Rule 전부 PASS",
   "design_definition": {
