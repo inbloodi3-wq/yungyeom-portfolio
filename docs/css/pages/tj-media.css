@@ -1,0 +1,403 @@
+/* TJ MEDIA Case Study — tj-media.html 전용 Style.
+   Figma `자동화 > 포트폴리오 > TJ_MEDIA_CaseStudy_Desktop_V2`(15 Section)의 순서와 표현을 옮긴다.
+   Page 바깥 구조(흰 바탕, 폭, 맨 위 줄, 아래쪽 내비게이션)는 project.css 그대로이고,
+   이 파일은 그 안쪽의 Section 표현만 맡는다. 값은 tokens.css의 --*-tj-*.
+
+   Figma의 Case Study에는 화면 이미지가 많이 들어 있다. 그 이미지들은 게시 권리가 확인되지 않아
+   지금은 자리(tj-slot)만 있다(design-source/implementation-spec.md 32절). */
+
+.project-page--tj-media {
+  color: var(--color-tj-text);
+}
+
+/* Section: 흰 면과 옅은 회색 면이 번갈아 나온다. 면은 화면 양끝까지 이어진다 */
+.tj-section {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space-tj-gap-mobile) * 1px);
+  padding-block: calc(var(--space-tj-section-mobile) * 1px);
+  scroll-margin-top: calc(var(--space-project-gap-md) * 1px);
+}
+
+.tj-section--gray {
+  background: var(--color-tj-gray);
+  box-shadow: 0 0 0 100vmax var(--color-tj-gray);
+  clip-path: inset(0 -100vmax);
+}
+
+.tj-section--dark {
+  background: var(--color-tj-text);
+  box-shadow: 0 0 0 100vmax var(--color-tj-text);
+  clip-path: inset(0 -100vmax);
+  color: var(--color-tj-on-dark);
+}
+
+/* Section 머리: 번호 + 영문 이름, 큰 제목, 설명 */
+.tj-kicker {
+  display: flex;
+  gap: calc(var(--space-project-gap-sm) * 1px);
+  font-size: calc(var(--text-tj-kicker-size) * 1px);
+  font-weight: var(--text-project-heading-weight);
+  line-height: var(--text-tj-leading);
+}
+
+.tj-kicker__number,
+.tj-accent {
+  color: var(--color-tj-accent);
+}
+
+.tj-heading {
+  max-width: 16em;
+  font-size: calc(var(--text-tj-heading-size-mobile) * 1px);
+  font-weight: var(--text-project-heading-weight);
+  line-height: var(--text-tj-heading-leading);
+  word-break: keep-all;
+}
+
+.tj-lead {
+  max-width: calc(var(--layout-project-measure-note) * 1em);
+  font-size: calc(var(--text-project-body-size) * 1px);
+  line-height: var(--text-tj-body-leading);
+  color: var(--color-tj-sub);
+  word-break: keep-all;
+}
+
+.tj-section--dark .tj-lead {
+  color: var(--color-tj-on-dark-sub);
+}
+
+/* 작은 대문자 Label */
+.tj-label {
+  font-size: calc(var(--text-tj-label-size) * 1px);
+  letter-spacing: calc(var(--text-tj-label-tracking) * 1px);
+  text-transform: uppercase;
+  color: var(--color-tj-caption);
+}
+
+.tj-label--accent {
+  color: var(--color-tj-accent);
+}
+
+.tj-strong {
+  font-size: calc(var(--text-project-body-size) * 1px);
+  font-weight: var(--text-project-heading-weight);
+  line-height: var(--text-tj-leading);
+  word-break: keep-all;
+}
+
+.tj-small {
+  font-size: calc(var(--text-tj-small-size) * 1px);
+  line-height: var(--text-tj-body-leading);
+  color: var(--color-tj-sub);
+  word-break: keep-all;
+}
+
+/* 이미지 자리. 게시 권리가 확인되면 안의 글을 <img>로 바꾼다 */
+.tj-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: var(--layout-project-slot-ratio);
+  padding: calc(var(--space-project-gap-md) * 1px);
+  border: 1px solid var(--color-tj-line);
+  background: var(--color-project-bg);
+  font-size: calc(var(--text-tj-small-size) * 1px);
+  color: var(--color-tj-caption);
+  text-align: center;
+  word-break: keep-all;
+}
+
+.tj-slot--portrait { aspect-ratio: 460 / 538; }
+.tj-slot--wide { aspect-ratio: 16 / 7; }
+.tj-slot--thumb { aspect-ratio: 16 / 9; }
+.tj-section--dark .tj-slot { border-color: var(--color-tj-on-dark-line); background: transparent; color: var(--color-tj-on-dark-sub); }
+
+/* 나란히 놓인 칸 */
+.tj-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: calc(var(--space-project-block-gap) * 1px) calc(var(--space-project-columns-gap) * 1px);
+}
+
+.tj-columns__item {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space-project-gap-sm) * 1px);
+}
+
+.tj-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: calc(var(--space-tj-gap-mobile) * 1px);
+  align-items: start;
+}
+
+.tj-stack {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space-project-block-gap) * 1px);
+}
+
+/* 표지 */
+.tj-cover {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: calc(var(--space-tj-gap-mobile) * 1px);
+  align-items: center;
+}
+
+.tj-cover__name {
+  font-family: var(--font-display);
+  font-size: calc(var(--text-tj-kicker-size) * 1px);
+  font-weight: var(--text-project-heading-weight);
+  letter-spacing: calc(var(--text-tj-label-tracking) * 1px);
+}
+
+.tj-cover__title {
+  font-size: calc(var(--text-tj-cover-title-size-mobile) * 1px);
+  font-weight: var(--text-project-heading-weight);
+  line-height: var(--text-tj-heading-leading);
+}
+
+.tj-cover__sub {
+  font-size: calc(var(--text-tj-item-size-mobile) * 1px);
+  font-weight: var(--text-project-heading-weight);
+  color: var(--color-tj-accent);
+  word-break: keep-all;
+}
+
+.tj-cover__meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: calc(var(--space-project-gap-md) * 1px);
+  margin: calc(var(--space-project-block-gap) * 1px) 0 0;
+}
+
+.tj-cover__meta dd {
+  margin: calc(var(--space-project-gap-xs) * 2px) 0 0;
+  font-size: calc(var(--text-project-body-size) * 1px);
+  font-weight: var(--text-project-heading-weight);
+}
+
+/* 줄로 이어지는 정보(Project Meta, 작업 결과) */
+.tj-rows {
+  margin: 0;
+}
+
+.tj-rows__row {
+  display: grid;
+  grid-template-columns: calc(var(--layout-tj-row-label-width-mobile) * 1px) minmax(0, 1fr);
+  gap: calc(var(--space-project-gap-md) * 1px);
+  align-items: center;
+  padding-block: calc(var(--space-project-gap-md) * 1px);
+  border-bottom: 1px solid var(--color-tj-line);
+}
+
+.tj-rows__row:last-child { border-bottom: 0; }
+.tj-rows dd { margin: 0; }
+
+/* 번호가 큰 줄(Pain Point, UX Strategy) */
+.tj-number {
+  font-size: calc(var(--text-tj-number-size) * 1px);
+  font-weight: var(--text-project-heading-weight);
+  line-height: 1.2;
+  color: var(--color-tj-accent);
+}
+
+.tj-item-title {
+  font-size: calc(var(--text-tj-item-size-mobile) * 1px);
+  font-weight: var(--text-project-heading-weight);
+  line-height: var(--text-tj-leading);
+  word-break: keep-all;
+}
+
+.tj-list {
+  border-top: 1px solid var(--color-tj-line);
+}
+
+.tj-list__item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: calc(var(--space-project-gap-sm) * 1px) calc(var(--space-project-block-gap) * 1px);
+  align-items: center;
+  padding-block: calc(var(--space-project-block-gap) * 1px);
+  border-bottom: 1px solid var(--color-tj-line);
+}
+
+.tj-list__arrow {
+  font-size: calc(var(--text-tj-item-size-mobile) * 1px);
+  font-weight: var(--text-project-heading-weight);
+  color: var(--color-tj-accent);
+}
+
+/* 근거 → 관찰 → 영향 → 대응 Section 으로 이어지는 사슬(Research) */
+.tj-chain {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space-project-gap-xs) * 1px);
+  margin: 0;
+}
+
+.tj-chain div + div::before {
+  content: "↓";
+  display: block;
+  font-size: calc(var(--text-tj-small-size) * 1px);
+  color: var(--color-tj-caption);
+}
+
+.tj-chain dt {
+  display: inline;
+  margin-right: calc(var(--space-project-gap-xs) * 2px);
+  font-size: calc(var(--text-tj-label-size) * 1px);
+  font-weight: var(--text-project-heading-weight);
+  color: var(--color-tj-accent);
+}
+
+.tj-chain dd {
+  display: inline;
+  margin: 0;
+  font-size: calc(var(--text-tj-small-size) * 1px);
+  color: var(--color-tj-sub);
+}
+
+/* Information Architecture: HOME 아래 여섯 화면, Search 아래 다섯 단계 */
+.tj-tree {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: calc(var(--space-project-gap-md) * 1px);
+}
+
+.tj-tree__root {
+  font-size: calc(var(--text-project-body-size) * 1px);
+  font-weight: var(--text-project-heading-weight);
+}
+
+.tj-tree__root::before {
+  content: "";
+  display: inline-block;
+  width: calc(var(--space-project-gap-xs) * 2px);
+  height: calc(var(--space-project-gap-xs) * 2px);
+  margin-right: calc(var(--space-project-gap-sm) * 1px);
+  background: var(--color-tj-text);
+  vertical-align: middle;
+}
+
+.tj-tree__branch {
+  margin-left: calc(var(--space-project-gap-md) * 1px);
+  border-left: 1px solid var(--color-tj-line);
+}
+
+.tj-tree__branch > li {
+  position: relative;
+  padding: calc(var(--space-project-gap-sm) * 1px) 0 calc(var(--space-project-gap-sm) * 1px) calc(var(--space-project-block-gap) * 1px);
+  font-size: calc(var(--text-tj-small-size) * 1px);
+  color: var(--color-tj-sub);
+}
+
+.tj-tree__branch > li::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: calc(var(--space-project-gap-md) * 1px);
+  border-top: 1px solid var(--color-tj-line);
+}
+
+.tj-tree__branch > li.is-main {
+  font-size: calc(var(--text-project-body-size) * 1px);
+  font-weight: var(--text-project-heading-weight);
+  color: var(--color-tj-accent);
+}
+
+.tj-tree__branch > li.is-main::before {
+  border-color: var(--color-tj-accent);
+}
+
+/* User Flow: 화면 네 장이 화살표로 이어진다 */
+.tj-flow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: calc(var(--space-project-block-gap) * 1px);
+}
+
+.tj-flow__step {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space-project-gap-sm) * 1px);
+}
+
+.tj-flow__end {
+  align-self: center;
+  padding: calc(var(--space-project-gap-md) * 1px);
+  border: 1px solid var(--color-tj-line);
+  text-align: center;
+}
+
+/* Visual Direction: 서체 견본과 색 견본 */
+.tj-type--heading { font-size: calc(var(--text-tj-heading-size) * 1px); font-weight: var(--text-project-heading-weight); }
+.tj-type--sub { font-size: calc(var(--text-tj-item-size) * 1px); font-weight: var(--text-project-heading-weight); }
+.tj-type--body { font-size: calc(var(--text-project-body-size) * 1px); }
+.tj-type--caption { font-size: calc(var(--text-tj-small-size) * 1px); }
+
+.tj-swatch {
+  width: calc(var(--layout-tj-swatch-size) * 1px);
+  height: calc(var(--layout-tj-swatch-size) * 1px);
+  border: 1px solid var(--color-tj-line);
+}
+
+.tj-swatch--black { background: var(--color-tj-text); }
+.tj-swatch--white { background: var(--color-project-bg); }
+.tj-swatch--gray { background: var(--color-tj-gray); }
+.tj-swatch--accent { background: var(--color-tj-accent); }
+
+.tj-subtitle {
+  padding-bottom: calc(var(--space-project-gap-md) * 1px);
+  border-bottom: 1px solid var(--color-tj-line);
+  font-size: calc(var(--text-tj-kicker-size) * 1px);
+  font-weight: var(--text-project-heading-weight);
+}
+
+/* 맺음 */
+.tj-closing {
+  align-items: center;
+  text-align: center;
+}
+
+.tj-closing .tj-heading {
+  max-width: 25em;
+  font-size: calc(var(--text-tj-item-size-mobile) * 1px);
+}
+
+.tj-note {
+  font-size: calc(var(--text-tj-label-size) * 1px);
+  color: var(--color-tj-caption);
+  word-break: keep-all;
+}
+
+@media (min-width: 600px) {
+  .tj-columns--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tj-columns--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .tj-columns--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tj-cover__meta { grid-template-columns: repeat(4, auto); justify-content: start; gap: calc(var(--space-tj-gap) * 1px); }
+  .tj-rows__row { grid-template-columns: calc(var(--layout-tj-row-label-width) * 1px) minmax(0, 1fr); }
+  .tj-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tj-list__item--numbered { grid-template-columns: calc(var(--layout-tj-number-width) * 1px) minmax(0, 1fr); }
+}
+
+/* 1024 이상: Figma의 Desktop 값 */
+@media (min-width: 1024px) {
+  .tj-section { gap: calc(var(--space-tj-gap) * 1px); padding-block: calc(var(--space-tj-section) * 1px); }
+  .tj-heading { font-size: calc(var(--text-tj-heading-size) * 1px); }
+  .tj-item-title, .tj-list__arrow { font-size: calc(var(--text-tj-item-size) * 1px); }
+  .tj-cover { grid-template-columns: 700fr 760fr; gap: calc(var(--space-tj-gap) * 1px); }
+  .tj-cover__title { font-size: calc(var(--text-tj-cover-title-size) * 1px); }
+  .tj-cover__sub { font-size: calc(var(--text-tj-item-size) * 1px); }
+  .tj-columns--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .tj-split { grid-template-columns: 900fr 580fr; gap: calc(var(--space-tj-gap) * 1px); }
+  .tj-split--persona { grid-template-columns: 520fr 944fr; }
+  .tj-split--decision { grid-template-columns: 1fr 1fr; align-items: center; }
+  .tj-list__item--strategy { grid-template-columns: calc(var(--layout-tj-number-width) * 1px) 360fr auto 936fr; }
+  .tj-tree { grid-template-columns: 1fr 1fr; align-items: start; }
+  .tj-flow { grid-template-columns: repeat(4, minmax(0, 1fr)) auto; align-items: start; }
+  .tj-closing .tj-heading { font-size: calc(var(--text-tj-item-size) * 1px); }
+}

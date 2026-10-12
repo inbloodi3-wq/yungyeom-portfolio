@@ -67,6 +67,8 @@ Figma에 사이트 내비게이션(Header, Menu, 뒤로 가기, Page 사이 링�
 | 17 | ui-brand | AIDORA Brand 전체 화면 | 〃 | P1 | 〃 |
 
 ## tj-media
+**실제 Page의 Section(2026-10-12, Figma Case Study의 순서 그대로)**: cover → overview → research → pain-points → ux-strategy → ia → user-flow → visual-direction → exploration → main-experience → search-flow → final-screens → mobile → outcome → closing. 화면 이미지는 권리 확인 전이라 자리만 있다. 근거는 `design-source/implementation-spec.md` 32절. Interactive Screen Explorer(별도 시연 Page)는 아직 없다. 아래 표는 Figma Case Study의 Section 목록이다.
+
 | 순서 | Section ID | 목적 |
 |---|---|---|
 | 1 | s01-cover | Cover |

@@ -714,3 +714,55 @@ intro(표지) → desk-research → pain-point → positioning → brand-concept
 - **이미지 해상도**: 도표와 캡처는 1배다. 좁은 화면에서는 도표 속 글자가 작다.
 - **Collection·Product Detail·Brand의 캡처**: Figma에서는 두 장이 서로 겹쳐 엇갈려 있고, Page에서는 겹치지 않게 두 칸에 놓았다.
 - Figma Case Study의 숨김 Layer는 옮기지 않았다.
+
+## 32. TJ MEDIA Case Study — Stage A (2026-10-12, 사용자 지정. 26절의 tj-media 관련 내용을 대체한다)
+### 사용자 결정
+- TJ MEDIA는 두 결과물로 나눈다: **Case Study**(tj-media)와 **Interactive Screen Explorer**(별도 시연 Page, Desktop 6 · Mobile 3 화면을 HTML/CSS로). AIDORA처럼 완성형 브랜드 사이트를 만들지 않는다.
+- 확정된 방향은 Search-First UX, Photography-Led Visual Direction이다. 폐기된 Night Stage 방향은 쓰지 않는다.
+- Case Study는 Figma 최종본의 Section 순서·문안·표현을 따른다. 바탕은 흰색이고 종이·띠는 쓰지 않는다(29절).
+- 게시 권리가 확인되지 않은 자료는 임의로 만들거나 바꾸지 않고, 배포 가능한 Asset으로 보지 않는다. 확인이 필요한 자료는 보고한다.
+- 단계: A Case Study → B Screen Explorer 색인 → C 핵심 화면과 흐름 → D 보조 화면 → E 통합 QA.
+
+### 원본 (Figma, 읽기만 함)
+| 무엇 | 위치 |
+|---|---|
+| 최종 Case Study | `자동화 > 포트폴리오 > TJ_MEDIA_CaseStudy_Desktop_V2`(`frame-map.md`의 tj-media, 15 Section). 이번 구현의 기준 |
+| 최종 UI 화면 | `05_Portfolio_CaseStudy` Page의 `DESKTOP V2 FINAL` / `MOBILE V2 FINAL` 묶음: `01_Main_Desktop_V2`, `02_Search_Desktop_V2`, `03_LatestSongs_Desktop_V2`, `04_MusicChart_Desktop_V2`, `05_SongDetail_Desktop_V2`, `06_SongRequest_Desktop_V2`, `07_Main_Mobile_V2`, `08_Search_Mobile_V2`, `09_SongDetail_Mobile_V2`. 이름과 크기만 확인했고 내용은 아직 읽지 않았다(Stage B–D의 원본 후보) |
+| 쓰지 않는 것 | 같은 Page의 `*_ASSET_TEST`, `BACKUP`, `Wireframe`, `First UI`, `PRETRIM_BACKUP`, `임시 이미지` — 실험·보관용 |
+
+### 이미지 권리 (Stage A에서 싣지 않은 이유)
+- 보관 기록(`archive/legacy-figma-automation/legal/image-provenance-todo.md`, 2026-09-24)에 TJ MEDIA 화면의 사진 여덟 장(Hero 스튜디오 사진 하나, 앨범 아트 모양 이미지 일곱)과 tjmedia.com 캡처가 **출처·생성 여부·라이선스 기록 없음(TODO)**으로 남아 있다. 그 뒤로 채워진 기록이 없다.
+- Case Study와 UI 화면 대부분에 TJ미디어의 실제 로고가 들어 있다(타사 상표).
+- 그래서 아래 자료는 `docs/`에 넣지 않았고, `assets/manifest.jsonl`에 `PENDING`으로 등록했다.
+| Asset | 출처 | 쓰이는 곳 | 확인이 필요한 이유 |
+|---|---|---|---|
+| tj-logo | TJ미디어의 실제 로고 | Case Study 표지·TJ Identity, 모든 UI 화면의 Header | 타사 상표. 비공식 리디자인에 싣는 범위는 사용자가 정해야 한다 |
+| tj-asis-capture | tjmedia.com 홈페이지 캡처(2026-09-20) | Research & As-Is Analysis | 타사 사이트 화면(제품 광고 이미지 포함) |
+| tj-photo-hero-studio | 사용자가 Figma에 넣은 사진(출처 기록 없음) | Main Hero, Case Study 여러 곳 | 직접 제작·AI 생성·Stock 여부 미확인 |
+| tj-photo-album-01 – 07 | 〃 (앨범 아트 모양 이미지 일곱 장) | 신곡 Card, 인기차트, 검색 결과, 곡 상세 | 〃. 두 장에는 사람이 보이고, 한 장에는 제품 모양이 보인다. 실제 음반 Cover인지도 미확인 |
+| tj-persona | Figma에 "Representative image · AI-generated"라고 표기된 인물 이미지 | User & Pain Points | 누가 어떤 도구로 생성했는지 기록 없음 |
+| tj-screens(화면 캡처 전체) | 사용자가 디자인한 UI 화면 | Case Study의 화면 자리 27곳, Screen Explorer의 Thumbnail | 화면 자체는 사용자의 디자인이지만 위의 로고와 사진이 들어 있다 |
+- 곡 이름과 가수 이름(좋은 날, 아이유 등)은 사실 표기라서 글자로 싣는 데 문제를 두지 않았다. 다만 이번 Page에는 화면 속 글이라 나오지 않는다.
+
+### Stage A 구현
+- `docs/tj-media.html`을 Figma의 15 Section 순서로 다시 썼다: cover → overview → research → pain-points → ux-strategy → ia → user-flow → visual-direction → exploration → main-experience → search-flow → final-screens → mobile → outcome → closing.
+- Section 표현(번호 + 영문 이름의 머리줄, 큰 제목, 설명, 흰 면과 옅은 회색 면의 교대, 어두운 표지와 맺음, Accent 색)과 글자·색 값은 Figma에서 옮겼다(`tokens.css`의 `--*-tj-*`, `css/pages/tj-media.css`). 한글 서체는 Figma도 Pretendard라서 같다.
+- 글과 도식은 HTML이다: Overview의 네 항목과 기본 정보, Research의 실사 메모와 네 가지 발견(근거 → 관찰 → 영향 → 대응 Section), Persona 항목, Key Pain Points, UX Strategy의 네 줄, IA Tree, User Flow의 네 단계, Typography·Colors·Visual Principle, Design Decisions, Exploration의 TRY → ISSUE → DECISION → RESULT, Main Experience의 세 메모, Outcome.
+- 화면 이미지가 있어야 할 27곳은 자리(`tj-slot`)만 있고 "화면 이미지 준비 중"이라고 표시된다. `data-asset`이 연결할 이름이다.
+- TOP 버튼을 붙였다(AIDORA와 같은 `css/top-button.css`, `js/top-button.js`).
+- **Screen Explorer로 가는 CTA는 아직 넣지 않았다.** 시연 Page가 없어서 넣으면 끊어진 링크가 된다. Stage B에서 함께 넣는다.
+
+### Figma와 다른 점
+- 화면 이미지 27곳이 비어 있다(위 권리 문제).
+- 표지의 로고 자리에 글자 "TJ MEDIA"가 있다(로고 이미지 대신 Project 이름을 글로 적었다).
+- Search & Discovery Flow의 주석 상자(화면 옆 설명)는 화면 이미지와 한 묶음이라 옮기지 않았다. 문안도 읽지 않았다.
+- 폭: Figma는 1920 문서(안쪽 1520), Page 안쪽은 그보다 좁다(29절). 글자 크기는 Figma 값이고 Section 위아래 여백은 조금 줄였다.
+- 가장 옅은 회색 글자는 흰 바탕에서 읽히도록 한 단계 진하게 썼다(`--color-tj-caption`).
+- Typography 견본의 크기는 Figma Text의 높이에서 추정한 값이다(Node의 Style을 읽지 않았다).
+- User Flow, IA Tree의 선 모양은 Figma의 그림과 같지 않다(같은 구조를 HTML 목록으로 그렸다).
+
+### 다음 단계가 기다리는 것
+Stage B–D(Screen Explorer와 아홉 화면)는 모든 화면에 로고와 위 사진이 들어가기 때문에, 권리 확인이 먼저다. 확인되는 범위에 따라:
+- 전부 게시 가능 → Figma 화면 그대로 HTML/CSS로 구현하고 Thumbnail을 연결한다.
+- 사진만 보류 → 화면은 HTML/CSS로 구현하되 사진 자리는 비운다.
+- 로고도 보류 → 로고 자리에 글자만 둔다(Figma와 달라진다).
