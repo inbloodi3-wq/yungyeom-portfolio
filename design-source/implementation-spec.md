@@ -490,3 +490,41 @@ sheet-stack [data-active-sheet = cover | profile | contents]
 - **Showcase 이미지 없음.** Case Study의 이미지는 모두 권리 미확인(9절)이라 넣지 않았다. 자리(`project-showcase__slot`)와 화면 이름만 있고 "화면 이미지 준비 중"이라고 표시된다. 이미지를 넣으려면 `rights-auditor` 승인이 먼저다.
 - Figma Page `05_Portfolio_CaseStudy`가 이번에 Page 목록에 보였다. 읽지 않았다. 이 Page가 Case Study의 최신 원본이면 문안을 다시 맞춰야 한다.
 - Project Page의 회색 글자와 종이 바탕의 대비는 측정하지 않았다(12절).
+
+## 27. AIDORA Project Page — 기준 Page (2026-10-12, 사용자 지정. 26절의 aidora 관련 내용을 대체한다)
+### 사용자 결정 / 제공 사실
+- AIDORA를 Project Page의 첫 기준 Page로 구현한다. 구성은 사용자가 준 흐름(Intro → Brand Concept → Design System → Visual Showcase → Web Design → Project End)을 기본으로 하되 Figma Case Study의 실제 구조가 우선이다.
+- 역할 표기 "브랜드 아이덴티티 · 패키지 디자인 · 웹디자인 및 퍼블리싱"은 사용자가 제공한 사실이다(Figma에는 역할 항목이 없다).
+- TJ MEDIA, ASICS KOREA는 공통 구조와 진입 경로만 유지하고 다음 단계에서 다듬는다(26절 상태 그대로).
+
+### 구성 (Figma Case Study의 순서를 따른다)
+| 순서 | Section ID | 내용 | Figma Section |
+|---|---|---|---|
+| 1 | intro | 제목, 소개, 역할·산출물·도구·기간 | cs-cover |
+| 2 | pain-point | 구매 장벽 네 가지, 표본에 대한 덧붙임 | cs-pain-point |
+| 3 | brand-concept | 개념 문장, 이름의 구성(AIDA + AURA = AIDORA) | cs-brand-concept |
+| 4 | design-system | Logo Design 설명, Color System(Palette 여섯 색), Typography System | cs-brand-concept 아래쪽(Logo), cs-logo로 등록된 Node(실제 내용은 Color System), cs-color-type(실제 내용은 Typography System) |
+| 5 | showcase | Product & Package 설명, 이미지 자리 넷 | cs-product-package |
+| 6 | web-design | Web Experience 문장, Main / Collection / Product Detail / Brand Page | cs-web-experience, cs-pdp, cs-brand-page |
+| 7 | (project-nav) | Contents, 다음 Project | — |
+- `frame-map.md`의 Section 이름 두 곳이 실제 내용과 다르다는 것을 이번에 확인했다(위 표의 4번). `frame-map.md`는 이번에 고치지 않았다.
+- 26절에서 붙였던 요약 제목 두 개는 없앴다. Section 제목은 영문 Label 하나이고, 그 아래는 Figma의 문장 그대로다.
+- Palette의 색은 사이트의 색이 아니라 보여 주는 내용이다. 값은 `tokens.css`의 `--color-aidora-*`에 있다.
+- Outcome에 해당하는 Section은 Figma에 없어 만들지 않았다. Page는 다음 Project 링크로 끝난다.
+
+### 구현 판단
+| 항목 | 판단 | 이유 |
+|---|---|---|
+| Typography System의 SUIT 견본 | 글자("조용히 머무는 향")만 싣고 SUIT로 그리지 않는다(사이트의 한글 서체로 그려진다) | SUIT Font 파일을 받지 않았다(15절). 사이트의 서체 구성을 늘리지 않는다 |
+| 리뷰 이슈 빈도 Chart, Desk Research, Positioning | 싣지 않았다 | 수치와 출처 표기가 필요한 자료다(9절). Desk Research와 Positioning은 읽지 않았다 |
+| Main Page, Collection Page 설명 | 제목과 이미지 자리만 | 해당 Section(cs-main-page, cs-collection)의 문안을 읽지 않았다 |
+
+### 연결되지 않은 Asset (자리만 있다 — `data-asset` 속성이 연결할 Asset ID 후보)
+| 자리 | Figma Node | 상태 |
+|---|---|---|
+| aidora-logo-wordmark, aidora-logo-symbol | 2025:7585, 2025:7608 (Vector) | 권리 확인 전 |
+| aidora-package-01 – 04 | 2025:7716 – 7719 | 권리 확인 전(AI 생성 여부 포함) |
+| aidora-web-main, aidora-web-collection | 2025:9178, 2025:10148 | 권리 확인 전 |
+| aidora-web-pdp, aidora-web-brand | 2025:9158, 2025:9169 | 권리 확인 전 |
+- 저장소에는 AIDORA의 이미지·PDF가 없다. Figma에서 내려받지 않았다(`assets/manifest.jsonl`에 승인된 이미지가 없다).
+- 사용자가 준 핵심어 가운데 "Unseen Presence"는 Figma의 서체 견본 문구로 확인되어 그 자리에 실었다. "Quiet Luxury"는 읽은 Section에서 찾지 못해 싣지 않았다.

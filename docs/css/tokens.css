@@ -283,6 +283,17 @@
   --text-project-body-size: 16;
   --text-project-body-leading-px: 26;
   --layout-project-slot-ratio: 16 / 10;    /* 화면 이미지가 들어갈 자리의 비율 */
+  --layout-project-slot-ratio-wide: 3 / 1;  /* 로고처럼 가로로 긴 이미지의 자리 */
+  --layout-project-chip-ratio: 4 / 3;
+  --space-project-blocks-gap: 64;          /* 한 Section 안의 묶음(Logo / Color / Typography 등) 사이 */
+
+  /* AIDORA Color System — 사이트의 색이 아니라 Project Page에서 보여 주는 내용이다(Figma 2025:7611의 Palette) */
+  --color-aidora-pale-blue-gray: #f4f6f8;
+  --color-aidora-warm-taupe: #8b7d72;
+  --color-aidora-cool-gray-blue: #8b95a1;
+  --color-aidora-soft-white: #fcfcfc;
+  --color-aidora-light-gray: #e5e5e5;
+  --color-aidora-rich-black: #141414;
 
   /* Motion — Figma에 없다. Loading → Folder가 책상에 놓임 → Cover 글자 등장(사용자 지정 Interaction).
      근거: design-source/implementation-spec.md "Cover Entry Motion" */

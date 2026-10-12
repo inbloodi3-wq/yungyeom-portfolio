@@ -143,6 +143,13 @@
   word-break: keep-all;
 }
 
+/* Section을 여는 문장. 본문보다 한 단계 크고 진하다 */
+.project-text--lead {
+  font-size: calc(var(--text-profile-intro-size) * 1px);
+  line-height: calc(var(--text-profile-intro-leading-px) * 1px);
+  color: var(--color-contents-project);
+}
+
 /* 기본 정보: 유형, 역할, 도구, 기간 */
 .project-meta {
   display: grid;
@@ -197,6 +204,26 @@
   word-break: keep-all;
 }
 
+/* 한 Section 안의 묶음: 영문 제목 + 내용 (예: Design System 안의 Logo / Color / Typography) */
+.project-block {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space-project-block-gap) * 1px);
+}
+
+.project-block + .project-block,
+.project-section__body > * + .project-block {
+  margin-top: calc((var(--space-project-blocks-gap) - var(--space-project-block-gap)) * 1px);
+}
+
+.project-block__title {
+  font-family: var(--font-display);
+  font-size: calc(var(--text-project-heading-size) * 1px);
+  font-weight: var(--text-contents-project-weight);
+  line-height: var(--text-project-heading-leading);
+  color: var(--color-contents-title);
+}
+
 /* 작은 글씨의 덧붙임(출처, 조사 조건, 준비 중 안내) */
 .project-note {
   max-width: 52em;
@@ -233,6 +260,52 @@
   word-break: keep-all;
 }
 
+/* 영문 낱말을 제목 서체로 보여 주는 줄(이름, 서체 견본) */
+.project-list__title--display {
+  font-family: var(--font-display);
+  font-weight: var(--text-contents-eyebrow-weight);
+}
+
+/* 색 견본. 색 값은 tokens.css의 --color-aidora-* (Project의 내용) */
+.project-palette {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: calc(var(--space-project-block-gap) * 1px) calc(var(--space-contents-index-gap) * 1px);
+}
+
+.project-palette__item {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space-contents-head-row-gap-compact) * 1px);
+  font-family: var(--font-display);
+}
+
+.project-palette__chip {
+  aspect-ratio: var(--layout-project-chip-ratio);
+  margin-bottom: calc(var(--space-contents-item-gap) * 1px);
+  border: 1px solid var(--color-contents-rule);
+}
+
+.project-palette__chip--pale-blue-gray { background: var(--color-aidora-pale-blue-gray); }
+.project-palette__chip--warm-taupe { background: var(--color-aidora-warm-taupe); }
+.project-palette__chip--cool-gray-blue { background: var(--color-aidora-cool-gray-blue); }
+.project-palette__chip--soft-white { background: var(--color-aidora-soft-white); }
+.project-palette__chip--light-gray { background: var(--color-aidora-light-gray); }
+.project-palette__chip--rich-black { background: var(--color-aidora-rich-black); }
+
+.project-palette__name {
+  font-size: calc(var(--text-project-body-size) * 1px);
+  font-weight: var(--text-contents-eyebrow-weight);
+  line-height: calc(var(--text-project-body-leading-px) * 1px);
+}
+
+.project-palette__code {
+  font-size: calc(var(--text-contents-caption-size) * 1px);
+  line-height: calc(var(--text-contents-caption-leading-px) * 1px);
+  letter-spacing: calc(var(--text-contents-caption-tracking) * 1px);
+  color: var(--color-contents-label);
+}
+
 /* 화면 이미지 자리. 이미지가 준비되면 .project-showcase__slot 안의 안내 문구를 <img>로 바꾼다 */
 .project-showcase {
   display: grid;
@@ -255,6 +328,10 @@
   border: 1px solid var(--color-contents-rule);
   font-size: calc(var(--text-contents-caption-size) * 1px);
   color: var(--color-contents-number);
+}
+
+.project-showcase__slot--wide {
+  aspect-ratio: var(--layout-project-slot-ratio-wide);
 }
 
 .project-showcase__caption {
@@ -316,6 +393,10 @@
 
   .project-section__title {
     font-size: calc(var(--text-project-heading-size) * 1px);
+  }
+
+  .project-palette {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .project-meta,
