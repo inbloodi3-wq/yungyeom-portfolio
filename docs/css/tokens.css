@@ -327,6 +327,14 @@
   --text-project-body-size: 16;
   --text-project-body-leading-px: 26;
 
+  /* TOP 버튼(css/top-button.css) — Project Page에서 쓰는 값 */
+  --top-button-size: 48px;
+  --top-button-offset: 24px;
+  --top-button-bg: #ffffff;
+  --top-button-fg: #141414;
+  --top-button-line: #141414;
+  --duration-ui: 200ms;
+
   /* Page에 들어올 때의 움직임 */
   --duration-project-enter: 600ms;
   --ease-project-enter: cubic-bezier(0.22, 1, 0.36, 1);

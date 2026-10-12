@@ -100,6 +100,17 @@ Figma에 사이트 내비게이션(Header, Menu, 뒤로 가기, Page 사이 링�
 | 10 | s10-mobile | Mobile |
 | 11 | s11-outcome | Outcome & Reflection |
 
+## AIDORA Live Website (2026-10-12)
+포트폴리오와 별개의 시연 사이트다(`docs/aidora-site/`). 근거는 `design-source/implementation-spec.md` 30절.
+
+| Page | 파일 | 가는 길 |
+|---|---|---|
+| Main | `aidora-site/index.html` | aidora의 "View Live Website", Logo |
+| Collection | `aidora-site/collection.html` (`#perfume`, `#hand-body`, `#home-space`, `#gift-trial`) | Header Menu, Main의 링크 |
+| Product Detail | `aidora-site/product.html` | Collection과 Main의 상품 |
+| Brand | `aidora-site/brand.html` (`#philosophy`, `#standard`, `#material`, `#direction`) | Header Menu |
+| → aidora | 모든 Page 맨 위의 "← AIDORA Case Study" | aidora#web-design |
+
 ## Visual Architecture (2026-10-12)
 index(Cover·Profile·Contents)는 포트폴리오의 겉이고, Project Page는 작품을 보여 주는 흰 바탕의 독립된 영역이다. 두 영역은 CSS와 Token을 나눠 쓴다(`design-source/implementation-spec.md` 29절).
 

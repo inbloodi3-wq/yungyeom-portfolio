@@ -1,0 +1,55 @@
+/* TOP 버튼 — Page 맨 위로 돌아가는 링크. AIDORA Case Study와 AIDORA Live Website가 함께 쓴다.
+   Cover·Contents(index)에는 쓰지 않는다.
+
+   값은 쓰는 쪽의 Token에서 온다: --top-button-size, --top-button-offset, --top-button-bg, --top-button-fg,
+   --top-button-line, --duration-ui.
+   JavaScript 없이도 동작한다(#top으로 가는 보통 링크). js/top-button.js가 있으면 맨 위 근처에서 숨는다. */
+
+html {
+  scroll-behavior: smooth;
+}
+
+.top-button {
+  position: fixed;
+  z-index: 20;
+  right: var(--top-button-offset);
+  bottom: calc(var(--top-button-offset) + env(safe-area-inset-bottom, 0px));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--top-button-size);
+  height: var(--top-button-size);
+  border: 1px solid var(--top-button-line);
+  background: var(--top-button-bg);
+  color: var(--top-button-fg);
+  font-family: "Outfit", "Helvetica Neue", Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: opacity var(--duration-ui) ease, visibility 0s linear 0s;
+}
+
+.top-button:hover,
+.top-button:focus-visible {
+  background: var(--top-button-fg);
+  color: var(--top-button-bg);
+}
+
+/* 맨 위 근처: 보이지 않고, Tab으로도 닿지 않는다 */
+.top-button.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--duration-ui) ease, visibility 0s linear var(--duration-ui);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .top-button,
+  .top-button.is-hidden {
+    transition: none;
+  }
+}

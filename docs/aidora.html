@@ -11,11 +11,13 @@
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/pages/project.css">
+  <link rel="stylesheet" href="css/top-button.css">
+  <script src="js/top-button.js" defer></script>
 </head>
 <body class="project-page project-page--aidora">
 
   <div class="project">
-    <header class="project-bar">
+    <header class="project-bar" id="top" tabindex="-1">
       <a class="project-bar__back" href="index.html#contents">← Contents</a>
       <span>PROJECT 01</span>
     </header>
@@ -258,6 +260,11 @@
         <h2 class="project-section__label">06 / Web Design</h2>
         <div class="project-section__body">
           <p class="project-text project-text--lead">브랜드의 첫 인상에서 제품 탐색과 상세 경험까지 실제 화면을 중심으로 웹 경험의 흐름을 보여줍니다.</p>
+          <!-- 실제로 둘러볼 수 있는 AIDORA 웹사이트(HTML/CSS 구현)로 가는 길 -->
+          <a class="project-cta" href="aidora-site/index.html">
+            <span class="project-cta__label">View Live Website</span>
+            <span class="project-cta__text">웹사이트 직접 체험하기 →</span>
+          </a>
 
           <div class="project-block">
             <h3 class="project-block__title">Main Page</h3>
@@ -370,6 +377,8 @@
       </a>
     </nav>
   </div>
+
+  <a class="top-button" href="#top" data-top-button aria-label="맨 위로 이동">Top</a>
 
 </body>
 </html>

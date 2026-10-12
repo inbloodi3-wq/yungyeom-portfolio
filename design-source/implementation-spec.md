@@ -619,3 +619,54 @@ sheet-stack [data-active-sheet = cover | profile | contents]
 - tj-media, asics-korea: 바탕과 구조만 바뀌었다. 내용은 26절 상태(Case Study 일부 문안, 이미지 자리 비어 있음)이고 Project 고유의 색·위계는 아직 반영하지 않았다. 변형 Class만 준비되어 있다.
 - aidora 웹 화면의 Scroll 틀은 그대로다(사용자가 별도 검토로 남겼다).
 - 흰 바탕에서 `--color-project-label` 글자의 대비는 측정하지 않았다.
+
+## 30. AIDORA Live Website (2026-10-12, 사용자 지정)
+### 사용자 결정
+- Case Study(aidora)는 그대로 두고, AIDORA 결과 화면 네 종을 **실제로 둘러볼 수 있는 HTML/CSS 웹사이트**로 따로 구현한다(이미지 Viewer가 아니다). 13절 G4의 "동작하는 Page로 만들지 않는다"(26절)를 이 범위에서 바꾼다.
+- 이 사이트는 포트폴리오의 종이·띠도, Case Study의 설명용 구성도 쓰지 않고 AIDORA 자체의 디자인을 따른다.
+- 검색·로그인·장바구니·결제는 구현하지 않고, 동작하는 것처럼 보이게 하지도 않는다.
+- AIDORA Live Website의 모든 Page와 AIDORA Case Study에 TOP 버튼을 둔다. Cover·Loading·Contents에는 두지 않는다.
+
+### 구조
+| 항목 | 내용 |
+|---|---|
+| 위치 | `docs/aidora-site/` — `index.html`(Main), `collection.html`, `product.html`, `brand.html`. 정적 파일이라 직접 접근·새로 고침·뒤로 가기가 그대로 된다 |
+| CSS | `docs/aidora-site/css/tokens.css`(AIDORA 자체의 값), `site.css`. 포트폴리오의 `css/tokens.css`, `base.css`, `project.css`는 읽지 않는다. Font 파일만 포트폴리오의 것을 함께 쓴다 |
+| 값의 원본 | 이 사이트 안에서는 `aidora-site/css/tokens.css`가 원본이다(포트폴리오의 "값은 `docs/css/tokens.css`에만"의 예외 — 다른 디자인 시스템이기 때문). 세부 간격 가운데 한 곳에서만 쓰는 값은 `site.css`에 rem으로 적혀 있다 |
+| 단위 | 1rem = Figma의 16px. 가장 넓은 Breakpoint 이상에서 화면 폭에 비례한다(1920에서 Figma와 같은 크기) |
+| 공용 | `docs/css/top-button.css`, `docs/js/top-button.js` — Case Study와 Live Website가 함께 쓴다 |
+| 원본 | Figma `자동화 > 포트폴리오`의 메인페이지(ui-main), 상세페이지 안의 Header·Main·Footer(ui-pdp), 서브페이지(ui-collection), 브랜드 소개(ui-brand) |
+- 저장소에는 재사용할 AIDORA HTML/CSS가 없었다(검색 범위: 이 저장소).
+
+### 이동
+- Header: Logo → Main, Perfume·Home & Space·Bath & Body·Gifts → Collection의 해당 묶음, Brand → Brand Page.
+- Main의 향수 Card → Product Detail. 그 밖의 Card와 "View All"·"Explore" 링크 → Collection의 해당 묶음.
+- Collection의 모든 상품 → Product Detail. **Figma에 Product Detail은 COLD MONOLITH 하나뿐이라, 어느 상품을 눌러도 같은 Page가 열린다.**
+- Product Detail 위쪽의 위치 표시(Collection / Perfume / Cold Monolith)는 Figma에 없고, Collection으로 돌아가는 길로 더했다.
+- 맨 위의 검은 줄(Demo 안내 줄): "← AIDORA Case Study"와 시연 사이트라는 안내. AIDORA 디자인의 일부가 아니며 Figma에 없다.
+- Case Study의 Web Design 묶음 처음에 "View Live Website / 웹사이트 직접 체험하기" 링크를 두었다.
+
+### 동작하지 않게 둔 것
+| 요소 | 처리 |
+|---|---|
+| Header의 검색·언어·계정·장바구니 아이콘 | 모양만 있다(링크·버튼이 아니고 보조 기술에는 숨김) |
+| 구매하기, 장바구니 담기, Write a Note | `disabled` 버튼. 모양은 Figma 그대로. 구매 버튼 아래에 안내 한 줄 |
+| 용량 선택(35ml / 75ml) | 선택된 모양만(Figma의 상태 그대로) |
+| Collection의 Filter | 해당 묶음으로 내려가는 링크(걸러 내기 아님) |
+| Footer의 Stores, Client Care 항목, Newsletter, SNS·약관 | 글자만(링크 아님) |
+
+### Figma와 다른 점
+- **한글 서체**: Figma는 SUIT, 사이트는 Pretendard(SUIT Font 파일이 없다 — 15절). 글자 폭이 달라 줄바꿈이 조금 다르다.
+- **이미지 해상도**: 화면 속 이미지는 Figma 전체 Render(1배)에서 Node 좌표대로 잘라 냈다. 고해상도 화면에서는 조금 부드럽다. Main의 첫 화면 사진만 Image Fill 원본이다.
+- **위치·간격**: Section 순서와 구성은 같다. 값은 Metadata의 좌표·크기와 Render를 보고 옮겼고 Node마다 Style을 읽지는 않았다. 1920에서 Page 전체 높이가 Figma보다 1–7% 짧다(Main이 가장 차이 난다).
+- **없는 것**: Product Detail 아래 서비스 네 항목의 아이콘, Scent Standard에서 한 항목만 진하게 보이는 상태 표현, Product Detail의 Hover·선택 Interaction.
+- **Text**: Metadata의 Text Node 이름에서 가져왔다. 줄바꿈은 Render를 보고 몇 곳에 넣었다. Node 이름이 내용과 다르게 바뀌어 있었다면 그 차이는 확인하지 못했다.
+- **Responsive**: Figma에는 1920 디자인만 있다. 좁은 화면은 구현 판단이다(Card 두 칸, Header의 메뉴는 가로 Scroll, 한 단으로 쌓기).
+
+### TOP 버튼
+- 오른쪽 아래 고정. 일정 거리 이상 내려가면 나타나고 맨 위 근처에서는 숨는다. 누르면 맨 위로 부드럽게 올라간다(CSS `scroll-behavior`). 움직임을 줄이는 설정에서는 바로 이동한다.
+- `aria-label`이 있는 링크다. Keyboard로 닿고 Enter로 동작하며, 올라간 뒤 Focus가 Page 처음으로 간다. JavaScript가 없으면 항상 보이는 보통 링크다.
+- 주소에 `#top`을 남기지 않는다(뒤로 가기가 한 번 더 필요해지지 않게).
+
+### Asset
+- `docs/aidora-site/assets/`의 사진 57개와 아이콘 4개, Logo 2개. 사진과 아이콘은 28절에서 사용자가 게시 가능하다고 확인한 웹 화면 네 종에서 나온 것이다(`assets/manifest.jsonl`의 `aidora-site-images`). Logo는 승인된 `aidora-logo-wordmark`의 사본과 색만 흰색으로 바꾼 사본이다.

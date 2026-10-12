@@ -1,0 +1,64 @@
+/* AIDORA Live Website — Design Tokens.
+   포트폴리오(../../css/tokens.css)와 별개인 AIDORA 자체의 값이다. Figma `자동화 > 포트폴리오`의
+   AIDORA 결과 화면(메인페이지, 상세페이지, 서브페이지, 브랜드 소개)과 그 Variable(color/Main, Outfit·SUIT Text Style)에서 옮겼다.
+
+   단위: 1rem = Figma의 16px. 1024px 이상에서는 화면 폭에 비례해 줄어든다(site.css의 html 규칙).
+   그래서 1920 폭에서 Figma와 같은 크기이고, 더 좁은 Desktop에서는 구성 전체가 같은 비율로 작아진다. */
+
+:root {
+  /* Color — Figma Variable color/Main */
+  --color-bg: #ffffff;
+  --color-bg-sub: #fcfcfc;
+  --color-bg-section: #f4f6f8;
+  --color-text: #141414;
+  --color-text-sub: #444444;
+  --color-text-muted: #666666;
+  --color-text-caption: #888888;
+  --color-line: #e5e5e5;
+  --color-dark: #1a1a1a;          /* Footer, Brand의 마무리 문장 */
+  --color-bridge: #11100d;        /* Main의 검은 Bridge */
+  --color-on-dark: #ffffff;
+  --color-on-dark-sub: #cfcfcf;
+  --color-on-dark-line: rgba(255, 255, 255, 0.12);
+
+  /* Typography — 영문 Outfit, 한글은 Figma에서 SUIT다.
+     SUIT Font 파일이 이 사이트에 없어 포트폴리오가 쓰는 Pretendard로 대신 그린다(Figma와 다른 점). */
+  --font-en: "Outfit", "Helvetica Neue", Arial, sans-serif;
+  --font-kr: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --text-display: 6rem;           /* Outfit/Display XL 96 */
+  --text-hero: 3.875rem;          /* 62 */
+  --text-h1: 2.625rem;            /* Outfit/O Heading XL 42 */
+  --text-h2: 2rem;                /* SUIT/Heading LG 32 */
+  --text-h3: 1.5rem;              /* Outfit/Title 24 */
+  --text-title: 1.125rem;         /* Outfit/O Body LG 18 */
+  --text-lead: 1.25rem;           /* SUIT/Title S 20 */
+  --text-body: 1rem;              /* 16 */
+  --text-caption: 0.875rem;       /* Outfit/Caption 14 */
+  --text-label: 0.75rem;          /* Outfit/Label 12 */
+  --leading: 1.35;
+  --leading-display: 1.1;
+  --tracking-nav: 0.08em;         /* letterSpacing 8% */
+  --tracking-caption: 0.1em;      /* 10% */
+  --tracking-title: 0.05em;       /* 5% */
+  --tracking-lead: 0.02em;        /* 2% */
+  --text-min: 12px;               /* 좁은 Desktop에서 본문이 이보다 작아지지 않게 한다 */
+
+  /* Layout */
+  --page-max: 120rem;             /* 1920 */
+  --gutter: 10rem;                /* 좌우 160 */
+  --gutter-wide: 6.25rem;         /* 좌우 100 (Main의 상품 Section) */
+  --gutter-header: 3.75rem;       /* 60 */
+  --header-height: 6.25rem;       /* 100 */
+  --section-block: 6.25rem;
+  --grid-gap: 3rem;               /* Main의 4열 Card 사이 48 */
+  --grid-gap-collection: 3.5rem;  /* Collection의 4열 Card 사이 56 */
+
+  /* Demo 안내 줄과 TOP 버튼 */
+  --demo-bar-height: 2.25rem;
+  --top-button-size: 48px;
+  --top-button-offset: 24px;
+  --top-button-bg: #ffffff;
+  --top-button-fg: #141414;
+  --top-button-line: #141414;
+  --duration-ui: 200ms;
+}
