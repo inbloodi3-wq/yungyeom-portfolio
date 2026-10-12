@@ -327,6 +327,58 @@
   --text-project-body-size: 16;
   --text-project-body-leading-px: 26;
 
+  /* AIDORA Case Study — Figma Case Study(자동화 > 포트폴리오 > Main)의 표현을 옮기는 데 쓰는 값.
+     Figma의 px 값 그대로다(글자 크기, Section 여백, Palette 높이 등). -mobile 은 좁은 화면용 구현 판단값 */
+  --color-case-tint: #f4f6f8;              /* Figma color/Main/섹션 배경 */
+  --color-case-operator: #8b95a1;
+  --space-case-section: 84;
+  --space-case-section-mobile: 56;
+  --space-case-gap: 74;
+  --space-case-gap-mobile: 40;
+  --space-case-head-gap: 24;
+  --layout-case-lead-width: 820;
+  --layout-case-meta-label-width: 118;
+  --layout-case-number-width: 56;
+  --layout-case-logo-height: 152;
+  --layout-case-palette-row-1: 334;
+  --layout-case-palette-row-2: 236;
+  --layout-case-palette-row-3: 188;
+  --layout-case-palette-row-mobile: 120;
+  --text-case-heading-size: 42;            /* Outfit/O Heading XL */
+  --text-case-heading-size-mobile: 30;
+  --text-case-heading-leading: 1.35;
+  --text-case-lead-size: 20;               /* SUIT/Title SB */
+  --text-case-lead-weight: 700;            /* Figma는 SemiBold. Pretendard에는 400과 700만 있다 */
+  --text-case-lead-tracking: 0.4;
+  --text-case-cover-eyebrow-size: 24;      /* Outfit/Title */
+  --text-case-cover-eyebrow-tracking: 1.2;
+  --text-case-cover-lead-size: 24;
+  --text-case-cover-lead-size-mobile: 20;
+  --text-case-cover-sub-size: 18;
+  --text-case-statement-size: 32;
+  --text-case-statement-size-mobile: 24;
+  --text-case-item-size: 24;               /* SUIT/Body LG XB */
+  --text-case-item-size-mobile: 20;
+  --text-case-item-tracking: 1.2;
+  --text-case-meta-size: 16;               /* Outfit/Nav LG */
+  --text-case-meta-tracking: 1.28;
+  --text-case-palette-label-1: 24;
+  --text-case-palette-label-2: 20;
+  --text-case-palette-label-3: 17;
+  --text-case-palette-tag-size: 14;
+  --text-case-palette-tag-tracking: 2.52;
+  --text-case-family-size: 62;
+  --text-case-family-size-mobile: 44;
+  --text-case-family-weight: 600;
+  --text-case-spec-1: 42;
+  --text-case-spec-2: 32;
+  --text-case-spec-3: 24;
+  --text-case-spec-3-kr: 28;
+  --text-case-spec-4: 18;
+  --text-case-spec-4-kr: 20;
+  --text-case-spec-5: 16;
+  --text-case-operator-size: 28;
+
   /* TOP 버튼(css/top-button.css) — Project Page에서 쓰는 값 */
   --top-button-size: 48px;
   --top-button-offset: 24px;

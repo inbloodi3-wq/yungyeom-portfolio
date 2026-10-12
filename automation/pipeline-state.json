@@ -35,13 +35,13 @@
   },
   "checkpoint": {
     "stage": "secondary_pages",
-    "page": "aidora + aidora-site",
+    "page": "aidora",
     "section": "(사용자 확인 대기)",
     "updated_at": "2026-10-12",
-    "resume_hint": "2026-10-12: AIDORA Live Website(docs/aidora-site, 4 Page)와 TOP 버튼, Case Study의 진입 링크를 구현하고 local commit했다(push 안 함). 근거는 implementation-spec.md 30절(Figma와 다른 점 포함). 다음: (1) 사용자의 화면 확인 (2) 정밀도를 올리려면 Node별 Style 읽기와 고해상도 이미지, SUIT Font 추가 여부(Level 3) 결정 (3) aidora Case Study 웹 화면 Scroll 틀 검토 (4) tj-media, asics-korea 재구성 (5) FULL QA (6) push는 사용자 승인 후."
+    "resume_hint": "2026-10-12: aidora Case Study를 Figma Case Study의 Section 순서와 표현으로 다시 구성하고(도표·맵·캡처는 Figma에서 자른 이미지 15개), Live Website CTA를 표지와 Page 끝에 두었다. 근거와 남은 차이는 implementation-spec.md 31절. local commit만 했다(push 안 함). aidora-site, index, tj-media, asics-korea는 건드리지 않았다. 다음: (1) 사용자의 화면 확인 (2) SUIT Font 추가 여부(Level 3) (3) tj-media, asics-korea도 같은 원칙(Figma Case Study 표현 그대로)으로 — 이미지 권리 확인 먼저 (4) FULL QA (5) push는 사용자 승인 후."
   },
   "render_checked": true,
-  "qa_status": "2026-10-12 aidora-site: 1920·1440·768·390에서 4 Page 가로 Overflow 없음, 깨진 이미지 0, Console Error·실패 Request 0, h1 각 1개, 빈 링크 0. 흐름(네 폭): Contents → Case Study → Live Website → Collection → Product Detail → Collection → Brand → Logo로 Main → TOP 버튼(마우스·Keyboard) → Case Study → 뒤로·앞으로 → 직접 접근·새로 고침 → Contents 모두 통과. 1920에서 네 Page를 Figma Render와 나란히 놓고 축소본으로 비교(구성·순서 일치, 간격과 줄바꿈에 차이). 390 네 Page 축소본 육안 확인. capture.cjs 포트폴리오 4 Page 측정상 문제 0건",
+  "qa_status": "2026-10-12 aidora(Figma 표현 복원 후): 1920·1440·768·390에서 가로 Overflow 없음, 깨진 이미지 0, Console Error·실패 Request 0, h1 1개. 이미지 비율 유지(패키지 좁은 사진 두 장만 줄 높이 맞춤으로 약 7% 잘림). CTA 세 곳 모두 aidora-site/index.html로 이동. 흐름(Contents → Case Study → Live Website 4 Page → Case Study → Contents), TOP 버튼, 뒤로·앞으로 네 폭 통과. 1920에서 Figma Case Study Render와 나란히 축소본 비교(Section 순서·구성 일치). 390·768·1440은 측정만 했다",
   "retry_count": 0,
   "blockers": [
     {
@@ -68,7 +68,7 @@
   },
   "last_meaningful_change": {
     "date": "2026-10-12",
-    "summary": "AIDORA Live Website 4 Page(Main, Collection, Product Detail, Brand)를 Figma 결과 화면 기준으로 HTML/CSS 구현. TOP 버튼(Case Study + Live Website), Case Study에 진입 링크."
+    "summary": "aidora Case Study의 과정 표현을 Figma Case Study 기준으로 복원(표지, 도표, 포지셔닝 맵, Palette, 서체 견본, 목업, 주석 달린 화면, 캡처 구성). Live Website CTA를 표지와 Page 끝에 추가."
   },
   "definition_of_done": "automation-orchestrator.md의 Stop Rule 전부 PASS",
   "design_definition": {

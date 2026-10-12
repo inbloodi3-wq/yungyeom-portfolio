@@ -389,31 +389,496 @@
   text-transform: uppercase;
 }
 
-/* 바깥 구현물로 가는 큰 링크(예: Live Website). 검은 면 하나, 장식 없음 */
-.project-cta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: calc(var(--space-project-gap-sm) * 1px) calc(var(--space-project-block-gap) * 1px);
-  padding: calc(var(--space-project-item-padding) * 1px) calc(var(--space-project-block-gap) * 1px);
-  background: var(--color-project-text);
-  color: var(--color-project-bg);
-}
+/* ---------- Live Website로 가는 길 ----------
+   project-cta      테두리 버튼. 문구 + 보조 문구 + 화살표. 가리키면 색이 뒤집힌다
+   project-link     본문 안의 보조 링크(밑줄)
+   project-explore  Page 끝의 체험 안내 영역 */
 
 .project .project-cta {
-  color: var(--color-project-bg);
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--space-project-block-gap) * 1px);
+  align-self: flex-start;
+  padding: calc(var(--space-project-gap-md) * 1px) calc(var(--space-project-block-gap) * 1px);
+  border: 1px solid var(--color-project-text);
+  color: var(--color-project-text);
+  text-decoration: none;
+  transition: background-color var(--duration-ui) ease, color var(--duration-ui) ease;
 }
 
-.project-cta__label {
-  font-family: var(--font-display);
-  font-size: calc(var(--text-project-item-size) * 1px);
-  letter-spacing: calc(var(--text-project-label-tracking) * 1px);
-  text-transform: uppercase;
+.project .project-cta:hover,
+.project .project-cta:focus-visible {
+  background: var(--color-project-text);
+  color: var(--color-project-bg);
+  text-decoration: none;
+}
+
+.project-cta__body {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space-project-gap-xs) * 1px);
+  text-align: left;
 }
 
 .project-cta__text {
+  font-size: calc(var(--text-project-item-size) * 1px);
+  font-weight: var(--text-project-heading-weight);
+  line-height: calc(var(--text-project-item-leading-px) * 1px);
+}
+
+.project-cta__sub {
+  font-family: var(--font-display);
+  font-size: calc(var(--text-project-label-size) * 1px);
+  letter-spacing: calc(var(--text-project-label-tracking) * 1px);
+}
+
+.project-cta__arrow {
+  font-family: var(--font-display);
+  font-size: calc(var(--text-project-item-size) * 1px);
+}
+
+.project .project-link {
+  align-self: flex-start;
+  padding-bottom: calc(var(--space-project-gap-xs) * 1px);
+  border-bottom: 1px solid currentColor;
   font-size: calc(var(--text-project-body-size) * 1px);
+}
+
+.project .project-link:hover,
+.project .project-link:focus-visible {
+  text-decoration: none;
+  opacity: 0.6;
+}
+
+.project-explore {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(var(--space-project-gap-md) * 1px);
+  padding-block: calc(var(--space-project-section-gap) * 1px);
+  text-align: center;
+}
+
+.project-explore__eyebrow {
+  font-family: var(--font-display);
+  font-size: calc(var(--text-project-label-size) * 1px);
+  letter-spacing: calc(var(--text-case-palette-tag-tracking) * 1px);
+  color: var(--color-project-label);
+}
+
+.project-explore__title {
+  font-family: var(--font-display);
+  font-size: calc(var(--text-case-heading-size-mobile) * 1px);
+  font-weight: var(--text-project-block-weight);
+  line-height: var(--text-case-heading-leading);
+}
+
+.project-explore__text {
+  margin-bottom: calc(var(--space-project-gap-md) * 1px);
+  font-size: calc(var(--text-project-body-size) * 1px);
+  color: var(--color-project-sub);
+}
+
+.project-explore .project-cta {
+  align-self: center;
+}
+
+/* ---------- AIDORA Case Study: Figma Case Study의 표현 ----------
+   Section 순서, 제목 양식, 도표·견본·캡처의 배치를 Figma(1600 폭 문서)대로 옮긴다.
+   글은 HTML이고, 도표·맵·주석 달린 캡처는 Figma에서 잘라 낸 이미지다. */
+
+.case-section {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space-case-gap-mobile) * 1px);
+  padding-block: calc(var(--space-case-section-mobile) * 1px);
+  border-bottom: 1px solid var(--color-project-rule);
+  scroll-margin-top: calc(var(--space-project-gap-md) * 1px);
+}
+
+/* 옅은 면이 화면 양끝까지 이어지는 Section */
+.case-section--tint {
+  background: var(--color-case-tint);
+  box-shadow: 0 0 0 100vmax var(--color-case-tint);
+  clip-path: inset(0 -100vmax);
+}
+
+.case-head {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space-case-head-gap) * 1px);
+}
+
+.case-head__title {
+  font-family: var(--font-display);
+  font-size: calc(var(--text-case-heading-size-mobile) * 1px);
+  font-weight: var(--text-project-block-weight);
+  line-height: var(--text-case-heading-leading);
+  text-transform: uppercase;
+}
+
+.case-head__lead {
+  max-width: calc(var(--layout-case-lead-width) * 1px);
+  font-size: calc(var(--text-case-lead-size) * 1px);
+  font-weight: var(--text-case-lead-weight);
+  line-height: var(--text-case-heading-leading);
+  letter-spacing: calc(var(--text-case-lead-tracking) * 1px);
+  color: var(--color-project-sub);
+  word-break: keep-all;
+}
+
+.case-statement {
+  font-size: calc(var(--text-case-statement-size-mobile) * 1px);
+  line-height: var(--text-case-heading-leading);
+  word-break: keep-all;
+}
+
+.case-figure {
+  margin: 0;
+}
+
+.case-figure img {
+  width: 100%;
+}
+
+.case-figure--framed img {
+  border: 1px solid var(--color-project-rule);
+}
+
+/* 표지: 왼쪽 글, 오른쪽 이미지 */
+.case-cover {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: calc(var(--space-case-gap-mobile) * 1px);
+  align-items: center;
+  padding-block: calc(var(--space-case-section-mobile) * 1px);
+  border-bottom: 1px solid var(--color-project-rule);
+}
+
+.case-cover__text {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space-project-gap-md) * 1px);
+}
+
+.case-cover__eyebrow {
+  font-family: var(--font-display);
+  font-size: calc(var(--text-case-cover-eyebrow-size) * 1px);
+  font-weight: var(--text-project-eyebrow-weight);
+  letter-spacing: calc(var(--text-case-cover-eyebrow-tracking) * 1px);
+  color: var(--color-project-label);
+}
+
+.case-cover__lead {
+  margin-top: calc(var(--space-case-gap-mobile) * 1px);
+  font-size: calc(var(--text-case-cover-lead-size-mobile) * 1px);
+  line-height: var(--text-case-heading-leading);
+  letter-spacing: calc(var(--text-case-cover-eyebrow-tracking) * 1px);
+  word-break: keep-all;
+}
+
+.case-cover__sub {
+  font-size: calc(var(--text-case-cover-sub-size) * 1px);
+  line-height: var(--text-case-heading-leading);
+  color: var(--color-project-label);
+  word-break: keep-all;
+}
+
+.case-meta {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space-case-head-gap) * 1px);
+  margin: 0;
+  padding-top: calc(var(--space-case-head-gap) * 1px);
+  border-top: 1px solid var(--color-project-rule);
+  font-size: calc(var(--text-case-meta-size) * 1px);
+  line-height: var(--text-case-heading-leading);
+}
+
+.case-meta__row {
+  display: grid;
+  grid-template-columns: calc(var(--layout-case-meta-label-width) * 1px) minmax(0, 1fr);
+  gap: calc(var(--space-project-gap-md) * 1px);
+}
+
+.case-meta__term {
+  font-family: var(--font-display);
+  letter-spacing: calc(var(--text-case-meta-tracking) * 1px);
+  text-transform: uppercase;
+  color: var(--color-project-label);
+}
+
+.case-meta__value {
+  margin: 0;
+  font-family: var(--font-display);
+  letter-spacing: calc(var(--text-case-meta-tracking) * 1px);
+  color: var(--color-project-sub);
+}
+
+.case-meta__value--kr {
+  font-family: var(--font-kr-body);
+  letter-spacing: 0;
+}
+
+.case-cover .project-cta {
+  margin-top: calc(var(--space-project-gap-md) * 1px);
+}
+
+/* 나란히 놓인 도표 두 장 */
+.case-figures {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: calc(var(--space-project-gap-md) * 1px);
+}
+
+/* 왼쪽 글·목록, 오른쪽 도표 */
+.case-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: calc(var(--space-case-gap-mobile) * 1px);
+  align-items: start;
+}
+
+.case-split__text {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space-case-head-gap) * 1px);
+}
+
+/* 번호·제목·설명 목록(Pain Point) */
+.case-list {
+  border-top: 1px solid var(--color-project-rule);
+}
+
+.case-list__item {
+  display: grid;
+  grid-template-columns: calc(var(--layout-case-number-width) * 1px) minmax(0, 1fr);
+  gap: calc(var(--space-project-gap-sm) * 1px) calc(var(--space-project-gap-md) * 1px);
+  padding-block: calc(var(--space-project-block-gap) * 1px);
+  border-bottom: 1px solid var(--color-project-rule);
+}
+
+.case-list__number {
+  font-family: var(--font-display);
+  font-size: calc(var(--text-case-meta-size) * 1px);
+  letter-spacing: calc(var(--text-case-meta-tracking) * 1px);
+  color: var(--color-project-label);
+}
+
+.case-list__title {
+  font-size: calc(var(--text-case-item-size-mobile) * 1px);
+  font-weight: var(--text-project-heading-weight);
+  line-height: var(--text-case-heading-leading);
+  letter-spacing: calc(var(--text-case-item-tracking) * 1px);
+  word-break: keep-all;
+}
+
+.case-list__text {
+  grid-column: 2;
+  font-size: calc(var(--text-project-body-size) * 1px);
+  line-height: var(--text-case-heading-leading);
+  color: var(--color-project-sub);
+  word-break: keep-all;
+}
+
+/* 이름의 구성: AIDA + AURA = AIDORA */
+.case-equation {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: calc(var(--space-project-gap-sm) * 1px);
+  align-items: center;
+}
+
+.case-equation__box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(var(--space-project-gap-sm) * 1px);
+  padding: calc(var(--space-project-columns-gap) * 1px) calc(var(--space-project-block-gap) * 1px);
+  border: 1px solid var(--color-project-rule);
+  background: var(--color-project-bg);
+  text-align: center;
+}
+
+.case-equation__name {
+  font-family: var(--font-display);
+  font-size: calc(var(--text-case-heading-size-mobile) * 1px);
+  font-weight: var(--text-project-block-weight);
+  line-height: var(--text-case-heading-leading);
+}
+
+.case-equation__text {
+  font-size: calc(var(--text-project-body-size) * 1px);
+  color: var(--color-project-sub);
+}
+
+.case-equation__operator {
+  padding-inline: calc(var(--space-project-gap-md) * 1px);
+  font-family: var(--font-display);
+  font-size: calc(var(--text-case-operator-size) * 1px);
+  color: var(--color-case-operator);
+  text-align: center;
+}
+
+.case-logos {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: calc(var(--space-project-gap-sm) * 1px);
+}
+
+.case-logos__box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(var(--layout-case-logo-height) * 1px);
+  padding: calc(var(--space-project-item-padding) * 1px);
+  border: 1px solid var(--color-project-rule);
+  background: var(--color-case-tint);
+}
+
+.case-logos__box img {
+  max-height: 100%;
+  width: auto;
+}
+
+/* Color System: 제목 줄 + 세 줄로 쌓인 색 면 */
+.case-palette-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: calc(var(--space-project-gap-sm) * 1px);
+  padding-bottom: calc(var(--space-case-head-gap) * 1px);
+  border-bottom: 1px solid var(--color-project-text);
+}
+
+.case-palette-head__tag {
+  font-family: var(--font-display);
+  font-size: calc(var(--text-case-palette-tag-size) * 1px);
+  font-weight: var(--text-project-eyebrow-weight);
+  letter-spacing: calc(var(--text-case-palette-tag-tracking) * 1px);
+}
+
+.case-palette__row {
+  display: flex;
+  flex-direction: column;
+}
+
+.case-swatch {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: calc(var(--space-project-gap-xs) * 1px) calc(var(--space-project-gap-md) * 1px);
+  min-height: calc(var(--layout-case-palette-row-mobile) * 1px);
+  padding: calc(var(--space-project-gap-md) * 1px);
+  font-family: var(--font-display);
+  font-size: calc(var(--text-case-palette-label-3) * 1px);
+  font-weight: var(--text-project-eyebrow-weight);
+  letter-spacing: 0.03em;
+}
+
+.case-swatch--dark { color: var(--color-project-bg); }
+.case-swatch--outline { box-shadow: inset 0 0 0 1px var(--color-project-rule); }
+.case-swatch--pale-blue-gray { background: var(--color-aidora-pale-blue-gray); }
+.case-swatch--warm-taupe { background: var(--color-aidora-warm-taupe); }
+.case-swatch--cool-gray-blue { background: var(--color-aidora-cool-gray-blue); }
+.case-swatch--soft-white { background: var(--color-aidora-soft-white); }
+.case-swatch--light-gray { background: var(--color-aidora-light-gray); }
+.case-swatch--rich-black { background: var(--color-aidora-rich-black); }
+
+/* Typography System: 서체 이름 + 크기별 견본 줄 */
+.case-type {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: calc(var(--space-project-block-gap) * 1px);
+}
+
+.case-type__label {
+  font-family: var(--font-display);
+  font-size: calc(var(--text-case-meta-size) * 1px);
+  font-weight: var(--text-case-family-weight);
+  letter-spacing: calc(var(--text-case-meta-tracking) * 1px);
+  text-transform: uppercase;
+  color: var(--color-project-label);
+}
+
+.case-type__family {
+  padding-bottom: calc(var(--space-project-gap-md) * 1px);
+  font-family: var(--font-display);
+  font-size: calc(var(--text-case-family-size-mobile) * 1px);
+  font-weight: var(--text-case-family-weight);
+  line-height: var(--text-project-title-leading);
+}
+
+.case-type__row {
+  padding-block: calc(var(--space-project-block-gap) * 1px);
+  border-top: 1px solid var(--color-project-rule);
+  font-family: var(--font-display);
+  font-weight: var(--text-project-eyebrow-weight);
+  line-height: var(--text-case-heading-leading);
+}
+
+.case-type__row:last-child { border-bottom: 1px solid var(--color-project-rule); }
+.case-type__row--1 { font-size: calc(var(--text-case-spec-1) * 1px); }
+.case-type__row--2 { font-size: calc(var(--text-case-spec-2) * 1px); letter-spacing: 0.05em; }
+.case-type__row--3 { font-size: calc(var(--text-case-spec-3) * 1px); letter-spacing: 0.05em; }
+.case-type__row--4 { font-size: calc(var(--text-case-spec-4) * 1px); font-weight: var(--text-project-block-weight); letter-spacing: 0.1em; }
+.case-type__row--5 { font-size: calc(var(--text-case-spec-5) * 1px); font-weight: var(--text-project-block-weight); letter-spacing: 0.08em; }
+.case-type--kr .case-type__row { font-family: var(--font-kr-body); font-weight: var(--text-project-block-weight); letter-spacing: 0; }
+.case-type--kr .case-type__row--3 { font-size: calc(var(--text-case-spec-3-kr) * 1px); }
+.case-type--kr .case-type__row--4 { font-size: calc(var(--text-case-spec-4-kr) * 1px); }
+
+/* 사이가 붙은 사진 묶음(Figma의 Product & Package, Web Experience) */
+.project-gallery--tight { gap: 0; }
+
+/* Figma에서는 좁은 사진이 줄보다 조금 높아 아래 줄에 가려진다. 여기서는 좁은 사진을 줄 높이에 맞춰 위아래를 조금 잘라 같은 모습을 만든다 */
+.project-gallery--tight .project-shot:not(.project-shot--wide) {
+  aspect-ratio: 520 / 350;
+  object-fit: cover;
+}
+
+.case-head .case-statement {
+  max-width: 20em;
+}
+
+/* 화면 캡처 두 장이 엇갈려 놓인 구성 */
+.case-captures {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: calc(var(--space-case-gap-mobile) * 1px);
+  align-items: start;
+}
+
+.case-captures__col {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space-case-gap-mobile) * 1px);
+}
+
+/* 전체 화면 이미지를 접어 둔다 */
+.case-full summary {
+  display: inline-block;
+  padding-bottom: calc(var(--space-project-gap-xs) * 1px);
+  border-bottom: 1px solid currentColor;
+  font-size: calc(var(--text-project-label-size) * 1px);
+  color: var(--color-project-label);
+  cursor: pointer;
+}
+
+.case-full[open] summary { margin-bottom: calc(var(--space-project-gap-md) * 1px); }
+
+/* Web Experience: 큰 목업 한 장 + 작은 목업 두 장(사이 없이 붙는다) */
+.case-web {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  border-top: 1px solid var(--color-project-rule);
+}
+
+.case-web img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* ---------- 맨 아래: 이전 / Contents / 다음 ---------- */
@@ -482,6 +947,31 @@
   .project-palette {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+
+  .case-figures,
+  .case-logos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .case-equation {
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+  }
+
+  /* Palette: Figma의 줄 구성(한 칸 / 두 칸 / 세 칸)과 칸의 폭 비율 */
+  .case-palette__row { flex-direction: row; }
+  .case-swatch { flex: 1 1 0; padding: calc(var(--space-project-item-padding) * 1px) calc(var(--space-project-block-gap) * 1px); }
+  .case-swatch--w115 { flex-grow: 1.15; }
+  .case-swatch--w85 { flex-grow: 0.85; }
+  .case-swatch--w110 { flex-grow: 1.1; }
+  .case-swatch--w90 { flex-grow: 0.9; }
+  .case-swatch--w70 { flex-grow: 0.7; }
+  .case-palette__row--1 .case-swatch { min-height: calc(var(--layout-case-palette-row-1) * 1px); font-size: calc(var(--text-case-palette-label-1) * 1px); }
+  .case-palette__row--2 .case-swatch { min-height: calc(var(--layout-case-palette-row-2) * 1px); font-size: calc(var(--text-case-palette-label-2) * 1px); }
+  .case-palette__row--3 .case-swatch { min-height: calc(var(--layout-case-palette-row-3) * 1px); }
+
+  .case-captures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .case-web { grid-template-columns: 2fr 1fr; grid-template-rows: 1fr 1fr; }
+  .case-web__main { grid-row: span 2; }
 
   .project-gallery {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -552,6 +1042,20 @@
   .project-palette {
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
+
+  /* Case Study: Figma의 Desktop 값 */
+  .case-section { gap: calc(var(--space-case-gap) * 1px); padding-block: calc(var(--space-case-section) * 1px); }
+  .case-head__title, .case-equation__name, .project-explore__title { font-size: calc(var(--text-case-heading-size) * 1px); }
+  .case-statement { font-size: calc(var(--text-case-statement-size) * 1px); }
+  .case-list__title { font-size: calc(var(--text-case-item-size) * 1px); }
+  .case-cover { grid-template-columns: 755fr 750fr; gap: calc(var(--space-project-columns-gap) * 1px); padding-block: calc(var(--space-case-section) * 1px); }
+  .case-cover__lead { font-size: calc(var(--text-case-cover-lead-size) * 1px); }
+  .case-split { grid-template-columns: 780fr 702fr; gap: calc(var(--space-case-gap) * 1px); }
+  .case-split--map { grid-template-columns: 642fr 780fr; }
+  .case-split--statement { grid-template-columns: 768fr 590fr; align-items: end; }
+  .case-type { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .case-type__family { font-size: calc(var(--text-case-family-size) * 1px); }
+  .case-captures { gap: calc(var(--space-project-columns-gap) * 1px); }
 
   .project-section,
   .project-nav {

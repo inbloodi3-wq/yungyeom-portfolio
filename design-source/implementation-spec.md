@@ -670,3 +670,47 @@ sheet-stack [data-active-sheet = cover | profile | contents]
 
 ### Asset
 - `docs/aidora-site/assets/`의 사진 57개와 아이콘 4개, Logo 2개. 사진과 아이콘은 28절에서 사용자가 게시 가능하다고 확인한 웹 화면 네 종에서 나온 것이다(`assets/manifest.jsonl`의 `aidora-site-images`). Logo는 승인된 `aidora-logo-wordmark`의 사본과 색만 흰색으로 바꾼 사본이다.
+
+## 31. AIDORA Case Study — Figma 표현으로 복원 + Live Website CTA (2026-10-12, 사용자 지정. 27절의 구성 표·구현 판단, 28절의 "표시 방식"·"보완한 문안" 가운데 Case Study의 배치에 관한 내용을 대체한다)
+### 사용자 결정
+- "기존 Case Study는 Figma 디자인 그대로 유지하고, Live Website는 별도의 실제 체험 결과물로 연결한다."
+- Case Study 안쪽의 과정 표현(Section 순서, 정보 배치, 제목과 글의 양식, 도표·견본·캡처의 모양)을 Figma Case Study 기준으로 되돌린다. Card UI나 일반 웹 Template으로 다시 짜지 않는다.
+- 그대로 두는 것: 흰 바탕, 종이 질감·띠 없음, Project 전용 CSS 구조(29절), TOP 버튼, Live Website(30절).
+- Live Website로 가는 버튼을 표지와 Page 끝에 둔다. Web Experience의 링크는 보조 링크로 남긴다.
+- 권리 확인(사용자): 표지 이미지(본인이 AI 도구로 생성), 직접 만든 도표·주석 달린 화면 캡처 게시 가능. 노트북 목업 세 장은 본인이 AI 도구로 생성.
+
+### 무엇이 달랐나
+- commit 이력에 Figma의 과정 표현과 같았던 판은 없다. 26–28절에서 Case Study의 글만 공통 구성(번호 붙은 Section Label, 묶음, 목록, Scroll 틀)으로 옮겼기 때문이다. 그래서 되돌릴 commit이 없고, Figma를 기준으로 다시 구성했다.
+- Figma에 있는데 Page에 없거나 다른 모양이던 것: 표지의 이미지와 좌우 구성, 시장 전망 도표 두 장(글 목록으로 바뀌어 있었다), 리뷰 이슈 빈도 도표, 포지셔닝 맵, 이름 구성의 세 상자, Palette의 세 줄 구성, 서체 견본의 크기 단계, 사이 없이 붙은 사진 묶음, 노트북 목업, 주석이 달린 Main Page 그림, 엇갈려 놓인 화면 캡처, 옅은 면의 Section, 영문 대문자 제목.
+- Figma에 없는데 Page에 있던 것: 번호 붙은 Section Label("02 / Research" 등)과 그에 따른 묶음, 여섯 칸 Palette, 화면 이미지의 Scroll 틀.
+
+### 구성 (Figma Case Study의 Section 순서 그대로)
+intro(표지) → desk-research → pain-point → positioning → brand-concept(Brand Concept + Logo Design) → color-system → typography → product-package → web-design(Web Experience) → main-page → collection-page → product-detail → brand-page → live-website(체험 안내, Figma에 없음).
+
+### 옮긴 방식
+| 무엇 | 방식 |
+|---|---|
+| 제목, 여는 문장, 본문, Pain Point 목록, 이름 구성, Palette, 서체 견본 | HTML. 글자 크기·굵기·자간·Section 여백은 Figma 값(`tokens.css`의 `--*-case-*`) |
+| 시장 전망 도표, 리뷰 이슈 빈도 도표, 포지셔닝 맵, 주석 달린 Main Page 그림, 화면 캡처 구성, 목업, 표지 이미지 | Figma Case Study Render(1배)에서 Node 좌표대로 잘라 낸 이미지(`aidora-case-*`). 그림 속 글과 수치·출처는 대체 텍스트에 옮겼고, Main Page 주석 일곱 항목은 보이지 않는 목록으로도 두었다 |
+| 옅은 면의 Section(Positioning, Brand Concept·Logo, Web Experience) | 면이 화면 양끝까지 이어진다 |
+| 화면 전체 이미지 네 장(28절) | 지우지 않고 각 Section 아래 "전체 화면 보기"로 접어 두었다. 펼치면 이전의 Scroll 틀이다 |
+| 로고 두 개, 패키지 사진 네 장 | 그대로 쓴다. 사진 사이의 간격을 없애 Figma의 붙은 구성으로 |
+
+### Live Website CTA
+| 위치 | 내용 |
+|---|---|
+| 표지의 기본 정보 아래 | 테두리 버튼 "실제 웹사이트 체험하기" + 보조 문구 "Main · Collection · Product Detail · Brand" |
+| Web Experience의 여는 문장 아래 | 밑줄 링크(보조) |
+| 마지막 Section 뒤, 아래쪽 내비게이션 앞 | 가운데 정렬 영역: "EXPLORE THE EXPERIENCE" / "AIDORA Website" / 설명 한 줄 / 테두리 버튼 "웹사이트 둘러보기" |
+- 대상은 `./aidora-site/index.html`(상대 경로).
+- 설명 문장은 사용자가 준 권장 문구의 끝을 Page의 말투에 맞춰 "경험해 보세요."로 썼다(권장 문구는 "경험해 봐.").
+
+### Figma와 남은 차이
+- **폭**: Figma 문서는 1600 폭이고 Page의 내용 폭은 그보다 좁다(29절). 글자 크기는 Figma 값 그대로라서 이미지에 견주어 글이 조금 크게 보이고, 줄바꿈 위치가 다르다.
+- **한글 서체**: Figma는 SUIT(Medium·SemiBold·Bold), Page는 Pretendard(400·700). 여는 문장의 굵기가 Figma보다 조금 굵다. Typography System의 SUIT 견본도 Pretendard로 그려진다.
+- **기본 정보**: Figma에 없는 "Role" 줄이 있다(사용자가 준 사실, 27절).
+- **Label 색**: Figma의 가장 옅은 회색 대신 한 단계 진한 `--color-project-label`을 썼다(흰 바탕 대비).
+- **패키지 사진**: 좁은 두 장은 줄 높이에 맞춰 위아래가 조금 잘린다(Figma에서는 아래 줄에 가려지는 부분).
+- **이미지 해상도**: 도표와 캡처는 1배다. 좁은 화면에서는 도표 속 글자가 작다.
+- **Collection·Product Detail·Brand의 캡처**: Figma에서는 두 장이 서로 겹쳐 엇갈려 있고, Page에서는 겹치지 않게 두 칸에 놓았다.
+- Figma Case Study의 숨김 Layer는 옮기지 않았다.

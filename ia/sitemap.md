@@ -44,7 +44,7 @@ Figma에 사이트 내비게이션(Header, Menu, 뒤로 가기, Page 사이 링�
 | 5 | outcome | 결과와 돌아보기 | Outcome Section(aidora는 Figma에 없음 — 정리 중) |
 
 ## aidora
-**실제 Page의 Section(2026-10-12)**: intro → research(Desk Research, Pain Point) → brand-strategy(Positioning, Brand Concept) → design-system → showcase → web-design. 근거와 Figma 대응은 `design-source/implementation-spec.md` 27·28절. 아래 표는 Figma Case Study의 Section 목록이다.
+**실제 Page의 Section(2026-10-12, Figma Case Study의 순서 그대로)**: intro → desk-research → pain-point → positioning → brand-concept → color-system → typography → product-package → web-design → main-page → collection-page → product-detail → brand-page → live-website(체험 안내). 근거는 `design-source/implementation-spec.md` 31절. 아래 표는 Figma Case Study의 Section 목록이다.
 
 | 순서 | Section ID | 목적 | 콘텐츠 출처 | 우선순위 | 비고 |
 |---|---|---|---|---|---|
