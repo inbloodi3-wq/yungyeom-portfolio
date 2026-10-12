@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TJ MEDIA 리디자인 — 반주곡 신청</title>
+  <meta name="description" content="원하는 곡이 검색되지 않을 때의 반주곡 신청. TJ MEDIA 웹사이트 리디자인(비공식, 포트폴리오) Song Request 화면.">
+  <meta name="robots" content="noindex">
+
+  <link rel="icon" href="data:,">
+
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/demo.css">
+  <link rel="stylesheet" href="../../css/top-button.css">
+  <script src="../../js/top-button.js" defer></script>
+</head>
+<body>
+
+  <!-- 포트폴리오의 시연임을 알리고 Explorer와 Case Study로 돌아가는 줄. TJ MEDIA 리디자인 화면의 일부가 아니다. -->
+  <div class="demo-bar" id="top" tabindex="-1">
+    <nav class="demo-bar__links" aria-label="시연 안내">
+      <a href="../index.html">← Screen Explorer</a>
+      <a href="../../tj-media.html#interactive-demo">TJ MEDIA Case Study</a>
+    </nav>
+    <span class="demo-bar__note">TJ MEDIA 공식 사이트가 아닌 포트폴리오용 비공식 리디자인 시연입니다. 곡 정보는 시안의 예시 데이터입니다.</span>
+  </div>
+
+  <header class="site-header">
+    <a class="site-header__logo" href="main.html"><img src="../assets/logo.svg" alt="TJ MEDIA" width="67" height="28"></a>
+    <nav class="site-nav" aria-label="TJ MEDIA">
+      <a class="site-nav__search is-current" href="search.html" aria-current="page">노래검색</a>
+      <a href="chart.html">인기곡</a>
+      <a href="latest.html">신곡</a>
+      <!-- 아래 세 항목은 시안에 화면이 없어 링크를 두지 않는다 -->
+      <span>콘텐츠</span>
+      <span>제품/서비스</span>
+      <span>기업정보</span>
+    </nav>
+  </header>
+
+  <main>
+    <div class="request-head l-container">
+      <p class="eyebrow">SONG REQUEST</p>
+      <h1 class="page-intro__title">반주곡 신청</h1>
+      <p class="page-intro__lead">원하는 곡이 검색되지 않는다면 TJ에 새로운 반주곡을 신청해보세요.</p>
+    </div>
+
+    <div class="l-container">
+      <!-- 시연 화면: 전송하지 않는다(action 없음, 제출 버튼 없음). 입력값은 어디에도 저장되지 않는다 -->
+      <form class="request-form" aria-describedby="request-note">
+        <ul class="segment"><li class="is-current">반주곡 신청</li><li>유료곡 등록</li></ul>
+
+        <ol class="stepper">
+          <li class="is-current" aria-current="step"><span class="stepper__num">1</span>곡 정보 입력</li>
+          <li><span class="stepper__num">2</span>신청자 정보</li>
+          <li><span class="stepper__num">3</span>확인</li>
+        </ol>
+
+        <div class="form-head">
+          <h2 class="form-head__title">곡 정보 입력</h2>
+          <p class="form-head__lead">신청하실 곡의 정보를 알려주세요.</p>
+        </div>
+
+        <div class="fields">
+          <div class="fields fields--pair">
+            <label class="field"><span class="field__label">곡명 <em>*</em></span><input class="field__input" type="text" placeholder="곡 제목을 입력해주세요" autocomplete="off"></label>
+            <label class="field"><span class="field__label">가수명 <em>*</em></span><input class="field__input" type="text" placeholder="가수명을 입력해주세요" autocomplete="off"></label>
+          </div>
+          <label class="field"><span class="field__label">참고 링크 <small>(선택)</small></span><input class="field__input" type="text" placeholder="YouTube 등 참고할 수 있는 링크를 입력해주세요" autocomplete="off"></label>
+          <label class="field"><span class="field__label">요청 사유 또는 비고 <small>(선택)</small></span><textarea class="field__input" placeholder="추가로 전달하고 싶은 내용을 입력해주세요"></textarea></label>
+        </div>
+
+        <div class="form-actions">
+          <button class="button" type="button" aria-disabled="true" aria-describedby="request-note">다음 단계</button>
+          <a href="search.html">검색으로 돌아가기</a>
+        </div>
+        <p class="form-note" id="request-note">시연 화면입니다. 다음 단계와 신청 접수는 제공하지 않으며, 입력한 내용은 전송·저장되지 않습니다.</p>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer l-container">
+    <p class="site-footer__brand"><img src="../assets/icon-footer.svg" alt="" width="20" height="20">TJ MEDIA</p>
+    <div class="site-footer__cols">
+      <div>
+        <h2 class="site-footer__heading">Company</h2>
+        <ul class="site-footer__list"><li>About TJ</li><li>Newsroom</li><li>Careers</li></ul>
+      </div>
+      <div>
+        <h2 class="site-footer__heading">Service</h2>
+        <ul class="site-footer__list"><li><a href="search.html">노래검색</a></li><li><a href="chart.html">인기차트</a></li><li><a href="latest.html">신곡</a></li></ul>
+      </div>
+      <div>
+        <h2 class="site-footer__heading">Product</h2>
+        <ul class="site-footer__list"><li>노래방 기기</li><li>스피커</li><li>앰프</li></ul>
+      </div>
+      <div>
+        <h2 class="site-footer__heading">Customer Support</h2>
+        <ul class="site-footer__list"><li>FAQ</li><li>1:1 문의</li><li>고객센터</li></ul>
+      </div>
+    </div>
+    <p class="site-footer__copy">© TJ Media. All rights reserved.</p>
+  </footer>
+
+  <a class="top-button" href="#top" data-top-button aria-label="맨 위로 이동">Top</a>
+
+</body>
+</html>
