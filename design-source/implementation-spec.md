@@ -839,10 +839,10 @@ Node ID는 `frame-map.md`가 아니라 이 Stage의 Checkpoint 기록(`automatio
 
 ### Figma와 다른 점
 - 모든 화면 맨 위의 검은 줄(Explorer·Case Study 링크와 "TJ MEDIA 공식 사이트가 아닌 포트폴리오용 비공식 리디자인 시연" 문구)은 시연의 일부이며 TJ 리디자인 화면이 아니다.
-- 글꼴: Figma의 Pretendard Medium은 사이트에 Regular·Bold만 있어 Regular로 그려진다. Desktop Song Detail의 Noto Sans KR도 Pretendard로 그렸다. 글꼴 파일을 늘리지 않았다.
+- 글꼴: Desktop Song Detail의 Noto Sans KR은 Pretendard로 그렸다. (Pretendard Medium은 2026-10-14에 추가했다 — 아래 Final UI Polish)
 - 인기 검색어의 "밤편지"는 Search로, "최신곡"은 Latest로 이어지게 했다(Figma에는 연결 표시가 없다).
 - Mobile Main의 서비스 아래 구분선은 Figma에서 폭의 일부만 그어져 있으나 본문 폭으로 그었다.
-- 세로 간격은 Figma와 수 px 차이가 날 수 있다(1440 전체 높이 기준 화면별 2% 이내).
+- 세로 간격은 Figma와 수 px 차이가 난다. 화면 전체 높이(맨 위 시연 줄 제외) 기준, 2026-10-14 측정: Desktop(1440) Main −13, Search −3, Latest −9, Chart +2, Request −24, Song Detail +15. Mobile(390) Main +27, Search +35, Song Detail +24. 가장 큰 차이는 Mobile Search 2.1%, 나머지는 2% 이내다.
 
 ### 이미지
 - `docs/tj-media-demo/assets/`: 앨범 아트 일곱 장(`cover-01`~`07`)과 Hero의 녹음실 사진(`hero-studio`) — 사용자가 만든 AI 이미지(33절의 확인). TJ 로고(`logo.svg`)와 아이콘 SVG — Figma에서 내려받았다. Explorer의 미리보기 아홉 장(`thumb-*`) — Figma 화면 Render의 윗부분.
@@ -857,3 +857,24 @@ Node ID는 `frame-map.md`가 아니라 이 Stage의 Checkpoint 기록(`automatio
 - 1440과 390에서 이동 흐름: Case Study 버튼 두 곳 → Explorer, Explorer → Desktop Main → 검색 → Search → Song Detail → 목록으로, Header·더보기·신청하기, Request의 "다음 단계"가 이동·전송하지 않음, Explorer → Mobile Main → 검색 → Search → Song Detail, 뒤로 가기, Case Study 복귀, TOP 버튼. 내부 링크 전부 열림, 빈 링크 없음.
 - Figma Render와 나란히 대조: Desktop 여섯 화면(1440), Mobile 세 화면(390).
 - Case Study 회귀: Section 15개, 이미지 21개, 가로 넘침 없음.
+
+### QA Remediation (2026-10-14, 사용자 승인 범위: 읽기 전용 QA의 ISSUE 2·3·4·6·7)
+- ISSUE 3 Chart 높이: 처음 기록한 "2% 이내"는 Chart(−55px, 3.3%)에 맞지 않았다. Figma Metadata(`04_MusicChart_Desktop_V2`)와 구현을 Section 단위로 재어 원인을 나눴다.
+  - 쪽 번호 구간 −63: Figma는 Pager Section 166(위 40, Chip 42×38, 아래 88)인데 구현은 위 여백이 없고 Chip이 36×36, 아래가 64였다. Chip을 Figma 크기(`--pager-width`, `--pager-height`)로 바꿨다. Search·Latest도 같은 Pager Component라 함께 바뀐다. Chart에는 위 40, 아래 88 여백을 줬다.
+  - 탭 −7: Figma의 큰 탭 줄은 54(밑줄이 구분선보다 16 위)인데 구현은 밑줄이 구분선에 붙어 47이었다. Figma 구조대로 고쳤다. 그 아래 목록 시작 위치를 맞추려고 Page Intro 아래 여백을 32에서 24로 줄였다.
+  - Footer +8: 제목 아래와 항목 사이 간격(Figma 10), 항목·저작권 줄 높이(18), 브랜드 줄 높이를 Figma 값으로 맞췄다. Footer는 여섯 Desktop 화면이 같이 쓰므로 모두 298~299가 됐다(Figma 299).
+  - 결과: Chart 1659(Figma 1657). 높이를 임의로 더하지 않았다.
+- ISSUE 2: Mobile Search 안내문에 `word-break: keep-all`. 390·375·360에서 Figma처럼 "…입력해도 / 검색할 수 있어요"로 나뉜다.
+- ISSUE 4: 작은 텍스트 링크(시연 줄, 목록으로, 더보기, 곡 제목, Footer 링크, 검색으로 돌아가기, Explorer의 돌아가기)에 위아래 padding과 같은 크기의 음수 margin을 줘서 글자와 배치는 그대로 두고 누르는 영역만 넓혔다. 대부분 44px 안팎이고, 간격이 좁은 Footer 목록은 이웃과 겹치지 않는 24~28px다. 390에서 24px 미만으로 남은 것은 Desktop Footer의 "신곡" 링크 폭(21px, 두 글자)뿐이다. 높이는 24px다.
+- ISSUE 7: 검색창 입력에 Focus가 있으면 검색창 전체에 다른 요소와 같은 2px 강조색 외곽선을 그린다(`:has(.search-bar__input:focus-visible)`). 모든 검색창(Main Hero, Search, Latest, Mobile)에 같은 규칙이다. `:has`를 모르는 브라우저에서는 기존의 테두리 색 변화만 남는다. 반주곡 신청 Form의 입력칸은 이번 범위가 아니라 그대로다.
+- ISSUE 6: 사이트에는 Pretendard Regular·Bold subset만 있다(`assets/manifest.jsonl`의 `font-pretendard-400`, `font-pretendard-700`). Medium 파일이 저장소에 없어 적용하지 않았다. 같은 공식 저장소(OFL)의 Medium subset을 쓰려면 내려받기와 manifest 기록에 대한 승인이 필요하다.
+- 승인 대기(실행하지 않음): ISSUE 1 색 대비, ISSUE 5 반응하지 않는 요소, ISSUE 9 390에서의 시연 줄 높이.
+- 회귀 확인(로컬): 10 Page × 1920·1440·768·390에서 넘침·깨진 이미지·콘솔 오류·404 없음. 이동·검색·뒤로 가기 흐름 통과, Case Study 15 Section·21 이미지 유지.
+
+### Final UI Polish (2026-10-14, 사용자 승인)
+- 한국어 줄바꿈: 위 ISSUE 2의 수정은 Search 안내문 한 곳에만 걸려 있었다. 전수 점검(10 Page × 360·375·390·768·1440, 글자 좌표로 줄이 바뀐 자리 확인) 결과 다른 문장 44곳이 어절 안에서 끊겼다(시연 줄 안내문, Hero 제목·설명, Explorer 소개, Request 설명, 곡 제목 "사랑은 늘 도망가" 등). `body`에 `word-break: keep-all`과 `overflow-wrap: break-word`를 두어 Demo 전체가 어절 단위로 줄을 바꾸게 했고, 안내문의 개별 규칙은 지웠다. 결과 0곳이다(Pretendard를 막아 대체 글꼴로 그려도 0곳).
+  - `overflow-wrap: break-word` 때문에 칸보다 1px 넓던 Chart 순위 "02"와 변동 "NEW"가 두 줄로 쪼개져 Chart가 105px 길어지는 회귀가 있었다. 두 요소에 `white-space: nowrap`을 줘서 이전 모습으로 되돌렸다(Chart 1659 유지).
+  - 남은 줄바꿈 하나: 390의 Explorer 안내 "YouTube 연결·|신청 접수"는 가운뎃점 뒤에서 나뉜다. 어절 경계라 그대로 둔다.
+- Main Hero 인기곡 Pill: 줄 상자는 위아래 8로 가운데였지만, 한글 글자 모양이 줄 상자 안에서 위로 치우쳐 있어 글자 잉크 중심이 Pill 중심보다 약 1px 위였다. Figma Render(1배)를 같은 방법으로 재면 글자 +0.10, 점 +0.40, 구분선 +0.33(길이 12), Pill 높이 33이다. 위 여백만 1.5px 더 줘서(9.5 / 8) 1배에서 글자 +0.49, 점 +0.50, 구분선 +0.50(길이 12), 높이 33이 됐다(2·3배에서는 글자 +0.02~+0.10). 구분선은 줄 상자 높이(16)의 테두리 대신 Figma와 같은 길이 12의 선을 글자 잉크 중심에 둔다. 좌우는 16으로 같고, 내부 묶음은 `justify-content: center`, 점은 `flex: none`. 600 미만에서는 Pill이 두 줄로 접힐 때 구분선이 둘째 줄 맨 앞에 혼자 남아서 구분선을 그리지 않는다(글자는 그대로다).
+- 재검증(같은 날): 사용자 브라우저에서 안내문이 여전히 "…검 / 색할"로 보였다. 로컬 서버 접속 기록에서 사용자 브라우저는 Page를 열 때 HTML만 다시 확인하고 `demo.css`는 요청하지 않았다(캐시 사본 사용). Python 정적 서버는 `Cache-Control`을 보내지 않아 브라우저가 예전 CSS를 신선하다고 보고 그대로 썼다. 예전 CSS(HEAD)로 그리면 사용자 화면과 똑같이 끊기는 것을 재현했다. 선택자 우선순위나 `keep-all`·`break-word` 조합의 문제는 아니었다(Computed Style: `word-break: keep-all`, `overflow-wrap: break-word`, 결과 "…입력해도 / 검색할 수 있어요"). Demo의 CSS·JS 주소에 버전(`?v=20261014`)을 붙여 HTML이 바뀌면 새 파일을 받게 했다(생성기의 `ASSET_VERSION`; CSS·JS를 고치면 이 값을 바꾼다).
+- Pretendard Medium: 공식 저장소(orioncactus/pretendard)의 `woff2-subset`에서 받았다. 같은 위치의 Regular·Bold subset의 sha256이 저장소의 기존 파일과 같아 같은 배포본임을 확인했다. `docs/assets/fonts/Pretendard-Medium.subset.woff2`, `assets/manifest.jsonl`의 `font-pretendard-500`(OFL-1.1). Demo의 `@font-face`에만 500을 더했다. 포트폴리오 본체 CSS는 바꾸지 않았다. 위 "글꼴" 항목의 Medium이 Regular로 그려진다는 차이는 이제 없다.
