@@ -35,10 +35,10 @@
   },
   "checkpoint": {
     "stage": "secondary_pages",
-    "page": "asics-korea",
-    "section": "Figma 11 Section 구현 + Final Polish 완료(미커밋)",
+    "page": "aidora",
+    "section": "읽기 전용 조사 완료 · P1 수정 대기",
     "updated_at": "2026-10-14",
-    "resume_hint": "2026-10-14: asics-korea를 Figma PORTFOLIO_03_CASE_STUDY_KR(1986:7083) S01~S11대로 구현하고 Final Polish(Noto Sans KR Black·Barlow Condensed Italic Subset, 이미지 확대 창, 가로 스크롤 안내, S11 화살표, S01 레인 폭)까지 마쳤다(spec 35절). QA: 6개 너비 넘침 0, 이미지 18, 오류 0, 어절 안 줄바꿈 0, 확대 창·이동·TOP 통과, index·aidora·tj-media·TJ Demo 회귀 통과. 사용자 승인 전이라 commit하지 않았다(HEAD f7a11d9). 남은 결정: 외부 공개 가능 여부(TJ와 함께). 그다음 FULL QA → PRE-DEPLOY CHECK → push 승인."
+    "resume_hint": "2026-10-14 종료 시점: HEAD fa81c9f(main, origin보다 앞섬, push 안 함). 완료 — TJ MEDIA 수정·검증(f7a11d9), ASICS 최종 수정·commit(fa81c9f). AIDORA(docs/aidora.html + docs/aidora-site/ 4 Page) 읽기 전용 조사 완료: 이동·링크·TOP·뒤로 가기 38개 PASS, P0 없음, 6개 너비 넘침·깨진 이미지·오류 0. 다음 — AIDORA P1 네 가지: (1) 모바일 도표 확대(ASICS의 .ak-zoom/.ak-lightbox CSS :target 방식 재사용), (2) aidora.html 한국어 줄바꿈(keep-all; 768·390·375·360에서 어절 끊김 1~2곳), (3) Live Website 390 터치 영역(24px 미만 링크 8~10개, padding+음수 margin), (4) Live Website Header 메뉴 가로 스크롤 안내. 이후 반응형·기능 QA. SUIT 글꼴 교체는 별도 검토(사용자 결정), P2(캡처 겹침 배치·PDP 서비스 아이콘·Hover)는 보류. 최종 통합 QA 뒤 외부 공개 가능 여부와 push 승인."
   },
   "render_checked": true,
   "qa_status": "2026-10-12 tj-media(이미지 연결 후): 1920·1440·768·390에서 이미지 21개 로딩(깨진 이미지 0), 가로 Overflow 없음, Console Error·실패 Request 0, h1 1개, Section 15개, TOP 버튼과 Contents·이전·다음 이동 통과. 육안 확인: 1920의 cover·research·pain-points·visual-direction·final-screens·closing 화면, 390의 cover·research·final-screens 화면. 그 밖은 측정만 했다",
@@ -61,7 +61,7 @@
   },
   "last_meaningful_change": {
     "date": "2026-10-14",
-    "summary": "asics-korea Case Study를 Figma 11 Section으로 구현, 원본 글꼴·이미지 확대 창 추가. 미커밋."
+    "summary": "ASICS commit(fa81c9f). AIDORA 읽기 전용 조사 완료, P1 네 가지 수정 대기."
   },
   "definition_of_done": "automation-orchestrator.md의 Stop Rule 전부 PASS",
   "design_definition": {
