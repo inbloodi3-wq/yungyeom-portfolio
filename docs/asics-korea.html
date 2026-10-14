@@ -4,224 +4,423 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ASICS KOREA — Kim Yun-Gyeom Portfolio</title>
-  <meta name="description" content="남성 러닝화 구매 흐름을 여섯 화면으로 다시 설계했습니다.">
+  <meta name="description" content="아식스 코리아 남성 러닝화 구매 경험 리디자인. 러닝화 유형 5종을 탐색의 첫 단계로(비공식 개인 프로젝트).">
 
   <link rel="icon" href="data:,">
 
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/pages/project.css">
+  <link rel="stylesheet" href="css/pages/asics-korea.css">
+  <link rel="stylesheet" href="css/top-button.css">
+  <script src="js/top-button.js" defer></script>
 </head>
 <body class="project-page project-page--asics-korea">
 
+  <!-- 이 Page의 Section 순서와 문안은 Figma의 ASICS KOREA Case Study(PORTFOLIO_03_CASE_STUDY_KR, 11 Section)를 따른다
+       (design-source/implementation-spec.md 35절). 화면·레인·서체 견본·컴포넌트 이미지는 Figma Case Study에서 잘라 낸 것이다.
+       비공식 개인 리디자인이라는 점과 제품 이미지가 AI 생성 컨셉 비주얼이라는 점을 표지와 맺음에 밝힌다. -->
   <div class="project">
-    <header class="project-bar">
+    <header class="project-bar" id="top" tabindex="-1">
       <a class="project-bar__back" href="index.html#contents">← Contents</a>
       <span>PROJECT 03</span>
     </header>
 
     <main>
-      <!-- 01 Overview -->
-      <header class="project-hero" id="overview">
-        <p class="project-hero__eyebrow">AI Automation · Commerce UX Redesign</p>
-        <h1 class="project-hero__title">ASICS KOREA</h1>
-        <p class="project-hero__lead">남성 러닝화 구매 흐름을 여섯 화면으로 다시 설계했습니다.</p>
-        <p class="project-text">아식스 코리아 공식 온라인스토어의 남성 러닝화 탐색 · 비교 · 구매 흐름이 대상입니다. 비공식 개인 리디자인이며 아식스와 무관합니다.</p>
-        <dl class="project-meta">
-          <div class="project-meta__row">
-            <dt class="project-meta__term">유형</dt>
-            <dd class="project-meta__value">개인 포트폴리오 · 비공식 리디자인</dd>
+      <!-- S01 Cover -->
+      <header class="ak-section" id="cover">
+        <div class="ak-cover">
+          <div class="ak-cover__top">
+            <p class="ak-cover__kicker ak-display">PORTFOLIO 03</p>
+            <p class="ak-cover__descriptor">ASICS KOREA · 비공식 개인 리디자인</p>
           </div>
-          <div class="project-meta__row">
-            <dt class="project-meta__term">역할</dt>
-            <dd class="project-meta__value">AI 워크플로 디렉션 · 프롬프트 · QA · 제품 비주얼 제작 · 선정</dd>
+          <h1 class="ak-cover__title">달리는 방식으로.</h1>
+          <div class="ak-cover__body">
+            <div class="ak-cover__intro">
+              <p class="ak-cover__project">아식스 코리아<br>남성 러닝화<br>구매 경험 리디자인</p>
+              <p class="ak-cover__flow">유형 → 목록 → 비교 → 상세 → 담기</p>
+              <span class="ak-cover__rule" aria-hidden="true"></span>
+              <p class="ak-cover__summary">러닝화 유형 5종을<br>탐색의 첫 단계로.</p>
+              <p class="ak-cover__disclaimer">비공식 개인 리디자인<br>아식스와 무관한 개인 포트폴리오입니다.<br>제품 이미지는 AI 생성 컨셉 비주얼이며<br>실제 아식스 제품 이미지가 아닙니다.</p>
+            </div>
+            <figure class="ak-figure ak-cover__lanes">
+              <a class="ak-zoom" id="fig-cover-lanes" href="#zoom-cover-lanes" title="크게 보기"><img src="assets/asics-case-cover-lanes.webp" alt="홈 화면의 러닝화 유형 레인 다섯 줄. 01 안정화(PROTECTION, 상품 18개: 젤 카야노 33, GT 2000 15), 02 쿠션화(CUSHION, 상품 13개: 젤 님버스 28, 글라이드라이드 맥스 2), 03 바운싱화(BOUNCE, 상품 43개 · 그중 32개 품절: 소닉블라스트 2, 노바블라스트 6 전 컬러 품절), 04 레이싱화(SPEED, 상품 14개: 메타스피드 스카이 도쿄, 매직 스피드 5), 05 트레일러닝화(TRAIL, 상품 10개: 블레이즈블라스트, 메타후지 트레일). 레인마다 다른 색 띠 위에 AI 생성 컨셉 신발 이미지가 놓여 있다" width="1400" height="1050"></a>
+            </figure>
           </div>
-          <div class="project-meta__row">
-            <dt class="project-meta__term">도구</dt>
-            <dd class="project-meta__value">Figma · Claude Code · Figma MCP · ChatGPT · AI 이미지 생성</dd>
-          </div>
-          <div class="project-meta__row">
-            <dt class="project-meta__term">기간</dt>
-            <dd class="project-meta__value">2 Days · AI Automation Sprint (실제 작업일 기준 · 2026년 10월)</dd>
-          </div>
-        </dl>
+        </div>
       </header>
 
-      <section class="project-section" id="background">
-        <p class="project-section__label">02 / Problem</p>
-        <div class="project-section__body">
-          <h2 class="project-section__title">분류는 있는데, 목록과 끊겨 있습니다.</h2>
-          <p class="project-text">아식스 코리아 공식 온라인스토어의 남성 러닝화 목록에서 확인한 세 가지 사실입니다.</p>
-          <ol class="project-list">
-            <li class="project-list__item">
-              <span class="project-list__key">Filter</span>
-              <div class="project-list__content">
-                <h3 class="project-list__title">필터 7개 중 러닝화 유형 0개</h3>
-                <p class="project-text">유형 5종은 #RUN의 SHOE FINDER에만 있고 남성 러닝화 목록 필터에는 없습니다.</p>
-              </div>
-            </li>
-            <li class="project-list__item">
-              <span class="project-list__key">Fragmentation</span>
-              <div class="project-list__content">
-                <h3 class="project-list__title">젤 카야노 33 하나가 카드 14장</h3>
-                <p class="project-text">컬러 6 · 2E 4 · 4E 3 · 플래티넘 1. 같은 모델이 목록 곳곳에 흩어집니다.</p>
-              </div>
-            </li>
-            <li class="project-list__item">
-              <span class="project-list__key">Sold Out</span>
-              <div class="project-list__content">
-                <h3 class="project-list__title">바운싱화 43개 중 32개 품절</h3>
-                <p class="project-text">품절 카드가 판매 중 카드와 같은 목록에 섞여 나옵니다.</p>
-              </div>
-            </li>
-          </ol>
-          <p class="project-note">출처: 아식스 코리아 공식 온라인스토어, 2026-10-01 조사(비로그인). 바운싱화 수는 유형 카테고리 기준이며 남녀 상품을 포함합니다.</p>
+      <!-- S02 Overview -->
+      <section class="ak-section ak-section--surface" id="overview" aria-labelledby="overview-title">
+        <p class="ak-label"><span class="ak-label__num">02</span><span class="ak-label__en">Overview</span></p>
+        <div>
+          <h2 class="ak-heading" id="overview-title">남성 러닝화 구매 흐름을<br>여섯 화면으로 다시 설계했습니다.</h2>
+          <p class="ak-lead">아식스 코리아 공식 온라인스토어의 남성 러닝화 탐색 · 비교 · 구매 흐름이 대상입니다.</p>
         </div>
+        <dl class="ak-meta">
+          <div class="ak-meta__item"><dt class="ak-meta__term">유형</dt><dd class="ak-meta__value">개인 포트폴리오<br>비공식 리디자인</dd></div>
+          <div class="ak-meta__item"><dt class="ak-meta__term">역할</dt><dd class="ak-meta__value">AI 워크플로 디렉션<br>프롬프트 · QA<br>제품 비주얼 제작 · 선정</dd></div>
+          <div class="ak-meta__item"><dt class="ak-meta__term">범위</dt><dd class="ak-meta__value">Desktop 4 · Mobile 2<br>홈 · 목록 · 비교 · 상세</dd></div>
+          <div class="ak-meta__item"><dt class="ak-meta__term">기간</dt><dd class="ak-meta__value">2 DAYS<br>AI AUTOMATION SPRINT<span class="ak-meta__note">실제 작업일 기준 · 2026년 10월</span></dd></div>
+          <div class="ak-meta__item"><dt class="ak-meta__term">도구</dt><dd class="ak-meta__value">Figma<br>Claude Code · Figma MCP<br>ChatGPT · AI 이미지 생성</dd></div>
+        </dl>
+        <figure class="ak-figure">
+          <div class="ak-scroll"><a class="ak-zoom" id="fig-lineup" href="#zoom-lineup" title="크게 보기"><img src="assets/asics-case-lineup.webp" alt="리디자인한 여섯 화면의 축소 라인업. D1 홈 · 유형, D2 목록, D3 비교, D4 상세, M5 모바일 목록, M6 모바일 상세" width="1640" height="600" loading="lazy"></a></div>
+          <figcaption class="ak-scroll-hint"><span>← 옆으로 밀어서 보기 →</span><span>누르면 크게 보기</span></figcaption>
+        </figure>
       </section>
 
-      <section class="project-section" id="approach">
-        <p class="project-section__label">03 / Strategy &amp; Flow</p>
-        <div class="project-section__body">
-          <h2 class="project-section__title">유형부터 담기까지, 하나의 흐름으로.</h2>
-          <p class="project-text">같은 유형 이름과 색이 홈에서 장바구니까지 이어집니다.</p>
-          <ol class="project-list">
-            <li class="project-list__item">
-              <span class="project-list__key">Step 1</span>
-              <div class="project-list__content">
-                <h3 class="project-list__title">유형</h3>
-                <p class="project-text">레인에서 고른다</p>
-              </div>
-            </li>
-            <li class="project-list__item">
-              <span class="project-list__key">Step 2</span>
-              <div class="project-list__content">
-                <h3 class="project-list__title">목록</h3>
-                <p class="project-text">유형 탭과 카드 태그</p>
-              </div>
-            </li>
-            <li class="project-list__item">
-              <span class="project-list__key">Step 3</span>
-              <div class="project-list__content">
-                <h3 class="project-list__title">비교</h3>
-                <p class="project-text">최대 3개를 나란히</p>
-              </div>
-            </li>
-            <li class="project-list__item">
-              <span class="project-list__key">Step 4</span>
-              <div class="project-list__content">
-                <h3 class="project-list__title">상세</h3>
-                <p class="project-text">컬러 · 발 너비 · 사이즈</p>
-              </div>
-            </li>
-            <li class="project-list__item">
-              <span class="project-list__key">Step 5</span>
-              <div class="project-list__content">
-                <h3 class="project-list__title">담기</h3>
-                <p class="project-text">고른 그대로 담는다</p>
-              </div>
-            </li>
-          </ol>
-          <ol class="project-list">
-            <li class="project-list__item">
-              <span class="project-list__key">Decision 01</span>
-              <div class="project-list__content">
-                <h3 class="project-list__title">유형에서 시작한다</h3>
-              </div>
-            </li>
-            <li class="project-list__item">
-              <span class="project-list__key">Decision 02</span>
-              <div class="project-list__content">
-                <h3 class="project-list__title">모델은 하나로 묶고 비교한다</h3>
-              </div>
-            </li>
-            <li class="project-list__item">
-              <span class="project-list__key">Decision 03</span>
-              <div class="project-list__content">
-                <h3 class="project-list__title">한 화면에서 고르고 담는다</h3>
-              </div>
-            </li>
-          </ol>
-          <p class="project-note">&quot;러닝화 유형&quot; 탭과 필터는 리디자인 제안입니다. 현재 아식스 코리아 목록 필터에는 없습니다.</p>
+      <!-- S03 Local Context -->
+      <section class="ak-section" id="local-context" aria-labelledby="local-title">
+        <p class="ak-label"><span class="ak-label__num">03</span><span class="ak-label__en">Local Context</span></p>
+        <div>
+          <h2 class="ak-heading" id="local-title">번역하지 않고,<br>근거를 다시 세웠습니다.</h2>
+          <p class="ak-lead">처음 시안은 미국 사이트 데이터로 세운 가설이었습니다.<br>한국 공식 사이트를 조사한 뒤 분류와 판매 정보를 한국 기준으로 바꿨습니다.</p>
         </div>
+        <div class="ak-compare">
+          <figure class="ak-hypothesis">
+            <p class="ak-hypothesis__tag">초기 가설 <span class="ak-badge">Global Concept · US data</span></p>
+            <a class="ak-zoom" id="fig-us-concept" href="#zoom-us-concept" title="크게 보기"><img src="assets/asics-case-us-concept.webp" alt="미국 사이트 데이터로 만든 초기 시안(보관본). PICK YOUR GOAL. 제목 아래 01 FASTER, 02 FURTHER 두 레인" width="520" height="325" loading="lazy"></a>
+            <figcaption class="ak-note">미국 사이트의 Goal 필터 두 값으로 만든 레인 2개</figcaption>
+          </figure>
+          <table class="ak-table">
+            <thead>
+              <tr><th scope="col"><span class="u-visually-hidden">항목</span></th><th scope="col">가설 · 미국</th><th scope="col" class="ak-table__kr">확인 · 한국</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">분류</th>
+                <td class="ak-table__us">Goal 2종<br>Faster · Further</td>
+                <td class="ak-table__kr"><strong>러닝화 유형 5종</strong><span>안정화 · 쿠션화 · 바운싱화 · 레이싱화 · 트레일러닝화</span>
+                  <span class="ak-lane-colors" aria-hidden="true"><span class="ak-lane--protection"></span><span class="ak-lane--cushion"></span><span class="ak-lane--bounce"></span><span class="ak-lane--speed"></span><span class="ak-lane--trail"></span></span></td>
+              </tr>
+              <tr><th scope="row">가격</th><td class="ak-table__us">달러</td><td class="ak-table__kr"><strong>원</strong></td></tr>
+              <tr><th scope="row">사이즈</th><td class="ak-table__us">US Size</td><td class="ak-table__kr"><strong>mm</strong></td></tr>
+              <tr><th scope="row">상세 스펙</th><td class="ak-table__us">Cushion · Drop · Support</td><td class="ak-table__kr"><strong>소재 · 미드솔 · 아웃솔 · 무게</strong></td></tr>
+              <tr><th scope="row">대표 상품</th><td class="ak-table__us">SUPERBLAST 3</td><td class="ak-table__kr"><strong>젤 카야노 33</strong><span>슈퍼블라스트 3은 한국에서 전 사이즈 품절</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="ak-note">나이키 코리아와 뉴발란스 코리아도 기능 · 목적 분류를 러닝화 탐색의 진입로로 씁니다(2026-10-01 확인). 미국 시안은 보관본으로 남겼습니다.</p>
       </section>
 
-      <section class="project-section" id="showcase">
-        <p class="project-section__label">04 / Design Showcase</p>
-        <div class="project-section__body">
-          <p class="project-text">홈 · 목록 · 비교 · 상세. 모바일에서는 같은 흐름의 우선순위를 다시 정했습니다. 첫 화면에 유형 · 상품명 · 가격, 하단 구매 바에 고른 내용.</p>
-          <div class="project-showcase">
-            <figure class="project-showcase__item">
-              <div class="project-showcase__slot">화면 이미지 준비 중</div>
-              <figcaption class="project-showcase__caption">Desktop — 4개 화면</figcaption>
-            </figure>
-            <figure class="project-showcase__item">
-              <div class="project-showcase__slot">화면 이미지 준비 중</div>
-              <figcaption class="project-showcase__caption">Mobile — 2개 화면</figcaption>
-            </figure>
+      <!-- S04 Problem -->
+      <section class="ak-section ak-section--surface" id="problem" aria-labelledby="problem-title">
+        <p class="ak-label ak-label--plain"><span class="ak-label__num">04</span><span class="ak-label__en">Problem</span></p>
+        <div>
+          <h2 class="ak-heading" id="problem-title">분류는 있는데,<br>목록과 끊겨 있습니다.</h2>
+          <p class="ak-lead">아식스 코리아 공식 온라인스토어의 남성 러닝화 목록에서 확인한 세 가지 사실입니다.</p>
+        </div>
+        <ol class="ak-evidence">
+          <li class="ak-evidence__item">
+            <p class="ak-evidence__tag ak-eyebrow"><span>01</span><span>Filter</span></p>
+            <p class="ak-evidence__number" aria-hidden="true"><span class="ak-evidence__big">0</span><span class="ak-evidence__suffix">/ 7</span></p>
+            <h3 class="ak-evidence__title">필터 7개 중 러닝화 유형 0개</h3>
+            <p class="ak-text">유형 5종은 #RUN의 SHOE FINDER에만 있고<br>남성 러닝화 목록 필터에는 없습니다.</p>
+          </li>
+          <li class="ak-evidence__item">
+            <p class="ak-evidence__tag ak-eyebrow"><span>02</span><span>Fragmentation</span></p>
+            <p class="ak-evidence__number" aria-hidden="true"><span class="ak-evidence__big">14</span><span class="ak-evidence__unit">장</span></p>
+            <h3 class="ak-evidence__title">젤 카야노 33 하나가 카드 14장</h3>
+            <p class="ak-text">컬러 6 · 2E 4 · 4E 3 · 플래티넘 1.<br>같은 모델이 목록 곳곳에 흩어집니다.</p>
+          </li>
+          <li class="ak-evidence__item">
+            <p class="ak-evidence__tag ak-eyebrow"><span>03</span><span>Sold Out</span></p>
+            <p class="ak-evidence__number" aria-hidden="true"><span class="ak-evidence__big">32</span><span class="ak-evidence__suffix">/ 43</span></p>
+            <h3 class="ak-evidence__title">바운싱화 43개 중 32개 품절</h3>
+            <p class="ak-text">품절 카드가 판매 중 카드와<br>같은 목록에 섞여 나옵니다.</p>
+          </li>
+        </ol>
+        <div class="ak-structure">
+          <h3 class="ak-structure__title">지금의 탐색 구조</h3>
+          <div class="ak-track">
+            <p class="ak-track__label">기능으로 찾기</p>
+            <p class="ak-node"><strong>#RUN · SHOE FINDER</strong><span>러닝화 유형 5종</span></p>
+            <span class="ak-arrow" aria-hidden="true">→</span>
+            <p class="ak-node"><strong>유형별 카테고리</strong><span>남녀 상품이 섞여 있음</span></p>
           </div>
-          <p class="project-note">제품 이미지는 AI 생성 컨셉 비주얼입니다. 모바일은 390×844 프레임 기준입니다.</p>
+          <p class="ak-disconnect"><span>연결 없음</span></p>
+          <div class="ak-track">
+            <p class="ak-track__label">목록에서 찾기</p>
+            <p class="ak-node"><strong>Men › 신발 › 러닝화</strong><span>71개 · 필터 7개</span></p>
+            <span class="ak-arrow" aria-hidden="true">→</span>
+            <p class="ak-node"><strong>컬러 · 발 너비별 카드</strong><span>같은 모델이 반복됨</span></p>
+            <span class="ak-arrow" aria-hidden="true">→</span>
+            <p class="ak-node"><strong>상세</strong><span>컬러 1개 · 스펙 표 5필드</span></p>
+            <span class="ak-arrow" aria-hidden="true">→</span>
+            <p class="ak-node"><strong>다른 컬러 = 다른 상세</strong><span>발 너비 = 별도 상품</span></p>
+          </div>
         </div>
+        <p class="ak-note">출처: 아식스 코리아 공식 온라인스토어, 2026-10-01 조사(비로그인). 바운싱화 수는 유형 카테고리 기준이며 남녀 상품을 포함합니다.</p>
       </section>
 
-      <section class="project-section" id="outcome">
-        <p class="project-section__label">05 / Outcome &amp; Reflection</p>
-        <div class="project-section__body">
-          <h2 class="project-section__title">바꾼 것은 화면보다 구조였습니다.</h2>
-          <p class="project-text">성과를 수치로 말할 근거는 없습니다. 구조에서 달라진 점과 아직 검증하지 않은 점을 정리합니다.</p>
-          <ol class="project-list">
-            <li class="project-list__item">
-              <span class="project-list__key">Outcome 01</span>
-              <div class="project-list__content">
-                <h3 class="project-list__title">유형 5종을 탐색의 첫 단계로 연결했습니다</h3>
-                <p class="project-text">SHOE FINDER에만 있던 러닝화 유형을 홈, 목록, 비교, 상세에 이었습니다.</p>
-              </div>
-            </li>
-            <li class="project-list__item">
-              <span class="project-list__key">Outcome 02</span>
-              <div class="project-list__content">
-                <h3 class="project-list__title">모델 하나를 카드 한 장으로 통합했습니다</h3>
-                <p class="project-text">컬러 · 발 너비 · 에디션별로 나뉘던 카드를 모델 단위로 묶었습니다.</p>
-              </div>
-            </li>
-            <li class="project-list__item">
-              <span class="project-list__key">Outcome 03</span>
-              <div class="project-list__content">
-                <h3 class="project-list__title">유형부터 담기까지 하나의 흐름으로 재구성했습니다</h3>
-                <p class="project-text">유형 → 목록 → 비교 → 상세 → 담기. 같은 유형 이름과 색이 끝까지 이어집니다.</p>
-              </div>
-            </li>
-          </ol>
-          <ol class="project-list">
-            <li class="project-list__item">
-              <span class="project-list__key">Reflection</span>
-              <div class="project-list__content">
-                <h3 class="project-list__title">번역이 아니라 재조사</h3>
-                <p class="project-text">미국 시안을 옮기지 않았습니다. 한국 공식 사이트에서 유형 · 가격 · 사이즈 · 재고 · 상품 구조를 다시 조사해 근거를 바꿨습니다.</p>
-              </div>
-            </li>
-            <li class="project-list__item">
-              <span class="project-list__key">Reflection</span>
-              <div class="project-list__content">
-                <h3 class="project-list__title">화면보다 흐름을 먼저</h3>
-                <p class="project-text">시각 스타일을 정하기 전에 유형 → 목록 → 비교 → 상세 → 담기의 순서부터 정했습니다.</p>
-              </div>
-            </li>
-            <li class="project-list__item">
-              <span class="project-list__key">Reflection</span>
-              <div class="project-list__content">
-                <h3 class="project-list__title">반복 구현을 자동화하고, 판단에 시간을 썼습니다</h3>
-                <p class="project-text">화면 구현, Render QA, 상태 기록 같은 반복 작업은 AI Agent와 Figma MCP로 자동화하고, 프로젝트 목표 설정, 작업 지시, 결과 검토와 최종 선택은 직접 수행했습니다.</p>
-              </div>
-            </li>
-            <li class="project-list__item">
-              <span class="project-list__key">Reflection</span>
-              <div class="project-list__content">
-                <h3 class="project-list__title">데이터는 조사 시점 기준, 검증은 아직</h3>
-                <p class="project-text">상품과 재고 정보는 2026-10-01에 조사한 값입니다. 사용자 테스트, 실기기 테스트, 실서비스 적용, A/B 테스트는 하지 않았습니다.</p>
-              </div>
-            </li>
-          </ol>
+      <!-- S05 Strategy & Flow -->
+      <section class="ak-section" id="strategy" aria-labelledby="strategy-title">
+        <p class="ak-label"><span class="ak-label__num">05</span><span class="ak-label__en">Strategy</span></p>
+        <div>
+          <h2 class="ak-heading" id="strategy-title">유형부터 담기까지,<br>하나의 흐름으로.</h2>
+          <p class="ak-lead">같은 유형 이름과 색이 홈에서 장바구니까지 이어집니다. 아래는 안정화를 고른 경우입니다.</p>
         </div>
+        <ol class="ak-flow">
+          <li class="ak-flow__step">
+            <div class="ak-flow__band"><p class="ak-flow__no ak-display">STEP 1</p><h3 class="ak-flow__name">유형</h3><p class="ak-flow__desc">레인에서 고른다</p></div>
+            <span class="ak-flow__arrow" aria-hidden="true">→</span>
+            <p class="ak-flow__carry"><span class="ak-tag ak-lane--protection"><b>01</b>안정화</span>D1 레인</p>
+          </li>
+          <li class="ak-flow__step">
+            <div class="ak-flow__band"><p class="ak-flow__no ak-display">STEP 2</p><h3 class="ak-flow__name">목록</h3><p class="ak-flow__desc">유형 탭과 카드 태그</p></div>
+            <span class="ak-flow__arrow" aria-hidden="true">→</span>
+            <p class="ak-flow__carry"><span class="ak-tag ak-lane--protection"><b>01</b>안정화</span>D2 탭 · 카드</p>
+          </li>
+          <li class="ak-flow__step">
+            <div class="ak-flow__band"><p class="ak-flow__no ak-display">STEP 3</p><h3 class="ak-flow__name">비교</h3><p class="ak-flow__desc">최대 3개를 나란히</p></div>
+            <span class="ak-flow__arrow" aria-hidden="true">→</span>
+            <p class="ak-flow__carry"><span class="ak-tag ak-lane--protection"><b>01</b>안정화</span>D3 열 머리</p>
+          </li>
+          <li class="ak-flow__step">
+            <div class="ak-flow__band"><p class="ak-flow__no ak-display">STEP 4</p><h3 class="ak-flow__name">상세</h3><p class="ak-flow__desc">컬러 · 발 너비 · 사이즈</p></div>
+            <span class="ak-flow__arrow" aria-hidden="true">→</span>
+            <p class="ak-flow__carry"><span class="ak-tag ak-lane--protection"><b>01</b>안정화</span>D4 스펙 밴드</p>
+          </li>
+          <li class="ak-flow__step">
+            <div class="ak-flow__band"><p class="ak-flow__no ak-display">STEP 5</p><h3 class="ak-flow__name">담기</h3><p class="ak-flow__desc">고른 그대로 담는다</p></div>
+            <p class="ak-flow__carry"><span class="ak-tag ak-tag--cta">장바구니 담기 · 270</span>구매 버튼</p>
+          </li>
+        </ol>
+        <ol class="ak-decisions">
+          <li class="ak-decision">
+            <p class="ak-decision__map"><span class="ak-eyebrow">Decision</span><b>유형</b></p>
+            <p class="ak-decision__num" aria-hidden="true">01</p>
+            <h3 class="ak-decision__title">유형에서 시작한다</h3>
+            <p class="ak-eyebrow">Section 07</p>
+          </li>
+          <li class="ak-decision">
+            <p class="ak-decision__map"><span class="ak-eyebrow">Decision</span><b>목록 · 비교</b></p>
+            <p class="ak-decision__num" aria-hidden="true">02</p>
+            <h3 class="ak-decision__title">모델은 하나로 묶고 비교한다</h3>
+            <p class="ak-eyebrow">Section 08</p>
+          </li>
+          <li class="ak-decision">
+            <p class="ak-decision__map"><span class="ak-eyebrow">Decision</span><b>상세 · 담기</b></p>
+            <p class="ak-decision__num" aria-hidden="true">03</p>
+            <h3 class="ak-decision__title">한 화면에서 고르고 담는다</h3>
+            <p class="ak-eyebrow">Section 09</p>
+          </li>
+        </ol>
+        <p class="ak-note">"러닝화 유형" 탭과 필터는 리디자인 제안입니다. 현재 아식스 코리아 목록 필터에는 없습니다.</p>
+      </section>
+
+      <!-- S06 Design System -->
+      <section class="ak-section ak-section--surface" id="design-system" aria-labelledby="ds-title">
+        <p class="ak-label"><span class="ak-label__num">06</span><span class="ak-label__en">Design System</span></p>
+        <div>
+          <h2 class="ak-heading" id="ds-title">색은 유형을,<br>한글은 안내를 맡습니다.</h2>
+          <p class="ak-lead">시각 요소마다 맡은 일을 하나씩 정했습니다.</p>
+        </div>
+        <div class="ak-block">
+          <h3 class="ak-sub-label">유형 색 5 <span class="ak-eyebrow">Running Type Colors</span></h3>
+          <ul class="ak-tiles">
+            <li class="ak-tile ak-lane--protection"><p class="ak-tile__num">01</p><p class="ak-tile__name">안정화</p><p class="ak-tile__meta">#2E4BFF<br>글자 흰색 · 대비 5.89</p></li>
+            <li class="ak-tile ak-lane--cushion"><p class="ak-tile__num">02</p><p class="ak-tile__name">쿠션화</p><p class="ak-tile__meta">#00D1C1<br>글자 검정 · 대비 10.09</p></li>
+            <li class="ak-tile ak-lane--bounce"><p class="ak-tile__num">03</p><p class="ak-tile__name">바운싱화</p><p class="ak-tile__meta">#FF5A1F<br>글자 검정 · 대비 6.24</p></li>
+            <li class="ak-tile ak-lane--speed"><p class="ak-tile__num">04</p><p class="ak-tile__name">레이싱화</p><p class="ak-tile__meta">#F03CFF<br>글자 검정 · 대비 6.30</p></li>
+            <li class="ak-tile ak-lane--trail"><p class="ak-tile__num">05</p><p class="ak-tile__name">트레일러닝화</p><p class="ak-tile__meta">#2BD96B<br>글자 검정 · 대비 10.42</p></li>
+          </ul>
+          <p class="ak-rule-row">유형 색은 유형의 의미로만 쓰고, 항상 한글 유형명과 함께 씁니다. 선택 상태와 주 CTA는 이 한 색(#E4FF2E)만 씁니다.</p>
+        </div>
+        <figure class="ak-figure">
+          <a class="ak-zoom" id="fig-type-specimen" href="#zoom-type-specimen" title="크게 보기"><img src="assets/asics-case-type-specimen.webp" alt="서체 견본. 한글 NOTO SANS KR: '달리는 방식으로 고르는 러닝화' — 내비게이션 · 필터 · CTA · 안내 · 상품명 · 가격. 화면의 첫 헤드라인은 항상 한글입니다. 라틴 · 숫자 BARLOW CONDENSED ITALIC: '01 GEL-KAYANO 33 298g' — 레인 번호 · 영문 모델명 병기 · 큰 수치에만 씁니다. 한글은 기울이지 않습니다" width="1640" height="245" loading="lazy"></a>
+        </figure>
+        <div class="ak-visuals">
+          <div class="ak-visuals__copy">
+            <h3 class="ak-sub-label">컨셉 제품 비주얼 <span class="ak-eyebrow">Concept Product Visual</span></h3>
+            <p class="ak-text">아식스 상품 · 캠페인 사진은<br>사용 권리를 확인하지 못해 쓰지 않았습니다.</p>
+            <p class="ak-text">실제 판매 컬러웨이를 참고해 AI로 제작한<br>비공식 컨셉 제품 비주얼을 사용했습니다.</p>
+          </div>
+          <ul class="ak-visuals__tiles">
+            <li class="ak-figure"><img src="assets/asics-case-visual-1.webp" alt="AI 생성 컨셉 제품 비주얼 — PRUSSIAN BLUE/WHITE" width="352" height="210" loading="lazy"></li>
+            <li class="ak-figure"><img src="assets/asics-case-visual-2.webp" alt="AI 생성 컨셉 제품 비주얼 — WHITE/STADIUM ORANGE" width="352" height="210" loading="lazy"></li>
+            <li class="ak-figure"><img src="assets/asics-case-visual-3.webp" alt="AI 생성 컨셉 제품 비주얼 — ENERGY AQUA/ILLUMINATE YELLOW" width="352" height="210" loading="lazy"></li>
+          </ul>
+        </div>
+        <div class="ak-block">
+          <h3 class="ak-sub-label">핵심 컴포넌트 <span class="ak-eyebrow">Core Components</span></h3>
+          <figure class="ak-figure">
+            <a class="ak-zoom" id="fig-components" href="#zoom-components" title="크게 보기"><img src="assets/asics-case-components.webp" alt="핵심 컴포넌트. 상품 카드 — 모델 하나에 카드 1장(01 안정화, 젤 카야노 33, 199,000원, 무게 298g, 미드솔 FF BLAST™, 발 너비 D · 2E · 4E, 비교하기, 찜하기). 유형 태그 — 탭 · 카드 · 비교 · 상세에 같은 이름과 색. 비교 트레이 — 최대 3개(비교할 모델 3/3, 비교하기). 사이즈 — 기본 · 선택 · 품절(265, 270, 285). 구매 CTA — 고른 사이즈를 그대로 보여 줌(장바구니 담기 · 270, 바로구매)" width="1640" height="464" loading="lazy"></a>
+          </figure>
+        </div>
+        <p class="ak-note">대비 값은 디자인 시스템 문서에 기록한 계산값입니다. 색 값은 제안 근사치이며 아식스 공식 색이 아닙니다.</p>
+      </section>
+
+      <!-- S07 Decision 01 -->
+      <section class="ak-section" id="decision-01" aria-labelledby="d1-title">
+        <p class="ak-label"><span class="ak-label__num">07</span><span class="ak-label__en">Decision 01</span></p>
+        <div class="ak-decision-head">
+          <p class="ak-decision-head__num" aria-hidden="true">01</p>
+          <div>
+            <h2 class="ak-heading" id="d1-title">모델명이 아니라<br>달리는 방식에서 출발합니다.</h2>
+            <p class="ak-lead">아식스 코리아 SHOE FINDER의 유형 5종을 홈의 첫 선택지로 올렸습니다.</p>
+          </div>
+        </div>
+        <figure class="ak-figure">
+          <a class="ak-zoom" id="fig-decision1-lanes" href="#zoom-decision1-lanes" title="크게 보기"><img src="assets/asics-case-decision1-lanes.webp" alt="D1 홈의 유형 레인 다섯 줄에 주석 번호 1~3. 1: 안정화 레인의 유형 이름, 2: 안정화 보기 버튼과 상품 수, 3: 바운싱화 레인의 '상품 43개 · 그중 32개 품절' 표기" width="1640" height="1303" loading="lazy"></a>
+        </figure>
+        <ol class="ak-notes">
+          <li class="ak-note-item"><span class="ak-marker" aria-hidden="true">1</span><h3 class="ak-note-item__title">SHOE FINDER의 유형 5종을 홈으로</h3><p class="ak-text">#RUN 안에만 있던 분류를<br>탐색의 첫 선택지로 올렸습니다.</p></li>
+          <li class="ak-note-item"><span class="ak-marker" aria-hidden="true">2</span><h3 class="ak-note-item__title">같은 이름이 목록까지</h3><p class="ak-text">레인에서 고른 유형이 목록의 탭,<br>필터, 카드 태그로 이어집니다.</p></li>
+          <li class="ak-note-item"><span class="ak-marker" aria-hidden="true">3</span><h3 class="ak-note-item__title">상품 수와 품절을 먼저</h3><p class="ak-text">바운싱화는 43개 중 32개가 품절임을<br>유형 단계에서 보여 줍니다.</p></li>
+        </ol>
+        <h3 class="ak-sub-label">목록으로 이어지는 유형 <span class="ak-eyebrow">D2 · Type Tabs + Filter</span></h3>
+        <figure class="ak-figure">
+          <a class="ak-zoom" id="fig-decision1-list" href="#zoom-decision1-list" title="크게 보기"><img src="assets/asics-case-decision1-list.webp" alt="D2 남성 러닝화 목록(71개). 전체와 01 안정화부터 05 트레일러닝화까지의 유형 탭(주석 2), 왼쪽 필터의 러닝화 유형 체크박스, 전체 유형 · 모델 5개 카드 그리드. 같은 모델의 컬러 · 발 너비는 카드 1장으로 묶었습니다" width="1640" height="535" loading="lazy"></a>
+        </figure>
+        <p class="ak-note">"러닝화 유형" 탭과 필터는 리디자인 제안입니다. 현재 아식스 코리아 목록 필터에는 유형이 없습니다. 상품 수는 유형 카테고리 기준(남녀 포함)입니다.</p>
+      </section>
+
+      <!-- S08 Decision 02 -->
+      <section class="ak-section ak-section--surface" id="decision-02" aria-labelledby="d2-title">
+        <p class="ak-label"><span class="ak-label__num">08</span><span class="ak-label__en">Decision 02</span></p>
+        <div class="ak-decision-head">
+          <p class="ak-decision-head__num" aria-hidden="true">02</p>
+          <div>
+            <h2 class="ak-heading" id="d2-title">흩어진 카드를 하나로 묶고,<br>차이는 나란히 봅니다.</h2>
+            <p class="ak-lead">모델 하나에 카드 한 장. 상세를 열기 전에 최대 3개를 비교합니다.</p>
+          </div>
+        </div>
+        <figure class="ak-figure">
+          <a class="ak-zoom" id="fig-decision2-cards" href="#zoom-decision2-cards" title="크게 보기"><img src="assets/asics-case-decision2-cards.webp" alt="14장에서 1장으로. 왼쪽: 지금 · 아식스 코리아 목록에서 젤 카야노 33 하나가 기본 6, 2E 4, 4E 3, 플래티넘 1로 카드 14장으로 나뉩니다. 가운데: 리디자인 상품 카드(01 안정화, 컬러 6, 젤 카야노 33, 199,000원, 무게 298g, 미드솔 FF BLAST™, 발 너비 D · 2E · 4E, 비교하기 선택됨). 오른쪽: 리디자인 · 모델 하나에 카드 1장 — 컬러 6가지, 발 너비 D · 2E · 4E, 가격 · 무게 · 미드솔, 비교하기" width="1640" height="661" loading="lazy"></a>
+        </figure>
+        <h3 class="ak-sub-label">상세를 열기 전에, 최대 3개를 나란히 <span class="ak-eyebrow">D2 Compare Tray → D3 Compare</span></h3>
+        <figure class="ak-figure">
+          <a class="ak-zoom" id="fig-decision2-tray" href="#zoom-decision2-tray" title="크게 보기"><img src="assets/asics-case-decision2-tray.webp" alt="비교 트레이. 비교할 모델 3/3(최대 3개까지 담을 수 있어요): 젤 카야노 33, GT 2000 15, 젤 님버스 28, 비교하기 버튼" width="1640" height="118" loading="lazy"></a>
+        </figure>
+        <figure class="ak-figure">
+          <div class="ak-scroll"><a class="ak-zoom" id="fig-decision2-compare" href="#zoom-decision2-compare" title="크게 보기"><img src="assets/asics-case-decision2-compare.webp" alt="D3 비교 화면 '무엇이 다른가요?' — 모델 3개 비교(안정화 2 · 쿠션화 1). 열 머리에 러닝화 유형 색(주석 1). 젤 카야노 33: 199,000원, 298g, FF BLAST™, HYBRID ASICSGRIP™, 엔지니어드 메쉬, 발 너비 D · 2E · 4E, 컬러 6가지, 판매 중 사이즈 250–300. 젤 님버스 28: 199,000원, 281g, FF BLAST+, ASICSGRIP AHAR+, 엔지니어드 니트, D · 2E · 4E, 3가지, 250–290. GT 2000 15: 159,000원, 252g(가장 가벼움 강조), AHAR LO(원문), FF BLAST MAX(원문), 엔지니어드 우븐, D, 3가지, 250–290. 판단에 쓰는 값을 한 줄로(주석 2)" width="1640" height="1752" loading="lazy"></a></div>
+          <figcaption class="ak-scroll-hint"><span>← 옆으로 밀어서 보기 →</span><span>누르면 크게 보기</span></figcaption>
+        </figure>
+        <ol class="ak-notes ak-notes--two">
+          <li class="ak-note-item"><span class="ak-marker" aria-hidden="true">1</span><h3 class="ak-note-item__title">유형 색이 비교 열 머리로</h3><p class="ak-text">홈에서 고른 유형의 이름과 색이<br>비교 화면까지 이어집니다.</p></li>
+          <li class="ak-note-item"><span class="ak-marker" aria-hidden="true">2</span><h3 class="ak-note-item__title">판단에 쓰는 값을 한 줄로</h3><p class="ak-text">가격 · 무게 · 소재 · 발 너비 · 컬러 · 사이즈를<br>같은 행에서 비교합니다.</p></li>
+        </ol>
+        <p class="ak-note">값은 아식스 코리아 각 상품 상세의 원문 그대로입니다. GT 2000 15의 미드솔 · 아웃솔 표기도 원문 그대로이며 서로 뒤바뀐 것으로 보입니다. 무게 강조는 추천이 아닙니다.</p>
+      </section>
+
+      <!-- S09 Decision 03 -->
+      <section class="ak-section" id="decision-03" aria-labelledby="d3-title">
+        <p class="ak-label"><span class="ak-label__num">09</span><span class="ak-label__en">Decision 03</span></p>
+        <div class="ak-decision-head">
+          <p class="ak-decision-head__num" aria-hidden="true">03</p>
+          <div>
+            <h2 class="ak-heading" id="d3-title">고르는 과정과<br>담는 과정을 끊지 않았습니다.</h2>
+            <p class="ak-lead">컬러, 발 너비, 사이즈를 한 화면에서 정하고 그 선택이 구매 버튼에 그대로 남습니다.</p>
+          </div>
+        </div>
+        <figure class="ak-figure">
+          <a class="ak-zoom" id="fig-decision3-detail" href="#zoom-decision3-detail" title="크게 보기"><img src="assets/asics-case-decision3-detail.webp" alt="D4 상세 화면. 젤 카야노 33(GEL-KAYANO 33), 199,000원. 파란 스펙 밴드에 유형 01 안정화, 무게 298g, 미드솔 FF BLAST™, 아웃솔 HYBRID ASICSGRIP™(주석 A). 컨셉 비주얼 PRUSSIAN BLUE 신발. 컬러 6가지 견본(주석 B), 발 너비 D · 2E · 4E, 사이즈 250~300 mm 중 270 선택(주석 C), 총 상품 금액 199,000원과 '장바구니 담기 · 270' 버튼, 바로구매(주석 D). 쿠폰 · 카드 · 배송 · 반품 안내" width="1640" height="1353" loading="lazy"></a>
+        </figure>
+        <ol class="ak-notes ak-notes--four">
+          <li class="ak-note-item"><span class="ak-marker" aria-hidden="true">A</span><h3 class="ak-note-item__title">상품 · 스펙</h3><p class="ak-text">유형, 무게, 소재를<br>상품명 바로 아래에 둡니다.</p></li>
+          <li class="ak-note-item"><span class="ak-marker" aria-hidden="true">B</span><h3 class="ak-note-item__title">컬러 · 발 너비</h3><p class="ak-text">컬러 6가지와 D · 2E · 4E를<br>같은 화면에서 바꿉니다.</p></li>
+          <li class="ak-note-item"><span class="ak-marker" aria-hidden="true">C</span><h3 class="ak-note-item__title">사이즈</h3><p class="ak-text">mm 단위로 고르고<br>선택과 품절을 구분합니다.</p></li>
+          <li class="ak-note-item"><span class="ak-marker" aria-hidden="true">D</span><h3 class="ak-note-item__title">구매</h3><p class="ak-text">총 상품 금액과<br>"장바구니 담기 · 270".</p></li>
+        </ol>
+        <h3 class="ak-sub-label">품절도 고르는 자리에서 보여 줍니다 <span class="ak-eyebrow">State Zoom</span></h3>
+        <div class="ak-pair">
+          <figure class="ak-figure"><a class="ak-zoom" id="fig-decision3-color" href="#zoom-decision3-color" title="크게 보기"><img src="assets/asics-case-decision3-color.webp" alt="컬러 상태 확대. PRUSSIAN BLUE/WHITE 선택, '290만 남음'과 '품절' 표기가 견본 아래에 붙는다. 컬러 6가지 · 컬러를 바꿔도 이 화면에 머무름" width="808" height="283" loading="lazy"></a></figure>
+          <figure class="ak-figure"><a class="ak-zoom" id="fig-decision3-width" href="#zoom-decision3-width" title="크게 보기"><img src="assets/asics-case-decision3-width.webp" alt="발 너비 상태 확대. D 기본 · 컬러 6 선택, 2E 전 컬러 품절, 4E 컬러 3. D 기본 · 2E 와이드 · 4E 엑스트라 와이드, 너비마다 판매 컬러가 다릅니다" width="808" height="267" loading="lazy"></a></figure>
+        </div>
+        <p class="ak-note">대표 상품은 젤 카야노 33입니다. 슈퍼블라스트 3은 한국 조사 당시 전 사이즈 품절이라 구매 흐름을 끝까지 보여 줄 수 없었습니다. 컬러 · 재고는 2026-10-01 기준입니다.</p>
+      </section>
+
+      <!-- S10 Mobile -->
+      <section class="ak-section ak-section--surface" id="mobile" aria-labelledby="mobile-title">
+        <p class="ak-label"><span class="ak-label__num">10</span><span class="ak-label__en">Mobile</span></p>
+        <div>
+          <h2 class="ak-heading" id="mobile-title">축소가 아니라,<br>우선순위를 다시 정했습니다.</h2>
+          <p class="ak-lead">데스크톱에서 정한 흐름을 390 폭에 맞게 다시 배치했습니다.</p>
+        </div>
+        <div class="ak-mobile">
+          <div class="ak-mobile__item">
+            <p class="ak-mobile__code">M5 · 목록</p>
+            <h3 class="ak-mobile__title">첫 화면에서<br>무엇을 보고 있는지 알 수 있게.</h3>
+            <figure class="ak-figure"><a class="ak-zoom" id="fig-mobile-list" href="#zoom-mobile-list" title="크게 보기"><img src="assets/asics-case-mobile-list.webp" alt="M5 모바일 목록(390 프레임, 844px 접힘선 표시). 남성 러닝화 71개, 가로 스크롤 유형 칩, 필터 버튼, 1열 카드. 주석: 1 유형 — 어떤 러닝화인지, 2 상품명 — 한글 공식명, 3 가격 — 원. 세 가지 모두 첫 844px 안에 있습니다" width="796" height="1224" loading="lazy"></a></figure>
+          </div>
+          <div class="ak-mobile__item">
+            <p class="ak-mobile__code">M6 · 상세</p>
+            <h3 class="ak-mobile__title">선택한 내용을 잃지 않고,<br>언제든 구매할 수 있게.</h3>
+            <figure class="ak-figure"><a class="ak-zoom" id="fig-mobile-detail" href="#zoom-mobile-detail" title="크게 보기"><img src="assets/asics-case-mobile-detail.webp" alt="M6 모바일 상세. 01 안정화, 젤 카야노 33, 199,000원, 스펙 밴드, 컬러 · 발 너비 · 사이즈 선택, 하단 고정 구매 바(WHITE/WHITE · D · 270, 바로구매, 장바구니 담기 · 270). 주석: 1 품절 사이즈 — 250 · 285 · 290을 고르는 자리에서 표시, 2 고정 구매 바 — 컬러 · 너비 · 사이즈 · 가격을 그대로 유지. 아식스 코리아 모바일에도 고정 구매 바가 있습니다. 차이는 고른 내용을 바에 그대로 보여 주는 점입니다" width="796" height="1020" loading="lazy"></a></figure>
+          </div>
+        </div>
+        <h3 class="ak-sub-label">데스크톱에서 모바일로 <span class="ak-eyebrow">Desktop → Mobile</span></h3>
+        <ul class="ak-mapping">
+          <li class="ak-mapping__item"><p class="ak-mapping__from">유형 탭</p><p class="ak-mapping__to">가로 스크롤 유형 칩</p></li>
+          <li class="ak-mapping__item"><p class="ak-mapping__from">좌측 필터 열</p><p class="ak-mapping__to">필터 버튼 하나</p></li>
+          <li class="ak-mapping__item"><p class="ak-mapping__from">3열 카드</p><p class="ak-mapping__to">1열 카드</p></li>
+          <li class="ak-mapping__item"><p class="ak-mapping__from">패널 안 구매 버튼</p><p class="ak-mapping__to">하단 고정 구매 바</p></li>
+        </ul>
+        <p class="ak-note">390×844 프레임에서 측정했습니다. 실기기에서는 확인하지 않았습니다.</p>
+      </section>
+
+      <!-- S11 Outcome & Reflection -->
+      <section class="ak-section" id="outcome" aria-labelledby="outcome-title">
+        <p class="ak-label"><span class="ak-label__num">11</span><span class="ak-label__en">Outcome</span></p>
+        <div>
+          <h2 class="ak-heading" id="outcome-title">바꾼 것은<br>화면보다 구조였습니다.</h2>
+          <p class="ak-lead">성과를 수치로 말할 근거는 없습니다. 구조에서 달라진 점과 아직 검증하지 않은 점을 정리합니다.</p>
+        </div>
+        <ol class="ak-outcomes">
+          <li class="ak-outcome"><p class="ak-outcome__tag ak-eyebrow"><span>Outcome</span><b>01</b></p><h3 class="ak-decision__title">유형 5종을<br>탐색의 첫 단계로 연결했습니다</h3><p class="ak-text">SHOE FINDER에만 있던 러닝화 유형을<br>홈, 목록, 비교, 상세에 이었습니다.</p></li>
+          <li class="ak-outcome"><p class="ak-outcome__tag ak-eyebrow"><span>Outcome</span><b>02</b></p><h3 class="ak-decision__title">모델 하나를<br>카드 한 장으로 통합했습니다</h3><p class="ak-text">컬러 · 발 너비 · 에디션별로 나뉘던 카드를<br>모델 단위로 묶었습니다.</p></li>
+          <li class="ak-outcome"><p class="ak-outcome__tag ak-eyebrow"><span>Outcome</span><b>03</b></p><h3 class="ak-decision__title">유형부터 담기까지<br>하나의 흐름으로 재구성했습니다</h3><p class="ak-text">유형 → 목록 → 비교 → 상세 → 담기.<br>같은 유형 이름과 색이 끝까지 이어집니다.</p></li>
+        </ol>
+        <p class="ak-mobile-outcome"><span class="ak-badge">Mobile</span>모바일에서는 같은 흐름의 우선순위를 다시 정했습니다. 첫 화면에 유형 · 상품명 · 가격, 하단 구매 바에 고른 내용.</p>
+        <div class="ak-process">
+          <div class="ak-process__head">
+            <div>
+              <h3 class="ak-sub-label">제작 방식 <span class="ak-eyebrow">AI Automation Process</span></h3>
+              <p class="ak-process__lead">리서치부터 최종 Export까지,<br>반복 작업을 하나의 자동화 파이프라인으로 연결했습니다.</p>
+            </div>
+            <p class="ak-process__metric"><strong>2 DAYS</strong><span class="ak-eyebrow">Research → Final Case Study</span><span class="ak-note">실제 작업일 기준</span></p>
+          </div>
+          <ol class="ak-steps">
+            <li><p class="ak-steps__no ak-display ak-note">01</p><p class="ak-steps__name ak-display">RESEARCH</p><p class="ak-note">한국 시장과<br>상품 구조 조사</p></li>
+            <li><p class="ak-steps__no ak-display ak-note">02</p><p class="ak-steps__name ak-display">STRUCTURE</p><p class="ak-note">Problem · IA<br>User Flow</p></li>
+            <li><p class="ak-steps__no ak-display ak-note">03</p><p class="ak-steps__name ak-display">BUILD</p><p class="ak-note">Figma MCP 기반<br>화면 구현</p></li>
+            <li><p class="ak-steps__no ak-display ak-note">04</p><p class="ak-steps__name ak-display">RENDER QA</p><p class="ak-note">Render → 검사<br>→ Targeted Fix</p></li>
+            <li><p class="ak-steps__no ak-display ak-note">05</p><p class="ak-steps__name ak-display">CASE STUDY</p><p class="ak-note">결정과 결과를<br>포트폴리오 구조로 정리</p></li>
+            <li><p class="ak-steps__no ak-display ak-note">06</p><p class="ak-steps__name ak-display">EXPORT</p><p class="ak-note">Final Master<br>→ PDF QA</p></li>
+          </ol>
+          <div class="ak-roles">
+            <div class="ak-role ak-role--human">
+              <p class="ak-role__label"><span class="ak-display">HUMAN</span><span class="ak-note">직접 한 일</span></p>
+              <ul class="ak-dots ak-dots--accent"><li>프로젝트 목표 설정</li><li>AI 작업 지시 · 프롬프트 작성</li><li>결과 검토 · 수정 요청</li><li>제품 비주얼 생성 · 선정</li><li>최종 결과 승인</li></ul>
+            </div>
+            <div class="ak-role">
+              <p class="ak-role__label"><span class="ak-display ak-note">AI AUTOMATION</span><span class="ak-note">자동화한 일</span></p>
+              <ul class="ak-dots"><li>리서치 정리</li><li>UX 구조 제안</li><li>UI 디자인 · Figma 구현</li><li>Render QA</li><li>상태 기록 · 문서화</li><li>Case Study Production</li></ul>
+            </div>
+          </div>
+        </div>
+        <div class="ak-reflect">
+          <div>
+            <h3 class="ak-sub-label">돌아보며 <span class="ak-eyebrow">Reflection</span></h3>
+            <ul class="ak-points">
+              <li><h4 class="ak-item-title">번역이 아니라 재조사</h4><p class="ak-text">미국 시안을 옮기지 않았습니다. 한국 공식 사이트에서<br>유형 · 가격 · 사이즈 · 재고 · 상품 구조를 다시 조사해 근거를 바꿨습니다.</p></li>
+              <li><h4 class="ak-item-title">화면보다 흐름을 먼저</h4><p class="ak-text">시각 스타일을 정하기 전에<br>유형 → 목록 → 비교 → 상세 → 담기의 순서부터 정했습니다.</p></li>
+              <li><h4 class="ak-item-title">반복 구현을 자동화하고, 판단에 시간을 썼습니다</h4><p class="ak-text">화면 구현, Render QA, 상태 기록 같은 반복 작업은 AI Agent와 Figma MCP로 자동화하고,<br>프로젝트 목표 설정, 작업 지시, 결과 검토와 최종 선택은 직접 수행했습니다.</p></li>
+              <li><h4 class="ak-item-title">데이터는 조사 시점 기준, 검증은 아직</h4><p class="ak-text">상품과 재고 정보는 2026-10-01에 조사한 값입니다.<br>사용자 테스트, 실기기 테스트, 실서비스 적용, A/B 테스트는 하지 않았습니다.</p></li>
+            </ul>
+          </div>
+          <div class="ak-limits">
+            <h3 class="ak-sub-label">한계 <span class="ak-eyebrow">Limitations</span></h3>
+            <ul class="ak-dots ak-dots--column"><li>비공식 개인 리디자인</li><li>비로그인 상태에서 조사</li><li>제품 이미지는 AI 생성 컨셉 비주얼</li><li>모바일은 390×844 프레임 기준</li></ul>
+            <hr>
+            <h3 class="ak-sub-label">다음 검증 <span class="ak-eyebrow">Next Validation</span></h3>
+            <p class="ak-note">사용자 테스트로 확인할 세 가지입니다.</p>
+            <ul class="ak-dots ak-dots--accent ak-dots--column"><li>유형 분류를 이해하는가</li><li>비교 항목의 우선순위가 맞는가</li><li>모바일 구매 바가 쓰기 편한가</li></ul>
+          </div>
+        </div>
+        <p class="ak-closing"><span class="ak-note">아식스 코리아 남성 러닝화 구매 경험 리디자인 · 비공식 개인 리디자인이며 아식스와 무관합니다.</span><span class="ak-display">PORTFOLIO 03 · 2026</span></p>
       </section>
     </main>
 
@@ -236,6 +435,70 @@
       </a>
     </nav>
   </div>
+
+  <!-- 확대 창: 이미지를 누르면 열린다(CSS :target). 닫기는 그 이미지 자리로 돌아간다 -->
+  <div class="ak-lightbox" id="zoom-cover-lanes" role="dialog" aria-label="원본 크기 이미지">
+    <p class="ak-lightbox__bar"><span>원본 크기 · 옆과 아래로 밀어서 보기</span><a class="ak-lightbox__close" href="#fig-cover-lanes">닫기 ✕</a></p>
+    <div class="ak-lightbox__body"><img src="assets/asics-case-cover-lanes.webp" alt="" width="1400" height="1050" loading="lazy"></div>
+  </div>
+  <div class="ak-lightbox" id="zoom-lineup" role="dialog" aria-label="원본 크기 이미지">
+    <p class="ak-lightbox__bar"><span>원본 크기 · 옆과 아래로 밀어서 보기</span><a class="ak-lightbox__close" href="#fig-lineup">닫기 ✕</a></p>
+    <div class="ak-lightbox__body"><img src="assets/asics-case-lineup.webp" alt="" width="1640" height="600" loading="lazy"></div>
+  </div>
+  <div class="ak-lightbox" id="zoom-us-concept" role="dialog" aria-label="원본 크기 이미지">
+    <p class="ak-lightbox__bar"><span>원본 크기 · 옆과 아래로 밀어서 보기</span><a class="ak-lightbox__close" href="#fig-us-concept">닫기 ✕</a></p>
+    <div class="ak-lightbox__body"><img src="assets/asics-case-us-concept.webp" alt="" width="520" height="325" loading="lazy"></div>
+  </div>
+  <div class="ak-lightbox" id="zoom-type-specimen" role="dialog" aria-label="원본 크기 이미지">
+    <p class="ak-lightbox__bar"><span>원본 크기 · 옆과 아래로 밀어서 보기</span><a class="ak-lightbox__close" href="#fig-type-specimen">닫기 ✕</a></p>
+    <div class="ak-lightbox__body"><img src="assets/asics-case-type-specimen.webp" alt="" width="1640" height="245" loading="lazy"></div>
+  </div>
+  <div class="ak-lightbox" id="zoom-components" role="dialog" aria-label="원본 크기 이미지">
+    <p class="ak-lightbox__bar"><span>원본 크기 · 옆과 아래로 밀어서 보기</span><a class="ak-lightbox__close" href="#fig-components">닫기 ✕</a></p>
+    <div class="ak-lightbox__body"><img src="assets/asics-case-components.webp" alt="" width="1640" height="464" loading="lazy"></div>
+  </div>
+  <div class="ak-lightbox" id="zoom-decision1-lanes" role="dialog" aria-label="원본 크기 이미지">
+    <p class="ak-lightbox__bar"><span>원본 크기 · 옆과 아래로 밀어서 보기</span><a class="ak-lightbox__close" href="#fig-decision1-lanes">닫기 ✕</a></p>
+    <div class="ak-lightbox__body"><img src="assets/asics-case-decision1-lanes.webp" alt="" width="1640" height="1303" loading="lazy"></div>
+  </div>
+  <div class="ak-lightbox" id="zoom-decision1-list" role="dialog" aria-label="원본 크기 이미지">
+    <p class="ak-lightbox__bar"><span>원본 크기 · 옆과 아래로 밀어서 보기</span><a class="ak-lightbox__close" href="#fig-decision1-list">닫기 ✕</a></p>
+    <div class="ak-lightbox__body"><img src="assets/asics-case-decision1-list.webp" alt="" width="1640" height="535" loading="lazy"></div>
+  </div>
+  <div class="ak-lightbox" id="zoom-decision2-cards" role="dialog" aria-label="원본 크기 이미지">
+    <p class="ak-lightbox__bar"><span>원본 크기 · 옆과 아래로 밀어서 보기</span><a class="ak-lightbox__close" href="#fig-decision2-cards">닫기 ✕</a></p>
+    <div class="ak-lightbox__body"><img src="assets/asics-case-decision2-cards.webp" alt="" width="1640" height="661" loading="lazy"></div>
+  </div>
+  <div class="ak-lightbox" id="zoom-decision2-tray" role="dialog" aria-label="원본 크기 이미지">
+    <p class="ak-lightbox__bar"><span>원본 크기 · 옆과 아래로 밀어서 보기</span><a class="ak-lightbox__close" href="#fig-decision2-tray">닫기 ✕</a></p>
+    <div class="ak-lightbox__body"><img src="assets/asics-case-decision2-tray.webp" alt="" width="1640" height="118" loading="lazy"></div>
+  </div>
+  <div class="ak-lightbox" id="zoom-decision2-compare" role="dialog" aria-label="원본 크기 이미지">
+    <p class="ak-lightbox__bar"><span>원본 크기 · 옆과 아래로 밀어서 보기</span><a class="ak-lightbox__close" href="#fig-decision2-compare">닫기 ✕</a></p>
+    <div class="ak-lightbox__body"><img src="assets/asics-case-decision2-compare.webp" alt="" width="1640" height="1752" loading="lazy"></div>
+  </div>
+  <div class="ak-lightbox" id="zoom-decision3-detail" role="dialog" aria-label="원본 크기 이미지">
+    <p class="ak-lightbox__bar"><span>원본 크기 · 옆과 아래로 밀어서 보기</span><a class="ak-lightbox__close" href="#fig-decision3-detail">닫기 ✕</a></p>
+    <div class="ak-lightbox__body"><img src="assets/asics-case-decision3-detail.webp" alt="" width="1640" height="1353" loading="lazy"></div>
+  </div>
+  <div class="ak-lightbox" id="zoom-decision3-color" role="dialog" aria-label="원본 크기 이미지">
+    <p class="ak-lightbox__bar"><span>원본 크기 · 옆과 아래로 밀어서 보기</span><a class="ak-lightbox__close" href="#fig-decision3-color">닫기 ✕</a></p>
+    <div class="ak-lightbox__body"><img src="assets/asics-case-decision3-color.webp" alt="" width="808" height="283" loading="lazy"></div>
+  </div>
+  <div class="ak-lightbox" id="zoom-decision3-width" role="dialog" aria-label="원본 크기 이미지">
+    <p class="ak-lightbox__bar"><span>원본 크기 · 옆과 아래로 밀어서 보기</span><a class="ak-lightbox__close" href="#fig-decision3-width">닫기 ✕</a></p>
+    <div class="ak-lightbox__body"><img src="assets/asics-case-decision3-width.webp" alt="" width="808" height="267" loading="lazy"></div>
+  </div>
+  <div class="ak-lightbox" id="zoom-mobile-list" role="dialog" aria-label="원본 크기 이미지">
+    <p class="ak-lightbox__bar"><span>원본 크기 · 옆과 아래로 밀어서 보기</span><a class="ak-lightbox__close" href="#fig-mobile-list">닫기 ✕</a></p>
+    <div class="ak-lightbox__body"><img src="assets/asics-case-mobile-list.webp" alt="" width="796" height="1224" loading="lazy"></div>
+  </div>
+  <div class="ak-lightbox" id="zoom-mobile-detail" role="dialog" aria-label="원본 크기 이미지">
+    <p class="ak-lightbox__bar"><span>원본 크기 · 옆과 아래로 밀어서 보기</span><a class="ak-lightbox__close" href="#fig-mobile-detail">닫기 ✕</a></p>
+    <div class="ak-lightbox__body"><img src="assets/asics-case-mobile-detail.webp" alt="" width="796" height="1020" loading="lazy"></div>
+  </div>
+
+  <a class="top-button" href="#top" data-top-button aria-label="맨 위로 이동">Top</a>
 
 </body>
 </html>

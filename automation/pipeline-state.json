@@ -35,22 +35,15 @@
   },
   "checkpoint": {
     "stage": "secondary_pages",
-    "page": "tj-media-demo",
-    "section": "Stage B~E 완료",
-    "updated_at": "2026-10-12",
-    "resume_hint": "2026-10-12: TJ MEDIA Interactive Demo(docs/tj-media-demo/) Stage B~E 완료(spec 34절). 구현한 화면: Screen Explorer(index.html), Desktop 6개 — main(01_Main 1353:2727), search(02_Search 1401:1814), latest(03_LatestSongs 1367:2815), chart(04_MusicChart 1374:2839), song-detail(05_SongDetail 1391:2933), request(06_SongRequest 1405:3090), Mobile 3개 — main(07_Main 1411:1814), search(08_Search 1413:1814), song-detail(09_SongDetail 1414:3129). 구현하지 않은 화면 없음. tj-media.html에는 CTA 두 개만 추가했다. 1920·1440·768·390 Render와 이동·검색 흐름 점검 통과. local commit만 했다(push 안 함). 남은 것: TJ 로고와 실제 가수·곡 이름이 실린 시연의 외부 공개 가능 여부는 미확정(공개 전 검토), ASICS KOREA Page 재작업, FULL QA, push는 사용자 승인 후."
+    "page": "asics-korea",
+    "section": "Figma 11 Section 구현 + Final Polish 완료(미커밋)",
+    "updated_at": "2026-10-14",
+    "resume_hint": "2026-10-14: asics-korea를 Figma PORTFOLIO_03_CASE_STUDY_KR(1986:7083) S01~S11대로 구현하고 Final Polish(Noto Sans KR Black·Barlow Condensed Italic Subset, 이미지 확대 창, 가로 스크롤 안내, S11 화살표, S01 레인 폭)까지 마쳤다(spec 35절). QA: 6개 너비 넘침 0, 이미지 18, 오류 0, 어절 안 줄바꿈 0, 확대 창·이동·TOP 통과, index·aidora·tj-media·TJ Demo 회귀 통과. 사용자 승인 전이라 commit하지 않았다(HEAD f7a11d9). 남은 결정: 외부 공개 가능 여부(TJ와 함께). 그다음 FULL QA → PRE-DEPLOY CHECK → push 승인."
   },
   "render_checked": true,
   "qa_status": "2026-10-12 tj-media(이미지 연결 후): 1920·1440·768·390에서 이미지 21개 로딩(깨진 이미지 0), 가로 Overflow 없음, Console Error·실패 Request 0, h1 1개, Section 15개, TOP 버튼과 Contents·이전·다음 이동 통과. 육안 확인: 1920의 cover·research·pain-points·visual-direction·final-screens·closing 화면, 390의 cover·research·final-screens 화면. 그 밖은 측정만 했다",
   "retry_count": 0,
-  "blockers": [
-    {
-      "stage": "secondary_pages",
-      "type": "asset",
-      "detail": "asics-korea의 Showcase 이미지는 권리 미확인으로 비어 있다(spec 9절)",
-      "since": "2026-10-12"
-    }
-  ],
+  "blockers": [],
   "approval_required": [
     {
       "action": "Git History에 남은 .playwright-mcp 타사 사이트 스크린샷 처리 여부 결정",
@@ -67,8 +60,8 @@
     "live_qa": "NOT_DONE — 배포본 확인과 Pages 설정(main / docs) 확인을 하지 않았다"
   },
   "last_meaningful_change": {
-    "date": "2026-10-12",
-    "summary": "TJ MEDIA Interactive Demo 추가: Screen Explorer + Desktop 6개·Mobile 3개 화면을 HTML/CSS로 구현, 예시 곡 검색, tj-media Case Study에 진입 버튼 두 개."
+    "date": "2026-10-14",
+    "summary": "asics-korea Case Study를 Figma 11 Section으로 구현, 원본 글꼴·이미지 확대 창 추가. 미커밋."
   },
   "definition_of_done": "automation-orchestrator.md의 Stop Rule 전부 PASS",
   "design_definition": {

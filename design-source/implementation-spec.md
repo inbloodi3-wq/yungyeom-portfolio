@@ -878,3 +878,54 @@ Node ID는 `frame-map.md`가 아니라 이 Stage의 Checkpoint 기록(`automatio
 - Main Hero 인기곡 Pill: 줄 상자는 위아래 8로 가운데였지만, 한글 글자 모양이 줄 상자 안에서 위로 치우쳐 있어 글자 잉크 중심이 Pill 중심보다 약 1px 위였다. Figma Render(1배)를 같은 방법으로 재면 글자 +0.10, 점 +0.40, 구분선 +0.33(길이 12), Pill 높이 33이다. 위 여백만 1.5px 더 줘서(9.5 / 8) 1배에서 글자 +0.49, 점 +0.50, 구분선 +0.50(길이 12), 높이 33이 됐다(2·3배에서는 글자 +0.02~+0.10). 구분선은 줄 상자 높이(16)의 테두리 대신 Figma와 같은 길이 12의 선을 글자 잉크 중심에 둔다. 좌우는 16으로 같고, 내부 묶음은 `justify-content: center`, 점은 `flex: none`. 600 미만에서는 Pill이 두 줄로 접힐 때 구분선이 둘째 줄 맨 앞에 혼자 남아서 구분선을 그리지 않는다(글자는 그대로다).
 - 재검증(같은 날): 사용자 브라우저에서 안내문이 여전히 "…검 / 색할"로 보였다. 로컬 서버 접속 기록에서 사용자 브라우저는 Page를 열 때 HTML만 다시 확인하고 `demo.css`는 요청하지 않았다(캐시 사본 사용). Python 정적 서버는 `Cache-Control`을 보내지 않아 브라우저가 예전 CSS를 신선하다고 보고 그대로 썼다. 예전 CSS(HEAD)로 그리면 사용자 화면과 똑같이 끊기는 것을 재현했다. 선택자 우선순위나 `keep-all`·`break-word` 조합의 문제는 아니었다(Computed Style: `word-break: keep-all`, `overflow-wrap: break-word`, 결과 "…입력해도 / 검색할 수 있어요"). Demo의 CSS·JS 주소에 버전(`?v=20261014`)을 붙여 HTML이 바뀌면 새 파일을 받게 했다(생성기의 `ASSET_VERSION`; CSS·JS를 고치면 이 값을 바꾼다).
 - Pretendard Medium: 공식 저장소(orioncactus/pretendard)의 `woff2-subset`에서 받았다. 같은 위치의 Regular·Bold subset의 sha256이 저장소의 기존 파일과 같아 같은 배포본임을 확인했다. `docs/assets/fonts/Pretendard-Medium.subset.woff2`, `assets/manifest.jsonl`의 `font-pretendard-500`(OFL-1.1). Demo의 `@font-face`에만 500을 더했다. 포트폴리오 본체 CSS는 바꾸지 않았다. 위 "글꼴" 항목의 Medium이 Regular로 그려진다는 차이는 이제 없다.
+
+## 35. ASICS KOREA Case Study — Figma 11 Section 구현 (2026-10-14, 사용자 지정. 26절의 asics-korea 관련 내용과 9절의 "Showcase 이미지 비어 있음"을 대체한다)
+
+### 원본
+Figma `PORTFOLIO_03_CASE_STUDY_KR`(1986:7083, 1920×24673, S01~S11). 기획 원본은 `archive/legacy-figma-automation/portfolio/portfolio-03/case-study-plan.md`(READ ONLY, 참고만). 문안은 Figma design context(S01·S03·S04·S05·S11)와 원래 크기 Render(S02·S06~S10)에서 옮겼다. 새로 쓴 문안·수치는 없다.
+
+### 구성 (Figma 순서 그대로)
+| Section ID | Figma | 표현 |
+|---|---|---|
+| cover | S01 Cover | 글은 HTML, 레인 다섯 줄은 이미지 |
+| overview | S02 Overview | 제목·메타 HTML, 여섯 화면 라인업 이미지 |
+| local-context | S03 한국에서 다시 시작하다 | 미국 초기 가설 이미지 + 비교 표 HTML |
+| problem | S04 Problem | 전부 HTML(큰 수 셋, 지금의 탐색 구조 도표) |
+| strategy | S05 Strategy & Flow | 전부 HTML(기울어진 파란 띠의 다섯 단계, Decision 셋) |
+| design-system | S06 Design System | 유형 색 타일 HTML, 서체 견본·핵심 컴포넌트·컨셉 비주얼 3장은 이미지 |
+| decision-01 | S07 Decision 01 | 레인(주석 1~3)·D2 목록 이미지, 주석 HTML |
+| decision-02 | S08 Decision 02 | 14장 → 1장·비교 트레이·D3 비교 이미지, 주석 HTML |
+| decision-03 | S09 Decision 03 | D4 상세·상태 확대 2장 이미지, 주석 HTML |
+| mobile | S10 Mobile | 제목 HTML, M5·M6 화면과 주석 이미지, Desktop → Mobile 대응 HTML |
+| outcome | S11 Outcome & Reflection | 전부 HTML |
+
+### 표현 판단
+- Figma는 처음부터 끝까지 어두운 문서다. 모든 Section을 어두운 면(#0A0D12와 #161B22가 번갈아, Figma와 같은 순서)으로 화면 양끝까지 이었다. 맨 위 줄과 아래 내비게이션은 다른 Project Page와 같은 흰 면이다(project.css).
+- Figma는 1920 폭(본문 1640)이다. Desktop 값은 Page 본문 1280에 맞춰 약 0.78배로 옮겼다(tokens.css `--*-ak-*`). 표지 제목만 화면 폭에 비례한다(56~172px).
+- 서체: Figma의 Noto Sans KR Black은 Pretendard Bold로, Barlow Condensed Italic(Section 번호, 큰 수, 영문 Eyebrow)은 같은 이름을 먼저 찾되 사이트에 없어 Pretendard Bold의 기울임으로 그려진다. 서체 자체가 내용인 S06의 서체 견본은 Figma 이미지로 실었다.
+- 화면·레인·컴포넌트 이미지는 Figma Render(1배)를 Node 좌표대로 잘랐다. 긴 라인업과 D3 비교 화면은 1024 미만에서 가로로 밀어 볼 수 있다(`.ak-scroll`).
+- 한국어는 어절 단위로 줄을 바꾼다(`word-break: keep-all`). 이 Page에만 적용했다.
+
+### Figma와 다른 점
+- 서체(위). 숫자와 영문의 폭이 Barlow Condensed보다 넓고, 헤드라인이 Noto Sans KR Black보다 가볍다.
+- S11 제작 방식의 단계 사이 노란 화살표(→)는 그리지 않았다.
+- S01 레인은 화면 오른쪽 끝이 아니라 Page 오른쪽 여백까지만 이어진다.
+- 1024 미만은 Figma에 없는 배치다(한 열·두 열로 접음). 작은 글이 든 이미지(레인, 서체 견본, 컴포넌트)는 390 폭에서 글이 작다.
+
+### 이미지 권리
+- 제품 이미지는 사용자가 만든 AI 생성 컨셉 비주얼이다(기록: archive의 why-decision-log W15, 2026-10-03 사용자 결정). 아식스 상품·캠페인 사진, 로고, 현행 사이트 캡처는 Case Study에 없다(기획 원본의 Fail Closed 결정). 화면의 "ASICS"는 일반 텍스트 표기다.
+- `assets/manifest.jsonl`의 `asics-case-images`(18장). 외부 공개 전 확인 사항은 TJ와 같다(실제 브랜드명·상품명·가격이 실린 비공식 리디자인).
+
+### Final Polish (2026-10-14, 사용자 승인)
+- 글꼴: Google Fonts 공식 API의 `text=` Subset으로 Noto Sans KR Black(900, 이 Page의 글자만, 29KB)과 Barlow Condensed ExtraBold Italic·Black Italic(800·900, 영문·숫자·기호, 각 16KB)을 받았다(기존 NotoSansKR-profile-subset과 같은 방식). `css/pages/asics-korea.css`의 `@font-face`에만 연결했다. Noto Black은 Figma에서 Black인 글(Section 제목, 표지 제목, Decision·Outcome 제목, 단계 이름, 유형 타일 이름, 표의 한국 열, "장")에, Barlow 900은 번호와 큰 수에, 800은 Eyebrow와 영문에 쓴다. Figma의 Bold·Medium·Regular 글은 Pretendard 그대로다. Noto Subset은 이 Page의 글자만 담으므로 문안을 바꾸면 다시 받아야 한다(요청 기록 `assets/original/fonts/asics-fonts.source.txt`).
+- 이미지 확대: 이미지 15장(컨셉 비주얼 타일 3장 제외)을 누르면 Page 안의 확대 창이 열리고 이미지를 원래 크기로 밀어 볼 수 있다. CSS `:target`만 쓴다(JavaScript 없음). 닫기는 그 이미지 자리로 돌아가고, 브라우저 뒤로 가기로도 닫힌다. 1024 미만에서는 이미지 오른쪽 위에 "크게 보기 +" 표시가 붙는다. 처음에는 파일 링크로 만들었으나 로컬 Python 서버가 webp를 내려받기 형식으로 보내서 바꿨다.
+- 가로 스크롤(라인업, D3 비교): 1024 미만에서 오른쪽 끝을 흐리게 하고 아래에 "← 옆으로 밀어서 보기 →"를 붙였다.
+- S11: 제작 단계 사이의 노란 화살표를 넣었다(1024 이상).
+- S01: 레인이 Figma처럼 화면 오른쪽 끝까지 이어진다. 넘친 부분은 이 Page의 `body`에서 `overflow-x: clip`으로 잘라 가로 스크롤이 생기지 않는다.
+- 위 "서체" 항목과 "Figma와 다른 점"의 서체·화살표·레인 차이는 이제 없다.
+
+### 검증 (2026-10-14, 로컬)
+- 1920·1440·768·390·375·360: 가로 넘침 없음, 이미지 18개 로딩, `h1` 1개, Section 11개, 콘솔 오류·404 없음, 어절 안 줄바꿈 0곳. 글꼴 Barlow Condensed 800i·900i, Noto Sans KR 900 로드. 확대 창 열기·원본 크기·닫기·뒤로 가기(6개 너비).
+- Figma Render와 Section별 나란히 대조(1440).
+- Contents → ASICS → 뒤로 가기, TJ의 Next → ASICS, ASICS의 Previous·Contents·맨 위 줄, TOP 버튼(1440·390).
+- 회귀: index·aidora·tj-media 캡처 측정 문제 0건, TJ Demo 40 Render·흐름 점검 통과.

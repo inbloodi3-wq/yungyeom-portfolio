@@ -88,19 +88,21 @@ Figma에 사이트 내비게이션(Header, Menu, 뒤로 가기, Page 사이 링�
 | 15 | s15-closing | Closing |
 
 ## asics-korea
-| 순서 | Section ID | 목적 |
-|---|---|---|
-| 1 | s01-cover | Cover |
-| 2 | s02-overview | Overview |
-| 3 | s03-korea | 한국에서 다시 시작하다 |
-| 4 | s04-problem | Problem |
-| 5 | s05-strategy-flow | Strategy & Flow |
-| 6 | s06-design-system | Design System |
-| 7 | s07-decision-01 | Decision 01 |
-| 8 | s08-decision-02 | Decision 02 |
-| 9 | s09-decision-03 | Decision 03 |
-| 10 | s10-mobile | Mobile |
-| 11 | s11-outcome | Outcome & Reflection |
+Figma Case Study의 11 Section이 Page의 Section이다(2026-10-14, spec 35절).
+
+| 순서 | Section ID | Figma | 목적 |
+|---|---|---|---|
+| 1 | cover | S01 | Cover |
+| 2 | overview | S02 | Overview |
+| 3 | local-context | S03 | 한국에서 다시 시작하다 |
+| 4 | problem | S04 | Problem |
+| 5 | strategy | S05 | Strategy & Flow |
+| 6 | design-system | S06 | Design System |
+| 7 | decision-01 | S07 | Decision 01 |
+| 8 | decision-02 | S08 | Decision 02 |
+| 9 | decision-03 | S09 | Decision 03 |
+| 10 | mobile | S10 | Mobile |
+| 11 | outcome | S11 | Outcome & Reflection |
 
 ## AIDORA Live Website (2026-10-12)
 포트폴리오와 별개의 시연 사이트다(`docs/aidora-site/`). 근거는 `design-source/implementation-spec.md` 30절.

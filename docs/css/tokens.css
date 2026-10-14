@@ -413,6 +413,56 @@
   --text-tj-label-size: 12;
   --text-tj-label-tracking: 1;
 
+  /* ASICS KOREA Case Study — Figma PORTFOLIO_03_CASE_STUDY_KR(1986:7083)의 색과 글자 값(css/pages/asics-korea.css).
+     Figma는 1920 폭 문서(본문 1640)다. Desktop 값은 Page 본문 폭 1280에 맞춰 약 0.78배로 옮겼다. 값은 px */
+  --color-ak-bg: #0a0d12;                  /* track-black: 기본 바탕 */
+  --color-ak-surface: #161b22;             /* 번갈아 나오는 조금 밝은 면 */
+  --color-ak-text: #ffffff;
+  --color-ak-sub: #a9b1bd;
+  --color-ak-line: #4a5564;
+  --color-ak-accent: #e4ff2e;              /* 선택 상태와 주 CTA의 한 색 */
+  --color-ak-on-lane: #0a0d12;
+  --color-ak-lane-protection: #2e4bff;     /* 01 안정화. 글자는 흰색 */
+  --color-ak-lane-cushion: #00d1c1;        /* 02 쿠션화 */
+  --color-ak-lane-bounce: #ff5a1f;         /* 03 바운싱화 */
+  --color-ak-lane-speed: #f03cff;          /* 04 레이싱화 */
+  --color-ak-lane-trail: #2bd96b;          /* 05 트레일러닝화 */
+  --space-ak-section: 120;
+  --space-ak-section-mobile: 72;
+  --space-ak-gap: 56;
+  --space-ak-gap-mobile: 36;
+  --text-ak-num-size: 32;                  /* Section 번호(Figma 40) */
+  --text-ak-num-size-mobile: 26;
+  --text-ak-eyebrow-size: 16;              /* 영문 Eyebrow(Figma 20) */
+  --text-ak-eyebrow-tracking: 1.28;
+  --text-ak-cover-size: 172;               /* 표지 제목(Figma 220) */
+  --text-ak-cover-size-mobile: 56;
+  --text-ak-heading-size: 56;              /* Section 제목(Figma 72) */
+  --text-ak-heading-size-mobile: 32;
+  --text-ak-heading-leading: 1.25;
+  --text-ak-lead-size: 20;                 /* 요약(Figma 24) */
+  --text-ak-lead-size-mobile: 17;
+  --text-ak-title-size: 26;                /* 항목 제목(Figma 32) */
+  --text-ak-title-size-mobile: 21;
+  --text-ak-item-size: 22;                 /* 작은 항목 제목(Figma 28) */
+  --text-ak-item-size-mobile: 19;
+  --text-ak-body-size: 17;                 /* 설명(Figma 20·18) */
+  --text-ak-body-leading: 1.6;
+  --text-ak-small-size: 14;                /* 주석·출처(Figma 14·16) */
+  --text-ak-stat-size: 180;                /* Problem의 큰 수(Figma 240) */
+  --text-ak-stat-size-mobile: 120;
+  --text-ak-stat-suffix-size: 68;          /* "/ 7"(Figma 88) */
+  --text-ak-stat-unit-size: 44;            /* "장"(Figma 56) */
+  --text-ak-decision-size: 160;            /* Decision 번호(Figma 약 220) */
+  --text-ak-decision-size-mobile: 96;
+  --text-ak-decision-num-size: 110;        /* Strategy의 Decision 번호(Figma 140) */
+  --text-ak-step-size: 38;                 /* Strategy 띠의 단계 이름(Figma 48) */
+  --text-ak-tile-num-size: 64;             /* 유형 색 타일 번호(Figma 80) */
+  --layout-ak-label-width: 120;            /* 표의 왼쪽 열(Figma 150) */
+  --layout-ak-us-width: 265;               /* 표의 미국 열(Figma 340) */
+  --layout-ak-marker-size: 36;             /* 주석 번호 원(Figma 44) */
+  --layout-ak-limits-width: 440;           /* 한계·다음 검증 상자(Figma 560) */
+
   /* TOP 버튼(css/top-button.css) — Project Page에서 쓰는 값 */
   --top-button-size: 48px;
   --top-button-offset: 24px;
