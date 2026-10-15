@@ -3,8 +3,8 @@
   "project_id": "personal-portfolio",
   "config_file": "config/project.yaml",
   "mode": "figma_implementation",
-  "current_stage": "deploy",
-  "stage_status": "IN_PROGRESS",
+  "current_stage": "done",
+  "stage_status": "COMPLETE",
   "last_completed_stage": "section_build",
   "optional_stages": {
     "reference_research": "N/A (figma_implementation)",
@@ -34,11 +34,11 @@
     }
   },
   "checkpoint": {
-    "stage": "deploy",
+    "stage": "done",
     "page": "all",
-    "section": "저장소 이름 변경 반영 · 배포 진행",
+    "section": "정식 배포 완료",
     "updated_at": "2026-10-15",
-    "resume_hint": "2026-10-15: 저장소를 inbloodi3-wq/yungyeom-portfolio로 이름 변경(사용자), Pages Source main / docs(사용자 확인). 로컬 원격 주소·config·title·Open Graph 갱신. 사용자가 이 Session에서 git push origin main을 승인했다. 배포 뒤 Live QA 결과는 last_deploy에 기록."
+    "resume_hint": "2026-10-15: https://inbloodi3-wq.github.io/yungyeom-portfolio/ 정식 배포(dad58a9), Live QA 통과. 포트폴리오 개발 종료. 보류: SUIT 글꼴, AIDORA P2, og:image. 기존 approval_required(History의 타사 스크린샷)는 사용자 결정으로 그대로 둔다."
   },
   "render_checked": true,
   "qa_status": "2026-10-12 tj-media(이미지 연결 후): 1920·1440·768·390에서 이미지 21개 로딩(깨진 이미지 0), 가로 Overflow 없음, Console Error·실패 Request 0, h1 1개, Section 15개, TOP 버튼과 Contents·이전·다음 이동 통과. 육안 확인: 1920의 cover·research·pain-points·visual-direction·final-screens·closing 화면, 390의 cover·research·final-screens 화면. 그 밖은 측정만 했다",
@@ -54,14 +54,16 @@
     }
   ],
   "last_deploy": {
-    "date": "2026-10-09",
-    "commit": "ec04923",
-    "by": "사용자가 직접 git push origin main 실행",
-    "live_qa": "NOT_DONE — 배포본 확인과 Pages 설정(main / docs) 확인을 하지 않았다"
+    "date": "2026-10-15",
+    "commit": "dad58a9",
+    "by": "사용자 승인으로 git push origin main(이 Session)",
+    "url": "https://inbloodi3-wq.github.io/yungyeom-portfolio/",
+    "pages_build": "pages build and deployment — completed / success (dad58a9)",
+    "live_qa": "PASS — 공개 18 Page × 1440·1024·768·390: 200, 넘침·깨진 이미지·폰트 실패·콘솔 오류·404 0. 목차 → AIDORA·TJ·ASICS → 메인, Previous/Next, Live Website·TJ Demo 진입과 복귀, TJ Demo 검색, TOP, AIDORA·ASICS 확대·닫기, 제목·Open Graph, 비공식 안내 문구. NOT VERIFIED: 실제 휴대폰, Safari·Firefox, SNS 공유 미리보기, Screen Reader"
   },
   "last_meaningful_change": {
     "date": "2026-10-15",
-    "summary": "AIDORA P1(모바일 가독성) 완료, 전체 사이트 최종 QA 통과."
+    "summary": "yungyeom-portfolio 저장소로 정식 배포, Live QA 통과."
   },
   "definition_of_done": "automation-orchestrator.md의 Stop Rule 전부 PASS",
   "design_definition": {
