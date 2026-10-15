@@ -69,6 +69,7 @@
           <section class="profile sheet" id="profile" data-sheet tabindex="-1">
             <div class="profile__card">
               <div class="profile__aside">
+                <img class="profile__photo" src="assets/profile-photo.webp" alt="김윤겸 프로필 사진" width="480" height="600">
                 <div class="profile__info">
                   <h2 class="profile__name">김윤겸</h2>
                   <hr class="profile__divider">
@@ -156,99 +157,41 @@
           <section class="contents sheet" id="contents" data-sheet tabindex="-1">
             <div class="contents__inner">
               <div class="contents__heading">
-                <p class="contents__eyebrow">PORTFOLIO CONTENTS · 2026</p>
-                <h2 class="contents__title">Contents</h2>
+                <p class="contents__eyebrow">SELECTED WORKS · 2026</p>
+                <h2 class="contents__title">Selected Works</h2>
               </div>
 
+              <!-- 웹사이트용 프로젝트 목록(2026-10-15). PDF용 세부 목차는 각 Case Study 안에 있다.
+                   이름의 링크가 항목 전체를 덮는다(.contents-project__link::after) -->
               <ol class="contents__projects">
                 <li class="contents-project" data-project="aidora">
-                  <div class="contents-project__head">
-                    <span class="contents-project__number">PROJECT 01</span>
-                    <div class="contents-project__title">
-                      <h3 class="contents-project__name"><a class="contents-project__link" href="aidora.html">AIDORA</a></h3>
-                      <p class="contents-project__category">브랜딩 · 패키지 · 웹디자인</p>
-                    </div>
-                  </div>
-                  <div class="contents-project__index">
-                    <p class="contents-project__caption">브랜드 전략부터 패키지, 웹 경험까지 설계한 향 브랜드 프로젝트</p>
-                    <ul class="contents-index">
-                      <li class="contents-index__column">
-                        <h4 class="contents-index__heading">01 / RESEARCH</h4>
-                        <p class="contents-index__items"><span>데스크 리서치</span><span>브랜드 전략</span></p>
-                      </li>
-                      <li class="contents-index__column">
-                        <h4 class="contents-index__heading">02 / BRANDING</h4>
-                        <p class="contents-index__items"><span>로고 디자인 과정</span><span>컬러 · 타이포그래피</span></p>
-                      </li>
-                      <li class="contents-index__column">
-                        <h4 class="contents-index__heading">03 / PACKAGE</h4>
-                        <p class="contents-index__items"><span>패키지 디자인</span><span>패키지 시스템</span></p>
-                      </li>
-                      <li class="contents-index__column">
-                        <h4 class="contents-index__heading">04 / WEB DESIGN</h4>
-                        <p class="contents-index__items"><span>메인 · 컬렉션</span><span>상품 상세 · 브랜드 페이지</span></p>
-                      </li>
-                    </ul>
+                  <span class="contents-project__number">01</span>
+                  <img class="contents-project__thumb contents-project__thumb--aidora" src="assets/aidora-case-cover.webp" alt="" width="750" height="750" loading="lazy">
+                  <div class="contents-project__body">
+                    <h3 class="contents-project__name"><a class="contents-project__link" href="aidora.html">AIDORA</a></h3>
+                    <p class="contents-project__category">Brand Identity · Web Design</p>
+                    <p class="contents-project__caption">향 브랜드의 아이덴티티부터 패키지와 웹 경험까지 설계</p>
+                    <span class="contents-project__more" aria-hidden="true">View Project →</span>
                   </div>
                 </li>
                 <li class="contents-project" data-project="tj-media">
-                  <div class="contents-project__head">
-                    <span class="contents-project__number">PROJECT 02</span>
-                    <div class="contents-project__title">
-                      <h3 class="contents-project__name"><a class="contents-project__link" href="tj-media.html">TJ MEDIA</a></h3>
-                      <p class="contents-project__category">AI 협업 UI/UX · 웹 리디자인</p>
-                    </div>
-                  </div>
-                  <div class="contents-project__index">
-                    <p class="contents-project__caption">곡 검색을 중심 경험으로 다시 구성한 TJ미디어 웹사이트 리디자인</p>
-                    <ul class="contents-index">
-                      <li class="contents-index__column">
-                        <h4 class="contents-index__heading">01 / RESEARCH</h4>
-                        <p class="contents-index__items"><span>현행 서비스 분석</span><span>문제 정의</span></p>
-                      </li>
-                      <li class="contents-index__column">
-                        <h4 class="contents-index__heading">02 / UX STRATEGY</h4>
-                        <p class="contents-index__items"><span>정보구조 · 사용자 흐름</span><span>검색 경험 설계</span></p>
-                      </li>
-                      <li class="contents-index__column">
-                        <h4 class="contents-index__heading">03 / DESIGN PROCESS</h4>
-                        <p class="contents-index__items"><span>비주얼 방향 설정</span><span>시안 탐색 · 개선</span></p>
-                      </li>
-                      <li class="contents-index__column">
-                        <h4 class="contents-index__heading">04 / FINAL UI</h4>
-                        <p class="contents-index__items"><span>데스크톱 · 모바일</span><span>검색 · 곡 상세</span></p>
-                      </li>
-                    </ul>
+                  <span class="contents-project__number">02</span>
+                  <img class="contents-project__thumb" src="assets/tj-case-cover-hero.webp" alt="" width="760" height="516" loading="lazy">
+                  <div class="contents-project__body">
+                    <h3 class="contents-project__name"><a class="contents-project__link" href="tj-media.html">TJ MEDIA</a></h3>
+                    <p class="contents-project__category">UI/UX · Website Redesign</p>
+                    <p class="contents-project__caption">곡 검색을 중심으로 음악 탐색 경험을 재설계</p>
+                    <span class="contents-project__more" aria-hidden="true">View Project →</span>
                   </div>
                 </li>
                 <li class="contents-project" data-project="asics-korea">
-                  <div class="contents-project__head">
-                    <span class="contents-project__number">PROJECT 03</span>
-                    <div class="contents-project__title">
-                      <h3 class="contents-project__name"><a class="contents-project__link" href="asics-korea.html">ASICS KOREA</a></h3>
-                      <p class="contents-project__category">AI 자동화 · 커머스 UX 리디자인</p>
-                    </div>
-                  </div>
-                  <div class="contents-project__index">
-                    <p class="contents-project__caption">남성 러닝화의 탐색 · 비교 · 구매 흐름을 다시 설계한 커머스 UX 리디자인</p>
-                    <ul class="contents-index">
-                      <li class="contents-index__column">
-                        <h4 class="contents-index__heading">01 / RESEARCH</h4>
-                        <p class="contents-index__items"><span>국내 시장 조사</span><span>문제 정의</span></p>
-                      </li>
-                      <li class="contents-index__column">
-                        <h4 class="contents-index__heading">02 / UX STRATEGY</h4>
-                        <p class="contents-index__items"><span>유형별 탐색 구조</span><span>비교 · 구매 흐름</span></p>
-                      </li>
-                      <li class="contents-index__column">
-                        <h4 class="contents-index__heading">03 / AI PROCESS</h4>
-                        <p class="contents-index__items"><span>2일 자동화 스프린트</span><span>디자인 시스템 · QA</span></p>
-                      </li>
-                      <li class="contents-index__column">
-                        <h4 class="contents-index__heading">04 / FINAL UI</h4>
-                        <p class="contents-index__items"><span>데스크톱 · 모바일</span><span>목록 · 비교 · 상세</span></p>
-                      </li>
-                    </ul>
+                  <span class="contents-project__number">03</span>
+                  <img class="contents-project__thumb" src="assets/asics-case-cover-lanes.webp" alt="" width="1400" height="1050" loading="lazy">
+                  <div class="contents-project__body">
+                    <h3 class="contents-project__name"><a class="contents-project__link" href="asics-korea.html">ASICS KOREA</a></h3>
+                    <p class="contents-project__category">Commerce UX · AI Workflow</p>
+                    <p class="contents-project__caption">러닝화 탐색과 비교·구매 과정을 하나의 흐름으로 개선</p>
+                    <span class="contents-project__more" aria-hidden="true">View Project →</span>
                   </div>
                 </li>
               </ol>

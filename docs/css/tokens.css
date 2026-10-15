@@ -158,6 +158,9 @@
   --layout-contents-right-width: 1040;
   --layout-contents-index-column-width: 230;
   --layout-contents-project-row-height: 100;
+  --layout-contents-thumb-width: 320;       /* Selected Works 미리보기(16:10). 1440 이상, 화면 폭에 비례 */
+  --layout-contents-thumb-width-tablet: 240;
+  --layout-contents-number-width: 72;
   --layout-profile-page-padding-block: 65;
   --layout-profile-page-padding-inline: 160;
   --layout-profile-card-width: 1600;
@@ -167,6 +170,8 @@
   --layout-profile-card-padding-bottom: 35;
   --layout-profile-card-padding-left: 129;
   --layout-profile-aside-width: 320;
+  --layout-profile-photo-width-tablet: 140; /* 600–1439: 이름 옆 */
+  --layout-profile-photo-width-mobile: 104; /* 600 미만: 이름 위 */
   --layout-profile-photo-width: 320;
   --layout-profile-photo-height: 400;
   --layout-profile-date-column-width: 154;

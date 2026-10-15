@@ -3,8 +3,8 @@
   "project_id": "personal-portfolio",
   "config_file": "config/project.yaml",
   "mode": "figma_implementation",
-  "current_stage": "done",
-  "stage_status": "COMPLETE",
+  "current_stage": "deploy",
+  "stage_status": "PENDING_APPROVAL",
   "last_completed_stage": "section_build",
   "optional_stages": {
     "reference_research": "N/A (figma_implementation)",
@@ -34,11 +34,11 @@
     }
   },
   "checkpoint": {
-    "stage": "done",
-    "page": "all",
-    "section": "정식 배포 완료",
+    "stage": "deploy",
+    "page": "index",
+    "section": "Profile 사진 + Selected Works 완료 · 배포 승인 대기",
     "updated_at": "2026-10-15",
-    "resume_hint": "2026-10-15: https://inbloodi3-wq.github.io/yungyeom-portfolio/ 정식 배포(dad58a9), Live QA 통과. 포트폴리오 개발 종료. 보류: SUIT 글꼴, AIDORA P2, og:image. 기존 approval_required(History의 타사 스크린샷)는 사용자 결정으로 그대로 둔다."
+    "resume_hint": "2026-10-15: index의 Profile에 본인 사진, Contents를 Selected Works로 전환(spec 37절). 로컬 QA 통과, 로컬 commit. 공개 사이트는 아직 dad58a9(이전 판). 다음: 사용자 승인 후 git push origin main → Live QA."
   },
   "render_checked": true,
   "qa_status": "2026-10-12 tj-media(이미지 연결 후): 1920·1440·768·390에서 이미지 21개 로딩(깨진 이미지 0), 가로 Overflow 없음, Console Error·실패 Request 0, h1 1개, Section 15개, TOP 버튼과 Contents·이전·다음 이동 통과. 육안 확인: 1920의 cover·research·pain-points·visual-direction·final-screens·closing 화면, 390의 cover·research·final-screens 화면. 그 밖은 측정만 했다",
@@ -63,7 +63,7 @@
   },
   "last_meaningful_change": {
     "date": "2026-10-15",
-    "summary": "yungyeom-portfolio 저장소로 정식 배포, Live QA 통과."
+    "summary": "Profile 사진 추가, Contents를 Selected Works로 전환(미배포)."
   },
   "definition_of_done": "automation-orchestrator.md의 Stop Rule 전부 PASS",
   "design_definition": {

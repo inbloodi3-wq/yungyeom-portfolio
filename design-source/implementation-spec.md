@@ -939,3 +939,20 @@ Figma `PORTFOLIO_03_CASE_STUDY_KR`(1986:7083, 1920×24673, S01~S11). 기획 원�
 - 남은 차이(보류): SUIT 대신 Pretendard, P2(캡처 겹침 배치, PDP 서비스 아이콘, Hover).
 - 검증(로컬): AIDORA 5 Page × 1920·1440·768·390·375·360 넘침·깨진 이미지·오류 0, 확대 창 72개 항목, 이동 38개 항목. 전체 사이트 18 Page × 1440·1024·768·390·375·360, 내부 링크·앵커, 목차 → 세 프로젝트 → Contents, 키보드 Focus, TJ·ASICS 회귀 통과.
 
+## 37. Profile 사진 + Contents → Selected Works (2026-10-15, 사용자 지정. 24절의 "사진 없는 Profile", 25절의 Contents 구성을 대체한다)
+### Profile 사진
+- 원본: 사용자 바탕 화면의 `이력서 사진.jpg`(591×787, 원본은 그대로). 위쪽 기준으로 4:5(591×739)로 잘라 480×600 WebP로 줄였다. EXIF 등 메타데이터는 없다. `docs/assets/profile-photo.webp`(20KB), `assets/manifest.jsonl`의 `profile-photo`.
+- 자리: `.profile__aside` 안, 이름 위. 크기·반경은 Figma에서 뽑아 두었던 사진 자리 Token(`--layout-profile-photo-width` 320, `--radius-profile-photo` 8, `--color-profile-photo-bg`)을 그대로 쓴다. 1440 이상은 화면 폭에 비례(1440에서 240×300, 1920에서 320×400).
+- 600–1439: 사진(140) 옆에 이름·연락처. 600 미만: 사진(104)이 이름 위(옆에 두면 이메일이 카드 밖으로 밀린다).
+- 대체 텍스트 "김윤겸 프로필 사진". 틀·그림자 없음.
+### Selected Works
+- PDF 제출을 전제로 한 Contents(프로젝트마다 네 칸의 세부 목차)를 웹사이트용 프로젝트 목록으로 바꿨다. 세부 목차는 각 Case Study 안에 있으므로 메인에서는 지웠다. `#contents`, `data-sheet`, `.contents__inner`·`__heading`·`__projects`, `.contents-project`·`data-project`, `.contents-project__link`는 그대로라 Sheet 전환·Hash·뒤로 가기가 바뀌지 않는다.
+- 제목 "Selected Works"(Eyebrow "SELECTED WORKS · 2026"). 종이 바탕·필기체 제목·왼쪽 제목 / 오른쪽 목록의 틀은 기존 그대로.
+- 한 항목: 번호 · 미리보기(16:10) · 이름 · 분야 · 한 줄 설명 · View Project →. 항목 사이는 얇은 선. 1440 이상 번호 72 / 미리보기 320 / 글(화면 폭에 비례), 600–1439 번호 72 / 미리보기 240 / 글, 600 미만은 위에서 아래로 쌓는다.
+- 미리보기는 이미 쓰던 이미지: AIDORA `aidora-case-cover.webp`, TJ MEDIA `tj-case-cover-hero.webp`, ASICS `asics-case-cover-lanes.webp`. 새 이미지 없음.
+- 이름의 링크가 항목 전체를 덮는다. 가리키거나 Focus를 받으면 이름과 View Project에 밑줄, 키보드 Focus는 항목 둘레에 2px 외곽선. 새 움직임 없음.
+- 분야·설명 문안은 사용자가 준 것 그대로.
+### 검증(로컬)
+- 1920·1440·1024·768·390·375·360: Profile·Selected Works 넘침 없음, 사진·미리보기 정상, 콘솔 오류·404 없음. Cover → Profile → Contents 전환, 직접 진입, 세 프로젝트 진입·복귀, 새로 고침(1920·1440·768·390). 항목 전체 클릭·Focus·Hover(1440·390). 전체 18 Page 회귀, TJ Demo·ASICS·AIDORA 이동 점검 통과.
+- 스크린샷: `qa/screenshots/profile-selected-works/`(git 제외).
+
