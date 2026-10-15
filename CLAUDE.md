@@ -2,6 +2,12 @@
 
 Claude Code로 **실제 반응형 웹사이트**(HTML5 · CSS3 · Vanilla JavaScript, GitHub Pages 배포)를 제작하는 자동화 시스템이다. 최종 산출물은 `docs/`의 코드다. Design Definition → Build → Browser QA → Fix → Deploy를 Micro Approval 없이 자율 수행하되, 되돌리기 어렵거나 외부에 영향이 있는 행동은 승인 후에만 한다.
 
+## 응답 언어 (사용자 지정, 2026-10-15)
+- 사용자에게 전달하는 모든 설명, 중간 보고, 최종 결과 보고는 한국어로 작성한다.
+- 파일명, 함수명, 변수명, Commit ID, Git 명령어 등 기술적인 고유 명칭은 원문을 유지한다.
+- PASS / FAIL, Commit, QA 같은 일반적인 기술 용어는 그대로 써도 된다.
+- 영어 문서나 영어로 작성된 작업 지시를 참고하더라도 응답 언어는 한국어로 유지한다.
+
 ## Operating Mode
 하나의 Build Core가 두 가지 입력 방식을 지원한다. `config/project.yaml`의 `project.mode`가 정한다. 분기하는 것은 **Design Definition 단계뿐**이고 SITE SCAFFOLD 이후는 공유한다.
 
