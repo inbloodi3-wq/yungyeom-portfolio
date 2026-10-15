@@ -3,7 +3,7 @@
   "project_id": "personal-portfolio",
   "config_file": "config/project.yaml",
   "mode": "figma_implementation",
-  "current_stage": "full_qa",
+  "current_stage": "deploy",
   "stage_status": "IN_PROGRESS",
   "last_completed_stage": "section_build",
   "optional_stages": {
@@ -21,8 +21,8 @@
       "new_install_required": false,
       "risk": "Playwright가 npx 캐시에 있어 캐시가 정리되면 사라진다. 그 경우 capture.cjs가 종료 코드 2로 끝나며, 설치하지 말고 Level 3 Blocker로 보고한다."
     },
-    "git_remote": "origin = github.com/inbloodi3-wq/2026-UIUX",
-    "pages_settings": "UNVERIFIED — GitHub Pages Source(main / docs) 설정 여부와 Repository 공개 범위를 확인하지 못함",
+    "git_remote": "origin = github.com/inbloodi3-wq/yungyeom-portfolio (2026-10-15 사용자가 2026-UIUX에서 이름 변경)",
+    "pages_settings": "VERIFIED 2026-10-15(사용자 확인) — Deploy from a branch / main / docs, Public. 이전에는 main / (root)였다",
     "figma_access": {
       "status": "VERIFIED",
       "checked_at": "2026-10-04",
@@ -34,11 +34,11 @@
     }
   },
   "checkpoint": {
-    "stage": "full_qa",
+    "stage": "deploy",
     "page": "all",
-    "section": "AIDORA P1 완료 · 전체 최종 QA 통과 · 배포 승인 대기",
+    "section": "저장소 이름 변경 반영 · 배포 진행",
     "updated_at": "2026-10-15",
-    "resume_hint": "2026-10-15: AIDORA P1 네 가지(도표 확대 창, 어절 줄바꿈, Live Website 모바일 터치 영역, 가로 메뉴 안내) 완료(spec 36절). 전체 사이트 최종 QA 통과: 18 Page × 1440·1024·768·390·375·360 넘침·이미지·폰트·콘솔·404 0, 내부 링크·앵커, 목차 → AIDORA·TJ·ASICS → Contents, 키보드 Focus, 확대 창, TJ Demo 흐름, ASICS 회귀. docs 안 민감 정보 검사: 로컬 경로·키 없음, 이메일은 Profile의 사용자 연락처(Figma 원본)뿐. 다음: PRE-DEPLOY CHECK 마무리 → push(=배포) 승인 요청. 배포 전 사용자 결정: TJ·ASICS 외부 공개 가능 여부, Git History의 타사 스크린샷(approval_required). SUIT·AIDORA P2는 보류."
+    "resume_hint": "2026-10-15: 저장소를 inbloodi3-wq/yungyeom-portfolio로 이름 변경(사용자), Pages Source main / docs(사용자 확인). 로컬 원격 주소·config·title·Open Graph 갱신. 사용자가 이 Session에서 git push origin main을 승인했다. 배포 뒤 Live QA 결과는 last_deploy에 기록."
   },
   "render_checked": true,
   "qa_status": "2026-10-12 tj-media(이미지 연결 후): 1920·1440·768·390에서 이미지 21개 로딩(깨진 이미지 0), 가로 Overflow 없음, Console Error·실패 Request 0, h1 1개, Section 15개, TOP 버튼과 Contents·이전·다음 이동 통과. 육안 확인: 1920의 cover·research·pain-points·visual-direction·final-screens·closing 화면, 390의 cover·research·final-screens 화면. 그 밖은 측정만 했다",

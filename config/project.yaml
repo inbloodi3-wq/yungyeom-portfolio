@@ -47,14 +47,14 @@ site:
   stack: ["HTML5", "CSS3", "Vanilla JavaScript"]
   forbidden: ["React", "Vue", "Next.js", "TypeScript", "Tailwind", "build tools", "package managers", "JS/CSS frameworks"]
   source_dir: docs
-  repository: "inbloodi3-wq/2026-UIUX"
+  repository: "inbloodi3-wq/yungyeom-portfolio"
   deploy:
     platform: github-pages
     method: branch          # GitHub Actions 사용 안 함
     branch: main
     folder: /docs
-  base_path: "/2026-UIUX/"
-  url: "https://inbloodi3-wq.github.io/2026-UIUX/"
+  base_path: "/yungyeom-portfolio/"
+  url: "https://inbloodi3-wq.github.io/yungyeom-portfolio/"
   pages:
     - { id: index, file: index.html }
     - { id: aidora, file: aidora.html }             # Project Page 3개는 css/pages/project.css를 함께 쓴다(2026-10-12)
