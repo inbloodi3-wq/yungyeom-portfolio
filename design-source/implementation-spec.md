@@ -973,4 +973,5 @@ Figma `PORTFOLIO_03_CASE_STUDY_KR`(1986:7083, 1920×24673, S01~S11). 기획 원�
 - 스타일은 `css/pages/aidora.css`에만(`.case-shots`, `.case-shot`). project.css는 바꾸지 않아 TJ·ASICS에 영향이 없다.
 - 예전 캡처 여섯 장(`aidora-case-collection|pdp|brand-1·2.webp`)은 지우지 않았고 더는 참조하지 않는다.
 - 검증(로컬): 1440·1024·768·390·375·360 넘침·깨진 이미지·오류 0, 확대·닫기·뒤로 가기(6 너비 84항목), AIDORA 이동 38항목, 전체 18 Page 회귀, Selected Works 클릭·Focus.
+- ASICS 썸네일 보완(2026-10-15, 사용자 지정): Figma 최종 Case Study의 유형 레인 Render(1986:7085)에서 01–03만 담았다. 03 글자가 끝나는 줄(677) 아래, 04 신발 끝이 03 띠에 들어오기 시작하는 줄(679) 바로 앞에서 잘라 04는 보이지 않는다. 16:10을 맞추려고 위아래에 Case Study 바탕색(#0A0D12)을 두었다. 줄이기만 했다(0.83배). 파일 이름 그대로(`works-asics-korea.webp`).
 
