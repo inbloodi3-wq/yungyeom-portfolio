@@ -681,10 +681,6 @@
   background: var(--color-contents-rule);
 }
 
-.contents-project__thumb--aidora {
-  object-position: 50% 62%;
-}
-
 .contents-project__body {
   display: flex;
   flex-direction: column;

@@ -36,7 +36,7 @@
   "checkpoint": {
     "stage": "deploy",
     "page": "index",
-    "section": "Profile 사진 + Selected Works 완료 · 배포 승인 대기",
+    "section": "Profile 사진 + Selected Works(썸네일 교체) 완료 · 배포 승인 대기",
     "updated_at": "2026-10-15",
     "resume_hint": "2026-10-15: index의 Profile에 본인 사진, Contents를 Selected Works로 전환(spec 37절). 로컬 QA 통과, 로컬 commit. 공개 사이트는 아직 dad58a9(이전 판). 다음: 사용자 승인 후 git push origin main → Live QA."
   },
@@ -63,7 +63,7 @@
   },
   "last_meaningful_change": {
     "date": "2026-10-15",
-    "summary": "Profile 사진 추가, Contents를 Selected Works로 전환(미배포)."
+    "summary": "Selected Works 썸네일을 실제 결과물 기반 1200×750으로 교체(미배포)."
   },
   "definition_of_done": "automation-orchestrator.md의 Stop Rule 전부 PASS",
   "design_definition": {

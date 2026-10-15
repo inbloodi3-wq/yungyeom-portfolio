@@ -955,4 +955,10 @@ Figma `PORTFOLIO_03_CASE_STUDY_KR`(1986:7083, 1920×24673, S01~S11). 기획 원�
 ### 검증(로컬)
 - 1920·1440·1024·768·390·375·360: Profile·Selected Works 넘침 없음, 사진·미리보기 정상, 콘솔 오류·404 없음. Cover → Profile → Contents 전환, 직접 진입, 세 프로젝트 진입·복귀, 새로 고침(1920·1440·768·390). 항목 전체 클릭·Focus·Hover(1440·390). 전체 18 Page 회귀, TJ Demo·ASICS·AIDORA 이동 점검 통과.
 - 스크린샷: `qa/screenshots/profile-selected-works/`(git 제외).
+### Selected Works 썸네일 교체 (2026-10-15, 사용자 지정)
+- 작은 크기에서 읽히도록 세 미리보기를 실제 결과물에서 다시 잘랐다. 1200×750(16:10) WebP, 새 이미지·새 UI 상태 없음.
+  - AIDORA `works-aidora.webp`: Live Website Main 히어로 사진에서 COLD MONOLITH 향수병과 상자 부분.
+  - TJ MEDIA `works-tj-media.webp`: 구현된 Demo Main의 Hero를 2배로 Render해 검색창이 중심이 되게 자른 것(제목·검색창·인기 검색어·녹음실 사진).
+  - ASICS `works-asics-korea.webp`: Figma 최종 Case Study의 유형 레인(1986:7085) 01–04와 05 일부.
+- 이미 16:10이라 `object-position` 보정(AIDORA)은 지웠다. 카드 구조·글·링크는 그대로. 원래 쓰던 이미지 파일은 Case Study에서 계속 쓴다.
 
