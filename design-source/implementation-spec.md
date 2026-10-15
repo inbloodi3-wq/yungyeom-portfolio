@@ -962,3 +962,15 @@ Figma `PORTFOLIO_03_CASE_STUDY_KR`(1986:7083, 1920×24673, S01~S11). 기획 원�
   - ASICS `works-asics-korea.webp`: Figma 최종 Case Study의 유형 레인(1986:7085) 01–04와 05 일부.
 - 이미 16:10이라 `object-position` 보정(AIDORA)은 지웠다. 카드 구조·글·링크는 그대로. 원래 쓰던 이미지 파일은 Case Study에서 계속 쓴다.
 
+## 38. AIDORA Collection · Product Detail · Brand — 웹용 화면 구성 (2026-10-15, 사용자 지정. 31절의 "Collection·Product Detail·Brand의 캡처" 배치를 대체한다)
+- 원인: 31절에서 Figma Case Study의 엇갈려 겹친 두 화면을 각각 잘라 두 칸에 놓았다. 그래서 그림 파일 자체에 이웃 화면의 가장자리가 붙어 있거나(`aidora-case-pdp-2`의 오른쪽) 앞부분이 잘려 있었다(`aidora-case-brand-2`의 "erial & Object"). CSS의 잘림은 없었다. 두 칸의 글과 그림이 엇갈려 설명과 화면의 관계도 흐렸다.
+- 바꾼 구성(세 Section 공통): 제목과 설명(기존 문안 그대로) → 주요 화면 한 장(전체 폭) → Section 화면들(768 이상 두 칸, 수가 홀수면 마지막은 전체 폭) → "전체 화면 보기"(기존 그대로). 화면마다 짧은 이름표를 단다. 모든 화면은 누르면 확대 창이 열린다(36절 방식).
+- 화면: 실제 구현한 AIDORA Live Website(`docs/aidora-site/`)를 1440 폭에서 Section 경계대로 캡처했다. 새 UI·재조합 없음. 주요 화면은 Header부터 첫 Section까지.
+  - Product Detail(6): 구매 정보와 제품 이미지 / 오브젝트 디테일 / 향의 무드 / 성분 구조 / 사용 장면 / 리뷰
+  - Brand(5): 첫 화면 / 브랜드 철학 / 향 선정 기준 / 재료와 오브젝트 / 확장 방향
+  - Collection(4): 첫 화면(카테고리 색인과 시그니처 향수) / Hand & Body / Home & Space / Gift & Trial
+- Main Page는 주석 달린 그림 한 장 구성이라 문제가 없어 바꾸지 않았다.
+- 스타일은 `css/pages/aidora.css`에만(`.case-shots`, `.case-shot`). project.css는 바꾸지 않아 TJ·ASICS에 영향이 없다.
+- 예전 캡처 여섯 장(`aidora-case-collection|pdp|brand-1·2.webp`)은 지우지 않았고 더는 참조하지 않는다.
+- 검증(로컬): 1440·1024·768·390·375·360 넘침·깨진 이미지·오류 0, 확대·닫기·뒤로 가기(6 너비 84항목), AIDORA 이동 38항목, 전체 18 Page 회귀, Selected Works 클릭·Focus.
+

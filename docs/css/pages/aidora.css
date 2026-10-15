@@ -78,6 +78,40 @@
   margin: 0 auto;
 }
 
+/* Collection · Product Detail · Brand: 설명 아래에 주요 화면 한 장(전체 폭), 그 아래 Section 화면 두 칸.
+   화면은 실제 Live Website를 Section 경계대로 캡처한 것이라 중간에서 잘린 곳이 없다 */
+.case-shots {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: calc(var(--space-case-gap-mobile) * 1px);
+  align-items: start;
+}
+
+.case-shot {
+  margin: 0;
+}
+
+.case-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--color-project-rule);
+}
+
+.case-shot__caption {
+  margin-top: calc(var(--space-project-gap-sm) * 1px);
+  font-size: calc(var(--text-project-label-size) * 1px);
+  color: var(--color-project-label);
+}
+
+@media (min-width: 768px) {
+  .case-shots { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .case-shot--main { grid-column: 1 / -1; }
+  /* 화면 수가 홀수면 마지막 화면도 전체 폭 */
+  .case-shot:last-child:nth-child(even) { grid-column: 1 / -1; }
+}
+
 @media (min-width: 1024px) {
   .case-zoom::after { display: none; }
+  .case-shots { gap: calc(var(--space-project-columns-gap) * 1px); }
 }
