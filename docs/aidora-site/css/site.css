@@ -375,4 +375,34 @@ a.item:hover .item__name, a.item:focus-visible .item__name { text-decoration: un
   .direction__list { gap: 2.5rem 3rem; }
   .closing { padding-block: 5rem; }
   .site-footer { padding-block: 4rem 3rem; }
+
+  /* 가로로 밀리는 메뉴·필터: 오른쪽 끝을 흐려 이어지는 항목이 있음을 보인다.
+     오른쪽 여백을 더해 마지막 항목은 흐린 부분을 지나 끝까지 보이게 한다 */
+  .site-nav,
+  .col-filter ul {
+    padding-right: 2.5rem;
+    -webkit-mask-image: linear-gradient(to right, #000 80%, transparent);
+    mask-image: linear-gradient(to right, #000 80%, transparent);
+  }
+
+  /* 작은 링크의 누르는 영역: 위아래 padding을 같은 크기의 음수 margin으로 상쇄해 배치는 그대로다.
+     Footer 목록은 항목 사이가 좁아 이웃과 겹치지 않는 만큼만 넓힌다 */
+  .demo-bar__back,
+  .crumbs a {
+    display: inline-block;
+    padding-block: 0.75rem;
+    margin-block: -0.75rem;
+  }
+
+  .site-header__logo {
+    display: inline-block;
+    padding-block: 0.75rem;
+    margin-block: -0.75rem;
+  }
+
+  .site-footer__list a {
+    display: inline-block;
+    padding-block: 0.375rem;
+    margin-block: -0.375rem;
+  }
 }

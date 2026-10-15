@@ -929,3 +929,13 @@ Figma `PORTFOLIO_03_CASE_STUDY_KR`(1986:7083, 1920×24673, S01~S11). 기획 원�
 - Figma Render와 Section별 나란히 대조(1440).
 - Contents → ASICS → 뒤로 가기, TJ의 Next → ASICS, ASICS의 Previous·Contents·맨 위 줄, TOP 버튼(1440·390).
 - 회귀: index·aidora·tj-media 캡처 측정 문제 0건, TJ Demo 40 Render·흐름 점검 통과.
+
+## 36. AIDORA P1 — 모바일 가독성 (2026-10-15, 사용자 지정. 30·31절은 그대로이고 아래만 더한다)
+- 근거: 2026-10-14 읽기 전용 조사(P0 없음, 이동·링크·TOP·뒤로 가기 38개 PASS).
+- 도표 확대: Case Study의 도표·화면 그림 11장(시장 전망 2, 리뷰 빈도, 포지셔닝 맵, 주석 달린 Main, Collection·Product Detail·Brand 캡처 각 2)을 누르면 확대 창이 열려 원래 크기로 밀어 볼 수 있다. ASICS와 같은 CSS `:target` 방식이고 JavaScript는 없다. 닫기는 그 그림 자리로 돌아가고 뒤로 가기로도 닫힌다. 1024 미만에서만 "크게 보기 +" 표시가 붙는다. 사진·목업·로고와 "전체 화면 보기"의 긴 화면은 대상이 아니다. 새 파일 `css/pages/aidora.css`(aidora.html만 읽는다).
+- 줄바꿈: aidora.html에 `word-break: keep-all`, `overflow-wrap: break-word`. 768·390·375·360의 어절 안 끊김 0곳.
+- Live Website(1023 이하만): 작은 링크(맨 위 줄 "← AIDORA Case Study", Logo, Product Detail의 위치 표시, Footer 목록)의 누르는 영역을 padding + 같은 크기의 음수 margin으로 넓혔다. 390에서 24px 미만 0개. Desktop은 바꾸지 않았다(높이 변화 없음).
+- Live Website의 가로로 밀리는 Header 메뉴와 Collection 필터: 오른쪽 끝을 흐리고 오른쪽 여백을 더해, 항목이 더 있음을 알 수 있고 마지막 항목은 끝까지 보인다.
+- 남은 차이(보류): SUIT 대신 Pretendard, P2(캡처 겹침 배치, PDP 서비스 아이콘, Hover).
+- 검증(로컬): AIDORA 5 Page × 1920·1440·768·390·375·360 넘침·깨진 이미지·오류 0, 확대 창 72개 항목, 이동 38개 항목. 전체 사이트 18 Page × 1440·1024·768·390·375·360, 내부 링크·앵커, 목차 → 세 프로젝트 → Contents, 키보드 Focus, TJ·ASICS 회귀 통과.
+
