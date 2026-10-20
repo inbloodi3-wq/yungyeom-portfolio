@@ -1,0 +1,204 @@
+/* list.css - 목록 전용. 공통은 components.css. 값은 var()만 쓴다. Mobile-first. */
+
+/* ---------- 머리말 ---------- */
+.list-head {
+  display: grid;
+  gap: var(--space-1);
+  padding-block: var(--space-6) var(--space-4);
+}
+
+.list-head__title {
+  font-size: var(--text-hero);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  margin-bottom: var(--space-2);
+}
+
+.list-head__range,
+.list-head__shown {
+  font-size: var(--text-base);
+}
+
+.list-head__sort {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+/* ---------- 추천 비교 (JS 없을 때만) ---------- */
+.compare-fallback {
+  margin-bottom: var(--space-5);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.js .compare-fallback {
+  display: none;
+}
+
+/* JS 없으면 동작 없는 비교 체크박스를 숨긴다 */
+html:not(.js) .compare-check {
+  display: none;
+}
+
+/* ---------- 필터 + 목록 ---------- */
+.list-layout {
+  display: grid;
+  gap: var(--space-5);
+  padding-bottom: var(--space-7);
+}
+
+.filter,
+.list-results {
+  min-width: 0;
+}
+
+.filter__legend {
+  margin-bottom: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+/* Mobile: 가로 칩 (의도된 가로 스크롤은 이 영역 안에서만) */
+.filter__list {
+  display: flex;
+  gap: var(--space-2);
+  padding: var(--space-1);
+  overflow-x: auto;
+}
+
+.filter__list .option {
+  flex: none;
+  white-space: nowrap;
+}
+
+.list-cards {
+  display: grid;
+  gap: var(--space-4);
+}
+
+/* ---------- 유형 필터: JS 없이 :has()로 카드 표시/숨김 ---------- */
+.list-layout:has(input[value="01"]:checked) .card:not([data-type="01"]),
+.list-layout:has(input[value="02"]:checked) .card:not([data-type="02"]),
+.list-layout:has(input[value="03"]:checked) .card:not([data-type="03"]),
+.list-layout:has(input[value="04"]:checked) .card:not([data-type="04"]),
+.list-layout:has(input[value="05"]:checked) .card:not([data-type="05"]) {
+  display: none;
+}
+
+.list-empty {
+  display: none;
+}
+
+.list-layout:has(input[value="05"]:checked) .list-empty {
+  display: block;
+}
+
+/* ---------- 비교 트레이 (JS 진보적 향상) ---------- */
+.compare-tray {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: var(--z-tray);
+  padding-block: var(--space-3);
+  background: var(--color-surface-raised);
+  border-top: var(--border-line);
+}
+
+.compare-tray[hidden] {
+  display: none;
+}
+
+.compare-tray__inner {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.compare-tray__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.compare-tray__chip {
+  padding: var(--space-1) var(--space-3);
+  background: var(--color-surface);
+  border: var(--border-line);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+}
+
+.compare-tray__msg {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.compare-tray__msg:empty {
+  display: none;
+}
+
+.compare-tray__actions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.compare-tray__actions .btn {
+  flex: 1 1 0;
+}
+
+.site-footer--tray {
+  padding-bottom: var(--size-tray-space);
+}
+
+/* ---------- Tablet (600~): 필터는 카드 위 칩이 줄바꿈, 카드 2열 ---------- */
+@media (min-width: 600px) {
+  .filter__list {
+    flex-wrap: wrap;
+    overflow-x: visible;
+  }
+
+  .list-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .compare-tray__inner {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    column-gap: var(--space-5);
+  }
+
+  .compare-tray__msg {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .compare-tray__actions {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+
+  .compare-tray__actions .btn {
+    flex: none;
+  }
+}
+
+/* ---------- Desktop (1024~): 좌 필터 열 + 우 카드 3열 ---------- */
+@media (min-width: 1024px) {
+  .list-head {
+    padding-block: var(--space-7) var(--space-5);
+  }
+
+  .list-layout {
+    grid-template-columns: var(--size-filter-col) 1fr;
+    gap: var(--space-6);
+    align-items: start;
+  }
+
+  .filter__list {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  .list-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

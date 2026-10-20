@@ -1,0 +1,167 @@
+/* home.css - 홈 전용. 공통은 components.css. 값은 var()만 쓴다. Mobile-first. */
+
+/* ---------- hero ---------- */
+.hero {
+  padding-block: var(--space-7) var(--space-5);
+}
+
+.hero__title {
+  font-size: var(--text-hero);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  margin-bottom: var(--space-5);
+}
+
+/* ---------- 유형 칩 목록 ---------- */
+.chips {
+  padding-bottom: var(--space-7);
+}
+
+.chips__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.chips__item {
+  flex: 1 1 var(--size-chip-min);
+}
+
+/* ---------- 유형 section ---------- */
+.type {
+  border-top: var(--border-line);
+  scroll-margin-top: var(--scroll-offset);
+  padding-block: var(--space-6);
+}
+
+.type__inner {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.type__head {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-5) var(--space-4);
+  background: var(--color-surface);
+  border-top: var(--size-band) solid var(--type);
+  border-radius: var(--radius-sm);
+  align-content: start;
+  transition: background var(--duration-base) var(--ease-base);
+}
+
+.type:target .type__head {
+  background: var(--type);
+  color: var(--on-type);
+}
+
+.type__num {
+  font-size: var(--text-num);
+  color: var(--type);
+}
+
+.type:target .type__num {
+  color: var(--on-type);
+}
+
+.type__name {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-title);
+}
+
+.type__code {
+  font-size: var(--text-lg);
+  font-family: var(--font-num);
+  font-style: italic;
+  font-weight: var(--weight-num);
+  letter-spacing: var(--tracking-label);
+  color: var(--color-text-muted);
+}
+
+.type:target .type__code {
+  color: var(--on-type);
+}
+
+.type__desc {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  max-width: var(--size-measure);
+}
+
+.type:target .type__desc {
+  color: var(--on-type);
+}
+
+.type__body {
+  display: grid;
+  gap: var(--space-5);
+  align-content: start;
+  justify-items: start;
+}
+
+.type__cards {
+  display: grid;
+  gap: var(--space-4);
+  width: 100%;
+}
+
+/* ---------- Tablet (600~) ---------- */
+@media (min-width: 600px) {
+  .chips__list {
+    flex-wrap: nowrap;
+  }
+
+  .chips__item {
+    flex: 1 1 0;
+  }
+
+  .type__head {
+    grid-template-columns: auto 1fr;
+    column-gap: var(--space-5);
+    align-items: center;
+    padding: var(--space-5);
+  }
+
+  .type__num {
+    grid-row: 1 / span 3;
+  }
+
+  .type__cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ---------- Desktop (1024~) ---------- */
+@media (min-width: 1024px) {
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: var(--space-6);
+    padding-block: var(--space-8) var(--space-6);
+  }
+
+  .hero__title {
+    margin-bottom: 0;
+  }
+
+  .type {
+    padding-block: var(--space-7);
+  }
+
+  .type__inner {
+    grid-template-columns: var(--size-head-col) 1fr;
+    gap: var(--space-6);
+    align-items: start;
+  }
+
+  .type__head {
+    grid-template-columns: 1fr;
+    padding: var(--space-5);
+  }
+
+  .type__num {
+    grid-row: auto;
+  }
+}

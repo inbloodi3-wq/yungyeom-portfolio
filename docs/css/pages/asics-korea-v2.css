@@ -1,0 +1,393 @@
+/* ASICS KOREA V2 Case Study — asics-korea-v2.html 전용 Style.
+   Page 바깥 구조(맨 위 줄, 아래쪽 내비게이션)는 project.css, Section 표현은 V1의 asics-korea.css(ak-*)를 그대로 쓰고,
+   이 파일은 V2에만 있는 요소(akv-*)만 더한다. 값은 tokens.css의 --*-ak-*, --*-akv-*, --*-project-*.
+   서체: 한글은 Pretendard(Noto Sans KR Black Subset은 V1 글자만 담고 있어 쓰지 않는다), 번호·수치는 Barlow Condensed Italic. */
+
+.project-page--asics-korea-v2 {
+  overflow-x: clip;
+  --font-ak-display: "Barlow Condensed", var(--font-kr-body);
+  --font-ak-black: var(--font-kr-body);
+  --weight-ak-display: 800;
+  --weight-ak-number: 900;
+  --weight-ak-black: var(--text-project-heading-weight);
+  color: var(--color-ak-text);
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* Section 머리의 한국어 부제(번호 + 영문 이름 옆) */
+.akv-label__kr {
+  font-size: calc(var(--text-ak-small-size) * 1px);
+  font-weight: var(--text-project-heading-weight);
+  color: var(--color-ak-text);
+}
+
+/* Section을 여는 굵은 문장 */
+.akv-statement {
+  max-width: calc(var(--layout-project-measure-lead) * 1em);
+  font-size: calc(var(--text-akv-statement-size-mobile) * 1px);
+  font-weight: var(--text-project-heading-weight);
+  line-height: var(--text-akv-statement-leading);
+}
+
+.akv-statement + .ak-lead,
+.akv-statement + .ak-note {
+  margin-top: calc(var(--space-project-gap-sm) * 1px);
+}
+
+/* ---------- 01 Overview ---------- */
+.akv-head {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space-project-gap-md) * 1px);
+}
+
+.akv-notice {
+  max-width: calc(var(--layout-project-measure-note) * 1em);
+  padding: calc(var(--space-project-gap-sm) * 1px) calc(var(--space-project-gap-md) * 1px);
+  border: 1px solid var(--color-ak-line);
+  border-left: calc(var(--layout-akv-rule-accent) * 1px) solid var(--color-ak-accent);
+  font-size: calc(var(--text-ak-small-size) * 1px);
+  line-height: var(--text-ak-body-leading);
+  color: var(--color-ak-sub);
+}
+
+.akv-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--space-project-gap-sm) * 1px);
+}
+
+.project .akv-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--space-project-gap-sm) * 1px);
+  padding: calc(var(--space-project-gap-sm) * 1px) calc(var(--space-project-gap-md) * 1px);
+  border: 1px solid var(--color-ak-text);
+  font-size: calc(var(--text-ak-body-size) * 1px);
+  font-weight: var(--text-project-heading-weight);
+  color: var(--color-ak-text);
+}
+
+.project .akv-cta--primary {
+  border-color: var(--color-ak-accent);
+  background: var(--color-ak-accent);
+  color: var(--color-ak-on-lane);
+}
+
+.project .akv-cta:focus-visible,
+.project .akv-demo-link:focus-visible {
+  outline: 2px solid var(--color-ak-accent);
+  outline-offset: 4px;
+}
+
+.akv-overview {
+  display: grid;
+  gap: calc(var(--space-ak-gap-mobile) * 1px);
+  align-items: start;
+}
+
+.akv-period li {
+  display: grid;
+  gap: calc(var(--space-project-gap-xs) * 1px);
+  padding-block: calc(var(--space-project-gap-sm) * 1px);
+  border-top: 1px solid var(--color-ak-line);
+}
+
+.akv-period__date {
+  font-family: var(--font-ak-display);
+  font-size: calc(var(--text-ak-eyebrow-size) * 1px);
+  font-style: italic;
+  font-weight: var(--weight-ak-display);
+  letter-spacing: calc(var(--text-ak-eyebrow-tracking) * 1px);
+  color: var(--color-ak-accent);
+}
+
+.akv-period .ak-text { color: var(--color-ak-text); }
+
+.akv-overview .ak-block .ak-sub-label + * { margin-top: 0; }
+
+.akv-role__label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: calc(var(--space-project-gap-xs) * 1px) calc(var(--space-project-gap-sm) * 1px);
+  font-size: calc(var(--text-ak-item-size-mobile) * 1px);
+  font-weight: var(--text-project-heading-weight);
+}
+
+.ak-role--human .akv-role__label > span:first-child { color: var(--color-ak-accent); }
+
+/* 긴 항목이 여러 줄이어도 점이 첫 줄에 붙는다 */
+.akv-overview .ak-dots li,
+.akv-outcome .ak-dots li {
+  align-items: baseline;
+  font-weight: var(--weight-akv-regular);
+}
+
+.akv-overview .ak-dots li::before,
+.akv-outcome .ak-dots li::before {
+  transform: translateY(-0.2em);
+}
+
+/* ---------- 02 Problem · 05 Design System ---------- */
+.akv-callout {
+  max-width: calc(var(--layout-project-measure) * 1em);
+  padding: calc(var(--space-project-gap-md) * 1px);
+  border: 1px solid var(--color-ak-line);
+  font-size: calc(var(--text-ak-body-size) * 1px);
+  line-height: var(--text-ak-body-leading);
+}
+
+/* ---------- 03 Analysis ---------- */
+.akv-columns {
+  display: grid;
+  gap: calc(var(--space-ak-gap-mobile) * 1px);
+  align-items: start;
+}
+
+.akv-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  text-align: left;
+}
+
+.akv-table th,
+.akv-table td {
+  padding: calc(var(--space-project-gap-md) * 1px) calc(var(--space-project-gap-sm) * 1px) calc(var(--space-project-gap-md) * 1px) 0;
+  border-bottom: 1px solid var(--color-ak-line);
+  vertical-align: top;
+  font-size: calc(var(--text-ak-body-size) * 1px);
+  line-height: var(--text-ak-body-leading);
+}
+
+.akv-table thead th {
+  padding-top: 0;
+  border-bottom-color: var(--color-ak-text);
+  font-size: calc(var(--text-ak-small-size) * 1px);
+  font-weight: var(--weight-akv-medium);
+  color: var(--color-ak-sub);
+}
+
+.akv-table thead th:last-child { font-weight: var(--text-project-heading-weight); color: var(--color-ak-accent); }
+.akv-table tbody td:first-child { color: var(--color-ak-sub); }
+.akv-table tbody td:last-child { font-weight: var(--text-project-heading-weight); }
+
+/* ---------- 04 Strategy ---------- */
+.akv-strategies {
+  display: grid;
+  gap: calc(var(--space-ak-gap-mobile) * 1px);
+}
+
+.akv-flow .ak-node strong { font-size: calc(var(--text-ak-body-size) * 1px); }
+
+/* ---------- 05 Design System ---------- */
+.akv-swatches {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: calc(var(--space-project-gap-md) * 1px) calc(var(--space-project-gap-sm) * 1px);
+}
+
+.akv-swatch {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space-project-gap-sm) * 1px);
+  font-size: calc(var(--text-ak-small-size) * 1px);
+  font-weight: var(--text-project-heading-weight);
+}
+
+.akv-swatch::before {
+  content: "";
+  aspect-ratio: var(--layout-project-chip-ratio);
+  border: 1px solid var(--color-ak-line);
+  background: var(--akv-swatch);
+}
+
+.akv-swatch--bg { --akv-swatch: var(--color-akv-bg); }
+.akv-swatch--surface { --akv-swatch: var(--color-akv-surface); }
+.akv-swatch--line { --akv-swatch: var(--color-akv-line); }
+.akv-swatch--text { --akv-swatch: var(--color-akv-text); }
+.akv-swatch--text-muted { --akv-swatch: var(--color-akv-text-muted); }
+.akv-swatch--accent { --akv-swatch: var(--color-akv-accent); }
+
+.akv-type--01 { background: var(--color-akv-type-01); color: var(--color-akv-on-type-01); }
+.akv-type--02 { background: var(--color-akv-type-02); color: var(--color-akv-on-type); }
+.akv-type--03 { background: var(--color-akv-type-03); color: var(--color-akv-on-type); }
+.akv-type--04 { background: var(--color-akv-type-04); color: var(--color-akv-on-type); }
+.akv-type--05 { background: var(--color-akv-type-05); color: var(--color-akv-on-type); }
+
+.akv-rules {
+  display: grid;
+  gap: calc(var(--space-project-gap-md) * 1px) calc(var(--space-ak-gap-mobile) * 1px);
+  margin: 0;
+}
+
+.akv-rules__item {
+  padding-top: calc(var(--space-project-gap-sm) * 1px);
+  border-top: 1px solid var(--color-ak-line);
+}
+
+.akv-rules__term {
+  font-size: calc(var(--text-ak-body-size) * 1px);
+  font-weight: var(--text-project-heading-weight);
+}
+
+.akv-rules__desc {
+  margin: calc(var(--space-project-gap-xs) * 1px) 0 0;
+}
+
+/* ---------- 06 Solution ---------- */
+.akv-solutions {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space-project-section-gap-compact) * 1px);
+}
+
+.akv-solution {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space-project-block-gap) * 1px);
+  padding-top: calc(var(--space-project-gap-md) * 1px);
+  border-top: 2px solid var(--color-ak-text);
+}
+
+.akv-solution__head {
+  display: flex;
+  align-items: baseline;
+  gap: calc(var(--space-project-gap-md) * 1px);
+}
+
+.akv-solution__num {
+  font-family: var(--font-ak-display);
+  font-size: calc(var(--text-ak-num-size-mobile) * 1px);
+  font-style: italic;
+  font-weight: var(--weight-ak-number);
+  line-height: 1;
+  color: var(--color-ak-accent);
+}
+
+.akv-solution__title {
+  font-size: calc(var(--text-ak-title-size-mobile) * 1px);
+  font-weight: var(--text-project-heading-weight);
+  line-height: var(--text-akv-title-leading);
+}
+
+.akv-ide {
+  display: grid;
+  gap: calc(var(--space-project-gap-md) * 1px);
+  margin: 0;
+}
+
+.akv-ide__term {
+  font-size: calc(var(--text-ak-small-size) * 1px);
+  font-weight: var(--text-project-heading-weight);
+  color: var(--color-ak-accent);
+}
+
+.akv-ide__desc {
+  margin: calc(var(--space-project-gap-xs) * 1px) 0 0;
+  color: var(--color-ak-text);
+}
+
+/* V1 / V2 두 그림. 좁은 화면에서는 V1 → V2 순으로 쌓는다. 그림은 자르지 않고 전체를 보여 준다 */
+.akv-pair {
+  display: grid;
+  gap: calc(var(--space-project-block-gap) * 1px);
+  align-items: start;
+}
+
+.akv-shot {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space-project-gap-sm) * 1px);
+}
+
+.akv-shot__label {
+  display: flex;
+  align-items: baseline;
+  gap: calc(var(--space-project-gap-sm) * 1px);
+  font-size: calc(var(--text-ak-small-size) * 1px);
+  line-height: var(--text-ak-body-leading);
+  color: var(--color-ak-sub);
+}
+
+.akv-shot__ver {
+  flex: none;
+  padding: 0 calc(var(--space-project-gap-sm) * 1px);
+  border: 1px solid var(--color-ak-sub);
+  font-family: var(--font-ak-display);
+  font-style: italic;
+  font-weight: var(--weight-ak-number);
+  color: var(--color-ak-text);
+}
+
+.akv-shot--v2 .akv-shot__ver {
+  border-color: var(--color-ak-accent);
+  background: var(--color-ak-accent);
+  color: var(--color-ak-on-lane);
+}
+
+.akv-shot img {
+  border: 1px solid var(--color-ak-line);
+}
+
+/* 모바일 화면 그림은 폭을 줄여 세로로 너무 길어지지 않게 한다(비율은 그대로) */
+.akv-shot--phone .ak-zoom {
+  width: 100%;
+  max-width: calc(var(--layout-akv-phone-width) * 1px);
+}
+
+.project .akv-demo-link {
+  align-self: flex-start;
+  padding-block: calc(var(--space-project-gap-sm) * 1px);
+  font-size: calc(var(--text-ak-body-size) * 1px);
+  font-weight: var(--text-project-heading-weight);
+  color: var(--color-ak-accent);
+}
+
+.akv-demo-link__note {
+  margin-left: calc(var(--space-project-gap-sm) * 1px);
+  font-size: calc(var(--text-ak-small-size) * 1px);
+  font-weight: var(--weight-akv-regular);
+  color: var(--color-ak-sub);
+}
+
+/* ---------- 07 Outcome · 시연 진입 ---------- */
+.akv-outcome .ak-points li { padding-top: calc(var(--space-project-gap-sm) * 1px); }
+.akv-outcome .ak-points .ak-text { margin-top: 0; color: var(--color-ak-text); }
+.akv-outcome .ak-sub-label { margin-bottom: calc(var(--space-project-gap-md) * 1px); }
+.akv-outcome .ak-limits .ak-sub-label { margin-bottom: 0; }
+.akv-outcome .ak-limits .ak-dots { margin-top: 0; }
+
+.akv-demo {
+  padding-block: calc(var(--space-project-section-gap-compact) * 1px);
+}
+
+/* ============================================================
+   600 이상
+   ============================================================ */
+@media (min-width: 600px) {
+  .akv-period li { grid-template-columns: calc(var(--layout-akv-date-width) * 1px) minmax(0, 1fr); align-items: baseline; }
+  .akv-strategies { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .akv-swatches { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .akv-rules { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .akv-pair { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: calc(var(--space-project-gap-md) * 1px); }
+}
+
+/* ============================================================
+   1024 이상
+   ============================================================ */
+@media (min-width: 1024px) {
+  .akv-statement { font-size: calc(var(--text-akv-statement-size) * 1px); }
+  .akv-role__label { font-size: calc(var(--text-ak-item-size) * 1px); }
+  .akv-overview { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: calc(var(--space-ak-gap) * 1px); }
+  .akv-columns { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: calc(var(--space-ak-gap) * 1px); }
+  .akv-swatches { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .akv-solutions { gap: calc(var(--space-project-section-gap) * 1px); }
+  .akv-solution__num { font-size: calc(var(--text-ak-num-size) * 1px); }
+  .akv-solution__title { font-size: calc(var(--text-ak-title-size) * 1px); }
+  .akv-ide { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: calc(var(--space-project-columns-gap) * 1px); }
+  .akv-pair { gap: calc(var(--space-project-columns-gap) * 1px); }
+  .akv-demo { padding-block: calc(var(--space-project-section-gap) * 1px); }
+}

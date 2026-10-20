@@ -1,0 +1,498 @@
+/* components.css - 모든 화면 공통. 값은 tokens.css의 var()만 쓴다. Mobile-first. */
+
+/* ---------- base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-body);
+}
+
+h1, h2, h3, p, ul, ol, fieldset, legend {
+  margin: 0;
+  padding: 0;
+}
+
+fieldset {
+  border: 0;
+  min-width: 0;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: var(--size-focus) solid var(--color-focus);
+  outline-offset: var(--size-focus-offset);
+}
+
+.l-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.u-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* 숫자·라틴 표기 (Barlow Condensed 이탤릭) */
+.num {
+  font-family: var(--font-num);
+  font-style: italic;
+  font-weight: var(--weight-num-strong);
+  line-height: var(--leading-num);
+  letter-spacing: var(--tracking-num);
+}
+
+/* ---------- 유형 색 연결 (유형 정보에만 쓴다) ---------- */
+.type--01 { --type: var(--color-type-01); --on-type: var(--color-on-type-01); }
+.type--02 { --type: var(--color-type-02); --on-type: var(--color-on-type-02); }
+.type--03 { --type: var(--color-type-03); --on-type: var(--color-on-type-03); }
+.type--04 { --type: var(--color-type-04); --on-type: var(--color-on-type-04); }
+.type--05 { --type: var(--color-type-05); --on-type: var(--color-on-type-05); }
+
+/* ---------- 포트폴리오 복귀 줄 (시연 안내, 리디자인 화면의 일부가 아니다) ---------- */
+.demo-back {
+  background: var(--color-surface);
+  border-bottom: var(--border-line);
+}
+
+.demo-back__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--size-touch);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.demo-back__link:hover {
+  color: var(--color-text);
+  text-decoration: underline;
+}
+
+/* ---------- header ---------- */
+.site-header {
+  border-bottom: var(--border-line);
+}
+
+.site-header__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: var(--space-5);
+  padding-block: var(--space-2);
+}
+
+.site-header__brand {
+  font-size: var(--text-xl);
+  text-decoration: none;
+  font-weight: var(--weight-bold);
+}
+
+.site-nav__list {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.site-nav__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--size-touch);
+  border-bottom: var(--size-border-strong) solid transparent;
+  text-decoration: none;
+  font-weight: var(--weight-medium);
+}
+
+.site-nav__link:hover {
+  border-bottom-color: var(--color-text-muted);
+}
+
+.site-nav__link[aria-current="page"] {
+  border-bottom-color: var(--color-accent);
+  font-weight: var(--weight-bold);
+}
+
+.site-header__note {
+  flex-basis: 100%;
+  padding-bottom: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+/* ---------- footer ---------- */
+.site-footer {
+  border-top: var(--border-line);
+  padding-block: var(--space-6) var(--space-7);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.site-footer__list {
+  display: grid;
+  gap: var(--space-2);
+  max-width: var(--size-measure);
+}
+
+/* ---------- 버튼: 보조(외곽선) 왼쪽 · 주(노랑) 오른쪽 ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--size-touch);
+  padding: var(--space-3) var(--space-5);
+  border: var(--size-border-strong) solid transparent;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: var(--text-base);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-title);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn--primary {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.btn--primary:hover {
+  background: var(--color-white);
+  border-color: var(--color-white);
+}
+
+.btn--secondary {
+  background: transparent;
+  border-color: var(--color-text-muted);
+  color: var(--color-text);
+}
+
+.btn--secondary:hover {
+  border-color: var(--color-text);
+  background: var(--color-surface-raised);
+}
+
+/* ---------- 유형 칩 (유형 정보) ---------- */
+.chip {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  min-height: var(--size-touch);
+  height: 100%;
+  padding: var(--space-3);
+  background: var(--color-surface);
+  border-top: var(--size-chip-band) solid var(--type);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: background var(--duration-base) var(--ease-base);
+}
+
+.chip:hover {
+  background: var(--color-surface-raised);
+}
+
+.chip__num {
+  font-size: var(--text-xl);
+  color: var(--type);
+}
+
+.chip__name {
+  font-weight: var(--weight-medium);
+}
+
+@media (min-width: 600px) {
+  .chip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+  }
+}
+
+/* ---------- 유형 태그 (유형 정보, 색 면 위 글자 검정 / cobalt만 흰색) ---------- */
+.type-tag {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-2);
+  background: var(--type);
+  color: var(--on-type);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-title);
+}
+
+/* ---------- 선택 컴포넌트 (radio / checkbox 공통) ----------
+   선택: 노랑 테두리 + 배경 + 체크 표시(비색). 선택 불가: 흐림 + 사선 + "품절" 글자 + disabled */
+.option {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--size-touch);
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-surface);
+  border: var(--size-border-strong) solid var(--color-line);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--duration-base) var(--ease-base);
+}
+
+.option:hover {
+  background: var(--color-surface-raised);
+}
+
+.option__input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: inherit;
+}
+
+.option:has(.option__input:focus-visible) {
+  outline: var(--size-focus) solid var(--color-focus);
+  outline-offset: var(--size-focus-offset);
+}
+
+.option__mark {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: var(--size-mark);
+  height: var(--size-mark);
+  border: var(--size-border-strong) solid var(--color-text-muted);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-num);
+  color: var(--color-on-accent);
+}
+
+.option--radio .option__mark {
+  border-radius: 50%;
+}
+
+.option__num {
+  padding: 0 var(--space-2);
+  background: var(--type);
+  color: var(--on-type);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-lg);
+}
+
+.option__text {
+  font-weight: var(--weight-medium);
+}
+
+.option:has(.option__input:checked) {
+  background: var(--color-accent-soft);
+  border-color: var(--color-accent);
+}
+
+.option:has(.option__input:checked) .option__mark {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.option:has(.option__input:checked) .option__mark::after {
+  content: "\2713";
+}
+
+.option:has(.option__input:checked) .option__text {
+  font-weight: var(--weight-bold);
+}
+
+.option--compact {
+  min-height: var(--size-touch);
+  padding: var(--space-1) var(--space-3);
+}
+
+.option:has(.option__input:disabled) {
+  background-color: var(--color-surface);
+  background-image: linear-gradient(
+    to top right,
+    transparent calc(50% - 1px),
+    var(--color-text-faint) calc(50% - 1px),
+    var(--color-text-faint) calc(50% + 1px),
+    transparent calc(50% + 1px)
+  );
+  border-color: var(--color-line);
+  color: var(--color-text-faint);
+  cursor: not-allowed;
+}
+
+/* 안내용 선택 불가: 품절과 달리 사선 없이 글자를 선명하게 */
+.option--note:has(.option__input:disabled) {
+  background-image: none;
+  color: var(--color-text-muted);
+}
+
+.option__flag {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+}
+
+/* ---------- 제품 이미지 칸 (모든 페이지 공통) ----------
+   현재는 빈 자리 표시(aria-hidden)다. 고정 비율로 자리를 잡아 이미지가 들어와도 레이아웃이 바뀌지 않는다.
+   이미지 위에는 텍스트·캡션을 올리지 않는다. */
+.media {
+  aspect-ratio: var(--media-ratio-product);
+  background: var(--color-media-bg);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-2);
+  overflow: hidden;
+}
+
+/* 이미지가 아직 없는 자리 표시: 한 단계 밝은 면으로 칸이 있음을 보여 준다.
+   이미지를 넣으면 :empty가 아니게 되어 위의 배경으로 돌아간다. */
+.media:empty {
+  background: var(--color-surface-raised);
+}
+
+.media__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ---------- 상품 카드 (기본 테두리 없음, 선택되면 노랑 윤곽) ---------- */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  background: var(--color-surface);
+  border-radius: var(--radius-sm);
+}
+
+.card:has(.option__input:checked) {
+  outline: var(--size-border-strong) solid var(--color-accent);
+}
+
+.card__name {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-title);
+}
+
+/* 카드 전체를 링크 영역으로 */
+.card__link {
+  text-decoration: none;
+}
+
+.card__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.card__link:hover {
+  text-decoration: underline;
+}
+
+.card__price {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+}
+
+.card__price-num {
+  font-family: var(--font-num);
+  font-style: italic;
+  font-weight: var(--weight-num);
+  font-size: var(--text-price);
+  line-height: var(--leading-num);
+  letter-spacing: var(--tracking-num);
+  color: var(--color-text);
+}
+
+.card__meta {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+/* 상품 품절: 색이 아니라 글자로 전달 */
+.card__status {
+  margin-top: auto;
+  padding-top: var(--space-2);
+  border-top: var(--border-line);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-muted);
+}
+
+/* 링크 영역 위로 올려 클릭 가능하게 */
+.card__actions {
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+}
+
+.card__status + .card__actions {
+  margin-top: 0;
+}
+
+/* ---------- 빈 상태 ---------- */
+.empty-state {
+  padding: var(--space-6) var(--space-5);
+  border: 1px dashed var(--color-text-faint);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 600px) {
+  :root {
+    --gutter: var(--space-6);
+  }
+
+  .site-header__inner {
+    flex-wrap: nowrap;
+  }
+
+  .site-header__note {
+    flex-basis: auto;
+    margin-left: auto;
+    padding-bottom: 0;
+  }
+}

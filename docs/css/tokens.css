@@ -468,6 +468,32 @@
   --layout-ak-marker-size: 36;             /* 주석 번호 원(Figma 44) */
   --layout-ak-limits-width: 440;           /* 한계·다음 검증 상자(Figma 560) */
 
+  /* ASICS KOREA V2 Case Study(css/pages/asics-korea-v2.css). 글자·간격은 위 --*-ak-* 를 함께 쓰고, 아래는 V2 Page에만 필요한 값. 값은 px */
+  --text-akv-statement-size: 34;           /* Section을 여는 굵은 문장(원고의 굵은 한 줄) */
+  --text-akv-statement-size-mobile: 22;
+  --text-akv-statement-leading: 1.45;
+  --layout-akv-date-width: 170;            /* Overview 기간 목록의 날짜 열 */
+  --layout-akv-phone-width: 320;           /* 모바일 화면 그림의 최대 폭(세로로 너무 길어지지 않게) */
+  --weight-akv-regular: 400;               /* 목록·보조 글자 */
+  --weight-akv-medium: 500;                /* 표 머리 */
+  --text-akv-title-leading: 1.35;          /* 비교 항목 제목 */
+  --layout-akv-rule-accent: 4;             /* 고지 상자 왼쪽 노란 선 두께 */
+
+  /* ASICS V2 견본 — V2 시연 사이트(asics-korea-v2-demo/css/tokens.css)와 같은 값. 사이트의 색이 아니라 05 Design System에서 보여 주는 내용이다 */
+  --color-akv-bg: #0e0f12;
+  --color-akv-surface: #17191e;
+  --color-akv-line: #343842;
+  --color-akv-text: #f3f4f6;
+  --color-akv-text-muted: #aeb2bc;
+  --color-akv-accent: #ffd400;
+  --color-akv-type-01: #2f5bff;
+  --color-akv-type-02: #19c6b4;
+  --color-akv-type-03: #ff8a1f;
+  --color-akv-type-04: #ff3d9a;
+  --color-akv-type-05: #2bd96b;
+  --color-akv-on-type-01: #ffffff;         /* 유형 01 파랑만 흰 글자 */
+  --color-akv-on-type: #000000;            /* 그 밖의 유형 색 위 글자 */
+
   /* TOP 버튼(css/top-button.css) — Project Page에서 쓰는 값 */
   --top-button-size: 48px;
   --top-button-offset: 24px;

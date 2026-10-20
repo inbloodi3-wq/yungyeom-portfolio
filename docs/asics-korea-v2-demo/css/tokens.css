@@ -1,0 +1,133 @@
+/* tokens.css - 모든 디자인 값의 유일한 원본. 다른 CSS는 var()로만 참조한다. */
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("../../assets/fonts/Pretendard-Regular.subset.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url("../../assets/fonts/Pretendard-Medium.subset.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url("../../assets/fonts/Pretendard-Bold.subset.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Barlow Condensed";
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+  src: url("../../assets/fonts/BarlowCondensed-ExtraBoldItalic.subset.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Barlow Condensed";
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+  src: url("../../assets/fonts/BarlowCondensed-BlackItalic.subset.woff2") format("woff2");
+}
+
+:root {
+  /* 색 - 어두운 중립 */
+  --color-bg: #0e0f12;
+  --color-surface: #17191e;
+  --color-surface-raised: #1f2228;
+  --color-line: #343842;
+  --border-line: 1px solid var(--color-line);
+  --color-text: #f3f4f6;
+  --color-text-muted: #aeb2bc;
+  --color-text-faint: #8b909b;
+  --color-white: #ffffff;
+  --color-focus: #ffffff;
+
+  /* 색 - 제품 이미지 칸 (현재는 빈 자리 표시) */
+  --color-media-bg: #161b22;
+
+  /* 색 - 선택 상태와 주 CTA 전용 (노랑) */
+  --color-accent: #ffd400;
+  --color-accent-soft: #2e2a08;
+  --color-on-accent: #000000;
+
+  /* 색 - 유형 정보 전용 */
+  --color-type-01: #2f5bff;
+  --color-type-02: #19c6b4;
+  --color-type-03: #ff8a1f;
+  --color-type-04: #ff3d9a;
+  --color-type-05: #2bd96b;
+  --color-on-type-01: #ffffff;
+  --color-on-type-02: #000000;
+  --color-on-type-03: #000000;
+  --color-on-type-04: #000000;
+  --color-on-type-05: #000000;
+
+  /* 서체 */
+  --font-body: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", system-ui, sans-serif;
+  --font-num: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-bold: 700;
+  --weight-num: 800;
+  --weight-num-strong: 900;
+
+  /* 글자 크기 (모바일 기준, 유동) */
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: clamp(1.375rem, 1.1rem + 1.2vw, 1.75rem);
+  --text-2xl: clamp(1.75rem, 1.2rem + 2.6vw, 2.5rem);
+  --text-hero: clamp(2.25rem, 1.4rem + 4.2vw, 4.25rem);
+  --text-num: clamp(2.5rem, 2rem + 2.4vw, 3.75rem);
+  --text-price: 1.75rem;
+  --leading-tight: 1.15;
+  --leading-title: 1.3;
+  --leading-body: 1.6;
+  --leading-num: 1;
+  --tracking-num: 0.02em;
+  --tracking-label: 0.08em;
+
+  /* 간격 */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --gutter: var(--space-4);
+
+  /* 크기 */
+  --container-max: 75rem;
+  --size-band: 0.375rem;
+  --size-chip-band: 0.25rem;
+  --size-touch: 3rem;
+  --size-chip-min: 8.5rem;
+  --size-head-col: 20rem;
+  --size-filter-col: 14rem;
+  --size-tray-space: 10rem;
+  --size-compare-head: 7rem;
+  --size-compare-col: 10rem;
+  --size-mark: 1.25rem;
+  --size-border-strong: 0.125rem;
+  --size-focus: 0.1875rem;
+  --size-focus-offset: 0.25rem;
+  --size-measure: 34rem;
+  --size-media-max: 37.5rem;
+  --media-ratio-product: 600 / 290;
+  --radius-sm: 0.25rem;
+  --z-tray: 10;
+
+  /* 모션 */
+  --duration-base: 180ms;
+  --ease-base: ease-out;
+  --scroll-offset: var(--space-5);
+}

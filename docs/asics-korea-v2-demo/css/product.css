@@ -1,0 +1,230 @@
+/* product.css - 상품 상세 전용. 공통은 components.css. 값은 var()만 쓴다. Mobile-first. */
+
+/* ---------- breadcrumb ---------- */
+.breadcrumb {
+  padding-block: var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.breadcrumb__item + .breadcrumb__item::before {
+  content: "\203A";
+  margin-right: var(--space-2);
+}
+
+.breadcrumb__item[aria-current="page"] {
+  color: var(--color-text);
+}
+
+/* ---------- 레이아웃 ---------- */
+.product {
+  display: grid;
+  gap: var(--space-5);
+  padding-bottom: var(--space-7);
+}
+
+/* 제품 이미지 칸이 최대 폭을 넘겨 늘어나지 않게 한다 */
+.product-gallery {
+  max-width: var(--size-media-max);
+}
+
+.product-gallery__caption {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.product-panel {
+  display: grid;
+  gap: var(--space-5);
+  min-width: 0;
+}
+
+/* ---------- 머리 ---------- */
+.product-head {
+  display: grid;
+  gap: var(--space-2);
+  justify-items: start;
+}
+
+.product-head__title {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-title);
+}
+
+.product-head__en {
+  font-size: var(--text-lg);
+  letter-spacing: var(--tracking-label);
+  color: var(--color-text-muted);
+}
+
+/* ---------- 핵심 사양: 중립 배경 + 얇은 유형 색 띠 ---------- */
+.product-spec {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3) var(--space-4);
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border-top: var(--size-chip-band) solid var(--type);
+  border-radius: var(--radius-sm);
+}
+
+.product-spec__term {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.product-spec__value {
+  margin: 0;
+  font-weight: var(--weight-bold);
+}
+
+/* ---------- 옵션 ---------- */
+.product-options {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.product-group__legend {
+  margin-bottom: var(--space-2);
+  font-weight: var(--weight-bold);
+}
+
+.product-group__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.product-group .option[hidden] {
+  display: none;
+}
+
+.product-note {
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+/* ---------- 구매 영역 (Mobile: 하단 고정 바) ---------- */
+.buy-bar {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: var(--z-tray);
+  padding: var(--space-3) var(--gutter);
+  background: var(--color-surface-raised);
+  border-top: var(--border-line);
+}
+
+.buy-bar__inner {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.buy-bar__summary {
+  font-weight: var(--weight-bold);
+}
+
+.buy-bar__msg {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.buy-bar__msg:empty {
+  display: none;
+}
+
+.buy-bar__actions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.buy-bar__actions .btn {
+  flex: 1 1 0;
+}
+
+html:not(.js) .buy-bar__actions {
+  display: none;
+}
+
+.site-footer--bar {
+  padding-bottom: var(--size-tray-space);
+}
+
+/* ---------- 안내 ---------- */
+.product-info {
+  display: grid;
+  gap: var(--space-4);
+  padding-block: var(--space-6);
+  border-top: var(--border-line);
+}
+
+.product-info__title {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+}
+
+.product-info__list {
+  display: grid;
+  gap: var(--space-4);
+  max-width: var(--size-measure);
+}
+
+.product-info__term {
+  font-weight: var(--weight-bold);
+}
+
+.product-info__text {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+/* ---------- Tablet (600~): 이미지 위, 옵션 2열 ---------- */
+@media (min-width: 600px) {
+  .product-spec {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .product-options {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: var(--space-6);
+  }
+
+  .product-group--wide {
+    grid-column: 1 / -1;
+  }
+
+  .buy-bar {
+    position: static;
+    padding: 0;
+    background: none;
+    border-top: 0;
+  }
+
+  .site-footer--bar {
+    padding-bottom: var(--space-7);
+  }
+}
+
+/* ---------- Desktop (1024~): 좌 이미지 / 우 패널 ---------- */
+@media (min-width: 1024px) {
+  .product {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-7);
+    align-items: start;
+  }
+
+  .product-spec {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .product-options {
+    grid-template-columns: 1fr;
+  }
+}

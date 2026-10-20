@@ -1,0 +1,104 @@
+/* compare.css - 모델 비교 전용. 공통은 components.css. 값은 var()만 쓴다. Mobile-first. */
+
+.compare-head {
+  display: grid;
+  gap: var(--space-2);
+  padding-block: var(--space-6) var(--space-4);
+}
+
+.compare-head__title {
+  font-size: var(--text-hero);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+}
+
+.compare-head__sub {
+  color: var(--color-text-muted);
+  max-width: var(--size-measure);
+}
+
+.compare-hint {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+/* ---------- 표: 좁은 화면은 영역 안에서만 가로 스크롤 ---------- */
+.compare-scroll {
+  position: relative;
+  overflow-x: auto;
+}
+
+.compare-table {
+  width: 100%;
+  min-width: calc(var(--size-compare-head) + 3 * var(--size-compare-col));
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: left;
+}
+
+.compare-table th,
+.compare-table td {
+  padding: var(--space-3);
+  border-bottom: var(--border-line);
+  vertical-align: top;
+}
+
+.compare-table thead th {
+  background: var(--color-surface-raised);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+}
+
+/* 열 머리의 제품 이미지 칸: 열 폭에 맞추고 최대 폭을 넘기지 않는다 */
+.compare-table thead .media {
+  max-width: var(--size-media-max);
+}
+
+/* 자리 표시가 표 머리 배경(surface-raised)에 묻히지 않게 이미지 칸 본래 배경을 쓴다 */
+.compare-table thead .media:empty {
+  background: var(--color-media-bg);
+}
+
+.compare-table tbody th,
+.compare-table tfoot th {
+  position: sticky;
+  left: 0;
+  width: var(--size-compare-head);
+  background: var(--color-bg);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-muted);
+}
+
+.compare-table thead .compare-table__corner {
+  position: sticky;
+  left: 0;
+  width: var(--size-compare-head);
+}
+
+.compare-table sup a {
+  padding: var(--space-1);
+}
+
+.compare-table__flag {
+  display: block;
+  margin-top: var(--space-1);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-muted);
+}
+
+.compare-notes {
+  display: grid;
+  gap: var(--space-2);
+  max-width: var(--size-measure);
+  padding-block: var(--space-5) var(--space-7);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 1024px) {
+  .compare-hint {
+    display: none;
+  }
+}
