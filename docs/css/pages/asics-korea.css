@@ -211,6 +211,12 @@
   overscroll-behavior: contain;
 }
 
+/* 키보드로 원본 이미지를 밀어 볼 때(js/lightbox.js가 Tab으로 잡는다). 화면 전체 크기라 바깥선은 보이지 않아 안쪽에 그린다 */
+.ak-lightbox__body:focus-visible {
+  outline: 2px solid var(--color-ak-accent);
+  outline-offset: -2px;
+}
+
 .ak-lightbox__body img {
   display: block;
   max-width: none;
