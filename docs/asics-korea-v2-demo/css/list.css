@@ -85,14 +85,6 @@ html:not(.js) .compare-check {
   display: none;
 }
 
-.list-empty {
-  display: none;
-}
-
-.list-layout:has(input[value="05"]:checked) .list-empty {
-  display: block;
-}
-
 /* ---------- 비교 트레이 (JS 진보적 향상) ---------- */
 .compare-tray {
   position: fixed;

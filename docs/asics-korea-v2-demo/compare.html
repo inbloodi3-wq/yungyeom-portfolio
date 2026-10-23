@@ -4,11 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>모델 비교 | ASICS KOREA V2 시연 — Yungyeom Portfolio</title>
-  <meta name="description" content="젤 카야노 33, 젤 님버스 28, GT 2000 15를 가격·무게·소재·발 너비·컬러 수로 나란히 비교하는 비공식 개인 리디자인 시안입니다.">
+  <meta name="description" content="목록에서 고른 최대 3개 모델(기본은 젤 카야노 33, 젤 님버스 28, GT 2000 15)을 가격·무게·소재·발 너비·컬러 수로 나란히 비교하는 비공식 개인 리디자인 시안입니다.">
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/compare.css">
+  <script src="js/main.js" defer></script>
 </head>
 <body>
 
@@ -35,83 +36,161 @@
     <div class="l-container">
       <div class="compare-head">
         <h1 class="compare-head__title">모델 비교</h1>
-        <p class="compare-head__sub">젤 카야노 33 · 젤 님버스 28 · GT 2000 15 (이 시안은 추천 3개 모델을 고정해 보여 줍니다)</p>
+        <p class="compare-head__sub"><span data-compare-names>추천 3개 모델: 젤 카야노 33 · 젤 님버스 28 · GT 2000 15</span> · <a href="list.html" data-compare-edit>목록에서 모델 고르기</a></p>
         <p class="compare-hint">표를 좌우로 밀어 모두 볼 수 있습니다</p>
       </div>
 
+      <!-- 열마다 data-col(모델 ID). JS가 ?models=로 고른 열만 보여 준다. JS가 없거나 고른 값이 없으면 hidden이 없는 추천 3열 -->
       <div class="compare-scroll" role="region" aria-label="모델 비교 표, 가로로 스크롤할 수 있습니다" tabindex="0">
-        <table class="compare-table">
-          <caption class="u-visually-hidden">젤 카야노 33, 젤 님버스 28, GT 2000 15 비교</caption>
+        <table class="compare-table" data-compare-table data-count="3">
+          <caption class="u-visually-hidden" data-compare-caption>젤 카야노 33, 젤 님버스 28, GT 2000 15 비교</caption>
           <thead>
             <tr>
               <th scope="col" class="compare-table__corner"><span class="u-visually-hidden">항목</span></th>
-              <th scope="col"><div class="media"><img class="media__img" src="assets/products/gel-kayano-33-600.webp" srcset="assets/products/gel-kayano-33-400.webp 400w, assets/products/gel-kayano-33-600.webp 600w, assets/products/gel-kayano-33-800.webp 800w, assets/products/gel-kayano-33-1200.webp 1200w" sizes="(min-width: 1024px) 340px, 200px" width="600" height="262" alt="" decoding="async"></div>젤 카야노 33</th>
-              <th scope="col"><div class="media"><img class="media__img" src="assets/products/gel-nimbus-28-600.webp" srcset="assets/products/gel-nimbus-28-400.webp 400w, assets/products/gel-nimbus-28-600.webp 600w, assets/products/gel-nimbus-28-800.webp 800w, assets/products/gel-nimbus-28-1200.webp 1200w" sizes="(min-width: 1024px) 340px, 200px" width="600" height="273" alt="" decoding="async"></div>젤 님버스 28</th>
-              <th scope="col"><div class="media"><img class="media__img" src="assets/products/gt-2000-15-600.webp" srcset="assets/products/gt-2000-15-400.webp 400w, assets/products/gt-2000-15-600.webp 600w, assets/products/gt-2000-15-800.webp 800w, assets/products/gt-2000-15-1200.webp 1200w" sizes="(min-width: 1024px) 340px, 200px" width="600" height="288" alt="" decoding="async"></div>GT 2000 15</th>
+              <th scope="col" data-col="gel-kayano-33" data-name="젤 카야노 33"><div class="media"><img class="media__img" src="assets/products/gel-kayano-33-600.webp" srcset="assets/products/gel-kayano-33-400.webp 400w, assets/products/gel-kayano-33-600.webp 600w, assets/products/gel-kayano-33-800.webp 800w, assets/products/gel-kayano-33-1200.webp 1200w" sizes="(min-width: 1024px) 340px, 200px" width="600" height="262" alt="" decoding="async"></div>젤 카야노 33</th>
+              <th scope="col" data-col="gel-nimbus-28" data-name="젤 님버스 28"><div class="media"><img class="media__img" src="assets/products/gel-nimbus-28-600.webp" srcset="assets/products/gel-nimbus-28-400.webp 400w, assets/products/gel-nimbus-28-600.webp 600w, assets/products/gel-nimbus-28-800.webp 800w, assets/products/gel-nimbus-28-1200.webp 1200w" sizes="(min-width: 1024px) 340px, 200px" width="600" height="273" alt="" decoding="async"></div>젤 님버스 28</th>
+              <th scope="col" data-col="gt-2000-15" data-name="GT 2000 15"><div class="media"><img class="media__img" src="assets/products/gt-2000-15-600.webp" srcset="assets/products/gt-2000-15-400.webp 400w, assets/products/gt-2000-15-600.webp 600w, assets/products/gt-2000-15-800.webp 800w, assets/products/gt-2000-15-1200.webp 1200w" sizes="(min-width: 1024px) 340px, 200px" width="600" height="288" alt="" decoding="async"></div>GT 2000 15</th>
+              <th scope="col" data-col="glideride-max-2" data-name="글라이드라이드 맥스 2" hidden><div class="media"><img class="media__img" src="assets/products/glideride-max-2-600.webp" srcset="assets/products/glideride-max-2-400.webp 400w, assets/products/glideride-max-2-600.webp 600w, assets/products/glideride-max-2-800.webp 800w, assets/products/glideride-max-2-1200.webp 1200w" sizes="(min-width: 1024px) 340px, 200px" width="600" height="266" alt="" loading="lazy" decoding="async"></div>글라이드라이드 맥스 2</th>
+              <th scope="col" data-col="sonicblast-2" data-name="소닉블라스트 2" hidden><div class="media"><img class="media__img" src="assets/products/sonicblast-2-600.webp" srcset="assets/products/sonicblast-2-400.webp 400w, assets/products/sonicblast-2-600.webp 600w, assets/products/sonicblast-2-800.webp 800w, assets/products/sonicblast-2-1200.webp 1200w" sizes="(min-width: 1024px) 340px, 200px" width="600" height="276" alt="" loading="lazy" decoding="async"></div>소닉블라스트 2</th>
+              <th scope="col" data-col="novablast-6" data-name="노바블라스트 6" hidden><div class="media"><img class="media__img" src="assets/products/novablast-6-600.webp" srcset="assets/products/novablast-6-400.webp 400w, assets/products/novablast-6-600.webp 600w, assets/products/novablast-6-800.webp 800w, assets/products/novablast-6-1200.webp 1200w" sizes="(min-width: 1024px) 340px, 200px" width="600" height="274" alt="" loading="lazy" decoding="async"></div>노바블라스트 6</th>
+              <th scope="col" data-col="metaspeed-sky-tokyo" data-name="메타스피드 스카이 도쿄" hidden><div class="media"><img class="media__img" src="assets/products/metaspeed-sky-tokyo-600.webp" srcset="assets/products/metaspeed-sky-tokyo-400.webp 400w, assets/products/metaspeed-sky-tokyo-600.webp 600w, assets/products/metaspeed-sky-tokyo-800.webp 800w, assets/products/metaspeed-sky-tokyo-1200.webp 1200w" sizes="(min-width: 1024px) 340px, 200px" width="600" height="276" alt="" loading="lazy" decoding="async"></div>메타스피드 스카이 도쿄</th>
+              <th scope="col" data-col="magic-speed-5" data-name="매직 스피드 5" hidden><div class="media"><img class="media__img" src="assets/products/magic-speed-5-600.webp" srcset="assets/products/magic-speed-5-400.webp 400w, assets/products/magic-speed-5-600.webp 600w, assets/products/magic-speed-5-800.webp 800w, assets/products/magic-speed-5-1200.webp 1200w" sizes="(min-width: 1024px) 340px, 200px" width="600" height="274" alt="" loading="lazy" decoding="async"></div>매직 스피드 5</th>
+              <th scope="col" data-col="blazeblast" data-name="블레이즈블라스트" hidden><div class="media"><img class="media__img" src="assets/products/blazeblast-600.webp" srcset="assets/products/blazeblast-400.webp 400w, assets/products/blazeblast-600.webp 600w, assets/products/blazeblast-800.webp 800w, assets/products/blazeblast-1200.webp 1200w" sizes="(min-width: 1024px) 340px, 200px" width="600" height="260" alt="" loading="lazy" decoding="async"></div>블레이즈블라스트</th>
+              <th scope="col" data-col="metafuji-trail" data-name="메타후지 트레일" hidden><div class="media"><img class="media__img" src="assets/products/metafuji-trail-600.webp" srcset="assets/products/metafuji-trail-400.webp 400w, assets/products/metafuji-trail-600.webp 600w, assets/products/metafuji-trail-800.webp 800w, assets/products/metafuji-trail-1200.webp 1200w" sizes="(min-width: 1024px) 340px, 200px" width="600" height="260" alt="" loading="lazy" decoding="async"></div>메타후지 트레일</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <th scope="row">유형</th>
-              <td><span class="type-tag type--01"><span class="num" aria-hidden="true">01</span>안정화</span></td>
-              <td><span class="type-tag type--02"><span class="num" aria-hidden="true">02</span>쿠션화</span></td>
-              <td><span class="type-tag type--01"><span class="num" aria-hidden="true">01</span>안정화</span></td>
+              <td data-col="gel-kayano-33"><span class="type-tag type--01"><span class="num" aria-hidden="true">01</span>안정화</span></td>
+              <td data-col="gel-nimbus-28"><span class="type-tag type--02"><span class="num" aria-hidden="true">02</span>쿠션화</span></td>
+              <td data-col="gt-2000-15"><span class="type-tag type--01"><span class="num" aria-hidden="true">01</span>안정화</span></td>
+              <td data-col="glideride-max-2" hidden><span class="type-tag type--02"><span class="num" aria-hidden="true">02</span>쿠션화</span></td>
+              <td data-col="sonicblast-2" hidden><span class="type-tag type--03"><span class="num" aria-hidden="true">03</span>바운싱화</span></td>
+              <td data-col="novablast-6" hidden><span class="type-tag type--03"><span class="num" aria-hidden="true">03</span>바운싱화</span></td>
+              <td data-col="metaspeed-sky-tokyo" hidden><span class="type-tag type--04"><span class="num" aria-hidden="true">04</span>레이싱화</span></td>
+              <td data-col="magic-speed-5" hidden><span class="type-tag type--04"><span class="num" aria-hidden="true">04</span>레이싱화</span></td>
+              <td data-col="blazeblast" hidden><span class="type-tag type--05"><span class="num" aria-hidden="true">05</span>트레일러닝화</span></td>
+              <td data-col="metafuji-trail" hidden><span class="type-tag type--05"><span class="num" aria-hidden="true">05</span>트레일러닝화</span></td>
             </tr>
             <tr>
               <th scope="row">가격</th>
-              <td><span class="card__price-num">199,000</span>원</td>
-              <td><span class="card__price-num">199,000</span>원</td>
-              <td><span class="card__price-num">159,000</span>원</td>
+              <td data-col="gel-kayano-33"><span class="card__price-num">199,000</span>원</td>
+              <td data-col="gel-nimbus-28"><span class="card__price-num">199,000</span>원</td>
+              <td data-col="gt-2000-15"><span class="card__price-num">159,000</span>원</td>
+              <td data-col="glideride-max-2" hidden><span class="card__price-num">199,000</span>원</td>
+              <td data-col="sonicblast-2" hidden><span class="card__price-num">229,000</span>원</td>
+              <td data-col="novablast-6" hidden><span class="card__price-num">179,000</span>원<span class="compare-table__flag">전 컬러 품절</span></td>
+              <td data-col="metaspeed-sky-tokyo" hidden><span class="card__price-num">329,000</span>원</td>
+              <td data-col="magic-speed-5" hidden><span class="card__price-num">209,000</span>원</td>
+              <td data-col="blazeblast" hidden><span class="card__price-num">179,000</span>원</td>
+              <td data-col="metafuji-trail" hidden><span class="card__price-num">279,000</span>원</td>
             </tr>
             <tr>
               <th scope="row">무게<sup><a href="#note-weight">‡</a></sup></th>
-              <td>298g</td>
-              <td>281g</td>
-              <td>252g<span class="compare-table__flag">가장 가벼움 · 추천 아님</span></td>
+              <td data-col="gel-kayano-33" data-weight="298">298g</td>
+              <td data-col="gel-nimbus-28" data-weight="281">281g</td>
+              <td data-col="gt-2000-15" data-weight="252">252g<span class="compare-table__flag" data-lightest-flag>가장 가벼움 · 추천 아님</span></td>
+              <td data-col="glideride-max-2" hidden>미확인</td>
+              <td data-col="sonicblast-2" hidden>미확인</td>
+              <td data-col="novablast-6" data-weight="253" hidden>253g</td>
+              <td data-col="metaspeed-sky-tokyo" data-weight="170" hidden>170g</td>
+              <td data-col="magic-speed-5" hidden>미확인</td>
+              <td data-col="blazeblast" hidden>미확인</td>
+              <td data-col="metafuji-trail" hidden>미확인</td>
             </tr>
             <tr>
               <th scope="row">미드솔</th>
-              <td>FF BLAST™</td>
-              <td>FF BLAST+</td>
-              <td>공식 자료 간 표기 상이<sup><a href="#note-gt">†</a></sup></td>
+              <td data-col="gel-kayano-33">FF BLAST™</td>
+              <td data-col="gel-nimbus-28">FF BLAST+</td>
+              <td data-col="gt-2000-15">공식 자료 간 표기 상이<sup><a href="#note-gt">†</a></sup></td>
+              <td data-col="glideride-max-2" hidden>미확인</td>
+              <td data-col="sonicblast-2" hidden>미확인</td>
+              <td data-col="novablast-6" hidden>미확인</td>
+              <td data-col="metaspeed-sky-tokyo" hidden>미확인</td>
+              <td data-col="magic-speed-5" hidden>미확인</td>
+              <td data-col="blazeblast" hidden>미확인</td>
+              <td data-col="metafuji-trail" hidden>미확인</td>
             </tr>
             <tr>
               <th scope="row">아웃솔</th>
-              <td>HYBRID ASICSGRIP™</td>
-              <td>ASICSGRIP AHAR+</td>
-              <td>공식 자료 간 표기 상이<sup><a href="#note-gt">†</a></sup></td>
+              <td data-col="gel-kayano-33">HYBRID ASICSGRIP™</td>
+              <td data-col="gel-nimbus-28">ASICSGRIP AHAR+</td>
+              <td data-col="gt-2000-15">공식 자료 간 표기 상이<sup><a href="#note-gt">†</a></sup></td>
+              <td data-col="glideride-max-2" hidden>미확인</td>
+              <td data-col="sonicblast-2" hidden>미확인</td>
+              <td data-col="novablast-6" hidden>미확인</td>
+              <td data-col="metaspeed-sky-tokyo" hidden>미확인</td>
+              <td data-col="magic-speed-5" hidden>미확인</td>
+              <td data-col="blazeblast" hidden>미확인</td>
+              <td data-col="metafuji-trail" hidden>미확인</td>
             </tr>
             <tr>
               <th scope="row">갑피</th>
-              <td>엔지니어드 메쉬</td>
-              <td>엔지니어드 니트</td>
-              <td>엔지니어드 우븐</td>
+              <td data-col="gel-kayano-33">엔지니어드 메쉬</td>
+              <td data-col="gel-nimbus-28">엔지니어드 니트</td>
+              <td data-col="gt-2000-15">엔지니어드 우븐</td>
+              <td data-col="glideride-max-2" hidden>미확인</td>
+              <td data-col="sonicblast-2" hidden>미확인</td>
+              <td data-col="novablast-6" hidden>미확인</td>
+              <td data-col="metaspeed-sky-tokyo" hidden>미확인</td>
+              <td data-col="magic-speed-5" hidden>미확인</td>
+              <td data-col="blazeblast" hidden>미확인</td>
+              <td data-col="metafuji-trail" hidden>미확인</td>
             </tr>
             <tr>
               <th scope="row">발 너비</th>
-              <td>D · 2E · 4E</td>
-              <td>D · 2E · 4E</td>
-              <td>미확인</td>
+              <td data-col="gel-kayano-33">D · 2E · 4E</td>
+              <td data-col="gel-nimbus-28">D · 2E · 4E</td>
+              <td data-col="gt-2000-15">미확인</td>
+              <td data-col="glideride-max-2" hidden>미확인</td>
+              <td data-col="sonicblast-2" hidden>미확인</td>
+              <td data-col="novablast-6" hidden>미확인</td>
+              <td data-col="metaspeed-sky-tokyo" hidden>미확인</td>
+              <td data-col="magic-speed-5" hidden>미확인</td>
+              <td data-col="blazeblast" hidden>미확인</td>
+              <td data-col="metafuji-trail" hidden>미확인</td>
             </tr>
             <tr>
               <th scope="row">컬러 수</th>
-              <td>6개</td>
-              <td>3개</td>
-              <td>3개</td>
+              <td data-col="gel-kayano-33">6개</td>
+              <td data-col="gel-nimbus-28">3개</td>
+              <td data-col="gt-2000-15">3개</td>
+              <td data-col="glideride-max-2" hidden>미확인</td>
+              <td data-col="sonicblast-2" hidden>미확인</td>
+              <td data-col="novablast-6" hidden>10개</td>
+              <td data-col="metaspeed-sky-tokyo" hidden>3개</td>
+              <td data-col="magic-speed-5" hidden>미확인</td>
+              <td data-col="blazeblast" hidden>미확인</td>
+              <td data-col="metafuji-trail" hidden>미확인</td>
             </tr>
             <tr>
               <th scope="row">사이즈 범위(상품 정보 기준)<sup><a href="#note-size">*</a></sup></th>
-              <td>250–300</td>
-              <td>250–290</td>
-              <td>미확인</td>
+              <td data-col="gel-kayano-33">250–300</td>
+              <td data-col="gel-nimbus-28">250–290</td>
+              <td data-col="gt-2000-15">미확인</td>
+              <td data-col="glideride-max-2" hidden>미확인</td>
+              <td data-col="sonicblast-2" hidden>미확인</td>
+              <td data-col="novablast-6" hidden>미확인</td>
+              <td data-col="metaspeed-sky-tokyo" hidden>미확인</td>
+              <td data-col="magic-speed-5" hidden>미확인</td>
+              <td data-col="blazeblast" hidden>미확인</td>
+              <td data-col="metafuji-trail" hidden>미확인</td>
             </tr>
           </tbody>
           <tfoot>
             <tr>
               <th scope="row"><span class="u-visually-hidden">이동</span></th>
-              <td><a class="btn btn--secondary" href="product.html">상세 보기<span class="u-visually-hidden">: 젤 카야노 33</span></a></td>
-              <td><a class="btn btn--secondary" href="list.html?type=02">목록에서 보기<span class="u-visually-hidden">: 젤 님버스 28</span></a></td>
-              <td><a class="btn btn--secondary" href="list.html?type=01">목록에서 보기<span class="u-visually-hidden">: GT 2000 15</span></a></td>
+              <td data-col="gel-kayano-33"><a class="btn btn--secondary" href="product.html">상세 보기<span class="u-visually-hidden">: 젤 카야노 33</span></a></td>
+              <td data-col="gel-nimbus-28"><a class="btn btn--secondary" href="list.html?type=02">목록에서 보기<span class="u-visually-hidden">: 젤 님버스 28</span></a></td>
+              <td data-col="gt-2000-15"><a class="btn btn--secondary" href="list.html?type=01">목록에서 보기<span class="u-visually-hidden">: GT 2000 15</span></a></td>
+              <td data-col="glideride-max-2" hidden><a class="btn btn--secondary" href="list.html?type=02">목록에서 보기<span class="u-visually-hidden">: 글라이드라이드 맥스 2</span></a></td>
+              <td data-col="sonicblast-2" hidden><a class="btn btn--secondary" href="list.html?type=03">목록에서 보기<span class="u-visually-hidden">: 소닉블라스트 2</span></a></td>
+              <td data-col="novablast-6" hidden><a class="btn btn--secondary" href="list.html?type=03">목록에서 보기<span class="u-visually-hidden">: 노바블라스트 6</span></a></td>
+              <td data-col="metaspeed-sky-tokyo" hidden><a class="btn btn--secondary" href="list.html?type=04">목록에서 보기<span class="u-visually-hidden">: 메타스피드 스카이 도쿄</span></a></td>
+              <td data-col="magic-speed-5" hidden><a class="btn btn--secondary" href="list.html?type=04">목록에서 보기<span class="u-visually-hidden">: 매직 스피드 5</span></a></td>
+              <td data-col="blazeblast" hidden><a class="btn btn--secondary" href="list.html?type=05">목록에서 보기<span class="u-visually-hidden">: 블레이즈블라스트</span></a></td>
+              <td data-col="metafuji-trail" hidden><a class="btn btn--secondary" href="list.html?type=05">목록에서 보기<span class="u-visually-hidden">: 메타후지 트레일</span></a></td>
             </tr>
           </tfoot>
         </table>
@@ -121,6 +200,7 @@
         <li id="note-gt">† GT 2000 15 소재: 한국 공식 스토어 상품 정보(2026-10-01)는 미드솔 칸 AHAR LO·아웃솔 칸 FF BLAST MAX로 표기, 아식스 본사 보도자료(2026-07-29)는 FF BLAST MAX를 쿠션 폼(미드솔), 아웃솔은 러버로 설명. 확인 전까지 표기하지 않음.</li>
         <li id="note-weight">‡ 무게: 한국 공식 스토어 상품 정보 기준.</li>
         <li id="note-size">* 사이즈 범위는 상품 정보 기준이며 컬러별 재고는 다름.</li>
+        <li>블레이즈블라스트·메타후지 트레일: 남성 러닝화 목록에 없어 트레일러닝화 유형 목록 기준.</li>
         <li>데이터 기준일: 2026-10-01 공식 스토어 비로그인 조사.</li>
       </ul>
     </div>

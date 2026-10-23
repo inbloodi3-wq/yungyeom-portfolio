@@ -36,6 +36,15 @@
   text-align: left;
 }
 
+/* 고른 모델 수(data-count, main.js)만큼만 최소 폭을 잡는다 */
+.compare-table[data-count="1"] {
+  min-width: calc(var(--size-compare-head) + var(--size-compare-col));
+}
+
+.compare-table[data-count="2"] {
+  min-width: calc(var(--size-compare-head) + 2 * var(--size-compare-col));
+}
+
 .compare-table th,
 .compare-table td {
   padding: var(--space-3);
@@ -86,6 +95,10 @@
   font-size: var(--text-sm);
   font-weight: var(--weight-medium);
   color: var(--color-text-muted);
+}
+
+.compare-table__flag[hidden] {
+  display: none;
 }
 
 .compare-notes {
