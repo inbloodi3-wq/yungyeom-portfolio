@@ -54,7 +54,7 @@
   max-width: var(--size-media-max);
 }
 
-/* 자리 표시가 표 머리 배경(surface-raised)에 묻히지 않게 이미지 칸 본래 배경을 쓴다 */
+/* 이미지가 빠진 칸(대비책)이 표 머리 배경(surface-raised)에 묻히지 않게 이미지 칸 본래 배경을 쓴다 */
 .compare-table thead .media:empty {
   background: var(--color-media-bg);
 }
