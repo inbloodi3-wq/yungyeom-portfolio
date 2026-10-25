@@ -21,10 +21,9 @@
   --color-on-dark-sub: #cfcfcf;
   --color-on-dark-line: rgba(255, 255, 255, 0.12);
 
-  /* Typography — 영문 Outfit, 한글은 Figma에서 SUIT다.
-     SUIT Font 파일이 이 사이트에 없어 포트폴리오가 쓰는 Pretendard로 대신 그린다(Figma와 다른 점). */
+  /* Typography — 영문 Outfit, 한글 SUIT(Figma 지정. 2026-10-25 사용자 승인으로 Pretendard 대체를 SUIT로 복원) */
   --font-en: "Outfit", "Helvetica Neue", Arial, sans-serif;
-  --font-kr: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font-kr: "SUIT", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   --text-display: 6rem;           /* Outfit/Display XL 96 */
   --text-hero: 3.875rem;          /* 62 */
   --text-h1: 2.625rem;            /* Outfit/O Heading XL 42 */
