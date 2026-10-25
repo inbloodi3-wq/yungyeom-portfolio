@@ -19,7 +19,7 @@
   <!-- 포트폴리오의 시연 사이트임을 알리고 Case Study로 돌아가는 줄. AIDORA 디자인의 일부가 아니다. -->
   <div class="demo-bar" id="top" tabindex="-1">
     <a class="demo-bar__back" href="../aidora.html#web-design">← AIDORA Case Study</a>
-    <span class="demo-bar__note">포트폴리오용 시연 사이트입니다. 검색·계정·장바구니·결제는 제공하지 않습니다.</span>
+    <span class="demo-bar__note">포트폴리오용 시연 사이트입니다. 주문·결제·계정 기능은 제공하지 않습니다.</span>
   </div>
 
   <header class="site-header">
@@ -31,12 +31,12 @@
         <a href="collection.html#gift-trial">Gift &amp; Trial</a>
         <a href="brand.html" aria-current="page">Brand</a>
     </nav>
-    <!-- 검색·언어·계정·장바구니는 시연 범위가 아니라서 모양만 둔다 -->
-    <ul class="site-tools" aria-hidden="true">
-      <li><img src="assets/icon-search.svg" alt="" width="24" height="24"></li>
-      <li><img src="assets/icon-language.svg" alt="" width="20" height="20"></li>
-      <li><img src="assets/icon-account.svg" alt="" width="20" height="20"></li>
-      <li><img src="assets/icon-cart.svg" alt="" width="20" height="20"></li>
+    <!-- 검색은 Collection 검색, 장바구니는 cart.html로 간다. 언어·계정은 시연 범위가 아니라서 모양만 둔다 -->
+    <ul class="site-tools">
+      <li><a href="collection.html#search" aria-label="검색"><img src="assets/icon-search.svg" alt="" width="24" height="24"></a></li>
+      <li aria-hidden="true"><img src="assets/icon-language.svg" alt="" width="20" height="20"></li>
+      <li aria-hidden="true"><img src="assets/icon-account.svg" alt="" width="20" height="20"></li>
+      <li><a href="cart.html" aria-label="장바구니"><img src="assets/icon-cart.svg" alt="" width="20" height="20"></a></li>
     </ul>
   </header>
 

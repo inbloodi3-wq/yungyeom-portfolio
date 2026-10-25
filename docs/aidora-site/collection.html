@@ -21,7 +21,7 @@
   <!-- 포트폴리오의 시연 사이트임을 알리고 Case Study로 돌아가는 줄. AIDORA 디자인의 일부가 아니다. -->
   <div class="demo-bar" id="top" tabindex="-1">
     <a class="demo-bar__back" href="../aidora.html#web-design">← AIDORA Case Study</a>
-    <span class="demo-bar__note">포트폴리오용 시연 사이트입니다. 검색·계정·장바구니·결제는 제공하지 않습니다.</span>
+    <span class="demo-bar__note">포트폴리오용 시연 사이트입니다. 주문·결제·계정 기능은 제공하지 않습니다.</span>
   </div>
 
   <header class="site-header">
@@ -33,12 +33,12 @@
         <a href="collection.html#gift-trial">Gift &amp; Trial</a>
         <a href="brand.html">Brand</a>
     </nav>
-    <!-- 검색·언어·계정·장바구니는 시연 범위가 아니라서 모양만 둔다 -->
-    <ul class="site-tools" aria-hidden="true">
-      <li><img src="assets/icon-search.svg" alt="" width="24" height="24"></li>
-      <li><img src="assets/icon-language.svg" alt="" width="20" height="20"></li>
-      <li><img src="assets/icon-account.svg" alt="" width="20" height="20"></li>
-      <li><img src="assets/icon-cart.svg" alt="" width="20" height="20"></li>
+    <!-- 검색은 Collection 검색, 장바구니는 cart.html로 간다. 언어·계정은 시연 범위가 아니라서 모양만 둔다 -->
+    <ul class="site-tools">
+      <li><a href="collection.html#search" aria-label="검색"><img src="assets/icon-search.svg" alt="" width="24" height="24"></a></li>
+      <li aria-hidden="true"><img src="assets/icon-language.svg" alt="" width="20" height="20"></li>
+      <li aria-hidden="true"><img src="assets/icon-account.svg" alt="" width="20" height="20"></li>
+      <li><a href="cart.html" aria-label="장바구니"><img src="assets/icon-cart.svg" alt="" width="20" height="20"></a></li>
     </ul>
   </header>
 
@@ -59,6 +59,15 @@
       </section>
     </div>
 
+    <!-- 검색: 공통 상품 데이터에서 찾아 아래 카드만 걸러 보인다. JavaScript가 있어야 동작하므로 처음에는 숨겨 둔다 -->
+    <div class="l-container col-search" id="search" hidden data-search-wrap>
+      <form class="search-bar" role="search" action="collection.html" method="get" data-search>
+        <label class="u-visually-hidden" for="q">상품 검색</label>
+        <input id="q" name="q" type="search" placeholder="Search" autocomplete="off">
+        <button type="submit" aria-label="검색"><img src="assets/icon-search.svg" alt="" width="24" height="24"></button>
+      </form>
+    </div>
+
     <nav class="col-filter" aria-label="제품군" data-filter="list">
       <div class="l-container">
         <ul>
@@ -72,10 +81,16 @@
     </nav>
 
     <div class="l-container col-list" id="list">
+      <p class="search-count" role="status" hidden data-search-count></p>
+      <div class="empty" role="status" hidden data-search-empty>
+        <p class="empty__text">검색 결과가 없습니다.</p>
+        <a class="link-line" href="#list" data-search-reset>View All</a>
+      </div>
       <section class="col-group" id="perfume" data-filter-group>
         <h2 class="col-group__title">Signature Eau De Parfum</h2>
         <p class="col-group__text">Four moods designed to stay close.</p>
         <ul class="grid-4 grid-4--collection">
+          <!-- 상세 콘텐츠가 있는 상품만 상세로 연결한다(2026-10-26 B안). 나머지 카드는 링크 없이 정보만 보인다 -->
           <li data-product="cold-monolith">
             <a class="item" href="product.html">
               <img class="item__image" src="assets/col-perfume-cold.webp" alt="COLD MONOLITH" width="358" height="446" loading="lazy">
@@ -90,7 +105,7 @@
             </a>
           </li>
           <li data-product="still-etude">
-            <a class="item" href="product.html">
+            <div class="item">
               <img class="item__image" src="assets/col-perfume-still.webp" alt="STILL ETUDE" width="358" height="446" loading="lazy">
               <h3 class="item__name">STILL ETUDE</h3>
               <p class="item__sub">스틸 에튀드 / Eau De Parfum</p>
@@ -99,11 +114,10 @@
                 <div><dt>35 mL</dt><dd>125,000 KRW</dd></div>
                 <div><dt>75 mL</dt><dd>235,000 KRW</dd></div>
               </dl>
-              <span class="link-line item__more">View Detail</span>
-            </a>
+            </div>
           </li>
           <li data-product="santal-vacance">
-            <a class="item" href="product.html">
+            <div class="item">
               <img class="item__image" src="assets/col-perfume-santal.webp" alt="SANTAL VACANCE" width="358" height="446" loading="lazy">
               <h3 class="item__name">SANTAL VACANCE</h3>
               <p class="item__sub">상탈 바캉스 / Eau De Parfum</p>
@@ -112,11 +126,10 @@
                 <div><dt>35 mL</dt><dd>125,000 KRW</dd></div>
                 <div><dt>75 mL</dt><dd>235,000 KRW</dd></div>
               </dl>
-              <span class="link-line item__more">View Detail</span>
-            </a>
+            </div>
           </li>
           <li data-product="blue-velvet-hour">
-            <a class="item" href="product.html">
+            <div class="item">
               <img class="item__image" src="assets/col-perfume-blue.webp" alt="BLUE VELVET HOUR" width="358" height="446" loading="lazy">
               <h3 class="item__name">BLUE VELVET HOUR</h3>
               <p class="item__sub">블루 벨벳 아워 / Eau De Parfum</p>
@@ -125,8 +138,7 @@
                 <div><dt>35 mL</dt><dd>125,000 KRW</dd></div>
                 <div><dt>75 mL</dt><dd>235,000 KRW</dd></div>
               </dl>
-              <span class="link-line item__more">View Detail</span>
-            </a>
+            </div>
           </li>
         </ul>
       </section>
@@ -135,70 +147,64 @@
         <p class="col-group__text">손과 몸에 남는 향, 일상 속에서 반복되는 조용한 루틴.</p>
         <ul class="grid-4 grid-4--collection">
           <li data-product="still-etude-air">
-            <a class="item" href="product.html">
+            <div class="item">
               <img class="item__image" src="assets/col-hand-still.webp" alt="STILL ETUDE AIR" width="358" height="446" loading="lazy">
               <h3 class="item__name">STILL ETUDE AIR</h3>
               <p class="item__sub">Hand Wash</p>
               <dl class="item__sizes">
                 <div><dt>150 mL</dt><dd>52,000 KRW</dd></div>
               </dl>
-              <span class="link-line item__more">View Detail</span>
-            </a>
+            </div>
           </li>
           <li data-product="cold-monolith-fluid">
-            <a class="item" href="product.html">
+            <div class="item">
               <img class="item__image" src="assets/col-hand-cold.webp" alt="COLD MONOLITH FLUID" width="358" height="446" loading="lazy">
               <h3 class="item__name">COLD MONOLITH FLUID</h3>
               <p class="item__sub">Hand Wash</p>
               <dl class="item__sizes">
                 <div><dt>150 mL</dt><dd>52,000 KRW</dd></div>
               </dl>
-              <span class="link-line item__more">View Detail</span>
-            </a>
+            </div>
           </li>
           <li data-product="still-etude-layer">
-            <a class="item" href="product.html">
+            <div class="item">
               <img class="item__image" src="assets/col-body-still.webp" alt="STILL ETUDE LAYER" width="358" height="446" loading="lazy">
               <h3 class="item__name">STILL ETUDE LAYER</h3>
               <p class="item__sub">Body Wash</p>
               <dl class="item__sizes">
                 <div><dt>250 mL</dt><dd>78,000 KRW</dd></div>
               </dl>
-              <span class="link-line item__more">View Detail</span>
-            </a>
+            </div>
           </li>
           <li data-product="santal-vacance-ritual">
-            <a class="item" href="product.html">
+            <div class="item">
               <img class="item__image" src="assets/col-body-santal.webp" alt="SANTAL VACANCE RITUAL" width="358" height="446" loading="lazy">
               <h3 class="item__name">SANTAL VACANCE RITUAL</h3>
               <p class="item__sub">Body Wash</p>
               <dl class="item__sizes">
                 <div><dt>250 mL</dt><dd>78,000 KRW</dd></div>
               </dl>
-              <span class="link-line item__more">View Detail</span>
-            </a>
+            </div>
           </li>
           <li data-product="blue-velvet-hour-tide">
-            <a class="item" href="product.html">
+            <div class="item">
               <img class="item__image" src="assets/col-body-blue.webp" alt="BLUE VELVET HOUR TIDE" width="358" height="446" loading="lazy">
               <h3 class="item__name">BLUE VELVET HOUR TIDE</h3>
               <p class="item__sub">Body Wash</p>
               <dl class="item__sizes">
                 <div><dt>250 mL</dt><dd>78,000 KRW</dd></div>
               </dl>
-              <span class="link-line item__more">View Detail</span>
-            </a>
+            </div>
           </li>
           <li data-product="refill-pouch">
-            <a class="item" href="product.html">
+            <div class="item">
               <img class="item__image" src="assets/col-refill.webp" alt="REFILL POUCH" width="358" height="446" loading="lazy">
               <h3 class="item__name">REFILL POUCH</h3>
               <p class="item__sub">Reusable Care System</p>
               <dl class="item__sizes">
                 <div><dt>500 mL</dt><dd>45,000 KRW</dd></div>
               </dl>
-              <span class="link-line item__more">View Detail</span>
-            </a>
+            </div>
           </li>
         </ul>
       </section>
@@ -207,70 +213,64 @@
         <p class="col-group__text">공간에 남는 향, 일상에 놓이는 오브제.</p>
         <ul class="grid-4 grid-4--collection">
           <li data-product="cold-monolith-atmos">
-            <a class="item" href="product.html">
+            <div class="item">
               <img class="item__image" src="assets/col-diffuser-cold.webp" alt="COLD MONOLITH ATMOS" width="358" height="446" loading="lazy">
               <h3 class="item__name">COLD MONOLITH ATMOS</h3>
               <p class="item__sub">Diffuser</p>
               <dl class="item__sizes">
                 <div><dt>200 mL</dt><dd>78,000 KRW</dd></div>
               </dl>
-              <span class="link-line item__more">View Detail</span>
-            </a>
+            </div>
           </li>
           <li data-product="still-etude-void">
-            <a class="item" href="product.html">
+            <div class="item">
               <img class="item__image" src="assets/col-diffuser-still.webp" alt="STILL ETUDE VOID" width="358" height="446" loading="lazy">
               <h3 class="item__name">STILL ETUDE VOID</h3>
               <p class="item__sub">Diffuser</p>
               <dl class="item__sizes">
                 <div><dt>200 mL</dt><dd>78,000 KRW</dd></div>
               </dl>
-              <span class="link-line item__more">View Detail</span>
-            </a>
+            </div>
           </li>
           <li data-product="blue-velvet-hour-mist">
-            <a class="item" href="product.html">
+            <div class="item">
               <img class="item__image" src="assets/col-diffuser-blue.webp" alt="BLUE VELVET HOUR MIST" width="358" height="446" loading="lazy">
               <h3 class="item__name">BLUE VELVET HOUR MIST</h3>
               <p class="item__sub">Diffuser</p>
               <dl class="item__sizes">
                 <div><dt>200 mL</dt><dd>78,000 KRW</dd></div>
               </dl>
-              <span class="link-line item__more">View Detail</span>
-            </a>
+            </div>
           </li>
           <li data-product="still-etude-beam">
-            <a class="item" href="product.html">
+            <div class="item">
               <img class="item__image" src="assets/col-candle-still.webp" alt="STILL ETUDE BEAM" width="358" height="446" loading="lazy">
               <h3 class="item__name">STILL ETUDE BEAM</h3>
               <p class="item__sub">Candle</p>
               <dl class="item__sizes">
                 <div><dt>210 g</dt><dd>65,000 KRW</dd></div>
               </dl>
-              <span class="link-line item__more">View Detail</span>
-            </a>
+            </div>
           </li>
           <li data-product="santal-vacance-calm">
-            <a class="item" href="product.html">
+            <div class="item">
               <img class="item__image" src="assets/col-candle-santal.webp" alt="SANTAL VACANCE CALM" width="358" height="446" loading="lazy">
               <h3 class="item__name">SANTAL VACANCE CALM</h3>
               <p class="item__sub">Candle</p>
               <dl class="item__sizes">
                 <div><dt>210 g</dt><dd>65,000 KRW</dd></div>
               </dl>
-              <span class="link-line item__more">View Detail</span>
-            </a>
+            </div>
           </li>
           <li data-product="blue-velvet-hour-deep">
-            <a class="item" href="product.html">
+            <div class="item">
               <img class="item__image" src="assets/col-candle-blue.webp" alt="BLUE VELVET HOUR DEEP" width="358" height="446" loading="lazy">
               <h3 class="item__name">BLUE VELVET HOUR DEEP</h3>
               <p class="item__sub">Candle</p>
               <dl class="item__sizes">
                 <div><dt>210 g</dt><dd>65,000 KRW</dd></div>
               </dl>
-              <span class="link-line item__more">View Detail</span>
-            </a>
+            </div>
           </li>
         </ul>
       </section>
@@ -279,48 +279,44 @@
         <p class="col-group__text">처음 만나는 향부터, 마음을 전하는 선물까지.</p>
         <ul class="grid-4 grid-4--collection">
           <li data-product="discovery-set">
-            <a class="item" href="product.html">
+            <div class="item">
               <img class="item__image" src="assets/col-set-discovery.webp" alt="5ml Discovery Set" width="358" height="446" loading="lazy">
               <h3 class="item__name">5ml Discovery Set</h3>
               <p class="item__sub">4 x 5 mL Eau De Parfum</p>
               <dl class="item__sizes">
                 <div><dt>Signature 4 Scents</dt><dd>58,000 KRW</dd></div>
               </dl>
-              <span class="link-line item__more">View Detail</span>
-            </a>
+            </div>
           </li>
           <li data-product="trio-set">
-            <a class="item" href="product.html">
+            <div class="item">
               <img class="item__image" src="assets/col-set-trio.webp" alt="35ml Trio Set" width="358" height="446" loading="lazy">
               <h3 class="item__name">35ml Trio Set</h3>
               <p class="item__sub">3 x 35 mL Eau De Parfum</p>
               <dl class="item__sizes">
                 <div><dt>Signature Hard Box</dt><dd>350,000 KRW</dd></div>
               </dl>
-              <span class="link-line item__more">View Detail</span>
-            </a>
+            </div>
           </li>
           <li data-product="still-etude-duo-set">
-            <a class="item" href="product.html">
+            <div class="item">
               <img class="item__image" src="assets/col-set-duo.webp" alt="STILL ETUDE Duo Set" width="358" height="446" loading="lazy">
               <h3 class="item__name">STILL ETUDE Duo Set</h3>
               <p class="item__sub">Hand &amp; Body Wash Set</p>
               <dl class="item__sizes">
                 <div><dt>Layering Experience</dt><dd>130,000 KRW</dd></div>
               </dl>
-              <span class="link-line item__more">View Detail</span>
-            </a>
+            </div>
           </li>
           <li data-product="quiet-room-set">
-            <a class="item" href="product.html">
+            <div class="item">
               <img class="item__image" src="assets/col-set-room.webp" alt="Quiet Room Set" width="358" height="446" loading="lazy">
               <h3 class="item__name">Quiet Room Set</h3>
               <p class="item__sub">Candle &amp; Diffuser Set</p>
               <dl class="item__sizes">
                 <div><dt>A Quiet Scent Ritual</dt><dd>130,000 KRW</dd></div>
               </dl>
-              <span class="link-line item__more">View Detail</span>
-            </a>
+            </div>
           </li>
         </ul>
       </section>

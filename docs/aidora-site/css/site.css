@@ -90,9 +90,10 @@ button { font: inherit; color: inherit; }
 .site-nav a { padding-block: 0.5rem; white-space: nowrap; }
 .site-nav a:hover, .site-nav a:focus-visible, .site-nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 0.4em; text-decoration-thickness: 1px; }
 
-/* 검색·언어·계정·장바구니: Demo에서는 동작하지 않는 표시일 뿐이다(링크·버튼이 아니다) */
+/* 검색·언어·계정·장바구니. 검색(Collection 검색)과 장바구니(cart.html)는 링크, 언어·계정은 모양만 둔다 */
 .site-tools { display: flex; align-items: center; gap: 1.75rem; }
 .site-tools img { width: 1.5rem; min-width: 18px; }
+.site-tools a { display: flex; align-items: center; }
 
 /* ---------- 공통 Layout ---------- */
 .l-container { width: 100%; max-width: var(--page-max); margin-inline: auto; padding-inline: var(--gutter); }
@@ -171,6 +172,26 @@ a.card:hover .card__name, a.card:focus-visible .card__name { text-decoration: un
 .item__sizes div { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.125rem; }
 .item__more { align-self: flex-start; margin-top: 1rem; font-size: var(--text-min); }
 a.item:hover .item__name, a.item:focus-visible .item__name { text-decoration: underline; text-underline-offset: 0.3em; text-decoration-thickness: 1px; }
+
+/* 검색(2026-10-26 Phase 2C 승인 시안): 필터 줄 위 입력 한 줄, 결과 개수, 결과 없음 */
+.col-search { padding-bottom: 2rem; }
+.search-bar { display: flex; align-items: center; gap: 1rem; border-bottom: 1px solid var(--color-text); }
+.search-bar input { flex: 1; min-width: 0; padding-block: 0.75rem; border: 0; background: none; font-family: var(--font-en); font-size: max(var(--text-body), var(--text-min)); letter-spacing: var(--tracking-nav); color: var(--color-text); }
+.search-bar input::placeholder { color: var(--color-text-caption); text-transform: uppercase; }
+.search-bar input:focus-visible { outline: none; }
+/* 브라우저 기본 지우기(×) 장식은 사이트 색 밖이라 숨긴다. 지우기는 Esc·글자 삭제로 된다 */
+.search-bar input::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; }
+.search-bar:focus-within { outline: 2px solid var(--color-text); outline-offset: 3px; }
+.search-bar button { display: flex; padding: 0.25rem; border: 0; background: none; cursor: pointer; }
+.search-bar img { width: 1.5rem; min-width: 18px; }
+.search-count { padding-top: 2rem; font-size: max(var(--text-caption), var(--text-min)); color: var(--color-text-muted); }
+
+/* 빈 상태(장바구니·검색 공통) */
+.empty { display: flex; flex-direction: column; align-items: flex-start; gap: 1.5rem; padding-block: 3rem; border-top: 1px solid var(--color-text); }
+.empty[hidden] { display: none; }
+.empty__text { color: var(--color-text-sub); }
+/* 검색 결과 없음: 필터 줄 바로 아래라 위 선은 두지 않는다 */
+.col-list .empty { border-top: 0; padding-block: var(--section-block) 0; }
 
 /* ---------- Product Detail ---------- */
 .crumbs { display: flex; flex-wrap: wrap; gap: 0.5rem; padding-top: 1.5rem; font-family: var(--font-en); font-size: var(--text-min); letter-spacing: var(--tracking-caption); text-transform: uppercase; color: var(--color-text-caption); }
@@ -264,6 +285,34 @@ a.item:hover .item__name, a.item:focus-visible .item__name { text-decoration: un
 .services li { padding-inline: 1.5rem; }
 .services__title { font-family: var(--font-en); font-size: max(var(--text-title), 14px); letter-spacing: var(--tracking-title); }
 .services__text { margin-top: 1rem; color: var(--color-text-muted); }
+
+/* PDP 담기 완료 안내: 기존 .demo-note 자리·글자 크기 */
+.added-note[hidden], .cart-layout[hidden] { display: none; }
+.added-note { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: baseline; margin-top: 0.75rem; font-size: var(--text-min); color: var(--color-text-sub); }
+
+/* ---------- Cart (2026-10-26 Phase 2C 승인 시안) ---------- */
+.cart { padding-block: 2.5rem var(--section-block); }
+/* 제목 아래 선은 목록의 진한 선 하나만 쓴다(기존 .section-head 선과 겹치지 않게) */
+.cart .section-head { border-bottom: 0; }
+.cart-list { border-top: 1px solid var(--color-text); }
+.cart-row { display: grid; grid-template-columns: 6rem minmax(0, 1fr); gap: 1rem 1.25rem; padding-block: 1.5rem; border-bottom: 1px solid var(--color-line); }
+.cart-row__image { width: 100%; border: 1px solid var(--color-line); }
+.cart-row__info { display: flex; flex-direction: column; gap: 0.25rem; }
+.cart-row__name { font-family: var(--font-en); font-size: max(var(--text-title), 14px); font-weight: 500; letter-spacing: var(--tracking-title); text-transform: uppercase; }
+.cart-row__sub { font-size: max(var(--text-caption), var(--text-min)); color: var(--color-text-sub); }
+.cart-row__controls { grid-column: 2; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem 1.5rem; }
+.cart-row__price { font-family: var(--font-en); font-size: max(var(--text-body), var(--text-min)); letter-spacing: var(--tracking-nav); white-space: nowrap; }
+.cart-row__remove { padding: 0; border: 0; border-bottom: 1px solid currentColor; background: none; font-family: var(--font-kr); font-size: var(--text-min); color: var(--color-text-muted); cursor: pointer; }
+/* 수량: 기존 용량 칸(.options)과 같은 선·글꼴 */
+.qty { display: inline-grid; grid-template-columns: 2.5rem 3rem 2.5rem; border: 1px solid var(--color-line); font-family: var(--font-en); font-size: max(var(--text-body), var(--text-min)); letter-spacing: var(--tracking-nav); text-align: center; }
+.qty button { margin: 0; padding: 0.5rem 0; border: 0; background: none; color: var(--color-text-caption); cursor: pointer; }
+.qty button:disabled { cursor: not-allowed; }
+.qty output { padding: 0.5rem 0; border-inline: 1px solid var(--color-line); }
+.cart-total { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding-top: 1.5rem; }
+.cart-total__label { font-family: var(--font-en); font-size: max(var(--text-caption), var(--text-min)); letter-spacing: var(--tracking-caption); text-transform: uppercase; color: var(--color-text-caption); }
+.cart-total__price { font-family: var(--font-en); font-size: var(--text-h3); font-weight: 500; letter-spacing: var(--tracking-title); }
+.cart .buttons { grid-template-columns: minmax(0, 1fr); margin-top: 2rem; }
+.cart .link-line { margin-top: 2rem; }
 
 /* ---------- Brand ---------- */
 .brand-hero { display: grid; grid-template-columns: minmax(0, 1fr); gap: 3rem; align-items: center; padding-block: var(--section-block); }
@@ -365,6 +414,13 @@ a.item:hover .item__name, a.item:focus-visible .item__name { text-decoration: un
   .material-grid { gap: 1.5rem 3rem; margin-top: 6.5rem; }
   .site-footer__top { grid-template-columns: 338fr 1078fr; gap: 3.5rem; }
   .site-footer__cols { grid-template-columns: 196fr 212fr 244fr 306fr; gap: 2.5rem; }
+
+  .cart { padding: 6rem 0 8.75rem 1.5rem; }
+  .cart-layout { display: grid; grid-template-columns: 1078fr 400fr; gap: 6rem; align-items: start; }
+  .cart-row { grid-template-columns: 8rem minmax(0, 1fr) auto auto auto; align-items: center; gap: 2.5rem; }
+  .cart-row__controls { display: contents; }
+  .cart-summary { position: sticky; top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--color-text); }
+  .cart-summary .cart-total { padding-top: 0; }
 }
 
 /* ---------- 좁은 화면: Header ---------- */

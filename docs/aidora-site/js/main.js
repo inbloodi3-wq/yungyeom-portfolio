@@ -1,6 +1,6 @@
-// AIDORA 시연 사이트의 상호작용 — Collection 제품군 필터, Product Detail 용량 선택.
+// AIDORA 시연 사이트의 상호작용 — Collection 제품군 필터·검색, Product Detail 용량 선택. 장바구니는 js/cart.js.
 // 상품 값은 js/products.js(공통 상품 데이터)에서 읽는다.
-// JavaScript가 없으면 기존 화면 그대로다(필터는 해당 제품군으로 이동하는 앵커, 용량은 75ml 표시).
+// JavaScript가 없으면 기존 화면 그대로다(필터는 해당 제품군으로 이동하는 앵커, 검색 줄은 숨김, 용량은 75ml 표시).
 (function () {
   var products = window.AIDORA_PRODUCTS || [];
 
@@ -26,7 +26,28 @@
       if (key !== all) categories.push(key);
     }
 
-    var applyFilter = function (category) {
+    // 검색: 공통 데이터의 확정 값(영문 이름·한글 이름·종류·노트·설명·제품군 이름)에서 찾는다. 비어 있는(null) 값은 대상이 아니다.
+    // 제품군 필터와 함께 쓰면 두 조건을 모두 만족하는 상품만 보인다.
+    var searchWrap = document.querySelector('[data-search-wrap]');
+    var form = document.querySelector('[data-search]');
+    var input = form ? form.querySelector('input[type="search"]') : null;
+    var countEl = document.querySelector('[data-search-count]');
+    var emptyEl = document.querySelector('[data-search-empty]');
+    var categoryNames = {};
+    var cats = window.AIDORA_CATEGORIES || [];
+    for (var c = 0; c < cats.length; c++) categoryNames[cats[c].id] = cats[c].name;
+    var category = null;
+    var query = '';
+
+    var normalize = function (text) { return String(text).replace(/\s+/g, ' ').trim().toLowerCase(); };
+    var searchText = function (p) {
+      var fields = [p.name, p.nameKr, p.type, p.notes, p.description, categoryNames[p.category]];
+      var words = [];
+      for (var i = 0; i < fields.length; i++) if (typeof fields[i] === 'string') words.push(fields[i]);
+      return normalize(words.join(' '));
+    };
+
+    var apply = function () {
       var current = category || all;
       for (var i = 0; i < tabs.length; i++) {
         var on = tabs[i].hash.slice(1) === current;
@@ -38,31 +59,84 @@
         if (category && navLinks[n].hash.slice(1) === category) navLinks[n].setAttribute('aria-current', 'page');
         else navLinks[n].removeAttribute('aria-current');
       }
+      var total = 0;
       for (var g = 0; g < groups.length; g++) {
         var items = groups[g].querySelectorAll('[data-product]');
         var shown = 0;
         for (var j = 0; j < items.length; j++) {
           var product = findProduct(items[j].getAttribute('data-product'));
-          var match = !category || (product !== null && product.category === category);
+          var match = (!category || (product !== null && product.category === category)) &&
+            (!query || (product !== null && searchText(product).indexOf(query) !== -1));
           items[j].hidden = !match;
           if (match) shown++;
         }
         groups[g].hidden = shown === 0;
+        total += shown;
       }
+      // 결과 개수는 실제로 보이는 카드 수다
+      if (countEl) {
+        countEl.hidden = !query || total === 0;
+        countEl.textContent = query ? '“' + input.value.trim() + '” 검색 결과 ' + total + '개' : '';
+      }
+      if (emptyEl) emptyEl.hidden = !query || total > 0;
     };
 
-    // 주소의 앵커가 탭 주소일 때만 반응한다(#top 같은 다른 앵커는 필터를 바꾸지 않는다)
+    // 검색어는 주소(?q=)에 남겨 새로고침 뒤에도 같은 결과가 보이게 한다. 앵커(#perfume 등)는 그대로 둔다
+    var setQuery = function (value) {
+      query = normalize(value);
+      apply();
+      try {
+        var url = new URL(location.href);
+        if (query) url.searchParams.set('q', value.trim());
+        else url.searchParams.delete('q');
+        history.replaceState(history.state, '', url.href);
+      } catch (e) { /* 주소를 바꿀 수 없어도 검색은 동작한다 */ }
+    };
+
+    // 주소의 앵커가 탭 주소일 때만 필터를 바꾼다(#top 같은 다른 앵커는 바꾸지 않는다).
+    // #search(Header 검색 아이콘)는 All에서 검색 입력으로 간다.
     var fromHash = function (scroll) {
       var id = location.hash.slice(1);
-      if (id !== all && categories.indexOf(id) === -1) {
-        if (!id) applyFilter(null);
+      if (id === 'search') {
+        category = null;
+        apply();
+        if (input) {
+          input.focus();
+          // 다른 페이지에서 #search로 들어오면 브라우저의 앵커 이동이 끝난 뒤 초점이 풀릴 수 있어, 불러오기가 끝나면 한 번 더 둔다
+          if (document.readyState !== 'complete') window.addEventListener('load', function () { input.focus(); }, { once: true });
+        }
         return;
       }
-      applyFilter(id === all ? null : id);
+      if (id !== all && categories.indexOf(id) === -1) {
+        if (!id) { category = null; apply(); }
+        return;
+      }
+      category = id === all ? null : id;
+      apply();
       // 숨겨져 있던 제품군으로 이동한 경우 브라우저가 위치를 못 잡으므로 다시 맞춘다
       var target = document.getElementById(id);
       if (scroll && target) target.scrollIntoView();
     };
+
+    if (form && input) {
+      searchWrap.hidden = false;
+      var initial = null;
+      try { initial = new URLSearchParams(location.search).get('q'); } catch (e) { initial = null; }
+      if (initial) { input.value = initial; query = normalize(initial); }
+      input.addEventListener('input', function () { setQuery(input.value); });
+      // Enter: 이미 입력하는 동안 걸러지므로 페이지를 다시 불러오지 않는다
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        setQuery(input.value);
+      });
+      // 결과 없음의 View All: 검색어와 제품군을 모두 지우고 전체 목록(#list)으로
+      var reset = document.querySelector('[data-search-reset]');
+      if (reset) reset.addEventListener('click', function () {
+        input.value = '';
+        category = null;
+        setQuery('');
+      });
+    }
 
     fromHash(location.hash !== '');
     window.addEventListener('hashchange', function () { fromHash(true); });

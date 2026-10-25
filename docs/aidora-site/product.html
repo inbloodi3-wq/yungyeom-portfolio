@@ -15,13 +15,14 @@
   <script src="../js/top-button.js" defer></script>
   <script src="js/products.js" defer></script>
   <script src="js/main.js" defer></script>
+  <script src="js/cart.js" defer></script>
 </head>
 <body class="page-product">
 
   <!-- 포트폴리오의 시연 사이트임을 알리고 Case Study로 돌아가는 줄. AIDORA 디자인의 일부가 아니다. -->
   <div class="demo-bar" id="top" tabindex="-1">
     <a class="demo-bar__back" href="../aidora.html#web-design">← AIDORA Case Study</a>
-    <span class="demo-bar__note">포트폴리오용 시연 사이트입니다. 검색·계정·장바구니·결제는 제공하지 않습니다.</span>
+    <span class="demo-bar__note">포트폴리오용 시연 사이트입니다. 주문·결제·계정 기능은 제공하지 않습니다.</span>
   </div>
 
   <header class="site-header">
@@ -33,12 +34,12 @@
         <a href="collection.html#gift-trial">Gift &amp; Trial</a>
         <a href="brand.html">Brand</a>
     </nav>
-    <!-- 검색·언어·계정·장바구니는 시연 범위가 아니라서 모양만 둔다 -->
-    <ul class="site-tools" aria-hidden="true">
-      <li><img src="assets/icon-search.svg" alt="" width="24" height="24"></li>
-      <li><img src="assets/icon-language.svg" alt="" width="20" height="20"></li>
-      <li><img src="assets/icon-account.svg" alt="" width="20" height="20"></li>
-      <li><img src="assets/icon-cart.svg" alt="" width="20" height="20"></li>
+    <!-- 검색은 Collection 검색, 장바구니는 cart.html로 간다. 언어·계정은 시연 범위가 아니라서 모양만 둔다 -->
+    <ul class="site-tools">
+      <li><a href="collection.html#search" aria-label="검색"><img src="assets/icon-search.svg" alt="" width="24" height="24"></a></li>
+      <li aria-hidden="true"><img src="assets/icon-language.svg" alt="" width="20" height="20"></li>
+      <li aria-hidden="true"><img src="assets/icon-account.svg" alt="" width="20" height="20"></li>
+      <li><a href="cart.html" aria-label="장바구니"><img src="assets/icon-cart.svg" alt="" width="20" height="20"></a></li>
     </ul>
   </header>
 
@@ -67,9 +68,13 @@
           <p class="pdp-hero__price" data-price aria-live="polite">235,000 KRW</p>
           <p class="buttons">
             <button class="button button--solid" type="button" disabled>구매하기</button>
-            <button class="button" type="button" disabled>장바구니 담기</button>
+            <!-- 장바구니 담기는 JavaScript(js/cart.js)가 켠다. 꺼져 있으면 기존처럼 비활성이다 -->
+            <button class="button" type="button" disabled data-cart-add="cold-monolith">장바구니 담기</button>
           </p>
-          <p class="demo-note">시연 사이트에서는 구매와 장바구니가 동작하지 않습니다.</p>
+          <div role="status">
+            <p class="demo-note" data-cart-note>시연 사이트에서는 구매가 동작하지 않습니다.</p>
+            <p class="added-note" hidden data-cart-added>장바구니에 담았습니다. <a class="link-line" href="cart.html">View Cart</a></p>
+          </div>
         </div>
       </section>
     </div>
