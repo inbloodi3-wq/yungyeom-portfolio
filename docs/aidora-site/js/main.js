@@ -16,6 +16,9 @@
   if (filter) {
     var tabs = filter.querySelectorAll('a[href^="#"]');
     var groups = document.querySelectorAll('[data-filter-group]');
+    // 상단 메뉴(GNB)의 제품군 링크. 기존 밑줄(aria-current)을 선택된 제품군에만 둔다. All이면 어느 메뉴도 아니다.
+    var nav = document.querySelector('[data-filter-nav]');
+    var navLinks = nav ? nav.querySelectorAll('a[href*="#"]') : [];
     var all = filter.getAttribute('data-filter'); // All 탭의 주소(#list)
     var categories = [];
     for (var t = 0; t < tabs.length; t++) {
@@ -30,6 +33,10 @@
         tabs[i].classList.toggle('is-current', on);
         if (on) tabs[i].setAttribute('aria-current', 'true');
         else tabs[i].removeAttribute('aria-current');
+      }
+      for (var n = 0; n < navLinks.length; n++) {
+        if (category && navLinks[n].hash.slice(1) === category) navLinks[n].setAttribute('aria-current', 'page');
+        else navLinks[n].removeAttribute('aria-current');
       }
       for (var g = 0; g < groups.length; g++) {
         var items = groups[g].querySelectorAll('[data-product]');
