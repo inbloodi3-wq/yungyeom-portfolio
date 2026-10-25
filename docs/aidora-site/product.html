@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="css/site.css">
   <link rel="stylesheet" href="../css/top-button.css">
   <script src="../js/top-button.js" defer></script>
+  <script src="js/products.js" defer></script>
+  <script src="js/main.js" defer></script>
 </head>
 <body class="page-product">
 
@@ -60,9 +62,9 @@
             <li>Transparent Glass</li>
             <li>Package Grid</li>
           </ul>
-          <p class="t-caption t-upper pdp-hero__capacity">Capacity</p>
-          <p class="options"><span>35ml</span><span class="is-selected">75ml</span></p>
-          <p class="pdp-hero__price">235,000 KRW</p>
+          <p class="t-caption t-upper pdp-hero__capacity" id="capacity-label">Capacity</p>
+          <p class="options" role="group" aria-labelledby="capacity-label" data-capacity="cold-monolith"><button type="button" data-ml="35" aria-pressed="false">35ml</button><button class="is-selected" type="button" data-ml="75" aria-pressed="true">75ml</button></p>
+          <p class="pdp-hero__price" data-price aria-live="polite">235,000 KRW</p>
           <p class="buttons">
             <button class="button button--solid" type="button" disabled>구매하기</button>
             <button class="button" type="button" disabled>장바구니 담기</button>

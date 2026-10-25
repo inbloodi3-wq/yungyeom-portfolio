@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="css/site.css">
   <link rel="stylesheet" href="../css/top-button.css">
   <script src="../js/top-button.js" defer></script>
+  <script src="js/products.js" defer></script>
+  <script src="js/main.js" defer></script>
 </head>
 <body class="page-collection">
 
@@ -57,7 +59,7 @@
       </section>
     </div>
 
-    <nav class="col-filter" aria-label="제품군">
+    <nav class="col-filter" aria-label="제품군" data-filter="list">
       <div class="l-container">
         <ul>
           <li><a class="is-current" href="#list">All</a></li>
@@ -69,12 +71,12 @@
       </div>
     </nav>
 
-    <div class="l-container" id="list">
-      <section class="col-group" id="perfume">
+    <div class="l-container col-list" id="list">
+      <section class="col-group" id="perfume" data-filter-group>
         <h2 class="col-group__title">Signature Eau De Parfum</h2>
         <p class="col-group__text">Four moods designed to stay close.</p>
         <ul class="grid-4 grid-4--collection">
-          <li>
+          <li data-product="cold-monolith">
             <a class="item" href="product.html">
               <img class="item__image" src="assets/col-perfume-cold.webp" alt="COLD MONOLITH" width="358" height="446" loading="lazy">
               <h3 class="item__name">COLD MONOLITH</h3>
@@ -87,7 +89,7 @@
               <span class="link-line item__more">View Detail</span>
             </a>
           </li>
-          <li>
+          <li data-product="still-etude">
             <a class="item" href="product.html">
               <img class="item__image" src="assets/col-perfume-still.webp" alt="STILL ETUDE" width="358" height="446" loading="lazy">
               <h3 class="item__name">STILL ETUDE</h3>
@@ -100,7 +102,7 @@
               <span class="link-line item__more">View Detail</span>
             </a>
           </li>
-          <li>
+          <li data-product="santal-vacance">
             <a class="item" href="product.html">
               <img class="item__image" src="assets/col-perfume-santal.webp" alt="SANTAL VACANCE" width="358" height="446" loading="lazy">
               <h3 class="item__name">SANTAL VACANCE</h3>
@@ -113,7 +115,7 @@
               <span class="link-line item__more">View Detail</span>
             </a>
           </li>
-          <li>
+          <li data-product="blue-velvet-hour">
             <a class="item" href="product.html">
               <img class="item__image" src="assets/col-perfume-blue.webp" alt="BLUE VELVET HOUR" width="358" height="446" loading="lazy">
               <h3 class="item__name">BLUE VELVET HOUR</h3>
@@ -128,11 +130,11 @@
           </li>
         </ul>
       </section>
-      <section class="col-group" id="hand-body">
+      <section class="col-group" id="hand-body" data-filter-group>
         <h2 class="col-group__title">Hand &amp; Body</h2>
         <p class="col-group__text">손과 몸에 남는 향, 일상 속에서 반복되는 조용한 루틴.</p>
         <ul class="grid-4 grid-4--collection">
-          <li>
+          <li data-product="still-etude-air">
             <a class="item" href="product.html">
               <img class="item__image" src="assets/col-hand-still.webp" alt="STILL ETUDE AIR" width="358" height="446" loading="lazy">
               <h3 class="item__name">STILL ETUDE AIR</h3>
@@ -143,7 +145,7 @@
               <span class="link-line item__more">View Detail</span>
             </a>
           </li>
-          <li>
+          <li data-product="cold-monolith-fluid">
             <a class="item" href="product.html">
               <img class="item__image" src="assets/col-hand-cold.webp" alt="COLD MONOLITH FLUID" width="358" height="446" loading="lazy">
               <h3 class="item__name">COLD MONOLITH FLUID</h3>
@@ -154,7 +156,7 @@
               <span class="link-line item__more">View Detail</span>
             </a>
           </li>
-          <li>
+          <li data-product="still-etude-layer">
             <a class="item" href="product.html">
               <img class="item__image" src="assets/col-body-still.webp" alt="STILL ETUDE LAYER" width="358" height="446" loading="lazy">
               <h3 class="item__name">STILL ETUDE LAYER</h3>
@@ -165,7 +167,7 @@
               <span class="link-line item__more">View Detail</span>
             </a>
           </li>
-          <li>
+          <li data-product="santal-vacance-ritual">
             <a class="item" href="product.html">
               <img class="item__image" src="assets/col-body-santal.webp" alt="SANTAL VACANCE RITUAL" width="358" height="446" loading="lazy">
               <h3 class="item__name">SANTAL VACANCE RITUAL</h3>
@@ -176,7 +178,7 @@
               <span class="link-line item__more">View Detail</span>
             </a>
           </li>
-          <li>
+          <li data-product="blue-velvet-hour-tide">
             <a class="item" href="product.html">
               <img class="item__image" src="assets/col-body-blue.webp" alt="BLUE VELVET HOUR TIDE" width="358" height="446" loading="lazy">
               <h3 class="item__name">BLUE VELVET HOUR TIDE</h3>
@@ -187,7 +189,7 @@
               <span class="link-line item__more">View Detail</span>
             </a>
           </li>
-          <li>
+          <li data-product="refill-pouch">
             <a class="item" href="product.html">
               <img class="item__image" src="assets/col-refill.webp" alt="REFILL POUCH" width="358" height="446" loading="lazy">
               <h3 class="item__name">REFILL POUCH</h3>
@@ -200,11 +202,11 @@
           </li>
         </ul>
       </section>
-      <section class="col-group" id="home-space">
+      <section class="col-group" id="home-space" data-filter-group>
         <h2 class="col-group__title">Home &amp; Space</h2>
         <p class="col-group__text">공간에 남는 향, 일상에 놓이는 오브제.</p>
         <ul class="grid-4 grid-4--collection">
-          <li>
+          <li data-product="cold-monolith-atmos">
             <a class="item" href="product.html">
               <img class="item__image" src="assets/col-diffuser-cold.webp" alt="COLD MONOLITH ATMOS" width="358" height="446" loading="lazy">
               <h3 class="item__name">COLD MONOLITH ATMOS</h3>
@@ -215,7 +217,7 @@
               <span class="link-line item__more">View Detail</span>
             </a>
           </li>
-          <li>
+          <li data-product="still-etude-void">
             <a class="item" href="product.html">
               <img class="item__image" src="assets/col-diffuser-still.webp" alt="STILL ETUDE VOID" width="358" height="446" loading="lazy">
               <h3 class="item__name">STILL ETUDE VOID</h3>
@@ -226,7 +228,7 @@
               <span class="link-line item__more">View Detail</span>
             </a>
           </li>
-          <li>
+          <li data-product="blue-velvet-hour-mist">
             <a class="item" href="product.html">
               <img class="item__image" src="assets/col-diffuser-blue.webp" alt="BLUE VELVET HOUR MIST" width="358" height="446" loading="lazy">
               <h3 class="item__name">BLUE VELVET HOUR MIST</h3>
@@ -237,7 +239,7 @@
               <span class="link-line item__more">View Detail</span>
             </a>
           </li>
-          <li>
+          <li data-product="still-etude-beam">
             <a class="item" href="product.html">
               <img class="item__image" src="assets/col-candle-still.webp" alt="STILL ETUDE BEAM" width="358" height="446" loading="lazy">
               <h3 class="item__name">STILL ETUDE BEAM</h3>
@@ -248,7 +250,7 @@
               <span class="link-line item__more">View Detail</span>
             </a>
           </li>
-          <li>
+          <li data-product="santal-vacance-calm">
             <a class="item" href="product.html">
               <img class="item__image" src="assets/col-candle-santal.webp" alt="SANTAL VACANCE CALM" width="358" height="446" loading="lazy">
               <h3 class="item__name">SANTAL VACANCE CALM</h3>
@@ -259,7 +261,7 @@
               <span class="link-line item__more">View Detail</span>
             </a>
           </li>
-          <li>
+          <li data-product="blue-velvet-hour-deep">
             <a class="item" href="product.html">
               <img class="item__image" src="assets/col-candle-blue.webp" alt="BLUE VELVET HOUR DEEP" width="358" height="446" loading="lazy">
               <h3 class="item__name">BLUE VELVET HOUR DEEP</h3>
@@ -272,11 +274,11 @@
           </li>
         </ul>
       </section>
-      <section class="col-group" id="gift-trial">
+      <section class="col-group" id="gift-trial" data-filter-group>
         <h2 class="col-group__title">Gift &amp; Trial</h2>
         <p class="col-group__text">처음 만나는 향부터, 마음을 전하는 선물까지.</p>
         <ul class="grid-4 grid-4--collection">
-          <li>
+          <li data-product="discovery-set">
             <a class="item" href="product.html">
               <img class="item__image" src="assets/col-set-discovery.webp" alt="5ml Discovery Set" width="358" height="446" loading="lazy">
               <h3 class="item__name">5ml Discovery Set</h3>
@@ -287,7 +289,7 @@
               <span class="link-line item__more">View Detail</span>
             </a>
           </li>
-          <li>
+          <li data-product="trio-set">
             <a class="item" href="product.html">
               <img class="item__image" src="assets/col-set-trio.webp" alt="35ml Trio Set" width="358" height="446" loading="lazy">
               <h3 class="item__name">35ml Trio Set</h3>
@@ -298,7 +300,7 @@
               <span class="link-line item__more">View Detail</span>
             </a>
           </li>
-          <li>
+          <li data-product="still-etude-duo-set">
             <a class="item" href="product.html">
               <img class="item__image" src="assets/col-set-duo.webp" alt="STILL ETUDE Duo Set" width="358" height="446" loading="lazy">
               <h3 class="item__name">STILL ETUDE Duo Set</h3>
@@ -309,7 +311,7 @@
               <span class="link-line item__more">View Detail</span>
             </a>
           </li>
-          <li>
+          <li data-product="quiet-room-set">
             <a class="item" href="product.html">
               <img class="item__image" src="assets/col-set-room.webp" alt="Quiet Room Set" width="358" height="446" loading="lazy">
               <h3 class="item__name">Quiet Room Set</h3>

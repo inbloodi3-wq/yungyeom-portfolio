@@ -157,7 +157,8 @@ a.card:hover .card__name, a.card:focus-visible .card__name { text-decoration: un
 .col-filter a:hover, .col-filter a:focus-visible, .col-filter a.is-current { border-bottom-color: var(--color-text); color: var(--color-text); }
 
 .col-group { padding-top: var(--section-block); scroll-margin-top: 1rem; }
-.col-group:last-child { padding-bottom: var(--section-block); }
+/* 아래 여백은 목록 전체에 둔다 — 필터로 마지막 제품군이 숨겨져도 Footer까지의 간격이 같다 */
+.col-list { padding-bottom: var(--section-block); }
 .col-group__title { font-family: var(--font-en); font-size: var(--text-h2); font-weight: 400; line-height: var(--leading); }
 .col-group__text { margin-top: 0.5rem; margin-bottom: 3.5rem; font-size: max(var(--text-caption), var(--text-min)); color: var(--color-text-muted); }
 
@@ -183,7 +184,9 @@ a.item:hover .item__name, a.item:focus-visible .item__name { text-decoration: un
 .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 6.5rem; padding-bottom: 6rem; border-bottom: 1px solid var(--color-line); }
 .chips li { padding: 0.25rem 1rem; border: 1px solid var(--color-line); font-family: var(--font-en); font-size: max(var(--text-caption), var(--text-min)); letter-spacing: var(--tracking-caption); }
 .options { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
-.options span { padding: 0.75rem; border: 1px solid var(--color-line); font-family: var(--font-en); font-size: max(var(--text-body), var(--text-min)); letter-spacing: var(--tracking-nav); text-align: center; text-transform: uppercase; color: var(--color-text-caption); }
+/* 용량 버튼: 버튼 기본 모양(배경·여백)을 지워 Figma 선택 칸 모양 그대로 둔다 */
+.options button { margin: 0; background: none; cursor: pointer; }
+.options span, .options button { padding: 0.75rem; border: 1px solid var(--color-line); font-family: var(--font-en); font-size: max(var(--text-body), var(--text-min)); letter-spacing: var(--tracking-nav); text-align: center; text-transform: uppercase; color: var(--color-text-caption); }
 .options .is-selected { border-color: var(--color-text); color: var(--color-text); }
 .pdp-hero__price { margin-top: 5rem; font-family: var(--font-en); font-size: var(--text-h3); font-weight: 500; letter-spacing: var(--tracking-title); }
 .buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
