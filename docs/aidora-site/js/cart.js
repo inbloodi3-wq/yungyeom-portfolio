@@ -59,6 +59,13 @@
     var product = findProduct(addButton.getAttribute('data-cart-add'));
     var note = document.querySelector('[data-cart-note]');
     var added = document.querySelector('[data-cart-added]');
+    var limit = document.querySelector('[data-cart-limit]');
+    // 안내 자리 하나에 셋 중 하나만 보인다: 기본 안내 / 담기 완료 / 최대 수량
+    var showNote = function (which) {
+      if (note) note.hidden = which !== note;
+      if (added) added.hidden = which !== added;
+      if (limit) limit.hidden = which !== limit;
+    };
     if (product) {
       addButton.disabled = false;
       addButton.addEventListener('click', function () {
@@ -70,10 +77,16 @@
         }
         if (!option) return;
         var list = load();
+        // 이미 최대 수량이면 담지 않고, 성공 안내 대신 최대 수량 안내를 보인다
+        for (var j = 0; j < list.length; j++) {
+          if (list[j].id === product.id && list[j].option === option.label && list[j].qty >= MAX_QTY) {
+            showNote(limit);
+            return;
+          }
+        }
         list.push({ id: product.id, option: option.label, qty: 1 });
         save(clean(list));
-        if (note) note.hidden = true;
-        if (added) added.hidden = false;
+        showNote(added);
       });
     }
   }
