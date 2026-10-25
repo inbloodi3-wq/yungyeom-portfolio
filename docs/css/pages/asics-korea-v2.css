@@ -42,6 +42,13 @@
   gap: calc(var(--space-project-gap-md) * 1px);
 }
 
+/* 첫 화면 요약문: Section 머리의 굵은 문장과 달리 제목(h1) 아래 요약이므로 요약(lead) 크기·보통 굵기로 둔다 */
+.akv-head .akv-statement {
+  font-size: calc(var(--text-ak-lead-size-mobile) * 1px);
+  font-weight: var(--weight-akv-regular);
+  line-height: var(--text-ak-body-leading);
+}
+
 .akv-notice {
   max-width: calc(var(--layout-project-measure-note) * 1em);
   padding: calc(var(--space-project-gap-sm) * 1px) calc(var(--space-project-gap-md) * 1px);
@@ -380,6 +387,7 @@
    ============================================================ */
 @media (min-width: 1024px) {
   .akv-statement { font-size: calc(var(--text-akv-statement-size) * 1px); }
+  .akv-head .akv-statement { font-size: calc(var(--text-ak-lead-size) * 1px); }
   .akv-role__label { font-size: calc(var(--text-ak-item-size) * 1px); }
   .akv-overview { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: calc(var(--space-ak-gap) * 1px); }
   .akv-columns { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: calc(var(--space-ak-gap) * 1px); }

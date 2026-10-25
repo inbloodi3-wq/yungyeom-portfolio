@@ -1,5 +1,5 @@
 // main.js - 진보적 향상. JS가 없어도 모든 내용과 유형 필터는 동작한다.
-// 목록: URL ?type=0N 유형 필터 선택, 비교 트레이(최대 3개), 고른 모델 ID를 ?compare=로 주소에 유지.
+// 목록: URL ?type=0N 유형 필터 선택, 비교 트레이(최대 3개), 고른 모델 ID를 고른 순서대로 ?compare=로 주소에 유지.
 // 비교: ?models=ID,ID로 고른 열만 표시(없으면 추천 3열). 상세: 컬러별 품절 사이즈, 선택 요약.
 (function () {
   var MAX_COMPARE = 3;
@@ -74,17 +74,31 @@
       window.history.replaceState(null, "", window.location.pathname + (query ? "?" + query : "") + window.location.hash);
     };
 
+    // 고른 순서. 체크를 푼 모델은 빼고, 새로 체크한 모델은 뒤에 붙인다
+    var order = initial.slice();
+
     var render = function () {
-      chipList.textContent = "";
       var ids = [];
-      for (var i = 0; i < checks.length; i++) {
-        if (checks[i].checked) {
-          var li = document.createElement("li");
-          li.className = "compare-tray__chip";
-          li.textContent = checks[i].getAttribute("data-name");
-          chipList.appendChild(li);
-          ids.push(checks[i].getAttribute("data-compare"));
+      var i;
+      for (i = 0; i < order.length; i++) {
+        if (findCheck(order[i]).checked) {
+          ids.push(order[i]);
         }
+      }
+      for (i = 0; i < checks.length; i++) {
+        var id = checks[i].getAttribute("data-compare");
+        if (checks[i].checked && ids.indexOf(id) === -1) {
+          ids.push(id);
+        }
+      }
+      order = ids;
+
+      chipList.textContent = "";
+      for (i = 0; i < ids.length; i++) {
+        var li = document.createElement("li");
+        li.className = "compare-tray__chip";
+        li.textContent = findCheck(ids[i]).getAttribute("data-name");
+        chipList.appendChild(li);
       }
       tray.hidden = ids.length === 0;
       go.href = "compare.html" + (ids.length ? "?models=" + ids.join(",") : "");
