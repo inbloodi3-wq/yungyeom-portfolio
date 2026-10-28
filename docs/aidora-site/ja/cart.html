@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cart — AIDORA</title>
+  <meta name="description" content="AIDORAデモサイトのカート。注文・決済機能はありません。">
+  <meta name="robots" content="noindex">
+
+  <link rel="icon" href="data:,">
+
+  <!-- 일본어 Page: 한국어 Page(../cart.html)와 같은 구조. 행 template의 data-cart-row 값은 상품 이미지 폴더 -->
+  <link rel="stylesheet" href="../../assets/fonts/pretendard-jp/pretendard-jp.css">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/site.css">
+  <link rel="stylesheet" href="../../css/top-button.css">
+  <script src="../../js/top-button.js" defer></script>
+  <script src="../js/lang-switch.js" defer></script>
+  <script src="../js/products.js" defer></script>
+  <script src="../js/cart.js" defer></script>
+</head>
+<body class="page-cart">
+
+  <!-- 포트폴리오의 시연 사이트임을 알리고 Case Study로 돌아가는 줄. AIDORA 디자인의 일부가 아니다. -->
+  <div class="demo-bar" id="top" tabindex="-1">
+    <a class="demo-bar__back" href="../../aidora.html#web-design" hreflang="ko">← AIDORA Case Study（韓国語）</a>
+    <span class="demo-bar__note">ポートフォリオ用のデモサイトです。注文・決済・アカウント機能はありません。</span>
+  </div>
+
+  <header class="site-header">
+    <a class="site-header__logo" href="index.html"><img src="../assets/logo.svg" alt="AIDORA" width="469" height="68"></a>
+    <nav class="site-nav" aria-label="AIDORA">
+        <a href="collection.html#perfume">Perfume</a>
+        <a href="collection.html#home-space">Home &amp; Space</a>
+        <a href="collection.html#hand-body">Hand &amp; Body</a>
+        <a href="collection.html#gift-trial">Gift &amp; Trial</a>
+        <a href="brand.html">Brand</a>
+    </nav>
+    <!-- 검색은 Collection 검색, 장바구니는 cart.html로 간다. 언어(지구 아이콘)는 한국어의 같은 Page로 간다(js/lang-switch.js). 계정은 시연 범위가 아니라서 모양만 둔다 -->
+    <ul class="site-tools">
+      <li><a href="collection.html#search" aria-label="検索"><img src="../assets/icon-search.svg" alt="" width="24" height="24"></a></li>
+      <li><a href="../cart.html" hreflang="ko" lang="ko" aria-label="한국어" data-lang-switch><img src="../assets/icon-language.svg" alt="" width="20" height="20"></a></li>
+      <li aria-hidden="true"><img src="../assets/icon-account.svg" alt="" width="20" height="20"></li>
+      <li><a href="cart.html" aria-label="カート" aria-current="page"><img src="../assets/icon-cart.svg" alt="" width="20" height="20"></a></li>
+    </ul>
+  </header>
+
+  <main>
+    <div class="l-container">
+      <nav class="crumbs" aria-label="現在の位置">
+        <a href="collection.html">Collection</a><span aria-hidden="true">/</span><span>Cart</span>
+      </nav>
+
+      <!-- 담은 상품은 js/cart.js가 공통 상품 데이터로 그린다. JavaScript가 없으면 담을 수 없으므로 빈 상태가 보인다 -->
+      <section class="cart" aria-labelledby="cart-title" data-cart>
+        <div class="section-head">
+          <h1 class="section-head__title" id="cart-title" tabindex="-1">Cart</h1>
+          <p class="t-caption t-upper" data-cart-count>0 Items</p>
+        </div>
+
+        <div class="cart-layout" hidden data-cart-layout>
+          <ul class="cart-list" aria-label="カートの商品" data-cart-list></ul>
+
+          <div class="cart-summary">
+            <p class="cart-total" aria-live="polite"><span class="cart-total__label">Total</span><span class="cart-total__price" data-cart-total>0 KRW</span></p>
+            <p class="buttons">
+              <button class="button button--solid" type="button" disabled>購入する</button>
+            </p>
+            <p class="demo-note">デモサイトでは決済できません。</p>
+            <a class="link-line" href="collection.html#list">View All</a>
+          </div>
+        </div>
+
+        <div class="empty" data-cart-empty>
+          <p class="empty__text">カートに商品はありません。</p>
+          <a class="link-line" href="collection.html#list">View All</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <template data-cart-row="../assets/">
+    <li class="cart-row">
+      <img class="cart-row__image" alt="" width="358" height="446">
+      <div class="cart-row__info">
+        <p class="cart-row__name" data-name></p>
+        <p class="cart-row__sub" data-sub></p>
+        <p class="t-caption" data-option></p>
+      </div>
+      <div class="cart-row__controls">
+        <div class="qty" role="group" data-qty-group>
+          <button type="button" data-step="-1">−</button><output></output><button type="button" data-step="1">+</button>
+        </div>
+        <p class="cart-row__price" data-line-price></p>
+        <button class="cart-row__remove" type="button" data-remove>削除</button>
+      </div>
+    </li>
+  </template>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__top">
+        <div>
+          <img class="site-footer__logo" src="../assets/logo-white.svg" alt="AIDORA" width="469" height="68" loading="lazy">
+          <p class="site-footer__tagline">空間を覆ってしまうのではなく、環境と感情のあいだの余白に静かにとどまる香り。</p>
+          <p class="site-footer__label">Customer Center</p>
+          <p class="site-footer__phone">1588-0000</p>
+          <p class="site-footer__hours">Mon–Fri 10:00–17:00 Lunch 12:00–13:00</p>
+        </div>
+        <div class="site-footer__cols">
+          <div>
+            <h2 class="site-footer__heading">Collection</h2>
+            <ul class="site-footer__list">
+              <li><a href="collection.html#perfume">Perfume</a></li>
+              <li><a href="collection.html#home-space">Home &amp; Space</a></li>
+              <li><a href="collection.html#hand-body">Hand &amp; Body</a></li>
+              <li><a href="collection.html#gift-trial">Gift &amp; Trial</a></li>
+              <li><a href="collection.html#gift-trial">Discovery Set</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="site-footer__heading">About</h2>
+            <ul class="site-footer__list">
+              <li><a href="brand.html">Brand Story</a></li>
+              <li><a href="brand.html#philosophy">Scent Philosophy</a></li>
+              <li><a href="brand.html#material">Material &amp; Object</a></li>
+              <li>Stores</li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="site-footer__heading">Client Care</h2>
+            <ul class="site-footer__list">
+              <li>Contact Us</li>
+              <li>Shipping &amp; Returns</li>
+              <li>Gift Wrapping</li>
+              <li>Sustainability</li>
+              <li>FAQ</li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="site-footer__heading">Newsletter</h2>
+            <p class="site-footer__news">AIDORAの新しい香りと静かなお知らせを、いち早くお受け取りください。</p>
+            <p class="site-footer__field"><span>Email Address</span><span>Subscribe</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <p>© 2026 AIDORA. All rights reserved.</p>
+        <ul>
+          <li>Instagram</li>
+          <li>Kakao</li>
+          <li>Terms</li>
+          <li>Privacy</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <a class="top-button" href="#top" data-top-button aria-label="ページの先頭へ">Top</a>
+
+</body>
+</html>

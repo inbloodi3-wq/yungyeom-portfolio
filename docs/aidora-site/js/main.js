@@ -3,6 +3,11 @@
 // JavaScript가 없으면 기존 화면 그대로다(필터는 해당 제품군으로 이동하는 앵커, 검색 줄은 숨김, 용량은 75ml 표시).
 (function () {
   var products = window.AIDORA_PRODUCTS || [];
+  // 일본어 Page(<html lang="ja">)만 일본어 문구·검색 필드를 쓴다. 그 밖은 기존 한국어 그대로
+  var isJa = /^ja\b/i.test(document.documentElement.lang || '');
+  var TEXT = isJa
+    ? { count: function (q, n) { return '「' + q + '」の検索結果 ' + n + '件'; } }
+    : { count: function (q, n) { return '“' + q + '” 검색 결과 ' + n + '개'; } };
 
   function findProduct(id) {
     for (var i = 0; i < products.length; i++) if (products[i].id === id) return products[i];
@@ -27,6 +32,7 @@
     }
 
     // 검색: 공통 데이터의 확정 값(영문 이름·한글 이름·종류·노트·설명·제품군 이름)에서 찾는다. 비어 있는(null) 값은 대상이 아니다.
+    // 일본어 Page는 한글 이름·설명 대신 ja.nameKana·ja.description에서 찾는다.
     // 제품군 필터와 함께 쓰면 두 조건을 모두 만족하는 상품만 보인다.
     var searchWrap = document.querySelector('[data-search-wrap]');
     var form = document.querySelector('[data-search]');
@@ -41,7 +47,10 @@
 
     var normalize = function (text) { return String(text).replace(/\s+/g, ' ').trim().toLowerCase(); };
     var searchText = function (p) {
-      var fields = [p.name, p.nameKr, p.type, p.notes, p.description, categoryNames[p.category]];
+      var ja = p.ja || {};
+      var fields = isJa
+        ? [p.name, ja.nameKana, p.type, p.notes, ja.description, categoryNames[p.category]]
+        : [p.name, p.nameKr, p.type, p.notes, p.description, categoryNames[p.category]];
       var words = [];
       for (var i = 0; i < fields.length; i++) if (typeof fields[i] === 'string') words.push(fields[i]);
       return normalize(words.join(' '));
@@ -76,7 +85,7 @@
       // 결과 개수는 실제로 보이는 카드 수다
       if (countEl) {
         countEl.hidden = !query || total === 0;
-        countEl.textContent = query ? '“' + input.value.trim() + '” 검색 결과 ' + total + '개' : '';
+        countEl.textContent = query ? TEXT.count(input.value.trim(), total) : '';
       }
       if (emptyEl) emptyEl.hidden = !query || total > 0;
     };

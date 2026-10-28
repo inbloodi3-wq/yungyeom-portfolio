@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="css/site.css">
   <link rel="stylesheet" href="../css/top-button.css">
   <script src="../js/top-button.js" defer></script>
+  <script src="js/lang-switch.js" defer></script>
 </head>
 <body class="page-brand">
 
@@ -31,10 +32,10 @@
         <a href="collection.html#gift-trial">Gift &amp; Trial</a>
         <a href="brand.html" aria-current="page">Brand</a>
     </nav>
-    <!-- 검색은 Collection 검색, 장바구니는 cart.html로 간다. 언어·계정은 시연 범위가 아니라서 모양만 둔다 -->
+    <!-- 검색은 Collection 검색, 장바구니는 cart.html로 간다. 언어(지구 아이콘)는 일본어의 같은 Page로 간다(js/lang-switch.js). 계정은 시연 범위가 아니라서 모양만 둔다 -->
     <ul class="site-tools">
       <li><a href="collection.html#search" aria-label="검색"><img src="assets/icon-search.svg" alt="" width="24" height="24"></a></li>
-      <li aria-hidden="true"><img src="assets/icon-language.svg" alt="" width="20" height="20"></li>
+      <li><a href="ja/brand.html" hreflang="ja" lang="ja" aria-label="日本語" data-lang-switch><img src="assets/icon-language.svg" alt="" width="20" height="20"></a></li>
       <li aria-hidden="true"><img src="assets/icon-account.svg" alt="" width="20" height="20"></li>
       <li><a href="cart.html" aria-label="장바구니"><img src="assets/icon-cart.svg" alt="" width="20" height="20"></a></li>
     </ul>
@@ -65,7 +66,7 @@
             <p class="columns__text">조용하지만 사라지지 않는 존재감</p>
           </li>
           <li>
-            <h3 class="columns__title">Emotional Space</h3>
+            <h3 class="columns__title">Emo&shy;tional Space</h3>
             <p class="columns__text">감정이 머무를 수 있는 여백</p>
           </li>
           <li>
@@ -73,7 +74,7 @@
             <p class="columns__text">시간이 지나며 남는 부드러운 흔적</p>
           </li>
           <li>
-            <h3 class="columns__title">Architectural Balance</h3>
+            <h3 class="columns__title">Archi&shy;tec&shy;tural Balance</h3>
             <p class="columns__text">형태와 향, 공간의 정제된 균형</p>
           </li>
         </ul>
@@ -127,7 +128,7 @@
         </div>
         <ul class="columns">
           <li>
-            <h3 class="columns__title">Transparent Glass</h3>
+            <h3 class="columns__title">Trans&shy;parent Glass</h3>
             <p class="columns__text">빛을 통과시키는 차가운 투명감</p>
           </li>
           <li>

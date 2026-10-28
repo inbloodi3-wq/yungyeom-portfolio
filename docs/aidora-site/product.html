@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="css/site.css">
   <link rel="stylesheet" href="../css/top-button.css">
   <script src="../js/top-button.js" defer></script>
+  <script src="js/lang-switch.js" defer></script>
   <script src="js/products.js" defer></script>
   <script src="js/main.js" defer></script>
   <script src="js/cart.js" defer></script>
@@ -34,10 +35,10 @@
         <a href="collection.html#gift-trial">Gift &amp; Trial</a>
         <a href="brand.html">Brand</a>
     </nav>
-    <!-- 검색은 Collection 검색, 장바구니는 cart.html로 간다. 언어·계정은 시연 범위가 아니라서 모양만 둔다 -->
+    <!-- 검색은 Collection 검색, 장바구니는 cart.html로 간다. 언어(지구 아이콘)는 일본어의 같은 Page로 간다(js/lang-switch.js). 계정은 시연 범위가 아니라서 모양만 둔다 -->
     <ul class="site-tools">
       <li><a href="collection.html#search" aria-label="검색"><img src="assets/icon-search.svg" alt="" width="24" height="24"></a></li>
-      <li aria-hidden="true"><img src="assets/icon-language.svg" alt="" width="20" height="20"></li>
+      <li><a href="ja/product.html" hreflang="ja" lang="ja" aria-label="日本語" data-lang-switch><img src="assets/icon-language.svg" alt="" width="20" height="20"></a></li>
       <li aria-hidden="true"><img src="assets/icon-account.svg" alt="" width="20" height="20"></li>
       <li><a href="cart.html" aria-label="장바구니"><img src="assets/icon-cart.svg" alt="" width="20" height="20"></a></li>
     </ul>

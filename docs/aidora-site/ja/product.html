@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>COLD MONOLITH — AIDORA</title>
+  <meta name="description" content="ひんやりとした構造感のなかに、静かにとどまる香り。AIDORA Cold Monolith Eau De Parfum.">
+  <meta name="robots" content="noindex">
+
+  <link rel="icon" href="data:,">
+
+  <!-- 일본어 Page: 한국어 Page(../product.html)와 같은 구조 -->
+  <link rel="stylesheet" href="../../assets/fonts/pretendard-jp/pretendard-jp.css">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/site.css">
+  <link rel="stylesheet" href="../../css/top-button.css">
+  <script src="../../js/top-button.js" defer></script>
+  <script src="../js/lang-switch.js" defer></script>
+  <script src="../js/products.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/cart.js" defer></script>
+</head>
+<body class="page-product">
+
+  <!-- 포트폴리오의 시연 사이트임을 알리고 Case Study로 돌아가는 줄. AIDORA 디자인의 일부가 아니다. -->
+  <div class="demo-bar" id="top" tabindex="-1">
+    <a class="demo-bar__back" href="../../aidora.html#web-design" hreflang="ko">← AIDORA Case Study（韓国語）</a>
+    <span class="demo-bar__note">ポートフォリオ用のデモサイトです。注文・決済・アカウント機能はありません。</span>
+  </div>
+
+  <header class="site-header">
+    <a class="site-header__logo" href="index.html"><img src="../assets/logo.svg" alt="AIDORA" width="469" height="68"></a>
+    <nav class="site-nav" aria-label="AIDORA">
+        <a href="collection.html#perfume">Perfume</a>
+        <a href="collection.html#home-space">Home &amp; Space</a>
+        <a href="collection.html#hand-body">Hand &amp; Body</a>
+        <a href="collection.html#gift-trial">Gift &amp; Trial</a>
+        <a href="brand.html">Brand</a>
+    </nav>
+    <!-- 검색은 Collection 검색, 장바구니는 cart.html로 간다. 언어(지구 아이콘)는 한국어의 같은 Page로 간다(js/lang-switch.js). 계정은 시연 범위가 아니라서 모양만 둔다 -->
+    <ul class="site-tools">
+      <li><a href="collection.html#search" aria-label="検索"><img src="../assets/icon-search.svg" alt="" width="24" height="24"></a></li>
+      <li><a href="../product.html" hreflang="ko" lang="ko" aria-label="한국어" data-lang-switch><img src="../assets/icon-language.svg" alt="" width="20" height="20"></a></li>
+      <li aria-hidden="true"><img src="../assets/icon-account.svg" alt="" width="20" height="20"></li>
+      <li><a href="cart.html" aria-label="カート"><img src="../assets/icon-cart.svg" alt="" width="20" height="20"></a></li>
+    </ul>
+  </header>
+
+  <main>
+    <div class="l-container">
+      <!-- Collection으로 돌아가는 길. Figma에는 없고 시연 사이트의 이동을 위해 더했다. -->
+      <nav class="crumbs" aria-label="現在の位置">
+        <a href="collection.html">Collection</a><span aria-hidden="true">/</span><a href="collection.html#perfume">Perfume</a><span aria-hidden="true">/</span><span>Cold Monolith</span>
+      </nav>
+
+      <section class="pdp-hero">
+        <img class="pdp-hero__image" src="../assets/pdp-hero.webp" alt="AIDORA Cold Monolith オードパルファム 75mlボトル" width="672" height="800">
+        <div>
+          <p class="t-caption t-upper">Eau De Parfum</p>
+          <h1 class="pdp-hero__name">COLD MONOLITH</h1>
+          <p class="pdp-hero__kr">コールド・<wbr>モノリス</p>
+          <p class="pdp-hero__text">ひんやりとした構造感のなかに、静かにとどまる香り。</p>
+          <ul class="chips">
+            <li>Basic Perfume</li>
+            <li>Matte Black Cap</li>
+            <li>Transparent Glass</li>
+            <li>Package Grid</li>
+          </ul>
+          <p class="t-caption t-upper pdp-hero__capacity" id="capacity-label">Capacity</p>
+          <p class="options" role="group" aria-labelledby="capacity-label" data-capacity="cold-monolith"><button type="button" data-ml="35" aria-pressed="false">35ml</button><button class="is-selected" type="button" data-ml="75" aria-pressed="true">75ml</button></p>
+          <p class="pdp-hero__price" data-price aria-live="polite">235,000 KRW</p>
+          <p class="buttons">
+            <button class="button button--solid" type="button" disabled>購入する</button>
+            <!-- 장바구니 담기는 JavaScript(js/cart.js)가 켠다. 꺼져 있으면 기존처럼 비활성이다 -->
+            <button class="button" type="button" disabled data-cart-add="cold-monolith">カートに追加</button>
+          </p>
+          <div role="status">
+            <p class="demo-note" data-cart-note>デモサイトでは購入できません。</p>
+            <p class="added-note" hidden data-cart-added>カートに追加しました。 <a class="link-line" href="cart.html">View Cart</a></p>
+            <p class="demo-note" hidden data-cart-limit>最大99個まで追加できます。</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="section">
+      <div class="l-container">
+        <h2 class="center-title">Object Detail</h2>
+        <ul class="grid-4">
+          <li class="caption-card">
+            <img src="../assets/pdp-detail-glass.webp" alt="Transparent Glass" width="364" height="364" loading="lazy">
+            <h3 class="caption-card__title">Transparent Glass</h3>
+            <p class="caption-card__text">光を透過する純粋なかたち</p>
+          </li>
+          <li class="caption-card">
+            <img src="../assets/pdp-detail-cap.webp" alt="Matte Black Cap" width="364" height="364" loading="lazy">
+            <h3 class="caption-card__title">Matte Black Cap</h3>
+            <p class="caption-card__text">光を吸い込む重厚な構造</p>
+          </li>
+          <li class="caption-card">
+            <img src="../assets/pdp-detail-form.webp" alt="Monolith Form" width="364" height="364" loading="lazy">
+            <h3 class="caption-card__title">Monolith Form</h3>
+            <p class="caption-card__text">堅牢なオブジェとしての存在感</p>
+          </li>
+          <li class="caption-card">
+            <img src="../assets/pdp-detail-package.webp" alt="Package Grid" width="364" height="364" loading="lazy">
+            <h3 class="caption-card__title">Package Grid</h3>
+            <p class="caption-card__text">洗練されたタイポグラフィの配置</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section--tint">
+      <div class="l-container">
+        <div class="split">
+          <div>
+            <p class="kicker">01 / Scent &amp; Mood</p>
+            <h2 class="heading-kr">空間と感情のあいだに、<br>見えないオーラを描く</h2>
+            <p class="body-text">COLD MONOLITHは、雨上がりの冷たい石材と、整えられた室内の空気から生まれました。クリアなミネラルとドライウッドが落ち着いた骨格をつくり、ホワイトムスクが肌の近くにやわらかな余韻を残します。</p>
+            <ul class="notes">
+              <li><span class="notes__stage">TOP</span><span class="notes__name">Mineral Air · Juniper Berry</span><span class="notes__time">0–30 MIN</span><span class="notes__desc">冷たく透明な空気のようにひらく第一印象</span></li>
+              <li><span class="notes__stage">MIDDLE</span><span class="notes__name">Cool Wood · Metallic Note</span><span class="notes__time">1–3 HOURS</span><span class="notes__desc">濡れた石とドライウッドがつくる構造的な中心</span></li>
+              <li><span class="notes__stage">BASE</span><span class="notes__name">White Musk · Quiet Cedar</span><span class="notes__time">4–6 HOURS</span><span class="notes__desc">体温の近くに静かに、清らかにとどまる残り香</span></li>
+            </ul>
+          </div>
+          <div>
+            <div class="mood-images">
+              <img src="../assets/pdp-mood-1.webp" alt="光の差す石材の前に置かれたCold Monolithの香水瓶" width="460" height="680" loading="lazy">
+              <img src="../assets/pdp-mood-2.webp" alt="ひんやりとした石材のかけらと白いファブリック" width="392" height="500" loading="lazy">
+            </div>
+            <dl class="facts">
+              <div><dt>Fragrance Family</dt><dd>Mineral Woody Musk</dd></div>
+              <div><dt>Impression</dt><dd>Clean · Cool · Architectural</dd></div>
+              <div><dt>Longevity</dt><dd>Average 4–6 Hours</dd></div>
+              <div><dt>Sillage</dt><dd>Soft / Close to Skin</dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="l-container">
+        <div class="split split--image-left">
+          <img src="../assets/pdp-ingredient.webp" alt="ガラスの上に置かれた葉や木片などの香りの素材" width="699" height="680" loading="lazy">
+          <div>
+            <p class="kicker">02 / Ingredient Architecture</p>
+            <h2 class="heading-kr">鮮やかな第一印象と<br>静かな残り香をつくる構造</h2>
+            <p class="body-text">主要な香料とアコードを「空気・構造・深み・肌」の4段階に分け、COLD MONOLITHがひんやりとしながらも鋭くない理由をひもときます。</p>
+            <ul class="elements">
+              <li>
+                <p class="elements__label">01 / AIR</p>
+                <h3 class="elements__name">Juniper Berry</h3>
+                <p class="elements__text">ドライで涼やかなアロマティックの香りが、ひと吹き目の透明感を高めます。</p>
+              </li>
+              <li>
+                <p class="elements__label">02 / FORM</p>
+                <h3 class="elements__name">Mineral Accord</h3>
+                <p class="elements__text">冷たい石や金属を思わせ、香りの建築的な中心をつくります。</p>
+              </li>
+              <li>
+                <p class="elements__label">03 / DEPTH</p>
+                <h3 class="elements__name">Cedarwood</h3>
+                <p class="elements__text">抑制の効いた乾いた木の香りが、中心をしっかりと支えます。</p>
+              </li>
+              <li>
+                <p class="elements__label">04 / SKIN</p>
+                <h3 class="elements__name">White Musk</h3>
+                <p class="elements__text">肌と重なり、清らかでやわらかな残り香で締めくくります。</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="l-container">
+        <div class="usage-head">
+          <div>
+            <p class="kicker">03 / Usage Scene</p>
+            <h2 class="heading-kr">香りで自分を大きく主張しない人へ</h2>
+          </div>
+          <div>
+            <p>整った印象と、近い距離での存在感を好む人によく似合います。とくに空気が涼やかな日や落ち着いた日常のなかで、ミネラルウッディの個性がはっきりと現れます。</p>
+            <ul class="tags">
+              <li>Minimal Style</li>
+              <li>Office &amp; Daily</li>
+              <li>Genderless</li>
+              <li>Spring / Autumn</li>
+            </ul>
+          </div>
+        </div>
+        <ul class="scenes">
+          <li class="caption-card">
+            <img src="../assets/pdp-scene-1.webp" alt="出かける前に香水瓶を手にする人" width="515" height="620" loading="lazy">
+            <h3 class="caption-card__title">Before Going Out</h3>
+            <p class="caption-card__text">出かける前、自分を整える静かな儀式</p>
+          </li>
+          <li class="caption-card">
+            <img src="../assets/pdp-scene-2.webp" alt="机の上に置かれた香水瓶" width="515" height="620" loading="lazy">
+            <h3 class="caption-card__title">Desk Object</h3>
+            <p class="caption-card__text">視線がとどまる場所の、静かなオブジェ</p>
+          </li>
+          <li class="caption-card">
+            <img src="../assets/pdp-scene-3.webp" alt="箱に収められた香水のギフト" width="515" height="620" loading="lazy">
+            <h3 class="caption-card__title">Gift Moment</h3>
+            <p class="caption-card__text">もっともパーソナルな感覚を分かち合うひととき</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section--tint">
+      <div class="l-container">
+        <div class="section-head section-head--spaced">
+          <div>
+            <p class="kicker">04 / Pairing &amp; Collection</p>
+            <h2 class="section-head__title">Archive Collections</h2>
+          </div>
+          <a class="link-line" href="collection.html">VIEW ALL</a>
+        </div>
+        <ul class="grid-4">
+          <li>
+            <a class="pair" href="collection.html#perfume">
+              <img src="../assets/pdp-pair-still.webp" alt="STILL ETUDE" width="385" height="400" loading="lazy">
+              <p class="pair__label">SOFTER OPTION</p>
+              <h3 class="pair__name">STILL ETUDE</h3>
+              <p class="pair__text">ホワイトムスクのやわらかな一面を引き立てた香り</p>
+              <p class="pair__price">125,000 KRW</p>
+            </a>
+          </li>
+          <li>
+            <a class="pair" href="collection.html#perfume">
+              <img src="../assets/pdp-pair-santal.webp" alt="SANTAL VACANCE" width="385" height="400" loading="lazy">
+              <p class="pair__label">WARMER OPTION</p>
+              <h3 class="pair__name">SANTAL VACANCE</h3>
+              <p class="pair__text">サンダルウッドのぬくもりを加えた、穏やかで深い香り</p>
+              <p class="pair__price">125,000 KRW</p>
+            </a>
+          </li>
+          <li>
+            <a class="pair" href="collection.html#perfume">
+              <img src="../assets/pdp-pair-blue.webp" alt="BLUE VELVET HOUR" width="385" height="400" loading="lazy">
+              <p class="pair__label">DEEPER OPTION</p>
+              <h3 class="pair__name">BLUE VELVET HOUR</h3>
+              <p class="pair__text">落ち着いた残り香を、より深く暗いトーンへと広げた香り</p>
+              <p class="pair__price">125,000 KRW</p>
+            </a>
+          </li>
+          <li>
+            <a class="pair" href="collection.html#hand-body">
+              <img src="../assets/pdp-pair-hand.webp" alt="STILL ETUDE AIR Hand Wash" width="385" height="400" loading="lazy">
+              <p class="pair__label">BEST PAIRING</p>
+              <h3 class="pair__name">STILL ETUDE AIR</h3>
+              <p class="pair__text">清らかなムスクのベースで、残り香を自然につなぐ</p>
+              <p class="pair__price">52,000 KRW</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="l-container">
+        <div class="reviews">
+          <div>
+            <h2 class="reviews__title">Customer Notes</h2>
+            <p class="reviews__text">纏ったあとに残る温度、持続時間、空間での印象を記録します。</p>
+            <div class="rating">
+              <p><span class="rating__score">4.8</span> <span class="rating__of">/ 5</span></p>
+              <p class="rating__count">24 Notes</p>
+              <dl>
+                <div><dt>Longevity</dt><dd>4–6 hours</dd></div>
+                <div><dt>Sillage</dt><dd>Soft</dd></div>
+              </dl>
+            </div>
+          </div>
+          <div>
+            <div class="reviews__head">
+              <h3>Latest Impressions</h3>
+              <button class="button" type="button" disabled>Write a Note</button>
+            </div>
+            <ul>
+              <li class="review">
+                <p class="review__score">5.0 / 5.0</p>
+                <h4 class="review__title">ひんやりしているのに重たくない香り</h4>
+                <p class="review__author">Y.K.</p>
+                <p class="review__text">最初はひんやりとした空気のように感じられ、時間がたつとほのかなムスクとウッディさが残ります。オフィスで使っても強すぎませんでした。</p>
+                <ul class="review__tags"><li>Office</li><li>4 hours</li></ul>
+              </li>
+              <li class="review">
+                <p class="review__score">4.7 / 5.0</p>
+                <h4 class="review__title">残り香が静かに続くタイプ</h4>
+                <p class="review__author">M.S.</p>
+                <p class="review__text">強く広がる香りではありませんが、近くにいると存在感が伝わります。清潔なシャツや冷たい紙のようなイメージがよく似合います。</p>
+                <ul class="review__tags"><li>Daily</li><li>Soft Sillage</li></ul>
+              </li>
+              <li class="review">
+                <p class="review__score">4.9 / 5.0</p>
+                <h4 class="review__title">ギフトにもぴったりの、整った印象</h4>
+                <p class="review__author">J.H.</p>
+                <p class="review__text">パッケージが端正で、香りも好き嫌いが分かれにくいので贈りものにぴったりでした。温かみのあるウッドより、落ち着いた空気感が先に感じられます。</p>
+                <ul class="review__tags"><li>Gift</li><li>Clean Woody</li></ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="l-container">
+      <ul class="services">
+        <li>
+          <h3 class="services__title">Shipping</h3>
+          <p class="services__text">迅速で安全な配送サービス</p>
+        </li>
+        <li>
+          <h3 class="services__title">Return &amp; Exchange</h3>
+          <p class="services__text">交換・返品規定のご案内</p>
+        </li>
+        <li>
+          <h3 class="services__title">Gift Wrapping</h3>
+          <p class="services__text">AIDORAシグネチャーのギフトラッピング</p>
+        </li>
+        <li>
+          <h3 class="services__title">Sustainability</h3>
+          <p class="services__text">環境に配慮したサステナブルなパッケージ</p>
+        </li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__top">
+        <div>
+          <img class="site-footer__logo" src="../assets/logo-white.svg" alt="AIDORA" width="469" height="68" loading="lazy">
+          <p class="site-footer__tagline">空間を覆ってしまうのではなく、環境と感情のあいだの余白に静かにとどまる香り。</p>
+          <p class="site-footer__label">Customer Center</p>
+          <p class="site-footer__phone">1588-0000</p>
+          <p class="site-footer__hours">Mon–Fri 10:00–17:00 Lunch 12:00–13:00</p>
+        </div>
+        <div class="site-footer__cols">
+          <div>
+            <h2 class="site-footer__heading">Collection</h2>
+            <ul class="site-footer__list">
+              <li><a href="collection.html#perfume">Perfume</a></li>
+              <li><a href="collection.html#home-space">Home &amp; Space</a></li>
+              <li><a href="collection.html#hand-body">Hand &amp; Body</a></li>
+              <li><a href="collection.html#gift-trial">Gift &amp; Trial</a></li>
+              <li><a href="collection.html#gift-trial">Discovery Set</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="site-footer__heading">About</h2>
+            <ul class="site-footer__list">
+              <li><a href="brand.html">Brand Story</a></li>
+              <li><a href="brand.html#philosophy">Scent Philosophy</a></li>
+              <li><a href="brand.html#material">Material &amp; Object</a></li>
+              <li>Stores</li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="site-footer__heading">Client Care</h2>
+            <ul class="site-footer__list">
+              <li>Contact Us</li>
+              <li>Shipping &amp; Returns</li>
+              <li>Gift Wrapping</li>
+              <li>Sustainability</li>
+              <li>FAQ</li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="site-footer__heading">Newsletter</h2>
+            <p class="site-footer__news">AIDORAの新しい香りと静かなお知らせを、いち早くお受け取りください。</p>
+            <p class="site-footer__field"><span>Email Address</span><span>Subscribe</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <p>© 2026 AIDORA. All rights reserved.</p>
+        <ul>
+          <li>Instagram</li>
+          <li>Kakao</li>
+          <li>Terms</li>
+          <li>Privacy</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <a class="top-button" href="#top" data-top-button aria-label="ページの先頭へ">Top</a>
+
+</body>
+</html>

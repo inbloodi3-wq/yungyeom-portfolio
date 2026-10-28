@@ -7,7 +7,9 @@
 // 필드: id, name(Collection 표기), nameKr, category(Collection 제품군 = 필터 값), type(제품 종류),
 //       subtitle(Main 카드 부제, Collection 옵션 표기와 뜻이 다를 때만), options[{ label(화면 표기), ml, price(원) }],
 //       notes, description, images{ collection, main, pairing, detail }, detail(상세 페이지, 없으면 null),
-//       pending{ 필드: 충돌 번호 }
+//       pending{ 필드: 충돌 번호 },
+//       ja{ nameKana(nameKr 자리의 가타카나 표기), description(일본어) } — 일본어 Page만 읽는다
+//       (2026-10-26 사용자 승인: 가타카나 표기, 번역 초안 구현용 — 최종 표기는 공개 전 검수)
 
 // 제품군 이름(사용자 확정 C5) — 필터·메뉴·제품군 제목이 같은 이름을 쓴다
 window.AIDORA_CATEGORIES = [
@@ -24,28 +26,32 @@ window.AIDORA_PRODUCTS = [
     options: [{ label: '35 mL', ml: 35, price: 125000 }, { label: '75 mL', ml: 75, price: 235000 }],
     notes: 'Mineral Air / Cool Wood / White Musk', description: '차가운 구조감 속에 조용히 머무는 향.',
     images: { collection: 'col-perfume-cold.webp', main: 'main-perfume-cold.webp', detail: 'pdp-hero.webp' },
-    detail: 'product.html', pending: {}
+    detail: 'product.html', pending: {},
+    ja: { nameKana: 'コールド・モノリス', description: 'ひんやりとした構造感のなかに、静かにとどまる香り。' }
   },
   {
     id: 'still-etude', name: 'STILL ETUDE', nameKr: '스틸 에튀드', category: 'perfume', type: 'Eau De Parfum',
     options: [{ label: '35 mL', ml: 35, price: 125000 }, { label: '75 mL', ml: 75, price: 235000 }],
     notes: 'Clean Paper / Soft Iris / Skin Accord', description: null,
     images: { collection: 'col-perfume-still.webp', main: 'main-perfume-still.webp', pairing: 'pdp-pair-still.webp' },
-    detail: null, pending: { description: 'C10' }
+    detail: null, pending: { description: 'C10' },
+    ja: { nameKana: 'スティル・エチュード', description: null }
   },
   {
     id: 'santal-vacance', name: 'SANTAL VACANCE', nameKr: '상탈 바캉스', category: 'perfume', type: 'Eau De Parfum',
     options: [{ label: '35 mL', ml: 35, price: 125000 }, { label: '75 mL', ml: 75, price: 235000 }],
     notes: 'Dry Spice / Santal Wood / Amber Musk', description: null,
     images: { collection: 'col-perfume-santal.webp', main: 'main-perfume-santal.webp', pairing: 'pdp-pair-santal.webp' },
-    detail: null, pending: { description: 'C10' }
+    detail: null, pending: { description: 'C10' },
+    ja: { nameKana: 'サンタル・ヴァカンス', description: null }
   },
   {
     id: 'blue-velvet-hour', name: 'BLUE VELVET HOUR', nameKr: '블루 벨벳 아워', category: 'perfume', type: 'Eau De Parfum',
     options: [{ label: '35 mL', ml: 35, price: 125000 }, { label: '75 mL', ml: 75, price: 235000 }],
     notes: 'Blue Floral / Powder Musk / Velvet Wood', description: null,
     images: { collection: 'col-perfume-blue.webp', main: 'main-perfume-blue.webp', pairing: 'pdp-pair-blue.webp' },
-    detail: null, pending: { description: 'C10' }
+    detail: null, pending: { description: 'C10' },
+    ja: { nameKana: 'ブルー・ベルベット・アワー', description: null }
   },
 
   // ---------- Hand & Body ----------

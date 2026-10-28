@@ -7,6 +7,12 @@
   var MAX_QTY = 99;
   var products = window.AIDORA_PRODUCTS || [];
   var memory = [];
+  // 일본어 Page(<html lang="ja">)만 일본어 접근성 이름·이름 줄을 쓴다. 그 밖은 기존 한국어 그대로
+  // 저장 값({ id, option, qty })은 두 언어가 같아 언어를 바꿔도 장바구니가 그대로다.
+  var isJa = /^ja\b/i.test(document.documentElement.lang || '');
+  var TEXT = isJa
+    ? { qty: 'の数量', minus: 'の数量を減らす', plus: 'の数量を増やす', remove: 'を削除', sub: function (p) { return p.ja && p.ja.nameKana; } }
+    : { qty: ' 수량', minus: ' 수량 줄이기', plus: ' 수량 늘리기', remove: ' 삭제', sub: function (p) { return p.nameKr; } };
 
   function findProduct(id) {
     for (var i = 0; i < products.length; i++) if (products[i].id === id) return products[i];
@@ -101,6 +107,8 @@
   var countEl = cart.querySelector('[data-cart-count]');
   var totalEl = cart.querySelector('[data-cart-total]');
   var heading = cart.querySelector('h1');
+  // 상품 이미지 폴더. 행 template의 data-cart-row 값(일본어 Page는 "../assets/"), 비어 있으면 "assets/"
+  var assetBase = template.getAttribute('data-cart-row') || 'assets/';
 
   function render(focus) {
     var list = load();
@@ -114,20 +122,21 @@
       var o = findOption(p, entry.option);
       var row = template.content.firstElementChild.cloneNode(true);
       var image = row.querySelector('img');
-      image.src = 'assets/' + p.images.collection;
+      image.src = assetBase + p.images.collection;
       row.querySelector('[data-name]').textContent = p.name;
-      row.querySelector('[data-sub]').textContent = p.nameKr ? p.nameKr + ' / ' + p.type : p.type;
+      var sub = TEXT.sub(p);
+      row.querySelector('[data-sub]').textContent = sub ? sub + ' / ' + p.type : p.type;
       row.querySelector('[data-option]').textContent = o.label;
       row.querySelector('[data-line-price]').textContent = formatPrice(o.price * entry.qty);
       row.querySelector('output').textContent = String(entry.qty);
       var label = p.name + ' ' + o.label;
-      row.querySelector('[data-qty-group]').setAttribute('aria-label', label + ' 수량');
+      row.querySelector('[data-qty-group]').setAttribute('aria-label', label + TEXT.qty);
       var minus = row.querySelector('[data-step="-1"]');
       var plus = row.querySelector('[data-step="1"]');
       var remove = row.querySelector('[data-remove]');
-      minus.setAttribute('aria-label', label + ' 수량 줄이기');
-      plus.setAttribute('aria-label', label + ' 수량 늘리기');
-      remove.setAttribute('aria-label', label + ' 삭제');
+      minus.setAttribute('aria-label', label + TEXT.minus);
+      plus.setAttribute('aria-label', label + TEXT.plus);
+      remove.setAttribute('aria-label', label + TEXT.remove);
       minus.disabled = entry.qty <= 1;
       plus.disabled = entry.qty >= MAX_QTY;
       minus.setAttribute('data-index', i);

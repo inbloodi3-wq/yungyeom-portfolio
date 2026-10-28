@@ -24,6 +24,7 @@
   /* Typography — 영문 Outfit, 한글 SUIT(Figma 지정. 2026-10-25 사용자 승인으로 Pretendard 대체를 SUIT로 복원) */
   --font-en: "Outfit", "Helvetica Neue", Arial, sans-serif;
   --font-kr: "SUIT", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font-ja: "Pretendard JP", sans-serif;   /* 일본어 Page 본문(2026-10-26 확정 정책). 다른 일본어 웹폰트는 넣지 않는다 */
   --text-display: 6rem;           /* Outfit/Display XL 96 */
   --text-hero: 3.875rem;          /* 62 */
   --text-h1: 2.625rem;            /* Outfit/O Heading XL 42 */
@@ -60,4 +61,11 @@
   --top-button-fg: #141414;
   --top-button-line: #141414;
   --duration-ui: 200ms;
+}
+
+/* 일본어 Page(<html lang="ja">) — 한국어 Page에서 SUIT가 그리던 자리를 Pretendard JP가 그린다.
+   영문 요소는 그대로 Outfit이고, Outfit·Arial에 없는 일본어 글자만 Pretendard JP로 넘어간다. 한국어 Page는 바뀌지 않는다. */
+:root:lang(ja) {
+  --font-kr: var(--font-ja);
+  --font-en: "Outfit", "Helvetica Neue", Arial, var(--font-ja);
 }
