@@ -30,6 +30,13 @@ body:lang(ja) { word-break: normal; word-break: auto-phrase; overflow-wrap: brea
 /* auto-phrase(지원 브라우저만)는 어구 단위로 줄을 나눈다. 지원하지 않으면 앞의 normal이 쓰인다 */
 /* 일본어 상품 이름 줄(가타카나): 단어 사이(「・」 뒤)에서만 줄을 나누고, 그래도 넘칠 때만 글자 사이에서 나눈다 */
 .item__sub:lang(ja), .pdp-hero__kr:lang(ja), .cart-row__sub:lang(ja) { word-break: keep-all; overflow-wrap: break-word; }
+/* 일본어 줄 길이 맞춤: 짧은 문구는 줄 길이를 고르게(balance), 긴 본문은 마지막 줄만 너무 짧지 않게(pretty).
+   Brand statement와, 적용하면 어구 중간에서 끊기거나 원래 줄바꿈이 더 자연스러운 문구(배송 안내·Brand 열 설명·이미지 설명·
+   향 구성 설명·Direction 본문·상품 상세 한 줄 설명)는 현재 줄바꿈을 유지한다. 지원하지 않는 브라우저는 지금처럼 나뉜다 */
+:root:lang(ja) :is(h1, h2, h3, h4, .hero__text, .col-hero__lead, .col-hero__text, .col-group__text, .notes__desc, .pair__text, .services__text, .standard__text, .direction__desc, .closing__text, .item__sub, .reviews__text, .empty__text, .demo-note, .site-footer__tagline, .site-footer__news, .feature__text):not(.statement) { text-wrap: balance; }
+:root:lang(ja) :is(.body-text, .review__text, p:not([class])) { text-wrap: pretty; }
+/* 일본어 Bridge 문장: Tablet 폭에서만 줄 길이를 줄여 마지막 줄이 짧게 남지 않게 한다 */
+@media (min-width: 600px) and (max-width: 1023px) { :root:lang(ja) .bridge__text { max-width: 18em; } }
 
 h1, h2, h3, h4, p, ul, ol, dl, dd, figure { margin: 0; }
 ul, ol { padding: 0; list-style: none; }
